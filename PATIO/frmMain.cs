@@ -1,18 +1,10 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
 using System.Windows.Forms;
 using WeifenLuo.WinFormsUI.Docking;
-using Interfaces;
-using PATIO.Classes;
-using System.Security;
-using System.Security.Permissions;
+using PATIO.CAPA.Interfaces;
+using PATIO.CAPA.Classes;
 using System.Threading;
-using PATIO.CAPA;
+using PATIO.Modules;
 
 namespace PATIO
 {
@@ -21,7 +13,7 @@ namespace PATIO
         public AccesNet Acces;
         public string Chemin = "C:\\temp\\patio";
 
-        public PATIO.CAPA.ctrlConsole Console;
+        public ctrlConsole Console;
         public Utilisateur user_appli = new Utilisateur();
 
         int Nb_Minutes=0;
@@ -75,7 +67,7 @@ namespace PATIO
         {
             DockContent D1 = new DockContent();
 
-            Console = new PATIO.CAPA.ctrlConsole();
+            Console = new ctrlConsole();
             Console.Dock = DockStyle.Fill;
             Console.Chemin = Chemin;
 
@@ -148,7 +140,7 @@ namespace PATIO
         {
             DockContent D1 = new DockContent();
 
-            PATIO.CAPA.ctrlWeb ctrl = new PATIO.CAPA.ctrlWeb();
+            PATIO.CAPA.Interfaces.ctrlWeb ctrl = new PATIO.CAPA.Interfaces.ctrlWeb();
             ctrl.url = "https://ars-hdf.xwiki.com/xwiki/wiki/plansactions/view/Liste/";
             ctrl.Initialise();
             ctrl.Dock = DockStyle.Fill;
@@ -165,7 +157,7 @@ namespace PATIO
         {
             DockContent D1 = new DockContent();
 
-            PATIO.CAPA.ctrlWeb ctrl = new PATIO.CAPA.ctrlWeb();
+            PATIO.CAPA.Interfaces.ctrlWeb ctrl = new PATIO.CAPA.Interfaces.ctrlWeb();
             ctrl.url = "https://ars-hdf.xwiki.com/xwiki/wiki/projetssi/6PO/";
             ctrl.Initialise();
             ctrl.Dock = DockStyle.Fill;
@@ -182,7 +174,7 @@ namespace PATIO
         {
             DockContent D1 = new DockContent();
 
-            PATIO.CAPA.ctrlWeb ctrl = new PATIO.CAPA.ctrlWeb();
+            PATIO.CAPA.Interfaces.ctrlWeb ctrl = new PATIO.CAPA.Interfaces.ctrlWeb();
             ctrl.url = "https://ars-hdf.xwiki.com/xwiki/bin/view/Main/";
             ctrl.Initialise();
             ctrl.Dock = DockStyle.Fill;
@@ -224,7 +216,7 @@ namespace PATIO
         { 
             DockContent D1 = new DockContent();
 
-            PATIO.CAPA.ctrlAdmin ctrl = new PATIO.CAPA.ctrlAdmin();
+            PATIO.CAPA.Interfaces.ctrlAdmin ctrl = new PATIO.CAPA.Interfaces.ctrlAdmin();
             ctrl.Acces = Acces;
             ctrl.DP = DP;
             ctrl.Dock = DockStyle.Fill;

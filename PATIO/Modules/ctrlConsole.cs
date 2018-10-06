@@ -1,19 +1,13 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Drawing;
-using System.Data;
-using System.Linq;
-using System.Text;
+using PATIO.CAPA.Classes;
 using System.Windows.Forms;
 
-namespace PATIO.CAPA
+namespace PATIO.Modules
 {
     public partial class ctrlConsole : UserControl
     {
-        public PATIO.Classes.AccesNet Acces;
+        public AccesNet Acces;
         public WeifenLuo.WinFormsUI.Docking.DockPanel DP;
-        public int PropId;
 
         public string Chemin;
 

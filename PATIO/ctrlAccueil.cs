@@ -1,8 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Windows.Forms;
-using PATIO.Classes;
-using PATIO.CAPA;
+using PATIO.CAPA.Classes;
+using PATIO.Modules;
+using PATIO.CAPA.Interfaces;
 
 namespace PATIO
 {
@@ -72,10 +73,10 @@ namespace PATIO
             }
             Nd2.Expand();
 
-            List<PATIO.Classes.Action> Liste3 = (List<PATIO.Classes.Action>)Acces.Remplir_ListeElement(Acces.type_ACTION.id, "");
+            List<PATIO.CAPA.Classes.Action> Liste3 = (List<PATIO.CAPA.Classes.Action>)Acces.Remplir_ListeElement(Acces.type_ACTION.id, "");
             TreeNode Nd3 = new TreeNode("Actions");
 
-            foreach (PATIO.Classes.Action p in Liste3)
+            foreach (PATIO.CAPA.Classes.Action p in Liste3)
             {
                 if (!(p.Pilote is null))
                 {
@@ -97,10 +98,10 @@ namespace PATIO
 
         public void Afficher_ObjetMembre(Utilisateur user)
         {
-            List<PATIO.Classes.Action> Liste= (List<PATIO.Classes.Action>)Acces.Donner_ListeActionMembre(user.ID);
+            List<PATIO.CAPA.Classes.Action> Liste= (List<PATIO.CAPA.Classes.Action>)Acces.Donner_ListeActionMembre(user.ID);
             TreeNode Nd = new TreeNode("Actions");
 
-            foreach (PATIO.Classes.Action p in Liste)
+            foreach (PATIO.CAPA.Classes.Action p in Liste)
             {
                 TreeNode nd = new TreeNode(p.Libelle);
                 nd.Name = "ACT-" + p.ID;
@@ -181,7 +182,7 @@ namespace PATIO
 
         void Ouvrir_Action(int ID)
         {
-            PATIO.Classes.Action action = (PATIO.Classes.Action)Acces.Trouver_Element(Acces.type_ACTION.id, ID);
+            PATIO.CAPA.Classes.Action action = (PATIO.CAPA.Classes.Action)Acces.Trouver_Element(Acces.type_ACTION.id, ID);
 
             var D = new WeifenLuo.WinFormsUI.Docking.DockContent();
             D.TabText = "Action " + action.Code;

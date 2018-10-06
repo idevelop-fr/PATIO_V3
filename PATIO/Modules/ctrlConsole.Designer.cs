@@ -1,4 +1,4 @@
-﻿namespace PATIO.CAPA
+﻿namespace PATIO.Modules
 {
     partial class ctrlConsole
     {

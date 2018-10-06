@@ -1,9 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using PATIO.Classes;
-using System.Windows.Forms;
+﻿
+using PATIO.CAPA.Classes;
+
 
 namespace PATIO.Modules
 {

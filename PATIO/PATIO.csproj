@@ -14,7 +14,7 @@
     </NuGetPackageImportStamp>
     <IsWebBootstrapper>false</IsWebBootstrapper>
     <TargetFrameworkProfile />
-    <PublishUrl>e:\packages\</PublishUrl>
+    <PublishUrl>g:\packages\</PublishUrl>
     <Install>true</Install>
     <InstallFrom>Disk</InstallFrom>
     <UpdateEnabled>false</UpdateEnabled>
@@ -25,8 +25,8 @@
     <UpdateRequired>false</UpdateRequired>
     <MapFileExtensions>true</MapFileExtensions>
     <WebPage>publish.htm</WebPage>
-    <ApplicationRevision>36</ApplicationRevision>
-    <ApplicationVersion>2.0.39.%2a</ApplicationVersion>
+    <ApplicationRevision>1</ApplicationRevision>
+    <ApplicationVersion>3.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <PublishWizardCompleted>true</PublishWizardCompleted>
     <BootstrapperEnabled>true</BootstrapperEnabled>
@@ -71,8 +71,8 @@
     <Reference Include="Accordion">
       <HintPath>..\..\Composants\DLL\Accordion.dll</HintPath>
     </Reference>
-    <Reference Include="Ionic.Zip">
-      <HintPath>..\..\Composants\DLL\Ionic.Zip.dll</HintPath>
+    <Reference Include="Ionic.Zip, Version=1.9.1.8, Culture=neutral, PublicKeyToken=edbe51ad942a3f5c, processorArchitecture=MSIL">
+      <HintPath>..\packages\Ionic.Zip.1.9.1.8\lib\Ionic.Zip.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.Office.Interop.Excel, Version=15.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.Office.Interop.Excel.15.0.4795.1000\lib\net20\Microsoft.Office.Interop.Excel.dll</HintPath>
@@ -102,111 +102,111 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="CAPA\ctrlCompare.cs">
+    <Compile Include="CAPA\Interfaces\ctrlCompare.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="CAPA\ctrlCompare.Designer.cs">
+    <Compile Include="CAPA\Interfaces\ctrlCompare.Designer.cs">
       <DependentUpon>ctrlCompare.cs</DependentUpon>
     </Compile>
-    <Compile Include="Classes\AccesNet.cs" />
-    <Compile Include="Classes\Attribut.cs" />
-    <Compile Include="Classes\dElement.cs" />
-    <Compile Include="Classes\Element.cs" />
-    <Compile Include="Classes\Lien.cs" />
-    <Compile Include="Classes\Parametre.cs" />
-    <Compile Include="Classes\table_valeur.cs" />
-    <Compile Include="Classes\TypeElement.cs" />
-    <Compile Include="CAPA\ctrlAdminParam.cs">
+    <Compile Include="CAPA\Classes\AccesNet.cs" />
+    <Compile Include="CAPA\Classes\Attribut.cs" />
+    <Compile Include="CAPA\Classes\dElement.cs" />
+    <Compile Include="CAPA\Classes\Element.cs" />
+    <Compile Include="CAPA\Classes\Lien.cs" />
+    <Compile Include="CAPA\Classes\Parametre.cs" />
+    <Compile Include="CAPA\Classes\table_valeur.cs" />
+    <Compile Include="Modules\TypeElement.cs" />
+    <Compile Include="CAPA\Interfaces\ctrlAdminParam.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="CAPA\ctrlAdminParam.Designer.cs">
+    <Compile Include="CAPA\Interfaces\ctrlAdminParam.Designer.cs">
       <DependentUpon>ctrlAdminParam.cs</DependentUpon>
     </Compile>
-    <Compile Include="CAPA\ctrlChoixListe.cs">
+    <Compile Include="CAPA\Interfaces\ctrlChoixListe.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="CAPA\ctrlChoixListe.Designer.cs">
+    <Compile Include="CAPA\Interfaces\ctrlChoixListe.Designer.cs">
       <DependentUpon>ctrlChoixListe.cs</DependentUpon>
     </Compile>
-    <Compile Include="CAPA\ctrlCorrectif.cs">
+    <Compile Include="CAPA\Interfaces\ctrlCorrectif.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="CAPA\ctrlCorrectif.Designer.cs">
+    <Compile Include="CAPA\Interfaces\ctrlCorrectif.Designer.cs">
       <DependentUpon>ctrlCorrectif.cs</DependentUpon>
     </Compile>
-    <Compile Include="CAPA\ctrlEditionDirection.cs">
+    <Compile Include="CAPA\Interfaces\ctrlEditionDirection.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="CAPA\ctrlEditionDirection.Designer.cs">
+    <Compile Include="CAPA\Interfaces\ctrlEditionDirection.Designer.cs">
       <DependentUpon>ctrlEditionDirection.cs</DependentUpon>
     </Compile>
-    <Compile Include="CAPA\ctrlEditionPlan.cs">
+    <Compile Include="CAPA\Interfaces\ctrlEditionPlan.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="CAPA\ctrlEditionPlan.Designer.cs">
+    <Compile Include="CAPA\Interfaces\ctrlEditionPlan.Designer.cs">
       <DependentUpon>ctrlEditionPlan.cs</DependentUpon>
     </Compile>
-    <Compile Include="CAPA\ctrlEditionStat.cs">
+    <Compile Include="CAPA\Interfaces\ctrlEditionStat.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="CAPA\ctrlEditionStat.Designer.cs">
+    <Compile Include="CAPA\Interfaces\ctrlEditionStat.Designer.cs">
       <DependentUpon>ctrlEditionStat.cs</DependentUpon>
     </Compile>
-    <Compile Include="CAPA\ctrlEditionTerritoire.cs">
+    <Compile Include="CAPA\Interfaces\ctrlEditionTerritoire.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="CAPA\ctrlEditionTerritoire.Designer.cs">
+    <Compile Include="CAPA\Interfaces\ctrlEditionTerritoire.Designer.cs">
       <DependentUpon>ctrlEditionTerritoire.cs</DependentUpon>
     </Compile>
-    <Compile Include="CAPA\ctrlFicheAction.cs">
+    <Compile Include="CAPA\Interfaces\ctrlFicheAction.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="CAPA\ctrlFicheAction.Designer.cs">
+    <Compile Include="CAPA\Interfaces\ctrlFicheAction.Designer.cs">
       <DependentUpon>ctrlFicheAction.cs</DependentUpon>
     </Compile>
-    <Compile Include="CAPA\ctrlFicheObjectif.cs">
+    <Compile Include="CAPA\Interfaces\ctrlFicheObjectif.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="CAPA\ctrlFicheObjectif.Designer.cs">
+    <Compile Include="CAPA\Interfaces\ctrlFicheObjectif.Designer.cs">
       <DependentUpon>ctrlFicheObjectif.cs</DependentUpon>
     </Compile>
-    <Compile Include="CAPA\ctrlPlanCorrection.cs">
+    <Compile Include="CAPA\Interfaces\ctrlPlanCorrection.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="CAPA\ctrlPlanCorrection.Designer.cs">
+    <Compile Include="CAPA\Interfaces\ctrlPlanCorrection.Designer.cs">
       <DependentUpon>ctrlPlanCorrection.cs</DependentUpon>
     </Compile>
-    <Compile Include="CAPA\ctrlReporting.cs">
+    <Compile Include="CAPA\Interfaces\ctrlReporting.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="CAPA\ctrlReporting.Designer.cs">
+    <Compile Include="CAPA\Interfaces\ctrlReporting.Designer.cs">
       <DependentUpon>ctrlReporting.cs</DependentUpon>
     </Compile>
-    <Compile Include="CAPA\frmAttribut.cs">
+    <Compile Include="CAPA\Interfaces\frmAttribut.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="CAPA\frmAttribut.Designer.cs">
+    <Compile Include="CAPA\Interfaces\frmAttribut.Designer.cs">
       <DependentUpon>frmAttribut.cs</DependentUpon>
     </Compile>
-    <Compile Include="CAPA\frmChoix.cs">
+    <Compile Include="CAPA\Interfaces\frmChoix.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="CAPA\frmChoix.Designer.cs">
+    <Compile Include="CAPA\Interfaces\frmChoix.Designer.cs">
       <DependentUpon>frmChoix.cs</DependentUpon>
     </Compile>
-    <Compile Include="CAPA\frmParametre.cs">
+    <Compile Include="CAPA\Interfaces\frmParametre.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="CAPA\frmParametre.Designer.cs">
+    <Compile Include="CAPA\Interfaces\frmParametre.Designer.cs">
       <DependentUpon>frmParametre.cs</DependentUpon>
     </Compile>
-    <Compile Include="CAPA\frmTableValeur.cs">
+    <Compile Include="CAPA\Interfaces\frmTableValeur.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="CAPA\frmTableValeur.Designer.cs">
+    <Compile Include="CAPA\Interfaces\frmTableValeur.Designer.cs">
       <DependentUpon>frmTableValeur.cs</DependentUpon>
     </Compile>
-    <Compile Include="Classes\Utilisateur.cs" />
+    <Compile Include="Modules\Utilisateur.cs" />
     <Compile Include="ctrlAccueil.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -219,10 +219,10 @@
     <Compile Include="frmMain.Designer.cs">
       <DependentUpon>frmMain.cs</DependentUpon>
     </Compile>
-    <Compile Include="CAPA\ctrlAdmin.cs">
+    <Compile Include="CAPA\Interfaces\ctrlAdmin.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="CAPA\ctrlAdmin.Designer.cs">
+    <Compile Include="CAPA\Interfaces\ctrlAdmin.Designer.cs">
       <DependentUpon>ctrlAdmin.cs</DependentUpon>
     </Compile>
     <Compile Include="Modules\ctrlConsole.cs">
@@ -231,128 +231,132 @@
     <Compile Include="Modules\ctrlConsole.Designer.cs">
       <DependentUpon>ctrlConsole.cs</DependentUpon>
     </Compile>
-    <Compile Include="CAPA\ctrlExport.cs">
+    <Compile Include="CAPA\Interfaces\ctrlExport.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="CAPA\ctrlExport.Designer.cs">
+    <Compile Include="CAPA\Interfaces\ctrlExport.Designer.cs">
       <DependentUpon>ctrlExport.cs</DependentUpon>
     </Compile>
-    <Compile Include="CAPA\ctrlGroupe.cs">
+    <Compile Include="CAPA\Interfaces\ctrlGroupe.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="CAPA\ctrlGroupe.Designer.cs">
+    <Compile Include="CAPA\Interfaces\ctrlGroupe.Designer.cs">
       <DependentUpon>ctrlGroupe.cs</DependentUpon>
     </Compile>
-    <Compile Include="CAPA\ctrlImport.cs">
+    <Compile Include="CAPA\Interfaces\ctrlImport.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="CAPA\ctrlImport.Designer.cs">
+    <Compile Include="CAPA\Interfaces\ctrlImport.Designer.cs">
       <DependentUpon>ctrlImport.cs</DependentUpon>
     </Compile>
-    <Compile Include="CAPA\ctrlXWiki.cs">
+    <Compile Include="CAPA\Interfaces\ctrlXWiki.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="CAPA\ctrlXWiki.Designer.cs">
+    <Compile Include="CAPA\Interfaces\ctrlXWiki.Designer.cs">
       <DependentUpon>ctrlXWiki.cs</DependentUpon>
     </Compile>
-    <Compile Include="CAPA\ctrlIndicateur.cs">
+    <Compile Include="CAPA\Interfaces\ctrlIndicateur.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="CAPA\ctrlIndicateur.Designer.cs">
+    <Compile Include="CAPA\Interfaces\ctrlIndicateur.Designer.cs">
       <DependentUpon>ctrlIndicateur.cs</DependentUpon>
     </Compile>
-    <Compile Include="CAPA\ctrlListeAction.cs">
+    <Compile Include="CAPA\Interfaces\ctrlListeAction.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="CAPA\ctrlListeAction.Designer.cs">
+    <Compile Include="CAPA\Interfaces\ctrlListeAction.Designer.cs">
       <DependentUpon>ctrlListeAction.cs</DependentUpon>
     </Compile>
-    <Compile Include="CAPA\ctrlListeGroupe.cs">
+    <Compile Include="CAPA\Interfaces\ctrlListeGroupe.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="CAPA\ctrlListeGroupe.Designer.cs">
+    <Compile Include="CAPA\Interfaces\ctrlListeGroupe.Designer.cs">
       <DependentUpon>ctrlListeGroupe.cs</DependentUpon>
     </Compile>
-    <Compile Include="CAPA\ctrlListeIndicateur.cs">
+    <Compile Include="CAPA\Interfaces\ctrlListeIndicateur.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="CAPA\ctrlListeIndicateur.Designer.cs">
+    <Compile Include="CAPA\Interfaces\ctrlListeIndicateur.Designer.cs">
       <DependentUpon>ctrlListeIndicateur.cs</DependentUpon>
     </Compile>
-    <Compile Include="CAPA\ctrlListeObjectif.cs">
+    <Compile Include="CAPA\Interfaces\ctrlListeObjectif.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="CAPA\ctrlListeObjectif.Designer.cs">
+    <Compile Include="CAPA\Interfaces\ctrlListeObjectif.Designer.cs">
       <DependentUpon>ctrlListeObjectif.cs</DependentUpon>
     </Compile>
-    <Compile Include="CAPA\ctrlListePlan.cs">
+    <Compile Include="CAPA\Interfaces\ctrlListePlan.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="CAPA\ctrlListePlan.Designer.cs">
+    <Compile Include="CAPA\Interfaces\ctrlListePlan.Designer.cs">
       <DependentUpon>ctrlListePlan.cs</DependentUpon>
     </Compile>
-    <Compile Include="CAPA\ctrlListeUtilisateur.cs">
+    <Compile Include="CAPA\Interfaces\ctrlListeUtilisateur.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="CAPA\ctrlListeUtilisateur.Designer.cs">
+    <Compile Include="CAPA\Interfaces\ctrlListeUtilisateur.Designer.cs">
       <DependentUpon>ctrlListeUtilisateur.cs</DependentUpon>
     </Compile>
-    <Compile Include="CAPA\ctrlPlan.cs">
+    <Compile Include="CAPA\Interfaces\ctrlPlan.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="CAPA\ctrlPlan.Designer.cs">
+    <Compile Include="CAPA\Interfaces\ctrlPlan.Designer.cs">
       <DependentUpon>ctrlPlan.cs</DependentUpon>
     </Compile>
-    <Compile Include="CAPA\ctrlWeb.cs">
+    <Compile Include="CAPA\Interfaces\ctrlWeb.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="CAPA\ctrlWeb.Designer.cs">
+    <Compile Include="CAPA\Interfaces\ctrlWeb.Designer.cs">
       <DependentUpon>ctrlWeb.cs</DependentUpon>
     </Compile>
-    <Compile Include="CAPA\EditionFiche.cs" />
-    <Compile Include="CAPA\Export_6PO.cs" />
+    <Compile Include="CAPA\Interfaces\EditionFiche.cs" />
+    <Compile Include="CAPA\Interfaces\Export_6PO.cs" />
     <Compile Include="Modules\Fonctions.cs" />
-    <Compile Include="CAPA\frmGroupe.cs">
+    <Compile Include="CAPA\Interfaces\frmGroupe.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="CAPA\frmGroupe.Designer.cs">
+    <Compile Include="CAPA\Interfaces\frmGroupe.Designer.cs">
       <DependentUpon>frmGroupe.cs</DependentUpon>
     </Compile>
-    <Compile Include="CAPA\frmIndicateur.cs">
+    <Compile Include="CAPA\Interfaces\frmIndicateur.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="CAPA\frmIndicateur.Designer.cs">
+    <Compile Include="CAPA\Interfaces\frmIndicateur.Designer.cs">
       <DependentUpon>frmIndicateur.cs</DependentUpon>
     </Compile>
-    <Compile Include="CAPA\frmPlan.cs">
+    <Compile Include="CAPA\Interfaces\frmPlan.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="CAPA\frmPlan.Designer.cs">
+    <Compile Include="CAPA\Interfaces\frmPlan.Designer.cs">
       <DependentUpon>frmPlan.cs</DependentUpon>
     </Compile>
-    <Compile Include="CAPA\frmUser.cs">
+    <Compile Include="CAPA\Interfaces\frmUser.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="CAPA\frmUser.Designer.cs">
+    <Compile Include="CAPA\Interfaces\frmUser.Designer.cs">
       <DependentUpon>frmUser.cs</DependentUpon>
     </Compile>
-    <Compile Include="CAPA\GestionPlan.cs">
+    <Compile Include="CAPA\Interfaces\GestionPlan.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="CAPA\GestionPlan.Designer.cs">
+    <Compile Include="CAPA\Interfaces\GestionPlan.Designer.cs">
       <DependentUpon>GestionPlan.cs</DependentUpon>
     </Compile>
-    <Compile Include="Classes\Enum.cs" />
-    <Compile Include="Classes\Groupe.cs" />
-    <Compile Include="Classes\Indicateur.cs" />
-    <Compile Include="Classes\Action.cs" />
-    <Compile Include="Classes\Objectif.cs" />
-    <Compile Include="Classes\Plan.cs" />
+    <Compile Include="Modules\Enum.cs" />
+    <Compile Include="CAPA\Classes\Groupe.cs" />
+    <Compile Include="CAPA\Classes\Indicateur.cs" />
+    <Compile Include="CAPA\Classes\Action.cs" />
+    <Compile Include="CAPA\Classes\Objectif.cs" />
+    <Compile Include="CAPA\Classes\Plan.cs" />
     <Compile Include="Modules\ClassePHP.cs" />
     <Compile Include="Modules\pdf.cs" />
+    <Compile Include="OMEGA\Classes\AccesNet.cs" />
+    <Compile Include="OMEGA\Classes\dElement.cs" />
+    <Compile Include="OMEGA\Classes\Element.cs" />
+    <Compile Include="OMEGA\Classes\Lien.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="CAPA\ctrlCompare.resx">
+    <EmbeddedResource Include="CAPA\Interfaces\ctrlCompare.resx">
       <DependentUpon>ctrlCompare.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ctrlAccueil.resx">
@@ -361,106 +365,106 @@
     <EmbeddedResource Include="frmMain.resx">
       <DependentUpon>frmMain.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="CAPA\ctrlAdmin.resx">
+    <EmbeddedResource Include="CAPA\Interfaces\ctrlAdmin.resx">
       <DependentUpon>ctrlAdmin.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="CAPA\ctrlAdminParam.resx">
+    <EmbeddedResource Include="CAPA\Interfaces\ctrlAdminParam.resx">
       <DependentUpon>ctrlAdminParam.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="CAPA\ctrlChoixListe.resx">
+    <EmbeddedResource Include="CAPA\Interfaces\ctrlChoixListe.resx">
       <DependentUpon>ctrlChoixListe.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Modules\ctrlConsole.resx">
       <DependentUpon>ctrlConsole.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="CAPA\ctrlCorrectif.resx">
+    <EmbeddedResource Include="CAPA\Interfaces\ctrlCorrectif.resx">
       <DependentUpon>ctrlCorrectif.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="CAPA\ctrlEditionDirection.resx">
+    <EmbeddedResource Include="CAPA\Interfaces\ctrlEditionDirection.resx">
       <DependentUpon>ctrlEditionDirection.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="CAPA\ctrlEditionPlan.resx">
+    <EmbeddedResource Include="CAPA\Interfaces\ctrlEditionPlan.resx">
       <DependentUpon>ctrlEditionPlan.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="CAPA\ctrlEditionStat.resx">
+    <EmbeddedResource Include="CAPA\Interfaces\ctrlEditionStat.resx">
       <DependentUpon>ctrlEditionStat.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="CAPA\ctrlEditionTerritoire.resx">
+    <EmbeddedResource Include="CAPA\Interfaces\ctrlEditionTerritoire.resx">
       <DependentUpon>ctrlEditionTerritoire.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="CAPA\ctrlExport.resx">
+    <EmbeddedResource Include="CAPA\Interfaces\ctrlExport.resx">
       <DependentUpon>ctrlExport.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="CAPA\ctrlFicheAction.resx">
+    <EmbeddedResource Include="CAPA\Interfaces\ctrlFicheAction.resx">
       <DependentUpon>ctrlFicheAction.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="CAPA\ctrlFicheObjectif.resx">
+    <EmbeddedResource Include="CAPA\Interfaces\ctrlFicheObjectif.resx">
       <DependentUpon>ctrlFicheObjectif.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="CAPA\ctrlGroupe.resx">
+    <EmbeddedResource Include="CAPA\Interfaces\ctrlGroupe.resx">
       <DependentUpon>ctrlGroupe.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="CAPA\ctrlImport.resx">
+    <EmbeddedResource Include="CAPA\Interfaces\ctrlImport.resx">
       <DependentUpon>ctrlImport.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="CAPA\ctrlPlanCorrection.resx">
+    <EmbeddedResource Include="CAPA\Interfaces\ctrlPlanCorrection.resx">
       <DependentUpon>ctrlPlanCorrection.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="CAPA\ctrlReporting.resx">
+    <EmbeddedResource Include="CAPA\Interfaces\ctrlReporting.resx">
       <DependentUpon>ctrlReporting.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="CAPA\ctrlXWiki.resx">
+    <EmbeddedResource Include="CAPA\Interfaces\ctrlXWiki.resx">
       <DependentUpon>ctrlXWiki.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="CAPA\ctrlListeAction.resx">
+    <EmbeddedResource Include="CAPA\Interfaces\ctrlListeAction.resx">
       <DependentUpon>ctrlListeAction.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="CAPA\ctrlListeGroupe.resx">
+    <EmbeddedResource Include="CAPA\Interfaces\ctrlListeGroupe.resx">
       <DependentUpon>ctrlListeGroupe.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="CAPA\ctrlListeIndicateur.resx">
+    <EmbeddedResource Include="CAPA\Interfaces\ctrlListeIndicateur.resx">
       <DependentUpon>ctrlListeIndicateur.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="CAPA\ctrlListeObjectif.resx">
+    <EmbeddedResource Include="CAPA\Interfaces\ctrlListeObjectif.resx">
       <DependentUpon>ctrlListeObjectif.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="CAPA\ctrlListePlan.resx">
+    <EmbeddedResource Include="CAPA\Interfaces\ctrlListePlan.resx">
       <DependentUpon>ctrlListePlan.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="CAPA\ctrlListeUtilisateur.resx">
+    <EmbeddedResource Include="CAPA\Interfaces\ctrlListeUtilisateur.resx">
       <DependentUpon>ctrlListeUtilisateur.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="CAPA\ctrlPlan.resx">
+    <EmbeddedResource Include="CAPA\Interfaces\ctrlPlan.resx">
       <DependentUpon>ctrlPlan.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="CAPA\ctrlWeb.resx">
+    <EmbeddedResource Include="CAPA\Interfaces\ctrlWeb.resx">
       <DependentUpon>ctrlWeb.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="CAPA\frmAttribut.resx">
+    <EmbeddedResource Include="CAPA\Interfaces\frmAttribut.resx">
       <DependentUpon>frmAttribut.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="CAPA\frmChoix.resx">
+    <EmbeddedResource Include="CAPA\Interfaces\frmChoix.resx">
       <DependentUpon>frmChoix.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="CAPA\frmGroupe.resx">
+    <EmbeddedResource Include="CAPA\Interfaces\frmGroupe.resx">
       <DependentUpon>frmGroupe.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="CAPA\frmIndicateur.resx">
+    <EmbeddedResource Include="CAPA\Interfaces\frmIndicateur.resx">
       <DependentUpon>frmIndicateur.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="CAPA\frmParametre.resx">
+    <EmbeddedResource Include="CAPA\Interfaces\frmParametre.resx">
       <DependentUpon>frmParametre.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="CAPA\frmPlan.resx">
+    <EmbeddedResource Include="CAPA\Interfaces\frmPlan.resx">
       <DependentUpon>frmPlan.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="CAPA\frmTableValeur.resx">
+    <EmbeddedResource Include="CAPA\Interfaces\frmTableValeur.resx">
       <DependentUpon>frmTableValeur.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="CAPA\frmUser.resx">
+    <EmbeddedResource Include="CAPA\Interfaces\frmUser.resx">
       <DependentUpon>frmUser.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="CAPA\GestionPlan.resx">
+    <EmbeddedResource Include="CAPA\Interfaces\GestionPlan.resx">
       <DependentUpon>GestionPlan.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
@@ -742,7 +746,12 @@
     <None Include="Resources\Administrateur.png" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="OMEGA\" />
+    <Folder Include="OMEGA\Budget\" />
+    <Folder Include="OMEGA\Commande\" />
+    <Folder Include="OMEGA\Edition\" />
+    <Folder Include="OMEGA\Execution\" />
+    <Folder Include="OMEGA\Referentiel\" />
+    <Folder Include="OMEGA\TableauBord\" />
     <Folder Include="Properties\DataSources\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

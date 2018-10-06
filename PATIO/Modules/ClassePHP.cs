@@ -21,7 +21,7 @@ namespace PATIO.Modules
         public string erreur = "";
         public Boolean Trace = false;
 
-        public PATIO.CAPA.ctrlConsole Console;
+        public ctrlConsole Console;
 
         public int NbLignes=0;
         public string Chemin;
