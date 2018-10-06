@@ -1,0 +1,669 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Plans>
+  <Plan>
+    <ID>1</ID>
+    <Libelle>SYSTEME</Libelle>
+    <Code>SYSTEME</Code>
+    <ProprietaireID>1</ProprietaireID>
+    <Actif>false</Actif>
+    <TypePlan>DOSSIER</TypePlan>
+    <NiveauPlan>Niveau_2</NiveauPlan>
+    <Abrege />
+    <Pilote />
+    <NiveauPlan>Niveau_2</NiveauPlan>
+    <DateDebut>2018-07-28T09:40:49.183</DateDebut>
+    <DateFin>2018-07-28T09:40:49.183</DateFin>
+    <OptAnalyseGlobale>false</OptAnalyseGlobale>
+    <OptCommentaires>false</OptCommentaires>
+    <OptGouvernance>false</OptGouvernance>
+    <OptPrioriteRegionale>false</OptPrioriteRegionale>
+  </Plan>
+  <Plan>
+    <ID>2</ID>
+    <Libelle>Plan pour l’égal accès aux soins dans les territoires</Libelle>
+    <Code>PAN-PEAST</Code>
+    <ProprietaireID>0</ProprietaireID>
+    <Actif>true</Actif>
+    <TypePlan>NATIONAL</TypePlan>
+    <NiveauPlan>Niveau_2</NiveauPlan>
+    <Abrege></Abrege>
+    <Pilote />
+    <NiveauPlan>Niveau_2</NiveauPlan>
+    <DateDebut>2018-07-28T09:41:00.973</DateDebut>
+    <DateFin>2018-07-28T09:41:00.973</DateFin>
+    <OptAnalyseGlobale>false</OptAnalyseGlobale>
+    <OptCommentaires>false</OptCommentaires>
+    <OptGouvernance>false</OptGouvernance>
+    <OptPrioriteRegionale>false</OptPrioriteRegionale>
+  </Plan>
+  <Plan>
+    <ID>3</ID>
+    <Libelle>PK3- Plan national Cancer 3</Libelle>
+    <Code>PAN-PK3</Code>
+    <ProprietaireID>0</ProprietaireID>
+    <Actif>true</Actif>
+    <TypePlan>NATIONAL</TypePlan>
+    <NiveauPlan>Niveau_2</NiveauPlan>
+    <Abrege>PK3</Abrege>
+    <Pilote>System.Data.Entity.DynamicProxies.Utilisateur_60CAFF3DDF0DDD1B0BB3910CA42FE1B64B5DFFE1E24E8DC89964F815D5DD3045</Pilote>
+    <NiveauPlan>Niveau_2</NiveauPlan>
+    <DateDebut>2018-07-28T09:41:01.367</DateDebut>
+    <DateFin>2018-07-28T09:41:01.367</DateFin>
+    <OptAnalyseGlobale>false</OptAnalyseGlobale>
+    <OptCommentaires>false</OptCommentaires>
+    <OptGouvernance>false</OptGouvernance>
+    <OptPrioriteRegionale>false</OptPrioriteRegionale>
+  </Plan>
+  <Plan>
+    <ID>4</ID>
+    <Libelle>PNRT- Plan national de lutte contre le tabagisme</Libelle>
+    <Code>PAN-PNRT</Code>
+    <ProprietaireID>0</ProprietaireID>
+    <Actif>true</Actif>
+    <TypePlan>NATIONAL</TypePlan>
+    <NiveauPlan>Niveau_2</NiveauPlan>
+    <Abrege>PNRT</Abrege>
+    <Pilote />
+    <NiveauPlan>Niveau_2</NiveauPlan>
+    <DateDebut>2018-07-28T09:41:01.723</DateDebut>
+    <DateFin>2018-07-28T09:41:01.723</DateFin>
+    <OptAnalyseGlobale>false</OptAnalyseGlobale>
+    <OptCommentaires>false</OptCommentaires>
+    <OptGouvernance>false</OptGouvernance>
+    <OptPrioriteRegionale>false</OptPrioriteRegionale>
+  </Plan>
+  <Plan>
+    <ID>5</ID>
+    <Libelle>SNS- Plan d'actions national en lien avec la stratégie nationale de santé</Libelle>
+    <Code>PAN-SNS</Code>
+    <ProprietaireID>0</ProprietaireID>
+    <Actif>true</Actif>
+    <TypePlan>NATIONAL</TypePlan>
+    <NiveauPlan>Niveau_2</NiveauPlan>
+    <Abrege>SNS</Abrege>
+    <Pilote>System.Data.Entity.DynamicProxies.Utilisateur_60CAFF3DDF0DDD1B0BB3910CA42FE1B64B5DFFE1E24E8DC89964F815D5DD3045</Pilote>
+    <NiveauPlan>Niveau_2</NiveauPlan>
+    <DateDebut>2018-07-28T09:41:02.093</DateDebut>
+    <DateFin>2018-07-28T09:41:02.093</DateFin>
+    <OptAnalyseGlobale>false</OptAnalyseGlobale>
+    <OptCommentaires>false</OptCommentaires>
+    <OptGouvernance>false</OptGouvernance>
+    <OptPrioriteRegionale>false</OptPrioriteRegionale>
+  </Plan>
+  <Plan>
+    <ID>6</ID>
+    <Libelle>SDRSIS- Schéma Directeur des Systèmes d'Information de Santé Hauts-de-France</Libelle>
+    <Code>PAR-SDRSIS</Code>
+    <ProprietaireID>0</ProprietaireID>
+    <Actif>true</Actif>
+    <TypePlan>REGIONAL</TypePlan>
+    <NiveauPlan>Niveau_2</NiveauPlan>
+    <Abrege>SDRSIS</Abrege>
+    <Pilote />
+    <NiveauPlan>Niveau_2</NiveauPlan>
+    <DateDebut>2018-07-28T09:41:02.45</DateDebut>
+    <DateFin>2018-07-28T09:41:02.45</DateFin>
+    <OptAnalyseGlobale>false</OptAnalyseGlobale>
+    <OptCommentaires>false</OptCommentaires>
+    <OptGouvernance>false</OptGouvernance>
+    <OptPrioriteRegionale>false</OptPrioriteRegionale>
+  </Plan>
+  <Plan>
+    <ID>7</ID>
+    <Libelle>SRS- Plan d'actions SRS</Libelle>
+    <Code>PAR-SRS</Code>
+    <ProprietaireID>0</ProprietaireID>
+    <Actif>true</Actif>
+    <TypePlan>REGIONAL</TypePlan>
+    <NiveauPlan>Niveau_2</NiveauPlan>
+    <Abrege>SRS</Abrege>
+    <Pilote>System.Data.Entity.DynamicProxies.Utilisateur_60CAFF3DDF0DDD1B0BB3910CA42FE1B64B5DFFE1E24E8DC89964F815D5DD3045</Pilote>
+    <NiveauPlan>Niveau_2</NiveauPlan>
+    <DateDebut>2018-07-28T09:41:02.813</DateDebut>
+    <DateFin>2018-07-28T09:41:02.813</DateFin>
+    <OptAnalyseGlobale>false</OptAnalyseGlobale>
+    <OptCommentaires>false</OptCommentaires>
+    <OptGouvernance>false</OptGouvernance>
+    <OptPrioriteRegionale>false</OptPrioriteRegionale>
+  </Plan>
+  <Plan>
+    <ID>8</ID>
+    <Libelle>OG01- Promouvoir un environnement favorable à la santé (PRSE3)</Libelle>
+    <Code>PAR-SRS-OS01-OG01</Code>
+    <ProprietaireID>0</ProprietaireID>
+    <Actif>true</Actif>
+    <TypePlan>REGIONAL</TypePlan>
+    <NiveauPlan>Niveau_2</NiveauPlan>
+    <Abrege>SRS-OS01-OG01</Abrege>
+    <Pilote />
+    <NiveauPlan>Niveau_2</NiveauPlan>
+    <DateDebut>2018-07-28T09:41:03.19</DateDebut>
+    <DateFin>2018-07-28T09:41:03.19</DateFin>
+    <OptAnalyseGlobale>false</OptAnalyseGlobale>
+    <OptCommentaires>false</OptCommentaires>
+    <OptGouvernance>false</OptGouvernance>
+    <OptPrioriteRegionale>false</OptPrioriteRegionale>
+  </Plan>
+  <Plan>
+    <ID>9</ID>
+    <Libelle>OG02- Promouvoir des comportements favorables à la santé</Libelle>
+    <Code>PAR-SRS-OS01-OG02</Code>
+    <ProprietaireID>0</ProprietaireID>
+    <Actif>true</Actif>
+    <TypePlan>REGIONAL</TypePlan>
+    <NiveauPlan>Niveau_2</NiveauPlan>
+    <Abrege>SRS-OS01-OG02</Abrege>
+    <Pilote />
+    <NiveauPlan>Niveau_2</NiveauPlan>
+    <DateDebut>2018-07-28T09:41:03.61</DateDebut>
+    <DateFin>2018-07-28T09:41:03.61</DateFin>
+    <OptAnalyseGlobale>false</OptAnalyseGlobale>
+    <OptCommentaires>false</OptCommentaires>
+    <OptGouvernance>false</OptGouvernance>
+    <OptPrioriteRegionale>false</OptPrioriteRegionale>
+  </Plan>
+  <Plan>
+    <ID>10</ID>
+    <Libelle>OG03- Promouvoir la santé des jeunes</Libelle>
+    <Code>PAR-SRS-OS01-OG03</Code>
+    <ProprietaireID>0</ProprietaireID>
+    <Actif>true</Actif>
+    <TypePlan>REGIONAL</TypePlan>
+    <NiveauPlan>Niveau_2</NiveauPlan>
+    <Abrege>SRS-OS01-OG03</Abrege>
+    <Pilote />
+    <NiveauPlan>Niveau_2</NiveauPlan>
+    <DateDebut>2018-07-28T09:41:04.033</DateDebut>
+    <DateFin>2018-07-28T09:41:04.033</DateFin>
+    <OptAnalyseGlobale>false</OptAnalyseGlobale>
+    <OptCommentaires>false</OptCommentaires>
+    <OptGouvernance>false</OptGouvernance>
+    <OptPrioriteRegionale>false</OptPrioriteRegionale>
+  </Plan>
+  <Plan>
+    <ID>11</ID>
+    <Libelle>OG04- Cibler les Femmes-mères-enfants les plus vulnérables</Libelle>
+    <Code>PAR-SRS-OS02-OG04</Code>
+    <ProprietaireID>0</ProprietaireID>
+    <Actif>true</Actif>
+    <TypePlan>REGIONAL</TypePlan>
+    <NiveauPlan>Niveau_2</NiveauPlan>
+    <Abrege>SRS-OS02-OG04</Abrege>
+    <Pilote>System.Data.Entity.DynamicProxies.Utilisateur_60CAFF3DDF0DDD1B0BB3910CA42FE1B64B5DFFE1E24E8DC89964F815D5DD3045</Pilote>
+    <NiveauPlan>Niveau_2</NiveauPlan>
+    <DateDebut>2018-07-28T09:41:04.48</DateDebut>
+    <DateFin>2018-07-28T09:41:04.48</DateFin>
+    <OptAnalyseGlobale>false</OptAnalyseGlobale>
+    <OptCommentaires>false</OptCommentaires>
+    <OptGouvernance>false</OptGouvernance>
+    <OptPrioriteRegionale>false</OptPrioriteRegionale>
+  </Plan>
+  <Plan>
+    <ID>12</ID>
+    <Libelle>OG05- Accompagner le vieillissement et soutenir les aidants</Libelle>
+    <Code>PAR-SRS-OS02-OG05</Code>
+    <ProprietaireID>0</ProprietaireID>
+    <Actif>true</Actif>
+    <TypePlan>REGIONAL</TypePlan>
+    <NiveauPlan>Niveau_2</NiveauPlan>
+    <Abrege>SRS-OS02-OG05</Abrege>
+    <Pilote>System.Data.Entity.DynamicProxies.Utilisateur_60CAFF3DDF0DDD1B0BB3910CA42FE1B64B5DFFE1E24E8DC89964F815D5DD3045</Pilote>
+    <NiveauPlan>Niveau_2</NiveauPlan>
+    <DateDebut>2018-07-28T09:41:04.913</DateDebut>
+    <DateFin>2018-07-28T09:41:04.913</DateFin>
+    <OptAnalyseGlobale>false</OptAnalyseGlobale>
+    <OptCommentaires>false</OptCommentaires>
+    <OptGouvernance>false</OptGouvernance>
+    <OptPrioriteRegionale>false</OptPrioriteRegionale>
+  </Plan>
+  <Plan>
+    <ID>13</ID>
+    <Libelle>OG06- Promouvoir les parcours de vie sans rupture et l'inclusion des personnes en situation de handicap</Libelle>
+    <Code>PAR-SRS-OS02-OG06</Code>
+    <ProprietaireID>0</ProprietaireID>
+    <Actif>true</Actif>
+    <TypePlan>REGIONAL</TypePlan>
+    <NiveauPlan>Niveau_2</NiveauPlan>
+    <Abrege>SRS-OS02-OG06</Abrege>
+    <Pilote />
+    <NiveauPlan>Niveau_2</NiveauPlan>
+    <DateDebut>2018-07-28T09:41:05.293</DateDebut>
+    <DateFin>2018-07-28T09:41:05.293</DateFin>
+    <OptAnalyseGlobale>false</OptAnalyseGlobale>
+    <OptCommentaires>false</OptCommentaires>
+    <OptGouvernance>false</OptGouvernance>
+    <OptPrioriteRegionale>false</OptPrioriteRegionale>
+  </Plan>
+  <Plan>
+    <ID>14</ID>
+    <Libelle>OG07- Repérer et mieux organiser les filières Diabète, Obésité et Insuffisance Rénale Chronique</Libelle>
+    <Code>PAR-SRS-OS02-OG07</Code>
+    <ProprietaireID>0</ProprietaireID>
+    <Actif>true</Actif>
+    <TypePlan>REGIONAL</TypePlan>
+    <NiveauPlan>Niveau_2</NiveauPlan>
+    <Abrege>SRS-OS02-OG07</Abrege>
+    <Pilote>System.Data.Entity.DynamicProxies.Utilisateur_60CAFF3DDF0DDD1B0BB3910CA42FE1B64B5DFFE1E24E8DC89964F815D5DD3045</Pilote>
+    <NiveauPlan>Niveau_2</NiveauPlan>
+    <DateDebut>2018-07-28T09:41:05.637</DateDebut>
+    <DateFin>2018-07-28T09:41:05.637</DateFin>
+    <OptAnalyseGlobale>false</OptAnalyseGlobale>
+    <OptCommentaires>false</OptCommentaires>
+    <OptGouvernance>false</OptGouvernance>
+    <OptPrioriteRegionale>false</OptPrioriteRegionale>
+  </Plan>
+  <Plan>
+    <ID>15</ID>
+    <Libelle>OG08- Réduire les inégalités sociales et territoriales liées aux cancers</Libelle>
+    <Code>PAR-SRS-OS02-OG08</Code>
+    <ProprietaireID>0</ProprietaireID>
+    <Actif>true</Actif>
+    <TypePlan>REGIONAL</TypePlan>
+    <NiveauPlan>Niveau_3</NiveauPlan>
+    <Abrege>SRS-OS02-OG08</Abrege>
+    <Pilote>System.Data.Entity.DynamicProxies.Utilisateur_60CAFF3DDF0DDD1B0BB3910CA42FE1B64B5DFFE1E24E8DC89964F815D5DD3045</Pilote>
+    <NiveauPlan>Niveau_3</NiveauPlan>
+    <DateDebut>2018-07-28T09:41:06.017</DateDebut>
+    <DateFin>2018-07-28T09:41:06.017</DateFin>
+    <OptAnalyseGlobale>false</OptAnalyseGlobale>
+    <OptCommentaires>false</OptCommentaires>
+    <OptGouvernance>false</OptGouvernance>
+    <OptPrioriteRegionale>false</OptPrioriteRegionale>
+  </Plan>
+  <Plan>
+    <ID>16</ID>
+    <Libelle>OG09- Favoriser le parcours de vie en santé mentale en veillant à limiter les hospitalisations</Libelle>
+    <Code>PAR-SRS-OS02-OG09</Code>
+    <ProprietaireID>0</ProprietaireID>
+    <Actif>true</Actif>
+    <TypePlan>REGIONAL</TypePlan>
+    <NiveauPlan>Niveau_2</NiveauPlan>
+    <Abrege>SRS-OS02-OG09</Abrege>
+    <Pilote />
+    <NiveauPlan>Niveau_2</NiveauPlan>
+    <DateDebut>2018-07-28T09:41:06.507</DateDebut>
+    <DateFin>2018-07-28T09:41:06.507</DateFin>
+    <OptAnalyseGlobale>false</OptAnalyseGlobale>
+    <OptCommentaires>false</OptCommentaires>
+    <OptGouvernance>false</OptGouvernance>
+    <OptPrioriteRegionale>false</OptPrioriteRegionale>
+  </Plan>
+  <Plan>
+    <ID>17</ID>
+    <Libelle>OG10- Améliorer l'accès à la prévention et la prise en charge des conduites à risques et/ou addictives</Libelle>
+    <Code>PAR-SRS-OS02-OG10</Code>
+    <ProprietaireID>0</ProprietaireID>
+    <Actif>true</Actif>
+    <TypePlan>REGIONAL</TypePlan>
+    <NiveauPlan>Niveau_3</NiveauPlan>
+    <Abrege>SRS-OS02-OG10</Abrege>
+    <Pilote />
+    <NiveauPlan>Niveau_3</NiveauPlan>
+    <DateDebut>2018-07-28T09:41:06.9</DateDebut>
+    <DateFin>2018-07-28T09:41:06.9</DateFin>
+    <OptAnalyseGlobale>false</OptAnalyseGlobale>
+    <OptCommentaires>false</OptCommentaires>
+    <OptGouvernance>false</OptGouvernance>
+    <OptPrioriteRegionale>false</OptPrioriteRegionale>
+  </Plan>
+  <Plan>
+    <ID>18</ID>
+    <Libelle>OG11- Optimiser le parcours des patients atteints de maladies cardio-neurovasculaires ou respiratoires sévères</Libelle>
+    <Code>PAR-SRS-OS02-OG11</Code>
+    <ProprietaireID>0</ProprietaireID>
+    <Actif>true</Actif>
+    <TypePlan>REGIONAL</TypePlan>
+    <NiveauPlan>Niveau_2</NiveauPlan>
+    <Abrege>SRS-OS02-OG11</Abrege>
+    <Pilote />
+    <NiveauPlan>Niveau_2</NiveauPlan>
+    <DateDebut>2018-07-28T09:41:07.293</DateDebut>
+    <DateFin>2018-07-28T09:41:07.293</DateFin>
+    <OptAnalyseGlobale>false</OptAnalyseGlobale>
+    <OptCommentaires>false</OptCommentaires>
+    <OptGouvernance>false</OptGouvernance>
+    <OptPrioriteRegionale>false</OptPrioriteRegionale>
+  </Plan>
+  <Plan>
+    <ID>19</ID>
+    <Libelle>OG12- Lutter contre la désertification</Libelle>
+    <Code>PAR-SRS-OS03-OG12</Code>
+    <ProprietaireID>0</ProprietaireID>
+    <Actif>true</Actif>
+    <TypePlan>REGIONAL</TypePlan>
+    <NiveauPlan>Niveau_2</NiveauPlan>
+    <Abrege>SRS-OS03-OG12</Abrege>
+    <Pilote />
+    <NiveauPlan>Niveau_2</NiveauPlan>
+    <DateDebut>2018-07-28T09:41:07.71</DateDebut>
+    <DateFin>2018-07-28T09:41:07.71</DateFin>
+    <OptAnalyseGlobale>false</OptAnalyseGlobale>
+    <OptCommentaires>false</OptCommentaires>
+    <OptGouvernance>false</OptGouvernance>
+    <OptPrioriteRegionale>false</OptPrioriteRegionale>
+  </Plan>
+  <Plan>
+    <ID>20</ID>
+    <Libelle>OG13- Améliorer l'accès à la prévention et aux soins des personnes les plus démunies</Libelle>
+    <Code>PAR-SRS-OS03-OG13</Code>
+    <ProprietaireID>0</ProprietaireID>
+    <Actif>true</Actif>
+    <TypePlan>REGIONAL</TypePlan>
+    <NiveauPlan>Niveau_2</NiveauPlan>
+    <Abrege>SRS-OS03-OG13</Abrege>
+    <Pilote />
+    <NiveauPlan>Niveau_2</NiveauPlan>
+    <DateDebut>2018-07-28T09:41:08.097</DateDebut>
+    <DateFin>2018-07-28T09:41:08.097</DateFin>
+    <OptAnalyseGlobale>false</OptAnalyseGlobale>
+    <OptCommentaires>false</OptCommentaires>
+    <OptGouvernance>false</OptGouvernance>
+    <OptPrioriteRegionale>false</OptPrioriteRegionale>
+  </Plan>
+  <Plan>
+    <ID>21</ID>
+    <Libelle>OG14- Mettre en oeuvre la révolution numérique en santé</Libelle>
+    <Code>PAR-SRS-OS03-OG14</Code>
+    <ProprietaireID>0</ProprietaireID>
+    <Actif>true</Actif>
+    <TypePlan>REGIONAL</TypePlan>
+    <NiveauPlan>Niveau_2</NiveauPlan>
+    <Abrege>SRS-OS03-OG14</Abrege>
+    <Pilote>System.Data.Entity.DynamicProxies.Utilisateur_60CAFF3DDF0DDD1B0BB3910CA42FE1B64B5DFFE1E24E8DC89964F815D5DD3045</Pilote>
+    <NiveauPlan>Niveau_2</NiveauPlan>
+    <DateDebut>2018-07-28T09:41:08.477</DateDebut>
+    <DateFin>2018-07-28T09:41:08.477</DateFin>
+    <OptAnalyseGlobale>false</OptAnalyseGlobale>
+    <OptCommentaires>false</OptCommentaires>
+    <OptGouvernance>false</OptGouvernance>
+    <OptPrioriteRegionale>false</OptPrioriteRegionale>
+  </Plan>
+  <Plan>
+    <ID>22</ID>
+    <Libelle>OG15- Garantir l'accès aux urgences, à l'imagerie médicale, aux soins critiques et palliatifs</Libelle>
+    <Code>PAR-SRS-OS03-OG15</Code>
+    <ProprietaireID>0</ProprietaireID>
+    <Actif>true</Actif>
+    <TypePlan>REGIONAL</TypePlan>
+    <NiveauPlan>Niveau_2</NiveauPlan>
+    <Abrege>SRS-OS03-OG15</Abrege>
+    <Pilote>System.Data.Entity.DynamicProxies.Utilisateur_60CAFF3DDF0DDD1B0BB3910CA42FE1B64B5DFFE1E24E8DC89964F815D5DD3045</Pilote>
+    <NiveauPlan>Niveau_2</NiveauPlan>
+    <DateDebut>2018-07-28T09:41:09.007</DateDebut>
+    <DateFin>2018-07-28T09:41:09.007</DateFin>
+    <OptAnalyseGlobale>false</OptAnalyseGlobale>
+    <OptCommentaires>false</OptCommentaires>
+    <OptGouvernance>false</OptGouvernance>
+    <OptPrioriteRegionale>false</OptPrioriteRegionale>
+  </Plan>
+  <Plan>
+    <ID>23</ID>
+    <Libelle>OG16- Poursuivre la dynamique transfrontalière pour l'accès à des soins de qualité</Libelle>
+    <Code>PAR-SRS-OS03-OG16</Code>
+    <ProprietaireID>0</ProprietaireID>
+    <Actif>true</Actif>
+    <TypePlan>REGIONAL</TypePlan>
+    <NiveauPlan>Niveau_2</NiveauPlan>
+    <Abrege>SRS-OS03-OG16</Abrege>
+    <Pilote />
+    <NiveauPlan>Niveau_2</NiveauPlan>
+    <DateDebut>2018-07-28T09:41:09.68</DateDebut>
+    <DateFin>2018-07-28T09:41:09.68</DateFin>
+    <OptAnalyseGlobale>false</OptAnalyseGlobale>
+    <OptCommentaires>false</OptCommentaires>
+    <OptGouvernance>false</OptGouvernance>
+    <OptPrioriteRegionale>false</OptPrioriteRegionale>
+  </Plan>
+  <Plan>
+    <ID>24</ID>
+    <Libelle>OG17- Garantir l'efficience des établissements de santé, médico-sociaux et des opérateurs de prévention</Libelle>
+    <Code>PAR-SRS-OS04-OG17</Code>
+    <ProprietaireID>0</ProprietaireID>
+    <Actif>true</Actif>
+    <TypePlan>REGIONAL</TypePlan>
+    <NiveauPlan>Niveau_2</NiveauPlan>
+    <Abrege>SRS-OS04-OG17</Abrege>
+    <Pilote />
+    <NiveauPlan>Niveau_2</NiveauPlan>
+    <DateDebut>2018-07-28T09:41:10.073</DateDebut>
+    <DateFin>2018-07-28T09:41:10.073</DateFin>
+    <OptAnalyseGlobale>false</OptAnalyseGlobale>
+    <OptCommentaires>false</OptCommentaires>
+    <OptGouvernance>false</OptGouvernance>
+    <OptPrioriteRegionale>false</OptPrioriteRegionale>
+  </Plan>
+  <Plan>
+    <ID>25</ID>
+    <Libelle>OG18- Poursuivre le développement des alternatives à l'hospitalisation</Libelle>
+    <Code>PAR-SRS-OS04-OG18</Code>
+    <ProprietaireID>0</ProprietaireID>
+    <Actif>true</Actif>
+    <TypePlan>REGIONAL</TypePlan>
+    <NiveauPlan>Niveau_2</NiveauPlan>
+    <Abrege>SRS-OS04-OG18</Abrege>
+    <Pilote />
+    <NiveauPlan>Niveau_2</NiveauPlan>
+    <DateDebut>2018-07-28T09:41:10.507</DateDebut>
+    <DateFin>2018-07-28T09:41:10.507</DateFin>
+    <OptAnalyseGlobale>false</OptAnalyseGlobale>
+    <OptCommentaires>false</OptCommentaires>
+    <OptGouvernance>false</OptGouvernance>
+    <OptPrioriteRegionale>false</OptPrioriteRegionale>
+  </Plan>
+  <Plan>
+    <ID>26</ID>
+    <Libelle>OG19- Développer la culture et le souci permanent de la qualité et de la sécurité des soins</Libelle>
+    <Code>PAR-SRS-OS04-OG19</Code>
+    <ProprietaireID>0</ProprietaireID>
+    <Actif>true</Actif>
+    <TypePlan>REGIONAL</TypePlan>
+    <NiveauPlan>Niveau_2</NiveauPlan>
+    <Abrege>SRS-OS04-OG19</Abrege>
+    <Pilote />
+    <NiveauPlan>Niveau_2</NiveauPlan>
+    <DateDebut>2018-07-28T09:41:10.92</DateDebut>
+    <DateFin>2018-07-28T09:41:10.92</DateFin>
+    <OptAnalyseGlobale>false</OptAnalyseGlobale>
+    <OptCommentaires>false</OptCommentaires>
+    <OptGouvernance>false</OptGouvernance>
+    <OptPrioriteRegionale>false</OptPrioriteRegionale>
+  </Plan>
+  <Plan>
+    <ID>27</ID>
+    <Libelle>OG20- Assurer la veille et la sécurité sanitaire</Libelle>
+    <Code>PAR-SRS-OS05-OG20</Code>
+    <ProprietaireID>0</ProprietaireID>
+    <Actif>true</Actif>
+    <TypePlan>REGIONAL</TypePlan>
+    <NiveauPlan>Niveau_2</NiveauPlan>
+    <Abrege>SRS-OS05-OG20</Abrege>
+    <Pilote>System.Data.Entity.DynamicProxies.Utilisateur_60CAFF3DDF0DDD1B0BB3910CA42FE1B64B5DFFE1E24E8DC89964F815D5DD3045</Pilote>
+    <NiveauPlan>Niveau_2</NiveauPlan>
+    <DateDebut>2018-07-28T09:41:11.293</DateDebut>
+    <DateFin>2018-07-28T09:41:11.293</DateFin>
+    <OptAnalyseGlobale>false</OptAnalyseGlobale>
+    <OptCommentaires>false</OptCommentaires>
+    <OptGouvernance>false</OptGouvernance>
+    <OptPrioriteRegionale>false</OptPrioriteRegionale>
+  </Plan>
+  <Plan>
+    <ID>28</ID>
+    <Libelle>OG21- Se préparer à la gestion des situations exceptionnelles</Libelle>
+    <Code>PAR-SRS-OS05-OG21</Code>
+    <ProprietaireID>0</ProprietaireID>
+    <Actif>true</Actif>
+    <TypePlan>REGIONAL</TypePlan>
+    <NiveauPlan>Niveau_2</NiveauPlan>
+    <Abrege>SRS-OS05-OG21</Abrege>
+    <Pilote />
+    <NiveauPlan>Niveau_2</NiveauPlan>
+    <DateDebut>2018-07-28T09:41:11.667</DateDebut>
+    <DateFin>2018-07-28T09:41:11.667</DateFin>
+    <OptAnalyseGlobale>false</OptAnalyseGlobale>
+    <OptCommentaires>false</OptCommentaires>
+    <OptGouvernance>false</OptGouvernance>
+    <OptPrioriteRegionale>false</OptPrioriteRegionale>
+  </Plan>
+  <Plan>
+    <ID>29</ID>
+    <Libelle>OG22- Panier de soins de proximité et coopération</Libelle>
+    <Code>PAR-SRS-1-OS06-OG22</Code>
+    <ProprietaireID>0</ProprietaireID>
+    <Actif>true</Actif>
+    <TypePlan>REGIONAL</TypePlan>
+    <NiveauPlan>Niveau_2</NiveauPlan>
+    <Abrege>SRS-1-OS06-OG22</Abrege>
+    <Pilote />
+    <NiveauPlan>Niveau_2</NiveauPlan>
+    <DateDebut>2018-07-28T09:41:12.083</DateDebut>
+    <DateFin>2018-07-28T09:41:12.083</DateFin>
+    <OptAnalyseGlobale>false</OptAnalyseGlobale>
+    <OptCommentaires>false</OptCommentaires>
+    <OptGouvernance>false</OptGouvernance>
+    <OptPrioriteRegionale>false</OptPrioriteRegionale>
+  </Plan>
+  <Plan>
+    <ID>30</ID>
+    <Libelle>OG22- Coordination des soins (pour les cas complexes)</Libelle>
+    <Code>PAR-SRS-OS06-OG22</Code>
+    <ProprietaireID>0</ProprietaireID>
+    <Actif>true</Actif>
+    <TypePlan>REGIONAL</TypePlan>
+    <NiveauPlan>Niveau_2</NiveauPlan>
+    <Abrege>SRS-OS06-OG22</Abrege>
+    <Pilote />
+    <NiveauPlan>Niveau_2</NiveauPlan>
+    <DateDebut>2018-07-28T09:41:12.463</DateDebut>
+    <DateFin>2018-07-28T09:41:12.463</DateFin>
+    <OptAnalyseGlobale>false</OptAnalyseGlobale>
+    <OptCommentaires>false</OptCommentaires>
+    <OptGouvernance>false</OptGouvernance>
+    <OptPrioriteRegionale>false</OptPrioriteRegionale>
+  </Plan>
+  <Plan>
+    <ID>31</ID>
+    <Libelle>Activité physique adaptée</Libelle>
+    <Code>PTR-SRS-ACPA</Code>
+    <ProprietaireID>0</ProprietaireID>
+    <Actif>true</Actif>
+    <TypePlan>TRANSVERSE</TypePlan>
+    <NiveauPlan>Niveau_3</NiveauPlan>
+    <Abrege>SRS-ACPA</Abrege>
+    <Pilote>System.Data.Entity.DynamicProxies.Utilisateur_60CAFF3DDF0DDD1B0BB3910CA42FE1B64B5DFFE1E24E8DC89964F815D5DD3045</Pilote>
+    <NiveauPlan>Niveau_3</NiveauPlan>
+    <DateDebut>2018-07-28T09:41:12.833</DateDebut>
+    <DateFin>2018-07-28T09:41:12.833</DateFin>
+    <OptAnalyseGlobale>false</OptAnalyseGlobale>
+    <OptCommentaires>false</OptCommentaires>
+    <OptGouvernance>false</OptGouvernance>
+    <OptPrioriteRegionale>false</OptPrioriteRegionale>
+  </Plan>
+  <Plan>
+    <ID>32</ID>
+    <Libelle>Contrats locaux de Santé</Libelle>
+    <Code>PTR-SRS-OT-CLS</Code>
+    <ProprietaireID>0</ProprietaireID>
+    <Actif>true</Actif>
+    <TypePlan>TRANSVERSE</TypePlan>
+    <NiveauPlan>Niveau_2</NiveauPlan>
+    <Abrege>SRS-OT-CLS</Abrege>
+    <Pilote />
+    <NiveauPlan>Niveau_2</NiveauPlan>
+    <DateDebut>2018-07-28T09:41:13.203</DateDebut>
+    <DateFin>2018-07-28T09:41:13.203</DateFin>
+    <OptAnalyseGlobale>false</OptAnalyseGlobale>
+    <OptCommentaires>false</OptCommentaires>
+    <OptGouvernance>false</OptGouvernance>
+    <OptPrioriteRegionale>false</OptPrioriteRegionale>
+  </Plan>
+  <Plan>
+    <ID>33</ID>
+    <Libelle>Formation (demande de traçabilité DG)</Libelle>
+    <Code>PTR-SRS-OT-FORMATION</Code>
+    <ProprietaireID>0</ProprietaireID>
+    <Actif>true</Actif>
+    <TypePlan>TRANSVERSE</TypePlan>
+    <NiveauPlan>Niveau_2</NiveauPlan>
+    <Abrege>SRS-OT-FORMATION</Abrege>
+    <Pilote />
+    <NiveauPlan>Niveau_2</NiveauPlan>
+    <DateDebut>2018-07-28T09:41:13.63</DateDebut>
+    <DateFin>2018-07-28T09:41:13.63</DateFin>
+    <OptAnalyseGlobale>false</OptAnalyseGlobale>
+    <OptCommentaires>false</OptCommentaires>
+    <OptGouvernance>false</OptGouvernance>
+    <OptPrioriteRegionale>false</OptPrioriteRegionale>
+  </Plan>
+  <Plan>
+    <ID>34</ID>
+    <Libelle>Innovations (objectif stratégique du COS)</Libelle>
+    <Code>PTR-SRS-OT-INNOVATIONS</Code>
+    <ProprietaireID>0</ProprietaireID>
+    <Actif>true</Actif>
+    <TypePlan>TRANSVERSE</TypePlan>
+    <NiveauPlan>Niveau_2</NiveauPlan>
+    <Abrege>SRS-OT-INNOVATIONS</Abrege>
+    <Pilote />
+    <NiveauPlan>Niveau_2</NiveauPlan>
+    <DateDebut>2018-07-28T09:41:14.027</DateDebut>
+    <DateFin>2018-07-28T09:41:14.027</DateFin>
+    <OptAnalyseGlobale>false</OptAnalyseGlobale>
+    <OptCommentaires>false</OptCommentaires>
+    <OptGouvernance>false</OptGouvernance>
+    <OptPrioriteRegionale>false</OptPrioriteRegionale>
+  </Plan>
+  <Plan>
+    <ID>35</ID>
+    <Libelle>Priorités des territoires (travaux des CTS)</Libelle>
+    <Code>PTR-SRS-OT-PRIO-TERR</Code>
+    <ProprietaireID>0</ProprietaireID>
+    <Actif>true</Actif>
+    <TypePlan>TRANSVERSE</TypePlan>
+    <NiveauPlan>Niveau_2</NiveauPlan>
+    <Abrege>SRS-OT-PRIO-TERR</Abrege>
+    <Pilote />
+    <NiveauPlan>Niveau_2</NiveauPlan>
+    <DateDebut>2018-07-28T09:41:14.533</DateDebut>
+    <DateFin>2018-07-28T09:41:14.533</DateFin>
+    <OptAnalyseGlobale>false</OptAnalyseGlobale>
+    <OptCommentaires>false</OptCommentaires>
+    <OptGouvernance>false</OptGouvernance>
+    <OptPrioriteRegionale>false</OptPrioriteRegionale>
+  </Plan>
+  <Plan>
+    <ID>36</ID>
+    <Libelle>Les usagers dans le système de santé (objectif stratégique du COS)</Libelle>
+    <Code>PTR-SRS-OT-USAGERS</Code>
+    <ProprietaireID>0</ProprietaireID>
+    <Actif>true</Actif>
+    <TypePlan>TRANSVERSE</TypePlan>
+    <NiveauPlan>Niveau_2</NiveauPlan>
+    <Abrege>SRS-OT-USAGERS</Abrege>
+    <Pilote />
+    <NiveauPlan>Niveau_2</NiveauPlan>
+    <DateDebut>2018-07-28T09:41:14.997</DateDebut>
+    <DateFin>2018-07-28T09:41:14.997</DateFin>
+    <OptAnalyseGlobale>false</OptAnalyseGlobale>
+    <OptCommentaires>false</OptCommentaires>
+    <OptGouvernance>false</OptGouvernance>
+    <OptPrioriteRegionale>false</OptPrioriteRegionale>
+  </Plan>
+  <Plan>
+    <ID>37</ID>
+    <Libelle>OG23- Reconnaître l'usager comme acteur du système de santé</Libelle>
+    <Code>PAR-SRS-OS07-OG23</Code>
+    <ProprietaireID>2</ProprietaireID>
+    <Actif>true</Actif>
+    <TypePlan>REGIONAL</TypePlan>
+    <NiveauPlan>Niveau_2</NiveauPlan>
+    <Abrege>SRS-OS07-OG23</Abrege>
+    <Pilote />
+    <NiveauPlan>Niveau_2</NiveauPlan>
+    <DateDebut>2018-08-05T11:59:10.107</DateDebut>
+    <DateFin>2018-08-05T11:59:10.107</DateFin>
+    <OptAnalyseGlobale>false</OptAnalyseGlobale>
+    <OptCommentaires>false</OptCommentaires>
+    <OptGouvernance>false</OptGouvernance>
+    <OptPrioriteRegionale>false</OptPrioriteRegionale>
+  </Plan>
+</Plans>

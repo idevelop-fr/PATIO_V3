@@ -1,0 +1,459 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Indicateurs>
+  <Indicateur>
+    <ID>1</ID>
+    <Libelle>Nombre de personnes impactées</Libelle>
+    <Code>IND-G001</Code>
+    <ProprietaireID>0</ProprietaireID>
+    <Actif>true</Actif>
+    <TypeIndicateur>RESULTAT</TypeIndicateur>
+  </Indicateur>
+  <Indicateur>
+    <ID>2</ID>
+    <Libelle>Nombre d'acteurs mobilisés</Libelle>
+    <Code>IND-G002</Code>
+    <ProprietaireID>0</ProprietaireID>
+    <Actif>true</Actif>
+    <TypeIndicateur>RESULTAT</TypeIndicateur>
+  </Indicateur>
+  <Indicateur>
+    <ID>3</ID>
+    <Libelle>Pourcentage de la population régionale couverte par une action santé envrironnement</Libelle>
+    <Code>IND-OG01-01</Code>
+    <ProprietaireID>0</ProprietaireID>
+    <Actif>true</Actif>
+    <TypeIndicateur>RESULTAT</TypeIndicateur>
+  </Indicateur>
+  <Indicateur>
+    <ID>4</ID>
+    <Libelle>Taux de couverture vaccinale en population générale</Libelle>
+    <Code>IND-OG02-01</Code>
+    <ProprietaireID>0</ProprietaireID>
+    <Actif>true</Actif>
+    <TypeIndicateur>DOSSIER</TypeIndicateur>
+  </Indicateur>
+  <Indicateur>
+    <ID>5</ID>
+    <Libelle>Taux de pratique de l'activité physique</Libelle>
+    <Code>IND-OG02-02</Code>
+    <ProprietaireID>0</ProprietaireID>
+    <Actif>true</Actif>
+    <TypeIndicateur>DOSSIER</TypeIndicateur>
+  </Indicateur>
+  <Indicateur>
+    <ID>6</ID>
+    <Libelle>Taux de jeunes ayant un recours facilité aux dispositifs de droit commun suite à une bonne information sur les structures existantes et/ou les dispositifs d'aide</Libelle>
+    <Code>IND-OG03-01</Code>
+    <ProprietaireID>0</ProprietaireID>
+    <Actif>true</Actif>
+    <TypeIndicateur>DOSSIER</TypeIndicateur>
+  </Indicateur>
+  <Indicateur>
+    <ID>7</ID>
+    <Libelle>Taux de jeunes se déclarant en bonne santé</Libelle>
+    <Code>IND-OG03-02</Code>
+    <ProprietaireID>0</ProprietaireID>
+    <Actif>true</Actif>
+    <TypeIndicateur>DOSSIER</TypeIndicateur>
+  </Indicateur>
+  <Indicateur>
+    <ID>8</ID>
+    <Libelle>Taux de grossesses chez les mineurs</Libelle>
+    <Code>IND-OG04-01</Code>
+    <ProprietaireID>0</ProprietaireID>
+    <Actif>true</Actif>
+    <TypeIndicateur>IMPACT</TypeIndicateur>
+  </Indicateur>
+  <Indicateur>
+    <ID>9</ID>
+    <Libelle>Taux de mortalité maternelle et infantile</Libelle>
+    <Code>IND-OG04-02</Code>
+    <ProprietaireID>0</ProprietaireID>
+    <Actif>true</Actif>
+    <TypeIndicateur>RESULTAT</TypeIndicateur>
+  </Indicateur>
+  <Indicateur>
+    <ID>10</ID>
+    <Libelle>Nombre de maternité inscrites dans la démarche IHAB et NIDCAP</Libelle>
+    <Code>IND-OG04-03</Code>
+    <ProprietaireID>0</ProprietaireID>
+    <Actif>true</Actif>
+    <TypeIndicateur>DOSSIER</TypeIndicateur>
+  </Indicateur>
+  <Indicateur>
+    <ID>11</ID>
+    <Libelle>Nombre de personnes ayant utilisé les structures de répit ou bénéficié d'une formation</Libelle>
+    <Code>IND-OG05-01</Code>
+    <ProprietaireID>0</ProprietaireID>
+    <Actif>true</Actif>
+    <TypeIndicateur>DOSSIER</TypeIndicateur>
+  </Indicateur>
+  <Indicateur>
+    <ID>12</ID>
+    <Libelle>Nombre de téléconsultation en EHPAD (ou %de territoires de proximité labellisés)</Libelle>
+    <Code>IND-OG05-02</Code>
+    <ProprietaireID>0</ProprietaireID>
+    <Actif>true</Actif>
+    <TypeIndicateur>DOSSIER</TypeIndicateur>
+  </Indicateur>
+  <Indicateur>
+    <ID>13</ID>
+    <Libelle>Nombre de personnes ayant bénéficié d'une notification MDPH en N-1, et, étant sans solution en N / nombre de notifications MDPH adressées en N-1  </Libelle>
+    <Code>IND-OG06-01</Code>
+    <ProprietaireID>0</ProprietaireID>
+    <Actif>true</Actif>
+    <TypeIndicateur>DOSSIER</TypeIndicateur>
+  </Indicateur>
+  <Indicateur>
+    <ID>14</ID>
+    <Libelle>Nombre d'évaluation de besoins des aidants réalisé par rapport au nombre de personnes en situation de handicap accompagnées dans le cadre des CPOM  médico-sociaux signés</Libelle>
+    <Code>IND-OG06-02</Code>
+    <ProprietaireID>0</ProprietaireID>
+    <Actif>true</Actif>
+    <TypeIndicateur>RESULTAT</TypeIndicateur>
+  </Indicateur>
+  <Indicateur>
+    <ID>15</ID>
+    <Libelle>Pourcentage d'enfants accompagnés en MS scolarisés par rapport au nombre d'enfants accompagnés en MS</Libelle>
+    <Code>IND-OG06-03</Code>
+    <ProprietaireID>0</ProprietaireID>
+    <Actif>true</Actif>
+    <TypeIndicateur>DOSSIER</TypeIndicateur>
+  </Indicateur>
+  <Indicateur>
+    <ID>16</ID>
+    <Libelle>Pourcentage d'enfants scolarisés en milieu ordinaire par rapport au nombre d'enfants accompagnés en établissements médico-sociaux</Libelle>
+    <Code>IND-OG06-04</Code>
+    <ProprietaireID>0</ProprietaireID>
+    <Actif>true</Actif>
+    <TypeIndicateur>RESULTAT</TypeIndicateur>
+  </Indicateur>
+  <Indicateur>
+    <ID>17</ID>
+    <Libelle>Taux d'obésité infantile</Libelle>
+    <Code>IND-OG07-01</Code>
+    <ProprietaireID>0</ProprietaireID>
+    <Actif>true</Actif>
+    <TypeIndicateur>DOSSIER</TypeIndicateur>
+  </Indicateur>
+  <Indicateur>
+    <ID>18</ID>
+    <Libelle>Taux d'hospitalisation pour complication du diabète</Libelle>
+    <Code>IND-OG07-02</Code>
+    <ProprietaireID>0</ProprietaireID>
+    <Actif>true</Actif>
+    <TypeIndicateur>DOSSIER</TypeIndicateur>
+  </Indicateur>
+  <Indicateur>
+    <ID>19</ID>
+    <Libelle>Taux de participation aux dépistages du cancer du sein et colorectal  dans les territoires défavorisés </Libelle>
+    <Code>IND-OG08-01</Code>
+    <ProprietaireID>0</ProprietaireID>
+    <Actif>true</Actif>
+    <TypeIndicateur>DOSSIER</TypeIndicateur>
+  </Indicateur>
+  <Indicateur>
+    <ID>20</ID>
+    <Libelle>Indicateur d'accès à l'offre de médecine personnalisée en cancérologie pour toute la région</Libelle>
+    <Code>IND-OG08-02</Code>
+    <ProprietaireID>0</ProprietaireID>
+    <Actif>true</Actif>
+    <TypeIndicateur>DOSSIER</TypeIndicateur>
+  </Indicateur>
+  <Indicateur>
+    <ID>21</ID>
+    <Libelle>Nombre patients rappelés dans le cadre de VIGILANS</Libelle>
+    <Code>IND-OG09-01</Code>
+    <ProprietaireID>0</ProprietaireID>
+    <Actif>true</Actif>
+    <TypeIndicateur>DOSSIER</TypeIndicateur>
+  </Indicateur>
+  <Indicateur>
+    <ID>22</ID>
+    <Libelle>Délais d'accès en CMP</Libelle>
+    <Code>IND-OG09-02</Code>
+    <ProprietaireID>0</ProprietaireID>
+    <Actif>true</Actif>
+    <TypeIndicateur>DOSSIER</TypeIndicateur>
+  </Indicateur>
+  <Indicateur>
+    <ID>23</ID>
+    <Libelle>Nombre de patient bénéficiant d'un GEM (ou/et logement via les CLSM)</Libelle>
+    <Code>IND-OG09-03</Code>
+    <ProprietaireID>0</ProprietaireID>
+    <Actif>true</Actif>
+    <TypeIndicateur>DOSSIER</TypeIndicateur>
+  </Indicateur>
+  <Indicateur>
+    <ID>24</ID>
+    <Libelle>Prévalence du tabagisme quotidien chez les adultes</Libelle>
+    <Code>IND-OG10-01</Code>
+    <ProprietaireID>0</ProprietaireID>
+    <Actif>true</Actif>
+    <TypeIndicateur>DOSSIER</TypeIndicateur>
+  </Indicateur>
+  <Indicateur>
+    <ID>25</ID>
+    <Libelle>Prévalence de la consommation régulière d’alcool chez les adultes</Libelle>
+    <Code>IND-OG10-02</Code>
+    <ProprietaireID>0</ProprietaireID>
+    <Actif>true</Actif>
+    <TypeIndicateur>DOSSIER</TypeIndicateur>
+  </Indicateur>
+  <Indicateur>
+    <ID>26</ID>
+    <Libelle>Taux de consommation alcool/tabac/Di chez les jeunes</Libelle>
+    <Code>IND-OG10-03</Code>
+    <ProprietaireID>0</ProprietaireID>
+    <Actif>true</Actif>
+    <TypeIndicateur>RESULTAT</TypeIndicateur>
+  </Indicateur>
+  <Indicateur>
+    <ID>27</ID>
+    <Libelle>Evolution du nombre de jeunes choisissant une discipline en tension</Libelle>
+    <Code>IND-OG12-01</Code>
+    <ProprietaireID>0</ProprietaireID>
+    <Actif>true</Actif>
+    <TypeIndicateur>DOSSIER</TypeIndicateur>
+  </Indicateur>
+  <Indicateur>
+    <ID>28</ID>
+    <Libelle>Taux d’installation dans les zones sous-denses</Libelle>
+    <Code>IND-OG12-02</Code>
+    <ProprietaireID>0</ProprietaireID>
+    <Actif>true</Actif>
+    <TypeIndicateur>DOSSIER</TypeIndicateur>
+  </Indicateur>
+  <Indicateur>
+    <ID>29</ID>
+    <Libelle>Taux d'ES certifiés A ou B</Libelle>
+    <Code>IND-OG19-01</Code>
+    <ProprietaireID>0</ProprietaireID>
+    <Actif>true</Actif>
+    <TypeIndicateur>DOSSIER</TypeIndicateur>
+  </Indicateur>
+  <Indicateur>
+    <ID>30</ID>
+    <Libelle>Taux de réalisation des objectifs fixés par la feuille de route "attentats" </Libelle>
+    <Code>IND-OG21-01</Code>
+    <ProprietaireID>0</ProprietaireID>
+    <Actif>true</Actif>
+    <TypeIndicateur>DOSSIER</TypeIndicateur>
+  </Indicateur>
+  <Indicateur>
+    <ID>31</ID>
+    <Libelle>Espérance de vie</Libelle>
+    <Code>IND-SNS-0001</Code>
+    <ProprietaireID>0</ProprietaireID>
+    <Actif>true</Actif>
+    <TypeIndicateur>RESULTAT</TypeIndicateur>
+  </Indicateur>
+  <Indicateur>
+    <ID>32</ID>
+    <Libelle>Espérance de vie sans incapacité</Libelle>
+    <Code>IND-SNS-0002</Code>
+    <ProprietaireID>0</ProprietaireID>
+    <Actif>true</Actif>
+    <TypeIndicateur>RESULTAT</TypeIndicateur>
+  </Indicateur>
+  <Indicateur>
+    <ID>33</ID>
+    <Libelle>Nombre de consultations ambulatoires réalisées en télémédecine et télé expertise</Libelle>
+    <Code>IND-SNS-0003</Code>
+    <ProprietaireID>0</ProprietaireID>
+    <Actif>true</Actif>
+    <TypeIndicateur>MOYEN</TypeIndicateur>
+  </Indicateur>
+  <Indicateur>
+    <ID>34</ID>
+    <Libelle>Nombre de maisons de santé pluridisciplinaires</Libelle>
+    <Code>IND-SNS-0004</Code>
+    <ProprietaireID>0</ProprietaireID>
+    <Actif>true</Actif>
+    <TypeIndicateur>MOYEN</TypeIndicateur>
+  </Indicateur>
+  <Indicateur>
+    <ID>35</ID>
+    <Libelle>Prévalence du tabagisme quotidien en population adulte</Libelle>
+    <Code>IND-SNS-0005</Code>
+    <ProprietaireID>0</ProprietaireID>
+    <Actif>true</Actif>
+    <TypeIndicateur>RESULTAT</TypeIndicateur>
+  </Indicateur>
+  <Indicateur>
+    <ID>36</ID>
+    <Libelle>Prévalence de la consommation quotidienne d'alcool chez les adultes</Libelle>
+    <Code>IND-SNS-0006</Code>
+    <ProprietaireID>0</ProprietaireID>
+    <Actif>true</Actif>
+    <TypeIndicateur>RESULTAT</TypeIndicateur>
+  </Indicateur>
+  <Indicateur>
+    <ID>37</ID>
+    <Libelle>Prévalence des difficultés pour les soins personnels et les activités domestiques</Libelle>
+    <Code>IND-SNS-0007</Code>
+    <ProprietaireID>0</ProprietaireID>
+    <Actif>true</Actif>
+    <TypeIndicateur>RESULTAT</TypeIndicateur>
+  </Indicateur>
+  <Indicateur>
+    <ID>38</ID>
+    <Libelle>Concentration annuelle (base 100) des quatre principaux polluants en zone urbaine (niveaux moyens d’exposition)</Libelle>
+    <Code>IND-SNS-0008</Code>
+    <ProprietaireID>0</ProprietaireID>
+    <Actif>true</Actif>
+    <TypeIndicateur>RESULTAT</TypeIndicateur>
+  </Indicateur>
+  <Indicateur>
+    <ID>39</ID>
+    <Libelle>Taux de couverture vaccinale grippe</Libelle>
+    <Code>IND-SNS-0009</Code>
+    <ProprietaireID>0</ProprietaireID>
+    <Actif>true</Actif>
+    <TypeIndicateur>RESULTAT</TypeIndicateur>
+  </Indicateur>
+  <Indicateur>
+    <ID>40</ID>
+    <Libelle>Taux de couverture du dépistage du cancer colorectal pour la population du 1er quintile de Fdep</Libelle>
+    <Code>IND-SNS-0010</Code>
+    <ProprietaireID>0</ProprietaireID>
+    <Actif>true</Actif>
+    <TypeIndicateur>RESULTAT</TypeIndicateur>
+  </Indicateur>
+  <Indicateur>
+    <ID>41</ID>
+    <Libelle>Taux de renoncement aux soins (traitements ou soins médicaux ou dentaires) pour raison financières : écart entre les 20% plus modestes et le reste de la population</Libelle>
+    <Code>IND-SNS-0011</Code>
+    <ProprietaireID>0</ProprietaireID>
+    <Actif>true</Actif>
+    <TypeIndicateur>RESULTAT</TypeIndicateur>
+  </Indicateur>
+  <Indicateur>
+    <ID>42</ID>
+    <Libelle>Part du reste à charge des ménages pour les dépenses dentaires, optiques et d’audioprothèses</Libelle>
+    <Code>IND-SNS-0012</Code>
+    <ProprietaireID>0</ProprietaireID>
+    <Actif>true</Actif>
+    <TypeIndicateur>RESULTAT</TypeIndicateur>
+  </Indicateur>
+  <Indicateur>
+    <ID>43</ID>
+    <Libelle>Pourcentage de la population résidant dans une zone dans laquelle l'accessibilité potentielle localisée (APL) aux médecins généralistes est inférieure à un certain seuil</Libelle>
+    <Code>IND-SNS-0013</Code>
+    <ProprietaireID>0</ProprietaireID>
+    <Actif>true</Actif>
+    <TypeIndicateur>RESULTAT</TypeIndicateur>
+  </Indicateur>
+  <Indicateur>
+    <ID>44</ID>
+    <Libelle>Taux d'hospitalisations potentiellement évitables</Libelle>
+    <Code>IND-SNS-0014</Code>
+    <ProprietaireID>0</ProprietaireID>
+    <Actif>true</Actif>
+    <TypeIndicateur>RESULTAT</TypeIndicateur>
+  </Indicateur>
+  <Indicateur>
+    <ID>45</ID>
+    <Libelle>Taux de chirurgie ambulatoire</Libelle>
+    <Code>IND-SNS-0015</Code>
+    <ProprietaireID>0</ProprietaireID>
+    <Actif>true</Actif>
+    <TypeIndicateur>RESULTAT</TypeIndicateur>
+  </Indicateur>
+  <Indicateur>
+    <ID>46</ID>
+    <Libelle>Prévalence de la polymédication (3 délivrances au moins pour 10 molécules sur une année) chez les personnes de plus 75 ans</Libelle>
+    <Code>IND-SNS-0016</Code>
+    <ProprietaireID>0</ProprietaireID>
+    <Actif>true</Actif>
+    <TypeIndicateur>RESULTAT</TypeIndicateur>
+  </Indicateur>
+  <Indicateur>
+    <ID>47</ID>
+    <Libelle>Taux de réhospitalisation à 30 jours</Libelle>
+    <Code>IND-SNS-0017</Code>
+    <ProprietaireID>0</ProprietaireID>
+    <Actif>true</Actif>
+    <TypeIndicateur>RESULTAT</TypeIndicateur>
+  </Indicateur>
+  <Indicateur>
+    <ID>48</ID>
+    <Libelle>Proportion de la population satisfaite de la qualité des soins selon le type de professionnel</Libelle>
+    <Code>IND-SNS-0018</Code>
+    <ProprietaireID>0</ProprietaireID>
+    <Actif>true</Actif>
+    <TypeIndicateur>RESULTAT</TypeIndicateur>
+  </Indicateur>
+  <Indicateur>
+    <ID>49</ID>
+    <Libelle>Couverture vaccinale à 9 mois (ou à 1 an)pour les 11 vaccins obligatoires</Libelle>
+    <Code>IND-SNS-0019</Code>
+    <ProprietaireID>0</ProprietaireID>
+    <Actif>true</Actif>
+    <TypeIndicateur>RESULTAT</TypeIndicateur>
+  </Indicateur>
+  <Indicateur>
+    <ID>50</ID>
+    <Libelle>Proportion d’enfants de 6 ans ayant consulté au moins une fois un chirurgien-dentiste au cours de l’année suivant leur 6ème anniversaire</Libelle>
+    <Code>IND-SNS-0020</Code>
+    <ProprietaireID>0</ProprietaireID>
+    <Actif>true</Actif>
+    <TypeIndicateur>RESULTAT</TypeIndicateur>
+  </Indicateur>
+  <Indicateur>
+    <ID>51</ID>
+    <Libelle>Taux de survie à 3 mois</Libelle>
+    <Code>IND-SRS-OG11-0001</Code>
+    <ProprietaireID>0</ProprietaireID>
+    <Actif>true</Actif>
+    <TypeIndicateur>RESULTAT</TypeIndicateur>
+  </Indicateur>
+  <Indicateur>
+    <ID>52</ID>
+    <Libelle>Taux de passage en USINV / UNV</Libelle>
+    <Code>IND-SRS-OG11-0002</Code>
+    <ProprietaireID>0</ProprietaireID>
+    <Actif>true</Actif>
+    <TypeIndicateur>RESULTAT</TypeIndicateur>
+  </Indicateur>
+  <Indicateur>
+    <ID>53</ID>
+    <Libelle>Taux de ré hospitalisation non programmée à 3 mois</Libelle>
+    <Code>IND-SRS-OG11-0003</Code>
+    <ProprietaireID>0</ProprietaireID>
+    <Actif>true</Actif>
+    <TypeIndicateur>RESULTAT</TypeIndicateur>
+  </Indicateur>
+  <Indicateur>
+    <ID>54</ID>
+    <Libelle>Taux de passage en SSR ( neuro / hors neuro) à 3 mois</Libelle>
+    <Code>IND-SRS-OG11-0004</Code>
+    <ProprietaireID>0</ProprietaireID>
+    <Actif>true</Actif>
+    <TypeIndicateur>DOSSIER</TypeIndicateur>
+  </Indicateur>
+  <Indicateur>
+    <ID>55</ID>
+    <Libelle>Taux de thrombolyse</Libelle>
+    <Code>IND-SRS-OG11-0005</Code>
+    <ProprietaireID>0</ProprietaireID>
+    <Actif>true</Actif>
+    <TypeIndicateur>RESULTAT</TypeIndicateur>
+  </Indicateur>
+  <Indicateur>
+    <ID>56</ID>
+    <Libelle>Taux de thrombectomie</Libelle>
+    <Code>IND-SRS-OG11-0006</Code>
+    <ProprietaireID>0</ProprietaireID>
+    <Actif>true</Actif>
+    <TypeIndicateur>DOSSIER</TypeIndicateur>
+  </Indicateur>
+  <Indicateur>
+    <ID>57</ID>
+    <Libelle>Taux de consultation d’un neurologue à 12 mois</Libelle>
+    <Code>IND-SRS-OG11-0007</Code>
+    <ProprietaireID>0</ProprietaireID>
+    <Actif>true</Actif>
+    <TypeIndicateur>DOSSIER</TypeIndicateur>
+  </Indicateur>
+</Indicateurs>
