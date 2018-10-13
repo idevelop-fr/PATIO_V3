@@ -5,6 +5,7 @@ using PATIO.CAPA.Interfaces;
 using PATIO.CAPA.Classes;
 using System.Threading;
 using PATIO.Modules;
+using PATIO.ADMIN;
 
 namespace PATIO
 {
@@ -207,26 +208,18 @@ namespace PATIO
             D_Gestion.CloseButton = false;
         }
 
-        private void btn_admin_Click(object sender, EventArgs e)
-        {
-            Afficher_Administration();
-        }
-
-        void Afficher_Administration()
+        void Afficher_Admin_User()
         { 
             DockContent D1 = new DockContent();
 
-            PATIO.CAPA.Interfaces.ctrlAdmin ctrl = new PATIO.CAPA.Interfaces.ctrlAdmin();
+            ctrlListeUtilisateur ctrl = new ctrlListeUtilisateur();
             ctrl.Acces = Acces;
             ctrl.DP = DP;
             ctrl.Dock = DockStyle.Fill;
-            ctrl.Console = Console;
-            ctrl.Chemin = Chemin;
-            ctrl.Initialiser();
-            D1.Controls.Add(ctrl);
+            ctrl.Afficher_ListeUser();
 
             D1.Show(DP, DockState.Document);
-            D1.Text = "Administration";
+            D1.Text = "Utilisateurs";
             D1.ShowInTaskbar = false;
             D1.CloseButton = true;
         }
@@ -263,36 +256,115 @@ namespace PATIO
             Afficher_XWiki_Plan_Action();
         }
 
-        private void btn_reporting_Click(object sender, EventArgs e)
+        void ReduireGestionObjet()
         {
-            Afficher_Reporting();
+            D_Gestion.Hide();
         }
 
-        void Afficher_Reporting()
+        private void btnPATIO_Site_PlanAction_Click(object sender, EventArgs e)
+        {
+            Afficher_XWiki_Plan_Action();
+        }
+
+        private void btnPATIO_Site_PRS_Click(object sender, EventArgs e)
+        {
+            Afficher_PRS();
+        }
+
+        private void btnCAPA_Edition_Plan_Click(object sender, EventArgs e)
+        {
+            Afficher_EditionPlan();
+        }
+
+        void Afficher_EditionPlan()
         {
             DockContent D1 = new DockContent();
 
-            ctrlReporting ctrl = new ctrlReporting();
+            ctrlEditionPlan ctrl = new ctrlEditionPlan();
             ctrl.Acces = Acces;
             ctrl.DP = DP;
+            ctrl.Dock = DockStyle.Fill;
             ctrl.Console = Console;
             ctrl.Chemin = Chemin;
-            ctrl.user_appli = user_appli;
-            ctrl.Dock = DockStyle.Fill;
             ctrl.Initialiser();
             D1.Controls.Add(ctrl);
 
             D1.Show(DP, DockState.Document);
-            D1.Text = "Reporting";
+            D1.Text = "Edition par plan";
             D1.ShowInTaskbar = false;
             D1.CloseButton = true;
-
-            D_Gestion.Show(DP, DockState.DockLeftAutoHide);
         }
 
-        void ReduireGestionObjet()
+        void Afficher_EditionDirection()
         {
-            D_Gestion.Hide();
+            DockContent D1 = new DockContent();
+
+            ctrlEditionDirection ctrl = new ctrlEditionDirection();
+            ctrl.Acces = Acces;
+            ctrl.DP = DP;
+            ctrl.Dock = DockStyle.Fill;
+            ctrl.Console = Console;
+            ctrl.Chemin = Chemin;
+            ctrl.Initialiser();
+            D1.Controls.Add(ctrl);
+
+            D1.Show(DP, DockState.Document);
+            D1.Text = "Edition par direction";
+            D1.ShowInTaskbar = false;
+            D1.CloseButton = true;
+        }
+
+        void Afficher_EditionTerritoire()
+        {
+            DockContent D1 = new DockContent();
+
+            ctrlEditionTerritoire ctrl = new ctrlEditionTerritoire();
+            ctrl.Acces = Acces;
+            ctrl.DP = DP;
+            ctrl.Dock = DockStyle.Fill;
+            ctrl.Console = Console;
+            ctrl.Chemin = Chemin;
+            ctrl.Initialiser();
+            D1.Controls.Add(ctrl);
+
+            D1.Show(DP, DockState.Document);
+            D1.Text = "Edition par territoire";
+            D1.ShowInTaskbar = false;
+            D1.CloseButton = true;
+        }
+
+        void Afficher_EditionStat()
+        {
+            DockContent D1 = new DockContent();
+
+            ctrlEditionStat ctrl = new ctrlEditionStat();
+            ctrl.Acces = Acces;
+            ctrl.DP = DP;
+            ctrl.Dock = DockStyle.Fill;
+            ctrl.Console = Console;
+            ctrl.Chemin = Chemin;
+            ctrl.Initialiser();
+            D1.Controls.Add(ctrl);
+
+            D1.Show(DP, DockState.Document);
+            D1.Text = "Edition des statistiques";
+            D1.ShowInTaskbar = false;
+            D1.CloseButton = true;
+        }
+
+        private void btnCAPA_Edition_Direction_Click(object sender, EventArgs e)
+        {
+            Afficher_EditionDirection();
+        }
+
+        private void btnCAPA_Edition_Territoire_Click(object sender, EventArgs e)
+        {
+            Afficher_EditionTerritoire();
+        }
+
+        private void btnCAPA_Edition_Stat_Click(object sender, EventArgs e)
+        {
+            Afficher_EditionStat();
         }
     }
 }

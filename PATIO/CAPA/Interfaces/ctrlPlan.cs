@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Drawing;
 using System.Windows.Forms;
 using PATIO.CAPA.Classes;
+using PATIO.CAPA.Interfaces;
 using PATIO.Modules;
 
 namespace PATIO.CAPA.Interfaces
@@ -102,8 +103,8 @@ namespace PATIO.CAPA.Interfaces
             {
                 Text = "Plan d'actions de " + plan.NiveauPlan,
                 Name = Acces.type_PLAN.code + "-" + plan.ID,
-                ImageIndex=1,
-                Tag=Acces.type_PLAN.id,
+                ImageIndex = 1,
+                Tag = Acces.type_PLAN.id,
             };
 
             NodG.Expand();
@@ -119,8 +120,6 @@ namespace PATIO.CAPA.Interfaces
         /// </summary>
         void Repositionner()
         {
-            int nbObjectif = 0; int nbAction = 0; int nbOpération = 0; int nbIndicateur = 0;
-
             //Placement des objectifs/sous-objectifs
             listeLien = Acces.Remplir_ListeLien(Acces.type_PLAN, plan.ID.ToString());
             listeLien.Sort();
@@ -133,7 +132,7 @@ namespace PATIO.CAPA.Interfaces
                 string Parent = Acces.Trouver_TableValeur(p.element1_type).Code + "-" + p.element1_id.ToString();
                 TreeNode NodParent = NodG;
 
-                if (!(Parent==NodG.Name))
+                if (!(Parent == NodG.Name))
                 {
                     TreeNode[] NodP = NodG.Nodes.Find(Parent, true);
                     if (NodP.Length > 0) { NodParent = NodP[0]; }
@@ -142,7 +141,7 @@ namespace PATIO.CAPA.Interfaces
                 string Enfant = Acces.Trouver_TableValeur(p.element2_type).Code + "-" + p.element2_id.ToString();
                 if (!(Enfant is null))
                 {
-                    Boolean Ajoute=true;
+                    Boolean Ajoute = true;
                     //Création de l'élément enfant
                     TreeNode NodEnfant = new TreeNode()
                     {
@@ -151,34 +150,32 @@ namespace PATIO.CAPA.Interfaces
                     };
 
                     if (p.element2_type == Acces.type_OBJECTIF.id)
-                        //if (p.element2_type == Acces.Trouver_TableValeur_ID("TYPE_ELEMENT", p.element1_type.ToString()))
+                    //if (p.element2_type == Acces.Trouver_TableValeur_ID("TYPE_ELEMENT", p.element1_type.ToString()))
                     {
-                        Objectif q =(Objectif) Acces.Trouver_Element(Acces.type_OBJECTIF.id, p.element2_id);
+                        Objectif q = (Objectif)Acces.Trouver_Element(Acces.type_OBJECTIF.id, p.element2_id);
                         if (!(q is null))
                         {
                             NodEnfant.Text = q.Libelle;
                             NodEnfant.Name = Acces.type_OBJECTIF.code + "-" + q.ID;
                             NodEnfant.ImageIndex = Donner_ImageIndex(Acces.type_OBJECTIF.id, p.element2_id);
                             NodEnfant.ToolTipText = q.Code;
-                            nbObjectif++;
                         }
                         else { Console.Ajouter("[Objectif non trouvé] ID:" + p.element2_id + " Code :" + p.element2_code); }
                     }
 
                     if (p.element2_type == Acces.type_ACTION.id)
                     {
-                        PATIO.CAPA.Classes.Action q =(PATIO.CAPA.Classes.Action) Acces.Trouver_Element(Acces.type_ACTION.id, p.element2_id);
+                        PATIO.CAPA.Classes.Action q = (PATIO.CAPA.Classes.Action)Acces.Trouver_Element(Acces.type_ACTION.id, p.element2_id);
                         if (!OptAfficherOpération.Checked) { Ajoute = (q.TypeAction == TypeAction.ACTION); }
                         if (!(q is null))
-                            {
+                        {
                             NodEnfant.Text = q.Libelle;
                             NodEnfant.Name = Acces.type_ACTION.code + "-" + q.ID;
                             NodEnfant.ImageIndex = Donner_ImageIndex(Acces.type_ACTION.id, p.element2_id);
                             if (q.ActionPhare) { NodEnfant.ImageIndex = imgs[PosImageActionPhare].Id; }
                             NodEnfant.ToolTipText = q.Code + " [" + p.ordre + "]";
-                            if (q.TypeAction == TypeAction.ACTION) { nbAction++; }
-                            if (q.TypeAction == TypeAction.OPERATION) { nbOpération++; }
-                        } else { Console.Ajouter("[Action non trouvée] ID:" + p.element2_id + " CODE:" + p.element2_code); }
+                        }
+                        else { Console.Ajouter("[Action non trouvée] ID:" + p.element2_id + " CODE:" + p.element2_code); }
                     }
 
                     if (p.element2_type == Acces.type_INDICATEUR.id)
@@ -186,26 +183,81 @@ namespace PATIO.CAPA.Interfaces
                         Ajoute = OptAfficherIndicateur.Checked;
                         Indicateur q = (Indicateur)Acces.Trouver_Element(Acces.type_INDICATEUR.id, p.element2_id);
                         if (!(q is null))
-                        { 
+                        {
                             NodEnfant.Text = q.Libelle;
                             NodEnfant.Name = Acces.type_INDICATEUR.code + "-" + q.ID;
                             NodEnfant.ImageIndex = Donner_ImageIndex(Acces.type_INDICATEUR.id, p.element2_id);
                             NodEnfant.ToolTipText = q.Code;
-                            nbIndicateur++;
-                        } else { Console.Ajouter("[Indicateur non trouvée] ID:" + p.element2_id + " CODE:" + p.element2_code); }
+                        }
+                        else { Console.Ajouter("[Indicateur non trouvée] ID:" + p.element2_id + " CODE:" + p.element2_code); }
                     }
 
-                    if (Ajoute) {
+                    if (Ajoute)
+                    {
                         NodParent.Nodes.Add(NodEnfant);
                     }
                 }
             }
             if (btnEtendre.Checked) { NodG.ExpandAll(); }
 
-            lblNbObjectif.Text += nbObjectif.ToString();
-            lblNbAction.Text += nbAction.ToString();
-            lblNbOpération.Text += nbOpération.ToString();
-            lblNbIndicateur.Text += nbIndicateur.ToString();
+            Afficher_Stat();
+        }
+
+        void Afficher_Stat()
+        {
+            int nbObjectif = 0; int nbAction = 0; int nbOpération = 0; int nbIndicateur = 0;
+
+            listeLien = Acces.Remplir_ListeLien(Acces.type_PLAN, plan.ID.ToString());
+
+            foreach(Lien p in listeLien)
+            {
+                string Parent = Acces.Trouver_TableValeur(p.element1_type).Code + "-" + p.element1_id.ToString();
+                string Enfant = Acces.Trouver_TableValeur(p.element2_type).Code + "-" + p.element2_id.ToString();
+                if (!(Enfant is null))
+                {
+                    Boolean Ajoute = true;
+                    //Création de l'élément enfant
+
+                    if (p.element2_type == Acces.type_OBJECTIF.id)
+                    //if (p.element2_type == Acces.Trouver_TableValeur_ID("TYPE_ELEMENT", p.element1_type.ToString()))
+                    {
+                        Objectif q = (Objectif)Acces.Trouver_Element(Acces.type_OBJECTIF.id, p.element2_id);
+                        if (!(q is null))
+                        {
+                            nbObjectif++;
+                        }
+                        else { Console.Ajouter("[Objectif non trouvé] ID:" + p.element2_id + " Code :" + p.element2_code); }
+                    }
+
+                    if (p.element2_type == Acces.type_ACTION.id)
+                    {
+                        PATIO.CAPA.Classes.Action q = (PATIO.CAPA.Classes.Action)Acces.Trouver_Element(Acces.type_ACTION.id, p.element2_id);
+                        if (!OptAfficherOpération.Checked) { Ajoute = (q.TypeAction == TypeAction.ACTION); }
+                        if (!(q is null))
+                        {
+                            if (q.TypeAction == TypeAction.ACTION) { nbAction++; }
+                            if (q.TypeAction == TypeAction.OPERATION) { nbOpération++; }
+                        }
+                        else { Console.Ajouter("[Action non trouvée] ID:" + p.element2_id + " CODE:" + p.element2_code); }
+                    }
+
+                    if (p.element2_type == Acces.type_INDICATEUR.id)
+                    {
+                        Ajoute = OptAfficherIndicateur.Checked;
+                        Indicateur q = (Indicateur)Acces.Trouver_Element(Acces.type_INDICATEUR.id, p.element2_id);
+                        if (!(q is null))
+                        {
+                            nbIndicateur++;
+                        }
+                        else { Console.Ajouter("[Indicateur non trouvée] ID:" + p.element2_id + " CODE:" + p.element2_code); }
+                    }
+                }
+            }
+
+            lblNbObjectif.Text = "Objectifs : " + nbObjectif.ToString();
+            lblNbAction.Text = "Actions : " + nbAction.ToString();
+            lblNbOpération.Text = "Opérations : " + nbOpération.ToString();
+            lblNbIndicateur.Text = "Indicateurs : " + nbIndicateur.ToString();
         }
 
         /// <summary>
@@ -299,20 +351,20 @@ namespace PATIO.CAPA.Interfaces
         /// </summary>
         int Donner_ImageIndex(int Type, int Id)
         {
-            int index=0;
+            int index = 0;
 
-            if(Type == Acces.type_OBJECTIF.id)
+            if (Type == Acces.type_OBJECTIF.id)
             {
                 TreeNode[] lst = ctrllisteobjectif.lstObjectif.Nodes.Find(Id.ToString(), true);
-                if(lst.Length>0)
+                if (lst.Length > 0)
                 {
-                    index = lst[0].ImageIndex; 
+                    index = lst[0].ImageIndex;
                 }
 
                 //Recherche de la positiondans la liste des images
-                for(int i=0;i<imgs.Count;i++)
+                for (int i = 0; i < imgs.Count; i++)
                 {
-                    if( (imgs[i].typeImg == Type) && (imgs[i].ImgId == index))
+                    if ((imgs[i].typeImg == Type) && (imgs[i].ImgId == index))
                     {
                         return imgs[i].Id;
                     }
@@ -387,7 +439,7 @@ namespace PATIO.CAPA.Interfaces
             ctrllisteobjectif.Acces = Acces;
             ctrllisteobjectif.DP = DP;
             ctrllisteobjectif.Console = Console;
-            ctrllisteobjectif.CodeRef = plan.Abrege;
+            ctrllisteobjectif.plan = plan;
             ctrllisteobjectif.InterfaceGestion = false;
             ctrllisteobjectif.Checked = true;
             ctrllisteobjectif.lblRecherche.Text = plan.Abrege.ToUpper();
@@ -460,7 +512,7 @@ namespace PATIO.CAPA.Interfaces
         /// </summary>
         void Ajouter_Lien()
         {
-            if(treeStructure.SelectedNode is null) { MessageBox.Show("Sélectionner un objet dans la structure"); return; }
+            if (treeStructure.SelectedNode is null) { MessageBox.Show("Sélectionner un objet dans la structure"); return; }
 
             TreeNode NodParent = treeStructure.SelectedNode;
 
@@ -469,7 +521,7 @@ namespace PATIO.CAPA.Interfaces
             int ElementParentId = int.Parse(NodParent.Name.ToString().Split('-')[1]);
             string ElementParentTypeSrc = NodParent.Name.ToString().Split('-')[0];
             string ElementParentCode = "";
-            int ElementParentType_id=0;
+            int ElementParentType_id = 0;
 
             //Recherche du code du noeud de destination
             if (ElementParentTypeSrc == Acces.type_PLAN.code)
@@ -495,7 +547,7 @@ namespace PATIO.CAPA.Interfaces
 
             Console.Ajouter("Destination : Id= " + ElementParentId + ", Code= " + ElementParentCode);
 
-            int ElementEnfantId =0;
+            int ElementEnfantId = 0;
             string ElementEnfantCode;
             string ElementEnfantType;
 
@@ -515,7 +567,7 @@ namespace PATIO.CAPA.Interfaces
                         Console.Ajouter("Origine Objectif : Id= " + ElementEnfantId.ToString());
                         //Vérification de la non-existence du même lien
                         if (Acces.Existe_Lien(Acces.type_PLAN, plan.ID, ElementParentId, ElementEnfantId))
-                            { MessageBox.Show("L'objectif " + obj.Code + " est déjà associé au noeud sélectionné"); goto Suite_Obj; }
+                        { MessageBox.Show("L'objectif " + obj.Code + " est déjà associé au noeud sélectionné"); goto Suite_Obj; }
                         //Création du lien entre l'élément à lier et le noeud de destination
 
                         l = new Lien()
@@ -533,7 +585,7 @@ namespace PATIO.CAPA.Interfaces
                             Acces = Acces,
                         };
 
-                        l.ordre = l.Donner_Ordre()+1;
+                        l.ordre = l.Donner_Ordre() + 1;
                         Console.Ajouter("Ordre lien= " + l.ordre.ToString());
 
                         l.Ajouter();
@@ -561,7 +613,7 @@ namespace PATIO.CAPA.Interfaces
 
                 case 1: //Action
                     ctrllisteaction.Trouver_Selection();
-                    foreach(PATIO.CAPA.Classes.Action action in ctrllisteaction.lAction)
+                    foreach (PATIO.CAPA.Classes.Action action in ctrllisteaction.lAction)
                     {
                         ElementEnfantId = action.ID;
                         ElementEnfantCode = action.Code;
@@ -569,7 +621,7 @@ namespace PATIO.CAPA.Interfaces
                         Console.Ajouter("Origine Action : Id= " + ElementEnfantId.ToString());
                         //Vérification de la non-existence du même lien
                         if (Acces.Existe_Lien(Acces.type_PLAN, plan.ID, ElementParentId, ElementEnfantId))
-                            { MessageBox.Show("L'action " + action.Code + " est déjà associé au noeud sélectionné"); goto Suite_Action; }
+                        { MessageBox.Show("L'action " + action.Code + " est déjà associé au noeud sélectionné"); goto Suite_Action; }
                         //Création du lien entre l'élément à lier et le noeud de destination
                         l = new Lien()
                         {
@@ -584,7 +636,7 @@ namespace PATIO.CAPA.Interfaces
                             element2_code = ElementEnfantCode,
                             Acces = Acces,
                         };
-                        l.ordre = l.Donner_Ordre()+1;
+                        l.ordre = l.Donner_Ordre() + 1;
                         Console.Ajouter("Ordre lien= " + l.ordre.ToString());
                         l.Ajouter();
                         Acces.Ajouter_Lien(l);
@@ -597,7 +649,7 @@ namespace PATIO.CAPA.Interfaces
                             Name = Acces.type_ACTION.code + "-" + action.ID.ToString(),
                             ImageIndex = Donner_ImageIndex(Acces.type_ACTION.id, action.ID),
                             ToolTipText = action.Code,
-                            Tag =l,
+                            Tag = l,
                         };
                         if (action.ActionPhare) { Nd.ImageIndex = imgs[PosImageActionPhare].Id; }
 
@@ -636,7 +688,7 @@ namespace PATIO.CAPA.Interfaces
                             element2_code = ElementEnfantCode,
                             Acces = Acces,
                         };
-                        l.ordre = l.Donner_Ordre()+1;
+                        l.ordre = l.Donner_Ordre() + 1;
                         Console.Ajouter("Ordre lien= " + l.ordre.ToString());
                         l.Ajouter();
                         Acces.Ajouter_Lien(l);
@@ -649,7 +701,7 @@ namespace PATIO.CAPA.Interfaces
                             Name = Acces.type_INDICATEUR.code + "-" + indic.ID.ToString(),
                             ImageIndex = Donner_ImageIndex(Acces.type_INDICATEUR.id, indic.ID),
                             ToolTipText = indic.Code,
-                            Tag =l,
+                            Tag = l,
                         };
                         NodParent.Nodes.Add(Nd);
                         Nd.EnsureVisible();
@@ -667,6 +719,8 @@ namespace PATIO.CAPA.Interfaces
 
             TreeNode[] Nod = treeStructure.Nodes.Find(NodParent.Name, true);
             if (Nod.Length > 0) { treeStructure.SelectedNode = Nod[0]; Nod[0].EnsureVisible(); Nod[0].ExpandAll(); }
+
+            Afficher_Stat();
         }
 
         /// <summary>
@@ -686,18 +740,19 @@ namespace PATIO.CAPA.Interfaces
 
             TreeNode Nod = treeStructure.SelectedNode;
 
-            if(Nod.Nodes.Count>0) //Un noeud ne peut pas être supprimé s'il a des enfants
+            if (Nod.Nodes.Count > 0) //Un noeud ne peut pas être supprimé s'il a des enfants
             {
                 MessageBox.Show("Impossible de supprimer un noeud ayant des fils", "Erreur");
                 return;
             }
 
-            Lien l =(Lien) treeStructure.SelectedNode.Tag;
+            Lien l = (Lien)treeStructure.SelectedNode.Tag;
             l.Acces = Acces;
             l.Supprimer();
             Acces.Supprimer_Lien(l);
             listeLien.Remove(l);
             treeStructure.Nodes.Remove(Nod);
+            Afficher_Stat();
         }
 
         /// <summary>
@@ -732,7 +787,7 @@ namespace PATIO.CAPA.Interfaces
             var n = 0;
             var ok = false;
             //Détermine le nombre d'éléments du type sélectionné
-            foreach(TreeNode nod in Parent.Nodes)
+            foreach (TreeNode nod in Parent.Nodes)
             {
                 if (nod.Name.Split('-')[0] == typeElement)
                 {
@@ -749,7 +804,7 @@ namespace PATIO.CAPA.Interfaces
             }
             if (n == 1) { return; }                             //Le nombre d'éléments du type sélectionné est = 1
                                                                 //Inutile de monter
-            if(NodDest is null) { return; }
+            if (NodDest is null) { return; }
 
             var typeElementParent = Parent.Name.Split('-')[0];          //Détermine le type de l'élément parent
             var idElementParent = Parent.Name.Split('-')[1];               //Détermine l'ID du parent
@@ -772,16 +827,16 @@ namespace PATIO.CAPA.Interfaces
             foreach (var lst in listeLien)
             {
                 //Recherche le lien 
-                if(lst.element2_id == int.Parse(idElementDest) 
-                    && lst.element2_type == element2_type_id 
-                    && lst.element1_id == int.Parse(idElementParent) 
+                if (lst.element2_id == int.Parse(idElementDest)
+                    && lst.element2_type == element2_type_id
+                    && lst.element1_id == int.Parse(idElementParent)
                     && lst.element1_type == element1_type_id)
                 {
                     lienDest = lst;
                 }
-                if (lst.element2_id == int.Parse(idElement) 
+                if (lst.element2_id == int.Parse(idElement)
                     && lst.element2_type == element2_type_id
-                    && lst.element1_id == int.Parse(idElementParent) 
+                    && lst.element1_id == int.Parse(idElementParent)
                     && lst.element1_type == element1_type_id)
                 {
                     lien = lst;
@@ -792,7 +847,7 @@ namespace PATIO.CAPA.Interfaces
             var ordreDest = lienDest.ordre;
 
             //Correction éventuelle
-            if(ordreDest == ordre) { ordreDest = ordre - 1; }
+            if (ordreDest == ordre) { ordreDest = ordre - 1; }
 
             lienDest.ordre = ordre;
             lien.ordre = ordreDest;
@@ -805,7 +860,7 @@ namespace PATIO.CAPA.Interfaces
 
             Afficher_Structure();
 
-            TreeNode[] nd = treeStructure.Nodes.Find( Nod.Name, true);
+            TreeNode[] nd = treeStructure.Nodes.Find(Nod.Name, true);
             treeStructure.SelectedNode = nd[0];
             nd[0].EnsureVisible();
         }
@@ -854,7 +909,7 @@ namespace PATIO.CAPA.Interfaces
                 }
             }
             if (n == 1) { return; }                             //Le nombre d'éléments du type sélectionné est = 1
-            if(NodDest is null) { return; }
+            if (NodDest is null) { return; }
 
             var typeElementParent = Parent.Name.Split('-')[0];          //Détermine le type de l'élément parent
             var idElementParent = Parent.Name.Split('-')[1];            //Détermine l'ID du parent
@@ -873,16 +928,16 @@ namespace PATIO.CAPA.Interfaces
 
             foreach (var lst in listeLien)
             {
-                if (lst.element2_id == int.Parse(idElementDest) 
+                if (lst.element2_id == int.Parse(idElementDest)
                     && lst.element2_type == element2_type_id
-                    && lst.element1_id == int.Parse(idElementParent) 
+                    && lst.element1_id == int.Parse(idElementParent)
                     && lst.element1_type == element1_type_id)
                 {
                     lienDest = lst;
                 }
-                if (lst.element2_id == int.Parse(idElement) 
+                if (lst.element2_id == int.Parse(idElement)
                     && lst.element2_type == element2_type_id
-                    && lst.element1_id == int.Parse(idElementParent) 
+                    && lst.element1_id == int.Parse(idElementParent)
                     && lst.element1_type == element1_type_id)
                 {
                     lien = lst;
@@ -932,7 +987,7 @@ namespace PATIO.CAPA.Interfaces
             export.plan = plan;
             export.Exporter6PO();
 
-            MessageBox.Show("Fin de l'exportation du plan pour un import 6PO","Fin de traitement");
+            MessageBox.Show("Fin de l'exportation du plan pour un import 6PO", "Fin de traitement");
         }
 
         /// <summary>
@@ -1018,7 +1073,7 @@ namespace PATIO.CAPA.Interfaces
 
             string Code1 = ""; string Code2 = "";
 
-            switch(element1_type_id)
+            switch (element1_type_id)
             {
                 case 1:
                     {
@@ -1092,7 +1147,7 @@ namespace PATIO.CAPA.Interfaces
             Afficher_Structure();
 
             TreeNode[] Nd = treeStructure.Nodes.Find(nodSrc.Name, true);
-            if(Nd.Length>0) { treeStructure.SelectedNode = Nd[0]; Nd[0].EnsureVisible(); }
+            if (Nd.Length > 0) { treeStructure.SelectedNode = Nd[0]; Nd[0].EnsureVisible(); }
 
         }
 
@@ -1109,37 +1164,37 @@ namespace PATIO.CAPA.Interfaces
         /// </summary>
         void Ouvrir_Element()
         {
-            if(treeStructure.SelectedNode is null) { return; }
+            if (treeStructure.SelectedNode is null) { return; }
 
             string typeElement = treeStructure.SelectedNode.Name.Split('-')[0];
             string idElement = treeStructure.SelectedNode.Name.Split('-')[1];
 
             if (typeElement == Acces.type_PLAN.code)
-                    {
-                        ctrllisteplan.Acces=Acces;
-                        ctrllisteplan.plan = (Plan) Acces.Trouver_Element(Acces.type_PLAN.id, int.Parse(idElement));
-                        ctrllisteplan.Modifier_Plan();
-                        treeStructure.SelectedNode.Text = "Plan d'actions de " + ctrllisteplan.plan.NiveauPlan;
-                    }
+            {
+                ctrllisteplan.Acces = Acces;
+                ctrllisteplan.plan = (Plan)Acces.Trouver_Element(Acces.type_PLAN.id, int.Parse(idElement));
+                ctrllisteplan.Modifier_Plan();
+                treeStructure.SelectedNode.Text = "Plan d'actions de " + ctrllisteplan.plan.NiveauPlan;
+            }
 
             if (typeElement == Acces.type_OBJECTIF.code)
-                    {
-                        ctrllisteobjectif.obj =(Objectif) Acces.Trouver_Element(Acces.type_OBJECTIF.id, int.Parse(idElement));
-                        ctrllisteobjectif.Modifier_Objectif();
-                    }
+            {
+                ctrllisteobjectif.obj = (Objectif)Acces.Trouver_Element(Acces.type_OBJECTIF.id, int.Parse(idElement));
+                ctrllisteobjectif.Modifier_Objectif();
+            }
 
             if (typeElement == Acces.type_ACTION.code)
-                    {
-                        ctrllisteaction.action =(PATIO.CAPA.Classes.Action) Acces.Trouver_Element(Acces.type_ACTION.id, (int.Parse(idElement)));
-                        ctrllisteaction.plan = plan;
-                        ctrllisteaction.Modifier_Action();
-                    }
+            {
+                ctrllisteaction.action = (PATIO.CAPA.Classes.Action)Acces.Trouver_Element(Acces.type_ACTION.id, (int.Parse(idElement)));
+                ctrllisteaction.plan = plan;
+                ctrllisteaction.Modifier_Action();
+            }
 
             if (typeElement == Acces.type_INDICATEUR.code)
-                    {
-                        ctrllisteindicateur.indicateur =(Indicateur) Acces.Trouver_Element(Acces.type_INDICATEUR.id, int.Parse(idElement));
-                        ctrllisteindicateur.Modifier_Indicateur();
-                    }
+            {
+                ctrllisteindicateur.indicateur = (Indicateur)Acces.Trouver_Element(Acces.type_INDICATEUR.id, int.Parse(idElement));
+                ctrllisteindicateur.Modifier_Indicateur();
+            }
         }
 
         /// <summary>
@@ -1165,9 +1220,9 @@ namespace PATIO.CAPA.Interfaces
 
             foreach (Lien l in listeLien)
             {
-                if(l.element1_type == typeelement_id)
+                if (l.element1_type == typeelement_id)
                 {
-                    Objectif obj =(Objectif) Acces.Trouver_Element(Acces.type_OBJECTIF.id, l.element1_id);
+                    Objectif obj = (Objectif)Acces.Trouver_Element(Acces.type_OBJECTIF.id, l.element1_id);
 
                     obj.Acces = Acces;
                     string valeur = (obj.Pilote is null) ? "" : obj.Pilote.ID.ToString();
@@ -1183,7 +1238,7 @@ namespace PATIO.CAPA.Interfaces
                     Acces.MettreAJour_dElement(obj.ID, valeur, plan.Pilote.ID.ToString(), "PILOTE", attribut_id);
                 }
             }
-        
+
             Afficher();
 
             MessageBox.Show("Terminé");
@@ -1243,9 +1298,9 @@ namespace PATIO.CAPA.Interfaces
         private void MenuSupprimer_ElementSansRef_Click(object sender, EventArgs e)
         {
             int n = 0;
-            foreach(Lien l in listeLien)
+            foreach (Lien l in listeLien)
             {
-                if(l.element1_id ==0 || l.element2_id == 0)
+                if (l.element1_id == 0 || l.element2_id == 0)
                 {
                     n++;
                     l.Acces = Acces;
@@ -1254,7 +1309,7 @@ namespace PATIO.CAPA.Interfaces
             }
 
             Afficher();
-            MessageBox.Show( n + " liens supprimés. RECHARGER les données !!");
+            MessageBox.Show(n + " liens supprimés. RECHARGER les données !!");
         }
 
         /// <summary>
@@ -1281,7 +1336,7 @@ namespace PATIO.CAPA.Interfaces
         {
             treeVisu.Nodes.Clear();
 
-            if(treeStructure.SelectedNode is null) { return; }
+            if (treeStructure.SelectedNode is null) { return; }
 
             string id = treeStructure.SelectedNode.Name.Split('-')[1];
             string type_element = treeStructure.SelectedNode.Name.Split('-')[0];
@@ -1302,7 +1357,7 @@ namespace PATIO.CAPA.Interfaces
             nd.Nodes.Add(new TreeNode("ID : " + id));
             nd.Nodes.Add(new TreeNode("Code : " + plan.Code));
             nd.Nodes.Add(new TreeNode("Libelle : " + plan.Libelle));
-            nd.Nodes.Add(new TreeNode("Type : " + (TypePlan) plan.TypePlan));
+            nd.Nodes.Add(new TreeNode("Type : " + (TypePlan)plan.TypePlan));
             nd.Expand();
             treeVisu.Nodes.Add(nd);
 
@@ -1319,13 +1374,13 @@ namespace PATIO.CAPA.Interfaces
             nd.Expand();
             treeVisu.Nodes.Add(nd);
         }
-       
+
         /// <summary>
         /// Affichage des informations détaillées d'un objectif
         /// </summary>
         void Afficher_Objectif(string id)
         {
-            Objectif obj = (Objectif) Acces.Trouver_Element(Acces.type_OBJECTIF.id, int.Parse(id));
+            Objectif obj = (Objectif)Acces.Trouver_Element(Acces.type_OBJECTIF.id, int.Parse(id));
             TreeNode nd1 = new TreeNode("Objectif");
             nd1.Nodes.Add(new TreeNode("ID : " + id));
             nd1.Nodes.Add(new TreeNode("Code : " + obj.Code));
@@ -1339,7 +1394,7 @@ namespace PATIO.CAPA.Interfaces
             Element e = obj.Déconstruire();
 
             e.Liste.Sort();
-            foreach(dElement d in e.Liste)
+            foreach (dElement d in e.Liste)
             {
                 string valeur = "";
                 switch (d.Attribut_Code)
@@ -1347,15 +1402,15 @@ namespace PATIO.CAPA.Interfaces
                     case "PILOTE": { valeur = (Acces.Trouver_Utilisateur(int.Parse(d.Valeur))).Code; break; }
                     case "ROLE_6PO_COPILOTE": { valeur = (Acces.Trouver_Utilisateur(int.Parse(d.Valeur))).Code; break; }
                     case "ROLE_6PO_MANAGER": { valeur = (Acces.Trouver_Utilisateur(int.Parse(d.Valeur))).Code; break; }
-                    case "METEO": { valeur = Acces.Trouver_TableValeur_Valeur("METEO",d.Valeur); break; }
+                    case "METEO": { valeur = Acces.Trouver_TableValeur_Valeur("METEO", d.Valeur); break; }
                     case "TX_AVANCEMENT": { valeur = Acces.Trouver_TableValeur_Valeur("TX_AVANCEMENT", d.Valeur); break; }
-                   // case "STATUT": { valeur = Acces.Trouver_TableValeur(int.Parse( d.Valeur)).Code; break; }
+                    // case "STATUT": { valeur = Acces.Trouver_TableValeur(int.Parse( d.Valeur)).Code; break; }
                     case "TYPE": { valeur = Acces.Trouver_TableValeur_Valeur("TYPE_OBJECTIF", d.Valeur); break; }
                     default: { valeur = d.Valeur; break; }
                 }
                 //if (d.Attribut_Code.Substring(0, 1) != "_")
                 //{
-                    nd2.Nodes.Add(new TreeNode(d.Attribut_Code + " : " + valeur + "     [" + d.Valeur + "]"));
+                nd2.Nodes.Add(new TreeNode(d.Attribut_Code + " : " + valeur + "     [" + d.Valeur + "]"));
                 //}
             }
             nd2.Expand();
@@ -1373,7 +1428,7 @@ namespace PATIO.CAPA.Interfaces
             nd.Nodes.Add(new TreeNode("Code : " + action.Code));
             nd.Nodes.Add(new TreeNode("Libelle : " + action.Libelle));
             nd.Nodes.Add(new TreeNode("Type : " + (TypeAction)action.TypeAction));
-            nd.Nodes.Add(new TreeNode("Actif : " + (action.Actif ? "Oui":"Non")));
+            nd.Nodes.Add(new TreeNode("Actif : " + (action.Actif ? "Oui" : "Non")));
             nd.Expand();
             treeVisu.Nodes.Add(nd);
 
@@ -1393,12 +1448,12 @@ namespace PATIO.CAPA.Interfaces
                     //case "STATUT": { valeur = Acces.Trouver_TableValeur(int.Parse(d.Valeur)).Code; break; }
                     case "TYPE": { valeur = Acces.Trouver_TableValeur_Valeur("TYPE_ACTION", d.Valeur); break; }
                     case "VALIDATION_INTERNE": { valeur = Acces.Trouver_TableValeur_Valeur("VALIDATION_INTERNE", d.Valeur); break; }
-                    case "ACTION_PHARE": { valeur = (d.Valeur == "1") ? "OUI":"NON"; break; }
+                    case "ACTION_PHARE": { valeur = (d.Valeur == "1") ? "OUI" : "NON"; break; }
                     default: { valeur = d.Valeur; break; }
                 }
                 //if (d.Attribut_Code.Substring(0, 1) != "_")
                 //{
-                    nd2.Nodes.Add(new TreeNode(d.Attribut_Code + " : " + valeur + "      [" + d.Valeur + "]"));
+                nd2.Nodes.Add(new TreeNode(d.Attribut_Code + " : " + valeur + "      [" + d.Valeur + "]"));
                 //}
             }
             nd2.Expand();
@@ -1422,7 +1477,7 @@ namespace PATIO.CAPA.Interfaces
 
             //Recherche des pilotes invalides
             TreeNode nd01 = new TreeNode("Pilotes");
-            if(plan.Pilote is null) { nd01.Nodes.Add("PLA-" + plan.ID, "Plan " + plan.Code);  }
+            if (plan.Pilote is null) { nd01.Nodes.Add("PLA-" + plan.ID, "Plan " + plan.Code); }
             int typeelement_id = Acces.type_OBJECTIF.id;
 
             foreach (Lien l in listeLien)
@@ -1434,7 +1489,7 @@ namespace PATIO.CAPA.Interfaces
                 }
             }
 
-            typeelement_id =  Acces.type_ACTION.id;
+            typeelement_id = Acces.type_ACTION.id;
 
             foreach (Lien l in listeLien)
             {
@@ -1445,16 +1500,16 @@ namespace PATIO.CAPA.Interfaces
                 }
             }
 
-            if (nd01.Nodes.Count == 0 ) { nd01.Nodes.Add("Aucun problème"); }
+            if (nd01.Nodes.Count == 0) { nd01.Nodes.Add("Aucun problème"); }
             nd01.Expand();
             tree6PO.Nodes.Add(nd01);
 
             //Recherche des erreurs de liens
             TreeNode nd02 = new TreeNode("Erreurs de liens");
 
-            foreach(Lien l in listeLien)
+            foreach (Lien l in listeLien)
             {
-                if(l.element2_id == 0 && l.element2_code.Length>0)
+                if (l.element2_id == 0 && l.element2_code.Length > 0)
                 { nd02.Nodes.Add("L" + l.ID, "Lien " + l.ID.ToString()); }
             }
 
@@ -1486,7 +1541,7 @@ namespace PATIO.CAPA.Interfaces
         /// </summary>
         private void treeStructure_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if(e.KeyChar == (Char) Keys.Return) { Ouvrir_Element(); }
+            if (e.KeyChar == (Char)Keys.Return) { Ouvrir_Element(); }
         }
 
         /// <summary>
@@ -1526,7 +1581,7 @@ namespace PATIO.CAPA.Interfaces
 
             sql = "UPDATE lien SET element0_code= (SELECT element.code FROM element";
             sql += " WHERE lien.element0_id = element.id";
-            sql += " AND lien.element0_id = " + plan.ID +")";
+            sql += " AND lien.element0_id = " + plan.ID + ")";
             Acces.cls.Execute(sql);
             if (Acces.cls.erreur.Length > 0) { MessageBox.Show(Acces.cls.erreur, "Erreur"); }
 
@@ -1552,7 +1607,7 @@ namespace PATIO.CAPA.Interfaces
         /// </summary>
         private void btnCaseCocher_Click(object sender, EventArgs e)
         {
-            treeStructure.CheckBoxes = ! treeStructure.CheckBoxes;
+            treeStructure.CheckBoxes = !treeStructure.CheckBoxes;
         }
 
         /// <summary>
@@ -1569,10 +1624,10 @@ namespace PATIO.CAPA.Interfaces
         /// </summary>
         void ExtraitListeCocher(TreeNode ndG)
         {
-            foreach (TreeNode nd in ndG.Nodes) 
+            foreach (TreeNode nd in ndG.Nodes)
             {
-                if(nd.Checked == true) { ListeElementCocher.Add(int.Parse(nd.Name.Split('-')[1])); }
-                if(nd.Nodes.Count>0) { ExtraitListeCocher(nd); }
+                if (nd.Checked == true) { ListeElementCocher.Add(int.Parse(nd.Name.Split('-')[1])); }
+                if (nd.Nodes.Count > 0) { ExtraitListeCocher(nd); }
             }
         }
 
@@ -1603,7 +1658,7 @@ namespace PATIO.CAPA.Interfaces
             string element_type = nod.Name.Split('-')[0];
             int element_id = int.Parse(nod.Name.Split('-')[1]);
 
-            if(element_type != Acces.type_OBJECTIF.code && element_type != Acces.type_ACTION.code)
+            if (element_type != Acces.type_OBJECTIF.code && element_type != Acces.type_ACTION.code)
             {
                 MessageBox.Show("La modification ne s'applique à ce type d'élément. Uniquement Objectif et Action");
                 return;
@@ -1613,7 +1668,7 @@ namespace PATIO.CAPA.Interfaces
 
             //Recherche des informations techniques sur l'attribut
             int attribut_id = Acces.Trouver_Attribut_ID(element_type_id, attribut_code);
-            if(attribut_id == 0) { MessageBox.Show("L'attribut n'est pas connu pour ce type d'élément"); return; }
+            if (attribut_id == 0) { MessageBox.Show("L'attribut n'est pas connu pour ce type d'élément"); return; }
 
             List<string> ListeValeur = new List<string>();
 
@@ -1629,7 +1684,7 @@ namespace PATIO.CAPA.Interfaces
                 if (element_type_id == Acces.type_ACTION.id)
                 {
                     PATIO.CAPA.Classes.Action action = (PATIO.CAPA.Classes.Action)Acces.Trouver_Element(element_type_id, element_id);
-                    if(action.Pilote == null) { MessageBox.Show("Erreur dans la valeur initiale"); return; }
+                    if (action.Pilote == null) { MessageBox.Show("Erreur dans la valeur initiale"); return; }
                     ListeValeur.Add(action.Pilote.ID.ToString());
                 }
             }
@@ -1640,7 +1695,7 @@ namespace PATIO.CAPA.Interfaces
                 {
                     Objectif objectif = (Objectif)Acces.Trouver_Element(element_type_id, element_id);
                     if (objectif.Pilote == null) { MessageBox.Show("Erreur dans la valeur initiale"); return; }
-                    foreach(int k in objectif.Role_6PO_CoPilote)
+                    foreach (int k in objectif.Role_6PO_CoPilote)
                     {
                         ListeValeur.Add(k.ToString());
                     }
@@ -1668,7 +1723,7 @@ namespace PATIO.CAPA.Interfaces
         /// <summary>
         /// Actualise les droits pour l'élément sélectionné
         /// </summary>
-        void Actualiser_Droits_enfants(TreeNode nd, int element_type_id, int element_id, int attribut_id, string attribut_code, List<string> ListeValeur )
+        void Actualiser_Droits_enfants(TreeNode nd, int element_type_id, int element_id, int attribut_id, string attribut_code, List<string> ListeValeur)
         {
             string type = nd.Name.Split('-')[0];
             int type_id = Acces.Trouver_TableValeur_Code("TYPE_ELEMENT", type).ID;
@@ -1838,7 +1893,7 @@ namespace PATIO.CAPA.Interfaces
         /// </summary>
         void Editer_Fiche()
         {
-            if(treeStructure.SelectedNode == null) { return; }
+            if (treeStructure.SelectedNode == null) { return; }
 
             string type = treeStructure.SelectedNode.Name.Split('-')[0];
 
@@ -1853,7 +1908,5 @@ namespace PATIO.CAPA.Interfaces
 
             edite_fiche.Editer_Fiche();
         }
-
-
     }
 }

@@ -8,7 +8,7 @@ using PATIO.CAPA.Interfaces;
 using PATIO.Modules;
 using WeifenLuo.WinFormsUI.Docking;
 
-namespace PATIO.CAPA
+namespace PATIO.CAPA.Interfaces
 {
     public partial class ctrlListeAction : UserControl
     {
@@ -86,7 +86,7 @@ namespace PATIO.CAPA
             lstAction.Nodes.Clear();
 
             //Recherche de la liste des Actions
-            ListeAction=(List<PATIO.CAPA.Classes.Action>) Acces.Remplir_ListeElement(Acces.type_ACTION.id, "");
+            ListeAction = (List<PATIO.CAPA.Classes.Action>)Acces.Remplir_ListeElement(Acces.type_ACTION.id, "");
             ListeAction.Sort();
 
             string txt = lblRecherche.Text.Trim().ToUpper();
@@ -97,7 +97,7 @@ namespace PATIO.CAPA
                 T.Name = p.ID.ToString();
                 T.ForeColor = (p.Actif) ? Color.Black : Color.Red;
                 T.ImageIndex = Donner_IndexImage(p.TypeAction);
-                T.ToolTipText = p.Code + " (" + p.ID  + ")";
+                T.ToolTipText = p.Code + " (" + p.ID + ")";
                 if (txt.Length > 0)
                 {
                     if (p.Libelle.ToUpper().Contains(txt) || p.Code.ToUpper().Contains(txt))
@@ -143,14 +143,15 @@ namespace PATIO.CAPA
                     TreeNode parent = Nod1[0];
                     TreeNode Element = Nod2[0];
 
-                    if(parent.Name == Element.Name) { break; }
+                    if (parent.Name == Element.Name) { break; }
                     Element.Tag = p;
 
                     //Element.Remove();
                     lstAction.Nodes.Remove(Element);
                     parent.Nodes.Add(Element);
                 }
-                else {
+                else
+                {
                     if (p.element0_id > 0)
                     { /*Console.Ajouter("[Move Action] Erreur Lien" + p.ID);*/ }
                     else { if (p.element0_code.Length > 0) { Console.Ajouter("[Erreur Lien Action] Id : " + p.ID); } }
@@ -247,7 +248,7 @@ namespace PATIO.CAPA
             //f.action.Code = "ACT-" + code;
             f.action.Actif = true;
 
-            f.actionParent = (PATIO.CAPA.Classes.Action) Acces.Trouver_Element(Acces.type_ACTION.id, int.Parse(lstAction.SelectedNode.Name));
+            f.actionParent = (PATIO.CAPA.Classes.Action)Acces.Trouver_Element(Acces.type_ACTION.id, int.Parse(lstAction.SelectedNode.Name));
             Console.Ajouter("Action parent : " + f.actionParent.Code);
 
             f.Initialiser();
@@ -421,7 +422,7 @@ namespace PATIO.CAPA
             TreeNode NodDest = tree.GetNodeAt(pt);
             TreeNode nodSrc = (TreeNode)e.Data.GetData(typeof(TreeNode));
 
-            if(NodDest == nodSrc) { return; }//Système anti-bouclage
+            if (NodDest == nodSrc) { return; }//Système anti-bouclage
 
             //Prise en compte du changement en base
             //Recherche d'un lien du NodSrc
@@ -434,12 +435,12 @@ namespace PATIO.CAPA
             p.element0_type = Acces.type_PLAN.id; //SYSTEME
             p.element0_id = 1; //SYSTEME
             p.element0_code = "SYSTEME"; //SYSTEME
-            p.element1_type =Acces.type_ACTION.id;
+            p.element1_type = Acces.type_ACTION.id;
             p.element1_id = int.Parse(NodDest.Name);
-            p.element1_code = ((PATIO.CAPA.Classes.Action) Acces.Trouver_Element(Acces.type_ACTION.id,p.element1_id)).Code;
-            p.element2_type =Acces.type_ACTION.id;
+            p.element1_code = ((PATIO.CAPA.Classes.Action)Acces.Trouver_Element(Acces.type_ACTION.id, p.element1_id)).Code;
+            p.element2_type = Acces.type_ACTION.id;
             p.element2_id = int.Parse(nodSrc.Name);
-            p.element2_code = ((PATIO.CAPA.Classes.Action) Acces.Trouver_Element(Acces.type_ACTION.id,p.element2_id)).Code;
+            p.element2_code = ((PATIO.CAPA.Classes.Action)Acces.Trouver_Element(Acces.type_ACTION.id, p.element2_id)).Code;
             p.ordre = p.Donner_Ordre() + 1;
 
             p.Ajouter();
@@ -451,12 +452,12 @@ namespace PATIO.CAPA
             nd = (TreeNode)nodSrc.Clone();
             NodDest.Nodes.Add(nd);
             lstAction.SelectedNode = nd;
-            
+
             TreeNode[] Nods = lstAction.Nodes.Find(nodSrc.Name.ToString(), true);
 
             try { Nods[0].Remove(); } catch { }
         }
- 
+
         /// <summary>
         /// Procédure déclenchée lors de la validation d'une recherche
         /// </summary>
@@ -474,7 +475,7 @@ namespace PATIO.CAPA
             lAction = new List<PATIO.CAPA.Classes.Action>();
             foreach (TreeNode n in lstAction.Nodes)
             {
-                if (n.Checked) { lAction.Add((PATIO.CAPA.Classes.Action) Acces.Trouver_Element(Acces.type_ACTION.id,int.Parse(n.Name))); }
+                if (n.Checked) { lAction.Add((PATIO.CAPA.Classes.Action)Acces.Trouver_Element(Acces.type_ACTION.id, int.Parse(n.Name))); }
                 Explorer(n);
             }
         }
@@ -486,7 +487,7 @@ namespace PATIO.CAPA
         {
             foreach (TreeNode n in nod.Nodes)
             {
-                if (n.Checked) { lAction.Add((PATIO.CAPA.Classes.Action) Acces.Trouver_Element(Acces.type_ACTION.id,int.Parse(n.Name))); }
+                if (n.Checked) { lAction.Add((PATIO.CAPA.Classes.Action)Acces.Trouver_Element(Acces.type_ACTION.id, int.Parse(n.Name))); }
                 if (n.Nodes.Count > 0) { Explorer(n); }
             }
         }
@@ -505,13 +506,13 @@ namespace PATIO.CAPA
         /// </summary>
         void Supprimer_Lien()
         {
-            if(lstAction.SelectedNode is null) { return; }
+            if (lstAction.SelectedNode is null) { return; }
 
-            if(lstAction.SelectedNode.Parent is null) { return; }
+            if (lstAction.SelectedNode.Parent is null) { return; }
 
             List<Lien> ListeLienSysteme = Acces.Remplir_ListeLienSYSTEME(Acces.type_ACTION, lstAction.SelectedNode.Parent.Name, lstAction.SelectedNode.Name);
 
-            foreach(Lien ln in ListeLienSysteme)
+            foreach (Lien ln in ListeLienSysteme)
             {
                 ln.Acces = Acces;
                 ln.Supprimer();
@@ -529,7 +530,7 @@ namespace PATIO.CAPA
         {
             int id = int.Parse(lstAction.SelectedNode.Name);
 
-            action = (PATIO.CAPA.Classes.Action) Acces.Trouver_Element(Acces.type_ACTION.id, id);
+            action = (PATIO.CAPA.Classes.Action)Acces.Trouver_Element(Acces.type_ACTION.id, id);
             CodeRef = action.Code;
             Console.Ajouter("[LISTE_ACTION] CodeRef =" + CodeRef);
             Console.Ajouter("[LISTE_ACTION] OS =" + action._os);
@@ -545,12 +546,12 @@ namespace PATIO.CAPA
             //Actualise le titre de l'onglet
             WeifenLuo.WinFormsUI.Docking.DockContent d = (WeifenLuo.WinFormsUI.Docking.DockContent)DP.ActiveDocument;
             ctrlFicheAction f;
-            try { f = (ctrlFicheAction) d.Controls[0]; } catch { f = null; }
+            try { f = (ctrlFicheAction)d.Controls[0]; } catch { f = null; }
             if (f != null)
             {
                 if (f.Tag.ToString() == e.ID.ToString())
                 {
-                    d.TabText =  f.action.Code;
+                    d.TabText = f.action.Code;
                     this.Tag = e.ID.ToString();
                 }
             }
@@ -559,7 +560,8 @@ namespace PATIO.CAPA
             {
                 TreeNode[] nd = lstAction.Nodes.Find(f.action.ID.ToString(), true);
                 if (nd.Length > 0) { nd[0].Parent.Expand(); lstAction.SelectedNode = nd[0].Parent; }
-            } catch { }
+            }
+            catch { }
             //Active l'événement our une remontée avec des éléments de hiérarchie plus haute
             OnRaise_Evt_Modifier(new evt_Modifier(n_action.ToString()));
         }

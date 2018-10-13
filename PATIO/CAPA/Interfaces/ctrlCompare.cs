@@ -5,7 +5,7 @@ using System.Drawing;
 using System.Windows.Forms;
 using PATIO.CAPA.Classes;
 using PATIO.Modules;
-using PATIO.CAPA;
+using PATIO.CAPA.Interfaces;
 
 namespace PATIO.CAPA.Interfaces
 {

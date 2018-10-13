@@ -1,4 +1,4 @@
-﻿namespace PATIO.CAPA
+﻿namespace PATIO.CAPA.Interfaces
 {
     partial class ctrlListeAction
     {

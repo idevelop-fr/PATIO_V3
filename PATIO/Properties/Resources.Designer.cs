@@ -443,6 +443,16 @@ namespace PATIO.Properties {
         /// <summary>
         ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Checker_3 {
+            get {
+                object obj = ResourceManager.GetObject("Checker_3", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Diagnostic {
             get {
                 object obj = ResourceManager.GetObject("Diagnostic", resourceCulture);
@@ -623,6 +633,16 @@ namespace PATIO.Properties {
         /// <summary>
         ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap modifier {
+            get {
+                object obj = ResourceManager.GetObject("modifier", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap objectif {
             get {
                 object obj = ResourceManager.GetObject("objectif", resourceCulture);
@@ -636,6 +656,16 @@ namespace PATIO.Properties {
         internal static System.Drawing.Bitmap operation {
             get {
                 object obj = ResourceManager.GetObject("operation", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap orb {
+            get {
+                object obj = ResourceManager.GetObject("orb", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -713,6 +743,16 @@ namespace PATIO.Properties {
         /// <summary>
         ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap plus_orange {
+            get {
+                object obj = ResourceManager.GetObject("plus_orange", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap precedent {
             get {
                 object obj = ResourceManager.GetObject("precedent", resourceCulture);
@@ -726,6 +766,36 @@ namespace PATIO.Properties {
         internal static System.Drawing.Bitmap SP_D {
             get {
                 object obj = ResourceManager.GetObject("SP_D", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap sphere_modif {
+            get {
+                object obj = ResourceManager.GetObject("sphere_modif", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap sphere_plus {
+            get {
+                object obj = ResourceManager.GetObject("sphere_plus", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap sphere_supprimer {
+            get {
+                object obj = ResourceManager.GetObject("sphere_supprimer", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -756,6 +826,16 @@ namespace PATIO.Properties {
         internal static System.Drawing.Bitmap suivant {
             get {
                 object obj = ResourceManager.GetObject("suivant", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap supprimer {
+            get {
+                object obj = ResourceManager.GetObject("supprimer", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

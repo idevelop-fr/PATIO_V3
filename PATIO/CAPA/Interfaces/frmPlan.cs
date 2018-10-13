@@ -45,9 +45,9 @@ namespace PATIO.CAPA.Interfaces
             var n = 0;
             try
             {
-                foreach(var p in ListePilote)
+                foreach (var p in ListePilote)
                 {
-                    if(p.ID == plan.Pilote.ID)
+                    if (p.ID == plan.Pilote.ID)
                     {
                         lstPilote.SelectedIndex = n;
                         break;
@@ -105,7 +105,7 @@ namespace PATIO.CAPA.Interfaces
 
             listeTypePlan = Enum.GetNames(typeof(TypePlan));
 
-            foreach(var t in listeTypePlan)
+            foreach (var t in listeTypePlan)
             {
                 lstTypePlan.Items.Add(t);
             }
@@ -166,9 +166,9 @@ namespace PATIO.CAPA.Interfaces
             int Pilote = -1;
             try { Pilote = ListePilote[lstPilote.SelectedIndex].ID; } catch { }
 
-            if (LibPlan.Length==0)
+            if (LibPlan.Length == 0)
             {
-                MessageBox.Show("Libellé du plan d'actions obligatoire","Erreur",MessageBoxButtons.OK);
+                MessageBox.Show("Libellé du plan d'actions obligatoire", "Erreur", MessageBoxButtons.OK);
                 return;
             }
 
@@ -177,14 +177,14 @@ namespace PATIO.CAPA.Interfaces
                 MessageBox.Show("Code du plan d'actions obligatoire", "Erreur", MessageBoxButtons.OK);
                 return;
             }
- 
+
             plan.Libelle = LibPlan;
             plan.Code = CodePlan;
             plan.TypePlan = TypePlan;
             plan.Abrege = Abrege;
             plan.Actif = OptActive;
 
-            plan.Pilote =Acces.Trouver_Utilisateur(Pilote);
+            plan.Pilote = Acces.Trouver_Utilisateur(Pilote);
             plan.NiveauPlan = Niveau;
             plan.DateDebut = DDeb;
             plan.DateFin = DFin;
@@ -195,12 +195,19 @@ namespace PATIO.CAPA.Interfaces
             plan.Equipe = ChoixEquipe.ListeSelectionId;
             plan.GroupeExterne = lblGroupeExterne.Text.Trim();
 
+            plan._type = lblEntete.Text;
+            if (lblRef1.Text.Length > 0) { plan._ref1 = lblRef1.Text.Trim().ToUpper(); }
+            if (lblRef2.Text.Length > 0) { plan._ref2 = lblRef2.Text.Trim().ToUpper(); }
+            if (lblOS.Text.Length > 0) { plan._os = string.Format("{0:00}", int.Parse(lblOS.Text)); }
+            if (lblOG.Text.Length > 0) { plan._og = string.Format("{0:00}", int.Parse(lblOG.Text)); }
+
             if (Creation)
             {
                 if (!(Acces.Existe_Element(Acces.type_PLAN, "CODE", plan.Code)))
                 {
-                    plan.ID =   Acces.Ajouter_Element(Acces.type_PLAN, plan);
-                } else { MessageBox.Show("Plan existant (Code)", "Erreur"); return; }
+                    plan.ID = Acces.Ajouter_Element(Acces.type_PLAN, plan);
+                }
+                else { MessageBox.Show("Plan existant (Code)", "Erreur"); return; }
             }
             else
             {
@@ -208,7 +215,7 @@ namespace PATIO.CAPA.Interfaces
             }
 
             //Test du changement de code --> Impact sur les liens
-            if(lblCodePlan.Text != lblCodePlan.Tag.ToString())
+            if (lblCodePlan.Text != lblCodePlan.Tag.ToString())
             {
                 Lien l = new Lien() { Acces = Acces, };
                 l.MettreAJourCode(Acces.type_PLAN, plan.ID, plan.Code);
@@ -222,7 +229,7 @@ namespace PATIO.CAPA.Interfaces
             if (code is null) { return; }
 
             AfficheEntete();
-            string entete = (plan.Code.Length == 0)? "": plan.Code.ToString().Substring(0, 3);
+            string entete = (plan.Code.Length == 0) ? "" : plan.Code.ToString().Substring(0, 3);
             lblEntete.Text = entete;
 
             lblRef1.Text = plan._ref1;
@@ -241,7 +248,8 @@ namespace PATIO.CAPA.Interfaces
                 if (lblRef2.Text.Trim().ToUpper().Length > 0) { plan._ref2 = lblRef2.Text.Trim().ToUpper(); } //Référence secondaire
                 if (lblOS.Text.Trim().ToUpper().Length > 0) { plan._os = string.Format("{0:00}", int.Parse(lblOS.Text)); }
                 if (lblOG.Text.Trim().ToUpper().Length > 0) { plan._og = string.Format("{0:00}", int.Parse(lblOG.Text)); }
-            } catch { }
+            }
+            catch { }
             code += (plan._ref1.Length > 0) ? "-" + plan._ref1 : "";
             code += (plan._ref2.Length > 0) ? "-" + plan._ref2 : "";
             code += (plan._os.Length > 0) ? "-OS" + plan._os : "";
@@ -262,7 +270,7 @@ namespace PATIO.CAPA.Interfaces
         }
 
         void AfficheEntete()
-        { 
+        {
             if (fonc.DonneTypePlan(lstTypePlan.Text) == TypePlan.DOSSIER) { lblEntete.Text = "PXX"; }
             if (fonc.DonneTypePlan(lstTypePlan.Text) == TypePlan.NATIONAL) { lblEntete.Text = "PAN"; }
             if (fonc.DonneTypePlan(lstTypePlan.Text) == TypePlan.REGIONAL) { lblEntete.Text = "PAR"; }

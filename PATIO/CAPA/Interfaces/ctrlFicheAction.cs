@@ -13,7 +13,7 @@ namespace PATIO.CAPA.Interfaces
         /// </summary>
         public PATIO.CAPA.Classes.Action action;
         public PATIO.CAPA.Classes.Action actionParent;
-        public PATIO.CAPA.Classes.AccesNet Acces;
+        public AccesNet Acces;
         public Boolean Creation = false;
         public int PropId;
         public Plan plan;
@@ -271,10 +271,19 @@ namespace PATIO.CAPA.Interfaces
 
             //Onglet Suivi évaluation
             lblResultatLivrable.Text = action.ResultatLivrable;
+            lblResultatLivrable.Height = Hauteur;
+
             lblNbPersImpact.Text = action.NbPersImpact;
+            lblNbPersImpact.Height = Hauteur;
+
             lblNbActeur.Text = action.NbActeurMobilise;
+            lblNbActeur.Height = Hauteur;
+
             lblIndicResultat.Text = action.IndicResultat;
+            lblIndicResultat.Height = Hauteur;
+
             lblIndicMoyen.Text = action.IndicMoyen;
+            lblIndicMoyen.Height = Hauteur;
 
             //Onglet Calendrier, gouvernance
             ChoixAnnee.Initialiser();

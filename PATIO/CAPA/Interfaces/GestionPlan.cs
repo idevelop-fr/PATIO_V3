@@ -1,5 +1,5 @@
 ﻿using System.Windows.Forms;
-using PATIO.CAPA.Classes;
+using PATIO.ADMIN;
 using PATIO.Modules;
 
 namespace PATIO.CAPA.Interfaces

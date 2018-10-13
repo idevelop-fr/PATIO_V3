@@ -6,7 +6,7 @@ using PATIO.CAPA.Classes;
 using System.Diagnostics;
 using PATIO.Modules;
 
-namespace PATIO.CAPA.Interfaces
+namespace PATIO.Modules
 {
     class EditionFiche
     {
@@ -18,7 +18,7 @@ namespace PATIO.CAPA.Interfaces
         public string type_element;
         public int id_element;
         public int id_parent;
-        public int ordre=0;
+        public int ordre = 0;
         public Boolean OuvertureAuto = true;
 
         Microsoft.Office.Interop.Excel.Application app;
@@ -82,7 +82,7 @@ namespace PATIO.CAPA.Interfaces
             //Passe 1 : les objectifs
             foreach (Lien l in listeLien)
             {
-                if(l.element2_type != Acces.type_OBJECTIF.id) { goto Suite1; }
+                if (l.element2_type != Acces.type_OBJECTIF.id) { goto Suite1; }
 
                 Objectif obj = (Objectif)Acces.Trouver_Element(Acces.type_OBJECTIF.id, l.element2_id);
 
@@ -93,7 +93,7 @@ namespace PATIO.CAPA.Interfaces
                 r.Value = obj.Libelle;
 
                 r = ws.Cells[n_ligne, 22];
-                r.Value = obj.Code.Replace("OBJ-","");
+                r.Value = obj.Code.Replace("OBJ-", "");
                 Suite1:;
             }
 
@@ -104,7 +104,7 @@ namespace PATIO.CAPA.Interfaces
 
                 PATIO.CAPA.Classes.Action action = (PATIO.CAPA.Classes.Action)Acces.Trouver_Element(Acces.type_ACTION.id, l.element2_id);
 
-                if(action.TypeAction != TypeAction.ACTION) { goto Suite2; }
+                if (action.TypeAction != TypeAction.ACTION) { goto Suite2; }
                 n_ligne++;
                 r = ws.Cells[n_ligne, 3];
                 r.Value = action.Libelle;
@@ -120,22 +120,22 @@ namespace PATIO.CAPA.Interfaces
                 if (action.OrdreActionPhare > 0) { r.Value = Acces.Trouver_TableValeur(action.OrdreActionPhare).Valeur; }
 
                 r = ws.Cells[n_ligne, 8]; //Année 2018
-                r.Interior.Color = Acces.Exister_Valeur(action.AnneeMiseOeuvre, "ANNEE_MO", "2018") ? XlRgbColor.rgbLightBlue : XlRgbColor.rgbWhite;
+                r.Interior.Color = Acces.Exister_Valeur(action.AnneeMiseOeuvre, "ANNEE_MO", "2018", "") ? XlRgbColor.rgbLightBlue : XlRgbColor.rgbWhite;
                 r.Value = action.Mt_2018;
                 r = ws.Cells[n_ligne, 9]; //Année 2019
-                r.Interior.Color = Acces.Exister_Valeur(action.AnneeMiseOeuvre, "ANNEE_MO", "2019") ? XlRgbColor.rgbLightBlue : XlRgbColor.rgbWhite;
+                r.Interior.Color = Acces.Exister_Valeur(action.AnneeMiseOeuvre, "ANNEE_MO", "2019", "") ? XlRgbColor.rgbLightBlue : XlRgbColor.rgbWhite;
                 r.Value = action.Mt_2019;
                 r = ws.Cells[n_ligne, 10]; //Année 2020
-                r.Interior.Color = Acces.Exister_Valeur(action.AnneeMiseOeuvre, "ANNEE_MO", "2020") ? XlRgbColor.rgbLightBlue : XlRgbColor.rgbWhite;
+                r.Interior.Color = Acces.Exister_Valeur(action.AnneeMiseOeuvre, "ANNEE_MO", "2020", "") ? XlRgbColor.rgbLightBlue : XlRgbColor.rgbWhite;
                 r.Value = action.Mt_2020;
                 r = ws.Cells[n_ligne, 11]; //Année 2021
-                r.Interior.Color = Acces.Exister_Valeur(action.AnneeMiseOeuvre, "ANNEE_MO", "2021") ? XlRgbColor.rgbLightBlue : XlRgbColor.rgbWhite;
+                r.Interior.Color = Acces.Exister_Valeur(action.AnneeMiseOeuvre, "ANNEE_MO", "2021", "") ? XlRgbColor.rgbLightBlue : XlRgbColor.rgbWhite;
                 r.Value = action.Mt_2021;
                 r = ws.Cells[n_ligne, 12]; //Année 2022
-                r.Interior.Color = Acces.Exister_Valeur(action.AnneeMiseOeuvre, "ANNEE_MO", "2022") ? XlRgbColor.rgbLightBlue : XlRgbColor.rgbWhite;
+                r.Interior.Color = Acces.Exister_Valeur(action.AnneeMiseOeuvre, "ANNEE_MO", "2022", "") ? XlRgbColor.rgbLightBlue : XlRgbColor.rgbWhite;
                 r.Value = action.Mt_2022;
                 r = ws.Cells[n_ligne, 13]; //Année 2023
-                r.Interior.Color = Acces.Exister_Valeur(action.AnneeMiseOeuvre, "ANNEE_MO", "2023") ? XlRgbColor.rgbLightBlue : XlRgbColor.rgbWhite;
+                r.Interior.Color = Acces.Exister_Valeur(action.AnneeMiseOeuvre, "ANNEE_MO", "2023", "") ? XlRgbColor.rgbLightBlue : XlRgbColor.rgbWhite;
                 r.Value = action.Mt_2023;
                 r = ws.Cells[n_ligne, 14]; //Financement
                 r.Value = action.CoutFinancier;
@@ -145,25 +145,25 @@ namespace PATIO.CAPA.Interfaces
                 }
 
                 r = ws.Cells[n_ligne, 15]; //TDS MF
-                r.Value = Acces.Exister_Valeur(action.TSante, "TSANTE", "TS591") ? "X" : "";
-                r.Interior.Color = Acces.Exister_Valeur(action.Priorite_CTS, "PRIO_CTS_591", "", true) ? XlRgbColor.rgbLightBlue : XlRgbColor.rgbWhite;
+                r.Value = Acces.Exister_Valeur(action.TSante, "TSANTE", "", "TS591") ? "X" : "";
+                r.Interior.Color = Acces.Exister_Valeur(action.Priorite_CTS, "PRIO_CTS_591", "", "", true) ? XlRgbColor.rgbLightBlue : XlRgbColor.rgbWhite;
                 r = ws.Cells[n_ligne, 16]; //TDS Hainaut
-                r.Value = Acces.Exister_Valeur(action.TSante, "TSANTE", "TS592") ? "X" : "";
-                r.Interior.Color = Acces.Exister_Valeur(action.Priorite_CTS, "PRIO_CTS_592", "", true) ? XlRgbColor.rgbLightBlue : XlRgbColor.rgbWhite;
+                r.Value = Acces.Exister_Valeur(action.TSante, "TSANTE", "", "TS592") ? "X" : "";
+                r.Interior.Color = Acces.Exister_Valeur(action.Priorite_CTS, "PRIO_CTS_592", "", "", true) ? XlRgbColor.rgbLightBlue : XlRgbColor.rgbWhite;
                 r = ws.Cells[n_ligne, 17]; //TDS 62
-                r.Value = Acces.Exister_Valeur(action.TSante, "TSANTE", "TS62") ? "X" : "";
-                r.Interior.Color = Acces.Exister_Valeur(action.Priorite_CTS, "PRIO_CTS_62", "", true) ? XlRgbColor.rgbLightBlue : XlRgbColor.rgbWhite;
+                r.Value = Acces.Exister_Valeur(action.TSante, "TSANTE", "", "TS62") ? "X" : "";
+                r.Interior.Color = Acces.Exister_Valeur(action.Priorite_CTS, "PRIO_CTS_62", "", "", true) ? XlRgbColor.rgbLightBlue : XlRgbColor.rgbWhite;
                 r = ws.Cells[n_ligne, 18]; //TDS 80
-                r.Value = Acces.Exister_Valeur(action.TSante, "TSANTE", "TS80") ? "X" : "";
-                r.Interior.Color = Acces.Exister_Valeur(action.Priorite_CTS, "PRIO_CTS_80", "", true) ? XlRgbColor.rgbLightBlue : XlRgbColor.rgbWhite;
+                r.Value = Acces.Exister_Valeur(action.TSante, "TSANTE", "", "TS80") ? "X" : "";
+                r.Interior.Color = Acces.Exister_Valeur(action.Priorite_CTS, "PRIO_CTS_80", "", "", true) ? XlRgbColor.rgbLightBlue : XlRgbColor.rgbWhite;
                 r = ws.Cells[n_ligne, 19]; //TDS 60
-                r.Value = Acces.Exister_Valeur(action.TSante, "TSANTE", "TS60") ? "X" : "";
-                r.Interior.Color = Acces.Exister_Valeur(action.Priorite_CTS, "PRIO_CTS_60", "", true) ? XlRgbColor.rgbLightBlue : XlRgbColor.rgbWhite;
+                r.Value = Acces.Exister_Valeur(action.TSante, "TSANTE", "", "TS60") ? "X" : "";
+                r.Interior.Color = Acces.Exister_Valeur(action.Priorite_CTS, "PRIO_CTS_60", "", "", true) ? XlRgbColor.rgbLightBlue : XlRgbColor.rgbWhite;
                 r = ws.Cells[n_ligne, 20]; //TDS 02
-                r.Value = Acces.Exister_Valeur(action.TSante, "TSANTE", "TS02") ? "X" : "";
-                r.Interior.Color = Acces.Exister_Valeur(action.Priorite_CTS, "PRIO_CTS_02", "", true) ? XlRgbColor.rgbLightBlue : XlRgbColor.rgbWhite;
+                r.Value = Acces.Exister_Valeur(action.TSante, "TSANTE", "", "TS02") ? "X" : "";
+                r.Interior.Color = Acces.Exister_Valeur(action.Priorite_CTS, "PRIO_CTS_02", "", "", true) ? XlRgbColor.rgbLightBlue : XlRgbColor.rgbWhite;
                 r = ws.Cells[n_ligne, 21]; //REGION
-                r.Value = Acces.Exister_Valeur(action.TSante, "TSANTE", "REGION") ? "X" : "";
+                r.Value = Acces.Exister_Valeur(action.TSante, "TSANTE", "REGION", "") ? "X" : "";
 
                 r = ws.Cells[n_ligne, 22];
                 r.Value = action.Code.Replace("ACT-", "");
@@ -183,9 +183,9 @@ namespace PATIO.CAPA.Interfaces
                 r.Value = action.Libelle;
 
                 r = ws.Cells[n_ligne, 6];
-                string pilote="";
-                pilote = Acces.Donner_Chaine_Liste(action.DirectionPilote,"DIRECTION_METIER","",true);
-                pilote += (action.Pilote != null)? "\n" + action.Pilote.Nom + " " + action.Pilote.Prenom : plan.Pilote.Nom + " " + plan.Pilote.Prenom;
+                string pilote = "";
+                pilote = Acces.Donner_Chaine_Liste(action.DirectionPilote, "DIRECTION_METIER", "", true);
+                pilote += (action.Pilote != null) ? "\n" + action.Pilote.Nom + " " + action.Pilote.Prenom : plan.Pilote.Nom + " " + plan.Pilote.Prenom;
                 r.Value = pilote;
 
                 r = ws.Cells[n_ligne, 7];
@@ -193,22 +193,22 @@ namespace PATIO.CAPA.Interfaces
                 if (action.OrdreActionPhare > 0) { r.Value = Acces.Trouver_TableValeur(action.OrdreActionPhare).Valeur; }
 
                 r = ws.Cells[n_ligne, 8]; //Année 2018
-                r.Interior.Color = Acces.Exister_Valeur(action.AnneeMiseOeuvre, "ANNEE_MO", "2018") ? XlRgbColor.rgbLightBlue : XlRgbColor.rgbWhite;
+                r.Interior.Color = Acces.Exister_Valeur(action.AnneeMiseOeuvre, "ANNEE_MO", "2018", "") ? XlRgbColor.rgbLightBlue : XlRgbColor.rgbWhite;
                 r.Value = action.Mt_2018;
                 r = ws.Cells[n_ligne, 9]; //Année 2019
-                r.Interior.Color = Acces.Exister_Valeur(action.AnneeMiseOeuvre, "ANNEE_MO", "2019") ? XlRgbColor.rgbLightBlue : XlRgbColor.rgbWhite;
+                r.Interior.Color = Acces.Exister_Valeur(action.AnneeMiseOeuvre, "ANNEE_MO", "2019", "") ? XlRgbColor.rgbLightBlue : XlRgbColor.rgbWhite;
                 r.Value = action.Mt_2019;
                 r = ws.Cells[n_ligne, 10]; //Année 2020
-                r.Interior.Color = Acces.Exister_Valeur(action.AnneeMiseOeuvre, "ANNEE_MO", "2020") ? XlRgbColor.rgbLightBlue : XlRgbColor.rgbWhite;
+                r.Interior.Color = Acces.Exister_Valeur(action.AnneeMiseOeuvre, "ANNEE_MO", "2020", "") ? XlRgbColor.rgbLightBlue : XlRgbColor.rgbWhite;
                 r.Value = action.Mt_2020;
                 r = ws.Cells[n_ligne, 11]; //Année 2021
-                r.Interior.Color = Acces.Exister_Valeur(action.AnneeMiseOeuvre, "ANNEE_MO", "2021") ? XlRgbColor.rgbLightBlue : XlRgbColor.rgbWhite;
+                r.Interior.Color = Acces.Exister_Valeur(action.AnneeMiseOeuvre, "ANNEE_MO", "2021", "") ? XlRgbColor.rgbLightBlue : XlRgbColor.rgbWhite;
                 r.Value = action.Mt_2021;
                 r = ws.Cells[n_ligne, 12]; //Année 2022
-                r.Interior.Color = Acces.Exister_Valeur(action.AnneeMiseOeuvre, "ANNEE_MO", "2022") ? XlRgbColor.rgbLightBlue : XlRgbColor.rgbWhite;
+                r.Interior.Color = Acces.Exister_Valeur(action.AnneeMiseOeuvre, "ANNEE_MO", "2022", "") ? XlRgbColor.rgbLightBlue : XlRgbColor.rgbWhite;
                 r.Value = action.Mt_2022;
                 r = ws.Cells[n_ligne, 13]; //Année 2023
-                r.Interior.Color = Acces.Exister_Valeur(action.AnneeMiseOeuvre, "ANNEE_MO", "2023") ? XlRgbColor.rgbLightBlue : XlRgbColor.rgbWhite;
+                r.Interior.Color = Acces.Exister_Valeur(action.AnneeMiseOeuvre, "ANNEE_MO", "2023", "") ? XlRgbColor.rgbLightBlue : XlRgbColor.rgbWhite;
                 r.Value = action.Mt_2023;
                 r = ws.Cells[n_ligne, 14]; //Financement
                 r.Value = action.CoutFinancier;
@@ -218,25 +218,25 @@ namespace PATIO.CAPA.Interfaces
                 }
 
                 r = ws.Cells[n_ligne, 15]; //TDS MF
-                r.Value = Acces.Exister_Valeur(action.TSante, "TSANTE", "TS591") ? "X" : "";
-                r.Interior.Color = Acces.Exister_Valeur(action.Priorite_CTS, "PRIO_CTS_591", "", true) ? XlRgbColor.rgbLightBlue : XlRgbColor.rgbWhite;
+                r.Value = Acces.Exister_Valeur(action.TSante, "TSANTE", "", "TS591") ? "X" : "";
+                r.Interior.Color = Acces.Exister_Valeur(action.Priorite_CTS, "PRIO_CTS_591", "", "", true) ? XlRgbColor.rgbLightBlue : XlRgbColor.rgbWhite;
                 r = ws.Cells[n_ligne, 16]; //TDS Hainaut
-                r.Value = Acces.Exister_Valeur(action.TSante, "TSANTE", "TS592") ? "X" : "";
-                r.Interior.Color = Acces.Exister_Valeur(action.Priorite_CTS, "PRIO_CTS_592", "",true) ? XlRgbColor.rgbLightBlue : XlRgbColor.rgbWhite;
+                r.Value = Acces.Exister_Valeur(action.TSante, "TSANTE", "", "TS592") ? "X" : "";
+                r.Interior.Color = Acces.Exister_Valeur(action.Priorite_CTS, "PRIO_CTS_592", "", "", true) ? XlRgbColor.rgbLightBlue : XlRgbColor.rgbWhite;
                 r = ws.Cells[n_ligne, 17]; //TDS 62
-                r.Value = Acces.Exister_Valeur(action.TSante, "TSANTE", "TS62") ? "X" : "";
-                r.Interior.Color = Acces.Exister_Valeur(action.Priorite_CTS, "PRIO_CTS_62", "",true) ? XlRgbColor.rgbLightBlue : XlRgbColor.rgbWhite;
+                r.Value = Acces.Exister_Valeur(action.TSante, "TSANTE", "", "TS62") ? "X" : "";
+                r.Interior.Color = Acces.Exister_Valeur(action.Priorite_CTS, "PRIO_CTS_62", "", "", true) ? XlRgbColor.rgbLightBlue : XlRgbColor.rgbWhite;
                 r = ws.Cells[n_ligne, 18]; //TDS 80
-                r.Value = Acces.Exister_Valeur(action.TSante, "TSANTE", "TS80") ? "X" : "";
-                r.Interior.Color = Acces.Exister_Valeur(action.Priorite_CTS, "PRIO_CTS_80", "",true) ? XlRgbColor.rgbLightBlue : XlRgbColor.rgbWhite;
+                r.Value = Acces.Exister_Valeur(action.TSante, "TSANTE", "", "TS80") ? "X" : "";
+                r.Interior.Color = Acces.Exister_Valeur(action.Priorite_CTS, "PRIO_CTS_80", "", "", true) ? XlRgbColor.rgbLightBlue : XlRgbColor.rgbWhite;
                 r = ws.Cells[n_ligne, 19]; //TDS 60
-                r.Value = Acces.Exister_Valeur(action.TSante, "TSANTE", "TS60") ? "X" : "";
-                r.Interior.Color = Acces.Exister_Valeur(action.Priorite_CTS, "PRIO_CTS_60", "",true) ? XlRgbColor.rgbLightBlue : XlRgbColor.rgbWhite;
+                r.Value = Acces.Exister_Valeur(action.TSante, "TSANTE", "", "TS60") ? "X" : "";
+                r.Interior.Color = Acces.Exister_Valeur(action.Priorite_CTS, "PRIO_CTS_60", "", "", true) ? XlRgbColor.rgbLightBlue : XlRgbColor.rgbWhite;
                 r = ws.Cells[n_ligne, 20]; //TDS 02
-                r.Value = Acces.Exister_Valeur(action.TSante, "TSANTE", "TS02") ? "X" : "";
-                r.Interior.Color = Acces.Exister_Valeur(action.Priorite_CTS, "PRIO_CTS_02", "",true) ? XlRgbColor.rgbLightBlue : XlRgbColor.rgbWhite;
+                r.Value = Acces.Exister_Valeur(action.TSante, "TSANTE", "", "TS02") ? "X" : "";
+                r.Interior.Color = Acces.Exister_Valeur(action.Priorite_CTS, "PRIO_CTS_02", "", "", true) ? XlRgbColor.rgbLightBlue : XlRgbColor.rgbWhite;
                 r = ws.Cells[n_ligne, 21]; //REGION
-                r.Value = Acces.Exister_Valeur(action.TSante, "TSANTE", "REGION") ? "X" : "";
+                r.Value = Acces.Exister_Valeur(action.TSante, "TSANTE", "REGION", "") ? "X" : "";
 
                 //Définition de l'ordre : différent d'action car la structure diffère avec les directions métier
                 r = ws.Cells[n_ligne, 22];
@@ -389,7 +389,7 @@ namespace PATIO.CAPA.Interfaces
             r = ws.Cells[4, 2];
             if (action.Pilote != null) { r.Value = action.Pilote.Nom + " " + action.Pilote.Prenom; }
             r = ws.Cells[6, 2];
-            r.Value = Conversion( action.Description);
+            r.Value = Conversion(action.Description);
 
             r = ws.Cells[7, 2]; //Public cible
             r.Value = Acces.Donner_Chaine_Liste(action.PublicCible, "PUBLIC_CIBLE");
@@ -425,9 +425,9 @@ namespace PATIO.CAPA.Interfaces
             r.Value = Acces.Donner_Chaine_Liste(action.AnneeMiseOeuvre, "ANNEE_MO");
 
             r = ws.Cells[26, 2]; //Directions pilote
-            r.Value = Acces.Donner_Chaine_Liste(action.DirectionPilote, "DIRECTION_METIER","",true);
+            r.Value = Acces.Donner_Chaine_Liste(action.DirectionPilote, "DIRECTION_METIER", "", true);
             r = ws.Cells[27, 2]; //Directions associées
-            r.Value = Acces.Donner_Chaine_Liste(action.DirectionAssocie, "DIRECTION_METIER","",true);
+            r.Value = Acces.Donner_Chaine_Liste(action.DirectionAssocie, "DIRECTION_METIER", "", true);
 
             r = ws.Cells[29, 2]; //Lien avec les autres plans
             r.Value = Acces.Donner_Chaine_Liste(action.LienPlan, "LIEN_PLAN");
@@ -525,7 +525,7 @@ namespace PATIO.CAPA.Interfaces
             Encoding ascii = Encoding.UTF7;
             Encoding utf8 = Encoding.UTF8;
 
-            if(texte == null) { return ""; }
+            if (texte == null) { return ""; }
 
             byte[] utf8code = utf8.GetBytes(texte);
             byte[] asciicode = Encoding.Convert(utf8, ascii, utf8code);

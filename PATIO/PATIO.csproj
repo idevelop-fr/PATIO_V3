@@ -8,13 +8,13 @@
     <OutputType>WinExe</OutputType>
     <RootNamespace>PATIO</RootNamespace>
     <AssemblyName>PATIO</AssemblyName>
-    <TargetFrameworkVersion>v4.6</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <NuGetPackageImportStamp>
     </NuGetPackageImportStamp>
     <IsWebBootstrapper>false</IsWebBootstrapper>
     <TargetFrameworkProfile />
-    <PublishUrl>g:\packages\</PublishUrl>
+    <PublishUrl>D:\Utilisateurs\dofernagut\Google Drive\Projets\PATIO\packages\</PublishUrl>
     <Install>true</Install>
     <InstallFrom>Disk</InstallFrom>
     <UpdateEnabled>false</UpdateEnabled>
@@ -25,7 +25,7 @@
     <UpdateRequired>false</UpdateRequired>
     <MapFileExtensions>true</MapFileExtensions>
     <WebPage>publish.htm</WebPage>
-    <ApplicationRevision>1</ApplicationRevision>
+    <ApplicationRevision>2</ApplicationRevision>
     <ApplicationVersion>3.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <PublishWizardCompleted>true</PublishWizardCompleted>
@@ -88,6 +88,10 @@
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Design" />
+    <Reference Include="System.Windows.Forms.Ribbon">
+      <HintPath>..\..\Composants\DLL\System.Windows.Forms.Ribbon.dll</HintPath>
+    </Reference>
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -96,36 +100,65 @@
     <Reference Include="System.Drawing" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
+    <Reference Include="TenTec.Windows.iGridLib.iGrid.v4.6, Version=4.6.0.0, Culture=neutral, PublicKeyToken=9d47002745f2416c, processorArchitecture=MSIL">
+      <HintPath>..\packages\iGrid.NET.1.2.0\lib\TenTec.Windows.iGridLib.iGrid.v4.6.dll</HintPath>
+    </Reference>
     <Reference Include="WeifenLuo.WinFormsUI.Docking, Version=3.0.4.0, Culture=neutral, PublicKeyToken=5cded1a1a0a7b481, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\DLL\WeifenLuo.WinFormsUI.Docking.dll</HintPath>
     </Reference>
+    <Reference Include="WinFormsExpander">
+      <HintPath>..\..\Composants\DLL\WinFormsExpander.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ADMIN\ctrlAdmin_Attribut.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ADMIN\ctrlAdmin_Attribut.Designer.cs">
+      <DependentUpon>ctrlAdmin_Attribut.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ADMIN\ctrlAdmin_Parametre.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ADMIN\ctrlAdmin_Parametre.Designer.cs">
+      <DependentUpon>ctrlAdmin_Parametre.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ADMIN\ctrlAdmin_TableValeur.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ADMIN\ctrlAdmin_TableValeur.Designer.cs">
+      <DependentUpon>ctrlAdmin_TableValeur.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ADMIN\ctrlAdmin_User.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ADMIN\ctrlAdmin_User.Designer.cs">
+      <DependentUpon>ctrlAdmin_User.cs</DependentUpon>
+    </Compile>
     <Compile Include="CAPA\Interfaces\ctrlCompare.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="CAPA\Interfaces\ctrlCompare.Designer.cs">
       <DependentUpon>ctrlCompare.cs</DependentUpon>
     </Compile>
-    <Compile Include="CAPA\Classes\AccesNet.cs" />
-    <Compile Include="CAPA\Classes\Attribut.cs" />
-    <Compile Include="CAPA\Classes\dElement.cs" />
-    <Compile Include="CAPA\Classes\Element.cs" />
-    <Compile Include="CAPA\Classes\Lien.cs" />
-    <Compile Include="CAPA\Classes\Parametre.cs" />
-    <Compile Include="CAPA\Classes\table_valeur.cs" />
+    <Compile Include="iGrid Sample VB.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>iGrid Sample VB.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\AccesNet.cs" />
+    <Compile Include="Modules\Attribut.cs" />
+    <Compile Include="Modules\dElement.cs" />
+    <Compile Include="Modules\Element.cs" />
+    <Compile Include="Modules\Lien.cs" />
+    <Compile Include="Modules\Parametre.cs" />
+    <Compile Include="Modules\table_valeur.cs" />
     <Compile Include="Modules\TypeElement.cs" />
-    <Compile Include="CAPA\Interfaces\ctrlAdminParam.cs">
+    <Compile Include="Modules\ctrlChoixListe.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="CAPA\Interfaces\ctrlAdminParam.Designer.cs">
-      <DependentUpon>ctrlAdminParam.cs</DependentUpon>
-    </Compile>
-    <Compile Include="CAPA\Interfaces\ctrlChoixListe.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="CAPA\Interfaces\ctrlChoixListe.Designer.cs">
+    <Compile Include="Modules\ctrlChoixListe.Designer.cs">
       <DependentUpon>ctrlChoixListe.cs</DependentUpon>
     </Compile>
     <Compile Include="CAPA\Interfaces\ctrlCorrectif.cs">
@@ -176,34 +209,28 @@
     <Compile Include="CAPA\Interfaces\ctrlPlanCorrection.Designer.cs">
       <DependentUpon>ctrlPlanCorrection.cs</DependentUpon>
     </Compile>
-    <Compile Include="CAPA\Interfaces\ctrlReporting.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="CAPA\Interfaces\ctrlReporting.Designer.cs">
-      <DependentUpon>ctrlReporting.cs</DependentUpon>
-    </Compile>
-    <Compile Include="CAPA\Interfaces\frmAttribut.cs">
+    <Compile Include="ADMIN\frmAttribut.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="CAPA\Interfaces\frmAttribut.Designer.cs">
+    <Compile Include="ADMIN\frmAttribut.Designer.cs">
       <DependentUpon>frmAttribut.cs</DependentUpon>
     </Compile>
-    <Compile Include="CAPA\Interfaces\frmChoix.cs">
+    <Compile Include="Modules\frmChoix.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="CAPA\Interfaces\frmChoix.Designer.cs">
+    <Compile Include="Modules\frmChoix.Designer.cs">
       <DependentUpon>frmChoix.cs</DependentUpon>
     </Compile>
-    <Compile Include="CAPA\Interfaces\frmParametre.cs">
+    <Compile Include="ADMIN\frmParametre.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="CAPA\Interfaces\frmParametre.Designer.cs">
+    <Compile Include="ADMIN\frmParametre.Designer.cs">
       <DependentUpon>frmParametre.cs</DependentUpon>
     </Compile>
-    <Compile Include="CAPA\Interfaces\frmTableValeur.cs">
+    <Compile Include="ADMIN\frmTableValeur.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="CAPA\Interfaces\frmTableValeur.Designer.cs">
+    <Compile Include="ADMIN\frmTableValeur.Designer.cs">
       <DependentUpon>frmTableValeur.cs</DependentUpon>
     </Compile>
     <Compile Include="Modules\Utilisateur.cs" />
@@ -219,22 +246,16 @@
     <Compile Include="frmMain.Designer.cs">
       <DependentUpon>frmMain.cs</DependentUpon>
     </Compile>
-    <Compile Include="CAPA\Interfaces\ctrlAdmin.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="CAPA\Interfaces\ctrlAdmin.Designer.cs">
-      <DependentUpon>ctrlAdmin.cs</DependentUpon>
-    </Compile>
     <Compile Include="Modules\ctrlConsole.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="Modules\ctrlConsole.Designer.cs">
       <DependentUpon>ctrlConsole.cs</DependentUpon>
     </Compile>
-    <Compile Include="CAPA\Interfaces\ctrlExport.cs">
+    <Compile Include="ADMIN\ctrlExport.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="CAPA\Interfaces\ctrlExport.Designer.cs">
+    <Compile Include="ADMIN\ctrlExport.Designer.cs">
       <DependentUpon>ctrlExport.cs</DependentUpon>
     </Compile>
     <Compile Include="CAPA\Interfaces\ctrlGroupe.cs">
@@ -291,10 +312,10 @@
     <Compile Include="CAPA\Interfaces\ctrlListePlan.Designer.cs">
       <DependentUpon>ctrlListePlan.cs</DependentUpon>
     </Compile>
-    <Compile Include="CAPA\Interfaces\ctrlListeUtilisateur.cs">
+    <Compile Include="ADMIN\ctrlListeUtilisateur.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="CAPA\Interfaces\ctrlListeUtilisateur.Designer.cs">
+    <Compile Include="ADMIN\ctrlListeUtilisateur.Designer.cs">
       <DependentUpon>ctrlListeUtilisateur.cs</DependentUpon>
     </Compile>
     <Compile Include="CAPA\Interfaces\ctrlPlan.cs">
@@ -330,10 +351,10 @@
     <Compile Include="CAPA\Interfaces\frmPlan.Designer.cs">
       <DependentUpon>frmPlan.cs</DependentUpon>
     </Compile>
-    <Compile Include="CAPA\Interfaces\frmUser.cs">
+    <Compile Include="ADMIN\frmUser.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="CAPA\Interfaces\frmUser.Designer.cs">
+    <Compile Include="ADMIN\frmUser.Designer.cs">
       <DependentUpon>frmUser.cs</DependentUpon>
     </Compile>
     <Compile Include="CAPA\Interfaces\GestionPlan.cs">
@@ -350,12 +371,36 @@
     <Compile Include="CAPA\Classes\Plan.cs" />
     <Compile Include="Modules\ClassePHP.cs" />
     <Compile Include="Modules\pdf.cs" />
-    <Compile Include="OMEGA\Classes\AccesNet.cs" />
-    <Compile Include="OMEGA\Classes\dElement.cs" />
-    <Compile Include="OMEGA\Classes\Element.cs" />
-    <Compile Include="OMEGA\Classes\Lien.cs" />
+    <Compile Include="OMEGA\Classes\Budget.cs" />
+    <Compile Include="OMEGA\Classes\Decision.cs" />
+    <Compile Include="OMEGA\Classes\Echeance.cs" />
+    <Compile Include="OMEGA\Classes\Enveloppe.cs" />
+    <Compile Include="OMEGA\Classes\Fiche.cs" />
+    <Compile Include="OMEGA\Classes\Ligne.cs" />
+    <Compile Include="OMEGA\Classes\Liquidation.cs" />
+    <Compile Include="OMEGA\Classes\Operation.cs" />
+    <Compile Include="OMEGA\Classes\OrdrePaiement.cs" />
+    <Compile Include="OMEGA\Classes\Virement.cs" />
+    <Compile Include="OMEGA\Interfaces\ctrlBudget.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="OMEGA\Interfaces\ctrlBudget.Designer.cs">
+      <DependentUpon>ctrlBudget.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="ADMIN\ctrlAdmin_Attribut.resx">
+      <DependentUpon>ctrlAdmin_Attribut.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ADMIN\ctrlAdmin_Parametre.resx">
+      <DependentUpon>ctrlAdmin_Parametre.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ADMIN\ctrlAdmin_TableValeur.resx">
+      <DependentUpon>ctrlAdmin_TableValeur.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ADMIN\ctrlAdmin_User.resx">
+      <DependentUpon>ctrlAdmin_User.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="CAPA\Interfaces\ctrlCompare.resx">
       <DependentUpon>ctrlCompare.cs</DependentUpon>
     </EmbeddedResource>
@@ -365,14 +410,12 @@
     <EmbeddedResource Include="frmMain.resx">
       <DependentUpon>frmMain.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="CAPA\Interfaces\ctrlAdmin.resx">
-      <DependentUpon>ctrlAdmin.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="CAPA\Interfaces\ctrlAdminParam.resx">
-      <DependentUpon>ctrlAdminParam.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="CAPA\Interfaces\ctrlChoixListe.resx">
+    <EmbeddedResource Include="Modules\ctrlChoixListe.resx">
       <DependentUpon>ctrlChoixListe.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="iGrid Sample VB.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>iGrid Sample VB.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="Modules\ctrlConsole.resx">
       <DependentUpon>ctrlConsole.cs</DependentUpon>
@@ -392,7 +435,7 @@
     <EmbeddedResource Include="CAPA\Interfaces\ctrlEditionTerritoire.resx">
       <DependentUpon>ctrlEditionTerritoire.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="CAPA\Interfaces\ctrlExport.resx">
+    <EmbeddedResource Include="ADMIN\ctrlExport.resx">
       <DependentUpon>ctrlExport.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="CAPA\Interfaces\ctrlFicheAction.resx">
@@ -409,9 +452,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="CAPA\Interfaces\ctrlPlanCorrection.resx">
       <DependentUpon>ctrlPlanCorrection.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="CAPA\Interfaces\ctrlReporting.resx">
-      <DependentUpon>ctrlReporting.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="CAPA\Interfaces\ctrlXWiki.resx">
       <DependentUpon>ctrlXWiki.cs</DependentUpon>
@@ -431,7 +471,7 @@
     <EmbeddedResource Include="CAPA\Interfaces\ctrlListePlan.resx">
       <DependentUpon>ctrlListePlan.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="CAPA\Interfaces\ctrlListeUtilisateur.resx">
+    <EmbeddedResource Include="ADMIN\ctrlListeUtilisateur.resx">
       <DependentUpon>ctrlListeUtilisateur.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="CAPA\Interfaces\ctrlPlan.resx">
@@ -440,10 +480,10 @@
     <EmbeddedResource Include="CAPA\Interfaces\ctrlWeb.resx">
       <DependentUpon>ctrlWeb.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="CAPA\Interfaces\frmAttribut.resx">
+    <EmbeddedResource Include="ADMIN\frmAttribut.resx">
       <DependentUpon>frmAttribut.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="CAPA\Interfaces\frmChoix.resx">
+    <EmbeddedResource Include="Modules\frmChoix.resx">
       <DependentUpon>frmChoix.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="CAPA\Interfaces\frmGroupe.resx">
@@ -452,20 +492,23 @@
     <EmbeddedResource Include="CAPA\Interfaces\frmIndicateur.resx">
       <DependentUpon>frmIndicateur.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="CAPA\Interfaces\frmParametre.resx">
+    <EmbeddedResource Include="ADMIN\frmParametre.resx">
       <DependentUpon>frmParametre.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="CAPA\Interfaces\frmPlan.resx">
       <DependentUpon>frmPlan.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="CAPA\Interfaces\frmTableValeur.resx">
+    <EmbeddedResource Include="ADMIN\frmTableValeur.resx">
       <DependentUpon>frmTableValeur.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="CAPA\Interfaces\frmUser.resx">
+    <EmbeddedResource Include="ADMIN\frmUser.resx">
       <DependentUpon>frmUser.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="CAPA\Interfaces\GestionPlan.resx">
       <DependentUpon>GestionPlan.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="OMEGA\Interfaces\ctrlBudget.resx">
+      <DependentUpon>ctrlBudget.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -514,9 +557,6 @@
     <None Include="Resources\trash.gif" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\vidon.gif" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="Resources\xp180.bmp" />
   </ItemGroup>
   <ItemGroup>
@@ -533,9 +573,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\ico_catastuces_1.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\help.gif" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\home1.gif" />
@@ -701,16 +738,7 @@
     <None Include="Resources\menu_administration.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\actualiser.png" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="Resources\menu_calendrier.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\menu_parametre.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\menu_edition.png" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\ICON.ico" />
@@ -719,15 +747,33 @@
     <None Include="Resources\plus_o.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\plus.png" />
-  </ItemGroup>
-  <ItemGroup>
     <Content Include="ICON.ico" />
-    <None Include="Resources\direction.png" />
+    <Content Include="iGrid Sample VB.Designer.vb" />
+    <Content Include="iGrid Sample VB.vb" />
+    <None Include="Resources\modifier.png" />
+    <None Include="Resources\plus.png" />
+    <None Include="Resources\plus_orange.jpg" />
+    <None Include="Resources\vidon.gif" />
+    <None Include="Resources\xp180.png" />
+    <None Include="Resources\orb.png" />
+    <None Include="Resources\help.gif" />
+    <None Include="Resources\Checker_3.png" />
+    <None Include="Resources\sphere-plus.png" />
+    <None Include="Resources\sphere-modif.png" />
+    <None Include="Resources\btn_créer.png" />
+    <None Include="Resources\btn_modifier.png" />
+    <None Include="Resources\sphere-supprimer.png" />
     <None Include="Resources\Performance.png" />
-    <None Include="Resources\panneau.png" />
-    <None Include="Resources\hdf.png" />
+    <None Include="Resources\report01.png" />
     <None Include="Resources\Globe.png" />
+    <None Include="Resources\menu_edition.png" />
+    <None Include="Resources\menu_parametre.png" />
+    <None Include="Resources\actualiser.png" />
+    <None Include="Resources\panneau.png" />
+    <None Include="Resources\Documents_Folder.png" />
+    <None Include="Resources\direction.png" />
+    <Content Include="RibbonMarkup.xml" />
+    <None Include="Resources\hdf.png" />
     <None Include="Resources\27008-Elquebrado-AeroGlobe.png" />
     <None Include="Resources\Performance2.png" />
     <None Include="Resources\ksysguard.png" />
@@ -737,8 +783,6 @@
     <None Include="Resources\gsr.jpg" />
     <None Include="Resources\ico_catastuces_2.png" />
     <None Include="Resources\page_web.png" />
-    <None Include="Resources\report01.png" />
-    <None Include="Resources\Documents_Folder.png" />
     <None Include="Resources\3d-cube.gif" />
     <None Include="Resources\export1.gif" />
     <None Include="Resources\dossier.gif" />
@@ -746,12 +790,6 @@
     <None Include="Resources\Administrateur.png" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="OMEGA\Budget\" />
-    <Folder Include="OMEGA\Commande\" />
-    <Folder Include="OMEGA\Edition\" />
-    <Folder Include="OMEGA\Execution\" />
-    <Folder Include="OMEGA\Referentiel\" />
-    <Folder Include="OMEGA\TableauBord\" />
     <Folder Include="Properties\DataSources\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

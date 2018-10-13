@@ -18,7 +18,7 @@ namespace PATIO.CAPA.Interfaces
         public string Chemin;
         public Boolean InterfaceGestion = false;
         public Boolean Checked = false;
-        public string CodeRef = "";
+        public Plan plan;
 
         public List<Objectif> ListeObjectif;
         public List<Objectif> lObj;
@@ -72,7 +72,7 @@ namespace PATIO.CAPA.Interfaces
             lstObjectif.CheckBoxes = Checked;
 
             //Recherche de la liste des Objectifs
-            ListeObjectif = (List<Objectif>) Acces.Remplir_ListeElement(Acces.type_OBJECTIF.id, "");
+            ListeObjectif = (List<Objectif>)Acces.Remplir_ListeElement(Acces.type_OBJECTIF.id, "");
 
             ListeObjectif.Sort();
             int n = 0;
@@ -83,7 +83,7 @@ namespace PATIO.CAPA.Interfaces
                 TreeNode T = new TreeNode(p.Libelle);
                 T.Name = p.ID.ToString();
                 T.ForeColor = (p.Actif) ? Color.Black : Color.Red;
-                T.ImageIndex =Donner_IndexImage(p.TypeObjectif);
+                T.ImageIndex = Donner_IndexImage(p.TypeObjectif);
                 T.ToolTipText = p.Code + " (" + p.ID + ")";
                 //T.Tag = Acces.type_OBJECTIF.id;
                 string txt = lblRecherche.Text.Trim().ToUpper();
@@ -112,7 +112,7 @@ namespace PATIO.CAPA.Interfaces
         }
 
         void Repositionner()
-        { 
+        {
             //Placement des objectifs/sous-objectifs
             List<Lien> ListeLienSysteme = Acces.Remplir_ListeLienSYSTEME(Acces.type_OBJECTIF);
 
@@ -143,7 +143,7 @@ namespace PATIO.CAPA.Interfaces
         int Donner_IndexImage(TypeObjectif t)
         {
             if (t == TypeObjectif.DOSSIER) { return 1; }
-            if (t == TypeObjectif.AXE ) { return 2; }
+            if (t == TypeObjectif.AXE) { return 2; }
             if (t == TypeObjectif.STRATEGIQUE) { return 3; }
             if (t == TypeObjectif.GENERAL) { return 4; }
             if (t == TypeObjectif.OPERATIONNEL) { return 5; }
@@ -162,10 +162,12 @@ namespace PATIO.CAPA.Interfaces
             f.Creation = true;
             f.Console = Console;
 
-            f.objectif  = new Objectif();
-            f.objectif.Code = "OBJ_PA" + ((lblRecherche.Text.Length > 0) ? lblRecherche.Text : "") ;
+            f.objectif = new Objectif();
+            f.objectif.Code = "OBJ-" + ((lblRecherche.Text.Length > 0) ? lblRecherche.Text : "");
             f.objectif.Actif = true;
             f.objectifParent = null;
+            f.plan = plan;
+
             n_obj++;
             f.Tag = Acces.type_OBJECTIF.id + n_obj;
             f.EVT_Enregistrer += Handler_evt_Modifier;
@@ -186,10 +188,10 @@ namespace PATIO.CAPA.Interfaces
             Afficher_ListeObjectif();
 
             //Actualise le titre de l'onglet
-            WeifenLuo.WinFormsUI.Docking.DockContent d = (WeifenLuo.WinFormsUI.Docking.DockContent) DP.ActiveDocument;
+            WeifenLuo.WinFormsUI.Docking.DockContent d = (WeifenLuo.WinFormsUI.Docking.DockContent)DP.ActiveDocument;
             ctrlFicheObjectif f;
             try { f = (ctrlFicheObjectif)d.Controls[0]; } catch { f = null; }
-            if(f!= null)
+            if (f != null)
             {
                 if (f.Tag.ToString() == e.ID.ToString())
                 {
@@ -201,15 +203,16 @@ namespace PATIO.CAPA.Interfaces
             try
             {
                 TreeNode[] nd = lstObjectif.Nodes.Find(f.objectif.ID.ToString(), true);
-                if (nd.Length > 0) { nd[0].Parent.Expand(); lstObjectif.SelectedNode = nd[0].Parent ; }
-            } catch { }
+                if (nd.Length > 0) { nd[0].Parent.Expand(); lstObjectif.SelectedNode = nd[0].Parent; }
+            }
+            catch { }
             //Active l'événement our une remontée avec des éléments de hiérarchie plus haute
             OnRaise_Evt_Modifier(new evt_Modifier(n_obj.ToString()));
         }
 
         void Ajouter_SousObjectif()
         {
-            string code = CodeRef;
+            string code = plan.Abrege;
 
             if (lstObjectif.SelectedNode is null)
             {
@@ -218,14 +221,14 @@ namespace PATIO.CAPA.Interfaces
             }
 
             int id = int.Parse(lstObjectif.SelectedNode.Name);
-            Objectif obj =(Objectif) Acces.Trouver_Element(Acces.type_OBJECTIF.id, id);
+            Objectif obj = (Objectif)Acces.Trouver_Element(Acces.type_OBJECTIF.id, id);
             code = obj.Code;
 
             ctrlFicheObjectif f = new ctrlFicheObjectif();
             f.Acces = Acces;
             f.Creation = true;
             f.objectif = new Objectif();
-            f.objectif.Code =  code;
+            f.objectif.Code = code;
             f.objectif.Actif = true;
             f.objectifParent = (Objectif)Acces.Trouver_Element(Acces.type_OBJECTIF.id, int.Parse(lstObjectif.SelectedNode.Name)); ;
 
@@ -254,7 +257,7 @@ namespace PATIO.CAPA.Interfaces
             if (lstObjectif.SelectedNode != null)
             {
                 var Id = Int32.Parse(lstObjectif.SelectedNode.Name);
-                Acces.Supprimer_Element(Acces.type_OBJECTIF, Acces.Trouver_Element(Acces.type_OBJECTIF.id,Id));
+                Acces.Supprimer_Element(Acces.type_OBJECTIF, Acces.Trouver_Element(Acces.type_OBJECTIF.id, Id));
 
                 lstObjectif.Nodes.Remove(lstObjectif.SelectedNode);
                 OnRaise_Evt_Modifier(new evt_Modifier(""));
@@ -277,7 +280,7 @@ namespace PATIO.CAPA.Interfaces
 
             var Id = obj.ID;
 
-            Objectif P =(Objectif) Acces.Trouver_Element(Acces.type_OBJECTIF.id, Id);
+            Objectif P = (Objectif)Acces.Trouver_Element(Acces.type_OBJECTIF.id, Id);
 
             f.objectif = P;
             n_obj++;
@@ -333,7 +336,7 @@ namespace PATIO.CAPA.Interfaces
 
         private void lblRecherche_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if(e.KeyChar == (char)Keys.Return)
+            if (e.KeyChar == (char)Keys.Return)
             {
                 Afficher_ListeObjectif();
             }
@@ -349,7 +352,7 @@ namespace PATIO.CAPA.Interfaces
             tree.SelectedNode = node;
 
             // Start the drag-and-drop operation with a cloned copy of the node.
-            if (node != null && e.Button==MouseButtons.Right)
+            if (node != null && e.Button == MouseButtons.Right)
             {
                 tree.DoDragDrop(node.Clone(), DragDropEffects.Copy);
             }
@@ -433,7 +436,7 @@ namespace PATIO.CAPA.Interfaces
 
             try { Nods[0].Remove(); } catch { }
         }
-            void Importer()
+        void Importer()
         {
             /*
             //Objet de gestion des données
@@ -539,14 +542,14 @@ namespace PATIO.CAPA.Interfaces
             lObj = new List<Objectif>();
             foreach (TreeNode n in lstObjectif.Nodes)
             {
-                if(n.Checked) { lObj.Add((Objectif) Acces.Trouver_Element(Acces.type_OBJECTIF.id,  int.Parse(n.Name))); }
+                if (n.Checked) { lObj.Add((Objectif)Acces.Trouver_Element(Acces.type_OBJECTIF.id, int.Parse(n.Name))); }
                 Explorer(n);
             }
         }
 
         void Explorer(TreeNode nod)
         {
-            foreach(TreeNode n in nod.Nodes)
+            foreach (TreeNode n in nod.Nodes)
             {
                 if (n.Checked) { lObj.Add((Objectif)Acces.Trouver_Element(Acces.type_OBJECTIF.id, int.Parse(n.Name))); }
                 if (n.Nodes.Count > 0) { Explorer(n); }
@@ -557,7 +560,7 @@ namespace PATIO.CAPA.Interfaces
         {
             int id = int.Parse(lstObjectif.SelectedNode.Name);
 
-            obj=(Objectif) Acces.Trouver_Element(Acces.type_OBJECTIF.id, id);
+            obj = (Objectif)Acces.Trouver_Element(Acces.type_OBJECTIF.id, id);
         }
 
         private void btnCreerObjectif_Click(object sender, EventArgs e)

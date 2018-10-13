@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Windows.Forms;
 using PATIO.CAPA.Classes;
+using PATIO.CAPA.Interfaces;
 using PATIO.Modules;
 
 namespace PATIO.CAPA.Interfaces
@@ -20,7 +21,7 @@ namespace PATIO.CAPA.Interfaces
         public Boolean Creation = false;
 
         public ctrlConsole Console;
-
+        public Plan plan;
 
         Fonctions fonc = new Fonctions();
 
@@ -57,6 +58,7 @@ namespace PATIO.CAPA.Interfaces
 
             lblCodeObjectif.Text = objectif.Code;
             lblCode.Text = objectif.Code;
+
             AfficheCode(objectif.Code);
             lblCodeObjectif.Tag = lblCodeObjectif.Text;
 
@@ -66,8 +68,18 @@ namespace PATIO.CAPA.Interfaces
             lstTypeObjectif.SelectedIndex = lstTypeObjectif.Items.IndexOf(objectif.TypeObjectif.ToString());
 
             try
-            { if (objectif.Pilote is null && objectifParent.Pilote != null) { objectif.Pilote = objectifParent.Pilote; }
-            } catch { }
+            {
+                if (objectif.Pilote is null)
+                {
+                    if (objectifParent != null)
+                    {
+                        if (objectifParent.Pilote != null) { objectif.Pilote = objectifParent.Pilote; }
+                    }
+                    else
+                        if (plan.Pilote != null) { objectif.Pilote = plan.Pilote; }
+                }
+            }
+            catch { }
 
             AfficheListePilote();
             var n = 0;
@@ -106,9 +118,9 @@ namespace PATIO.CAPA.Interfaces
             lstTx.SelectedIndex = lstTx.Items.IndexOf(objectif.TxAvancement.ToString());
 
             List<Utilisateur> ListeUtilisateur = (List<Utilisateur>)Acces.Remplir_ListeElement(Acces.type_UTILISATEUR.id, "");
-            foreach(Utilisateur user in ListeUtilisateur) //Supprime l'utilisateur [AUCUN]
+            foreach (Utilisateur user in ListeUtilisateur) //Supprime l'utilisateur [AUCUN]
             {
-                if (user.Nom.Contains("[")){ ListeUtilisateur.Remove(user); break; }
+                if (user.Nom.Contains("[")) { ListeUtilisateur.Remove(user); break; }
             }
 
             ChoixRole6PO_Copilote.Initialiser();
@@ -184,29 +196,33 @@ namespace PATIO.CAPA.Interfaces
 
         void AfficheCode(string code)
         {
-            string c = code.Substring(4);
-
-            lblEntete.Text = objectif._type;
-            lblPlan.Text = objectif._codeplan;
-            lblAxe.Text = objectif._axe;
-            lblOS.Text = objectif._os;
-            lblOG.Text = objectif._og;
+            //try
+            //{
+            lblEntete.Text = "OBJ";// objectif._type;
+            lblPlan.Text = (objectif._codeplan.Length > 0) ? objectif._codeplan : ((plan != null) ? plan._ref1 : "");
+            lblAxe.Text = (objectif._axe.Length > 0) ? objectif._axe : ((plan != null) ? plan._ref2 : "");
+            lblOS.Text = (objectif._os.Length > 0) ? objectif._os : ((plan != null) ? plan._os : "");
+            lblOG.Text = (objectif._og.Length > 0) ? objectif._og : ((plan != null) ? plan._og : "");
             lblOP.Text = objectif._op;
             lblAutre.Text = objectif._cpl;
+            /* }
+             catch { }*/
         }
 
         void GenereCode()
         {
             string code = "";
-            try {
+            try
+            {
                 objectif._codeplan = lblPlan.Text;
-                if (lblEntete.Text.Trim().Length > 0) { objectif._type = lblEntete.Text ; }
+                if (lblEntete.Text.Trim().Length > 0) { objectif._type = lblEntete.Text; }
                 if (lblAxe.Text.Trim().Length > 0) { objectif._axe = string.Format("{0:00}", int.Parse(lblAxe.Text)); }
                 if (lblOS.Text.Trim().Length > 0) { objectif._os = string.Format("{0:00}", int.Parse(lblOS.Text)); }
                 if (lblOG.Text.Trim().Length > 0) { objectif._og = string.Format("{0:00}", int.Parse(lblOG.Text)); }
                 if (lblOP.Text.Trim().Length > 0) { objectif._op = string.Format("{0:00}", int.Parse(lblOP.Text)); }
                 if (lblAutre.Text.Trim().Length > 0) { objectif._cpl = lblAutre.Text; }
-            } catch { }
+            }
+            catch { }
 
             code = objectif._type + "-" + objectif._codeplan;
             if (objectif._axe.Length > 0) { code += "-AX" + objectif._axe; }
@@ -348,7 +364,8 @@ namespace PATIO.CAPA.Interfaces
             objectif.Role_6PO_Manager = ChoixRole6PO_Manager.ListeSelectionId;
             objectif.Role_6PO_Consultation = ChoixRole6PO_Consultation.ListeSelectionId;
 
-            objectif._codeplan = lblPlan.Text;
+            objectif._type = lblEntete.Text;
+            if (lblPlan.Text.Length > 0) { objectif._codeplan = lblPlan.Text.Trim().ToUpper(); }
             if (lblAxe.Text.Length > 0) { objectif._axe = string.Format("{0:00}", int.Parse(lblAxe.Text)); }
             if (lblOS.Text.Length > 0) { objectif._os = string.Format("{0:00}", int.Parse(lblOS.Text)); }
             if (lblOG.Text.Length > 0) { objectif._og = string.Format("{0:00}", int.Parse(lblOG.Text)); }
@@ -359,7 +376,7 @@ namespace PATIO.CAPA.Interfaces
             {
                 if (!(Acces.Existe_Element(Acces.type_OBJECTIF, "CODE", CodeObjectif)))
                 {
-                    objectif.ID= Acces.Ajouter_Element(Acces.type_OBJECTIF, objectif);
+                    objectif.ID = Acces.Ajouter_Element(Acces.type_OBJECTIF, objectif);
 
                     //Création du lien avec le parent
                     if (!(objectifParent is null))
@@ -405,10 +422,10 @@ namespace PATIO.CAPA.Interfaces
         {
             EventHandler<evt_Enregistrer> handler = EVT_Enregistrer;
 
-            if(handler != null)
+            if (handler != null)
             {
                 e.ID = this.Tag.ToString();
-                handler(this,e);
+                handler(this, e);
             }
         }
 
@@ -500,12 +517,12 @@ namespace PATIO.CAPA.Interfaces
 
         private void lblAutre_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if( e.KeyChar == (Char) Keys.Return) { Valider(); }
+            if (e.KeyChar == (Char)Keys.Return) { Valider(); }
         }
 
         private void btnDateDefaut_Click(object sender, EventArgs e)
         {
-            if(!(objectifParent is null))
+            if (!(objectifParent is null))
             {
                 try
                 {
@@ -521,10 +538,10 @@ namespace PATIO.CAPA.Interfaces
 
             foreach (Parametre p in Acces.ListeParametre)
             {
-                switch(p.Code)
+                switch (p.Code)
                 {
                     case "DATE_DEBUT_PRS":
-                        lblDateDebut.Value = DateTime.Parse( p.Valeur);
+                        lblDateDebut.Value = DateTime.Parse(p.Valeur);
                         break;
                     case "DATE_FIN_PRS":
                         lblDateFin.Value = DateTime.Parse(p.Valeur);

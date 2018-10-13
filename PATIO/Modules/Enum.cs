@@ -60,4 +60,55 @@ namespace PATIO.Modules
         DOSSIER, GROUPE
     }
 
+    public enum TypeEnveloppe
+    {
+        DOSSIER, FIR, FISS, FEDER
+    }
+
+    public enum TypeBudget
+    {
+        DOSSIER, Initial, Rectificatif, Intermédiaire
+    }
+
+    public enum TypeOperation
+    {
+        DOSSIER, Recettes, Dépenses
+    }
+
+    public enum TypeVirement
+    {
+        DOSSIER, Normal
+    }
+
+    public enum TypeFiche
+    {
+        DOSSIER, Normal, Reprogrammation
+    }
+
+    public enum TypeLigne
+    {
+        DOSSIER, Normal, Reprogrammation
+    }
+
+    public enum TypeDecision
+    {
+        DOSSIER, Arrêté, Convention
+    }
+
+    public enum TypeEcheance
+    {
+        DOSSIER, Normal, Avance, Douzième
+    }
+
+    public enum TypeLiquidation
+    {
+        DOSSIER, Normal, Reprogrammation
+    }
+
+    public enum TypeOrdrePaiement
+    {
+        DOSSIER, Normal
+    }
+
+
 }

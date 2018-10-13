@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
-using PATIO.CAPA.Classes;
 using Microsoft.Office.Interop.Excel;
+using PATIO.CAPA.Classes;
 using PATIO.Modules;
 using System.Windows.Forms;
 
@@ -454,6 +454,17 @@ namespace PATIO.CAPA.Interfaces
             Entete_Objectif(ws6);
             Entete_Objectif(ws7);
 
+            //Détermine le niveau le plus faible d'objectif
+            int type_objectif = 0;
+            foreach(var l in listeLien)
+            {
+                if(l.element2_type == Acces.type_OBJECTIF.id)
+                {
+                    Objectif Obj = (Objectif)Acces.Trouver_Element(Acces.type_OBJECTIF.id, l.element2_id);
+                    if ((int) Obj.TypeObjectif > type_objectif) { type_objectif = (int) Obj.TypeObjectif; }
+                }
+            }
+
             //Liste des objectifs n'ayant pas été intégrés dans la structure
             //Onglet ACT + RAT
             foreach (var l in listeLien)
@@ -461,11 +472,12 @@ namespace PATIO.CAPA.Interfaces
                 if (l.element2_type == Acces.type_OBJECTIF.id)
                     //if (l.element1_type == Acces.type_OBJECTIF.id && l.element2_type == Acces.type_ACTION.id)
                 {
-                    //Action action = (PATIO.CAPA.Classes.Action)Acces.Trouver_Element(Acces.type_ACTION.id, l.element2_id);
-                    Objectif Obj = (Objectif) Acces.Trouver_Element(Acces.type_OBJECTIF.id, l.element2_id);
+                    //PATIO.CAPA.Classes.Action action = (PATIO.CAPA.Classes.Action)Acces.Trouver_Element(Acces.type_ACTION.id, l.element2_id);
+                    Objectif Obj = (Objectif)Acces.Trouver_Element(Acces.type_OBJECTIF.id, l.element2_id);
                     Objectif Obj2 =(Objectif) Acces.Trouver_Element(Acces.type_OBJECTIF.id, l.element1_id);
 
-                    if(Obj.TypeObjectif != TypeObjectif.OPERATIONNEL) { goto Suite; }
+                    if ((int) Obj.TypeObjectif != type_objectif) { goto Suite; }
+                    //if (Obj.TypeObjectif != TypeObjectif.OPERATIONNEL) { goto Suite; }
 
                     //Onglet 1: ACT-
                     n1++;
@@ -814,7 +826,7 @@ namespace PATIO.CAPA.Interfaces
                     string attribut = Acces.Trouver_Attribut_6PO(Acces.type_ACTION, d.Attribut_Code);
                     string valeur = Acces.Trouver_TableValeur_6PO(d.Attribut_Code, d.Valeur);
 
-                    if (!(d.Valeur is null))
+                    if (d.Valeur != null)
                     {
                         if (valeur.Length == 0)
                         {
@@ -927,7 +939,7 @@ namespace PATIO.CAPA.Interfaces
                             {
                                 hierarchie = "PUBLIC_CIBLE";
                                 Niveau = hierarchie;
-                                ValeurNiveau = Acces.Trouver_TableValeur_6PO(hierarchie, d.Valeur);
+                                ValeurNiveau = Acces.Trouver_TableValeur_6PO(hierarchie, int.Parse(d.Valeur));
                                 break;
                             }
 
@@ -935,7 +947,7 @@ namespace PATIO.CAPA.Interfaces
                             {
                                 hierarchie = "ACTEUR_SANTE";
                                 Niveau = hierarchie;
-                                ValeurNiveau = Acces.Trouver_TableValeur_6PO(hierarchie, d.Valeur);
+                                ValeurNiveau = Acces.Trouver_TableValeur_6PO(hierarchie, int.Parse(d.Valeur));
                                 break;
                             }
 
@@ -943,7 +955,7 @@ namespace PATIO.CAPA.Interfaces
                             {
                                 hierarchie = "LEVIER";
                                 Niveau = hierarchie;
-                                ValeurNiveau = Acces.Trouver_TableValeur_6PO(hierarchie, d.Valeur);
+                                ValeurNiveau = Acces.Trouver_TableValeur_6PO(hierarchie, int.Parse(d.Valeur));
                                 break;
                             }
 
@@ -951,7 +963,7 @@ namespace PATIO.CAPA.Interfaces
                             {
                                 hierarchie = "PARTENAIRE_INSTITU";
                                 Niveau = hierarchie;
-                                ValeurNiveau = Acces.Trouver_TableValeur_6PO("PARTENAIRE_INSTITU", d.Valeur);
+                                ValeurNiveau = Acces.Trouver_TableValeur_6PO("PARTENAIRE_INSTITU", int.Parse(d.Valeur));
                                 break;
                             }
 
@@ -959,7 +971,7 @@ namespace PATIO.CAPA.Interfaces
                             {
                                 hierarchie = "PARTENAIRE_USAGER";
                                 Niveau = hierarchie;
-                                ValeurNiveau = Acces.Trouver_TableValeur_6PO("PARTENAIRE_USAGER", d.Valeur);
+                                ValeurNiveau = Acces.Trouver_TableValeur_6PO("PARTENAIRE_USAGER", int.Parse(d.Valeur));
                                 break;
                             }
 
@@ -967,7 +979,23 @@ namespace PATIO.CAPA.Interfaces
                             {
                                 hierarchie = "ANNEE_MO";
                                 Niveau = hierarchie;
-                                ValeurNiveau = Acces.Trouver_TableValeur_6PO(hierarchie, d.Valeur);
+                                ValeurNiveau = Acces.Trouver_TableValeur_6PO(hierarchie, int.Parse(d.Valeur));
+                                break;
+                            }
+
+                        case "DIRECTION_PILOTE":
+                            {
+                                hierarchie = "DIRECTION_PILOTE";
+                                Niveau = hierarchie;
+                                ValeurNiveau = Acces.Trouver_TableValeur_6PO("DIRECTION_METIER", int.Parse(d.Valeur));
+                                break;
+                            }
+
+                        case "DIRECTION_ASSOCIE":
+                            {
+                                hierarchie = "DIRECTION_ASSOCIE";
+                                Niveau = hierarchie;
+                                ValeurNiveau = Acces.Trouver_TableValeur_6PO("DIRECTION_METIER", int.Parse(d.Valeur));
                                 break;
                             }
 
@@ -975,7 +1003,7 @@ namespace PATIO.CAPA.Interfaces
                             {
                                 hierarchie = "LIEN_PLAN";
                                 Niveau = hierarchie;
-                                ValeurNiveau = Acces.Trouver_TableValeur_6PO(hierarchie, d.Valeur);
+                                ValeurNiveau = Acces.Trouver_TableValeur_6PO(hierarchie, int.Parse(d.Valeur));
                                 break;
                             }
 
@@ -983,7 +1011,7 @@ namespace PATIO.CAPA.Interfaces
                             {
                                 hierarchie = "PARCOURS";
                                 Niveau = hierarchie;
-                                ValeurNiveau = Acces.Trouver_TableValeur_6PO(hierarchie, d.Valeur);
+                                ValeurNiveau = Acces.Trouver_TableValeur_6PO(hierarchie, int.Parse(d.Valeur));
                                 break;
                             }
 
@@ -991,7 +1019,7 @@ namespace PATIO.CAPA.Interfaces
                             {
                                 hierarchie = "SECTEUR";
                                 Niveau = hierarchie;
-                                ValeurNiveau = Acces.Trouver_TableValeur_6PO(hierarchie, d.Valeur);
+                                ValeurNiveau = Acces.Trouver_TableValeur_6PO(hierarchie, int.Parse(d.Valeur));
                                 break;
                             }
 
@@ -999,7 +1027,15 @@ namespace PATIO.CAPA.Interfaces
                             {
                                 hierarchie = "TSANTE";
                                 Niveau = hierarchie;
-                                ValeurNiveau = Acces.Trouver_TableValeur_6PO(hierarchie, d.Valeur);
+                                ValeurNiveau = Acces.Trouver_TableValeur_6PO(hierarchie, int.Parse(d.Valeur));
+                                break;
+                            }
+
+                        case "STRUCTURE_PORTEUSE":
+                            {
+                                hierarchie = "STRUCTURE_PORTEUSE";
+                                Niveau = hierarchie;
+                                ValeurNiveau = Acces.Trouver_TableValeur_6PO(hierarchie, int.Parse(d.Valeur));
                                 break;
                             }
 
