@@ -41,7 +41,6 @@
             this.ribbon1 = new System.Windows.Forms.Ribbon();
             this.Contexte_OMEGA = new System.Windows.Forms.RibbonContext();
             this.Contexte_CAPA = new System.Windows.Forms.RibbonContext();
-            this.Contexte_ADMIN = new System.Windows.Forms.RibbonContext();
             this.btnPATIO_Site = new System.Windows.Forms.RibbonOrbMenuItem();
             this.btnPATIO_Site_PRS = new System.Windows.Forms.RibbonButton();
             this.btnPATIO_Site_PlanAction = new System.Windows.Forms.RibbonButton();
@@ -61,51 +60,36 @@
             this.MenuXWikiPRS = new System.Windows.Forms.RibbonButton();
             this.MenuXWikiTechnique = new System.Windows.Forms.RibbonButton();
             this.ribbonButton7 = new System.Windows.Forms.RibbonButton();
-            this.TabCAPA_Plan = new System.Windows.Forms.RibbonTab();
-            this.ribbonPanel1 = new System.Windows.Forms.RibbonPanel();
-            this.ribbonSeparator2 = new System.Windows.Forms.RibbonSeparator();
-            this.btn_Recharger = new System.Windows.Forms.RibbonButton();
-            this.ribbonPanel2 = new System.Windows.Forms.RibbonPanel();
-            this.ribbonItemGroup1 = new System.Windows.Forms.RibbonItemGroup();
-            this.ribbonLabel2 = new System.Windows.Forms.RibbonLabel();
-            this.lstPlan = new System.Windows.Forms.RibbonComboBox();
-            this.ribbonItemGroup3 = new System.Windows.Forms.RibbonItemGroup();
-            this.btnCréerPlan = new System.Windows.Forms.RibbonButton();
-            this.btnModifierPlan = new System.Windows.Forms.RibbonButton();
-            this.ribbonSeparator3 = new System.Windows.Forms.RibbonSeparator();
-            this.btnOuvrirPlan = new System.Windows.Forms.RibbonButton();
-            this.btnSupprimerPlan = new System.Windows.Forms.RibbonButton();
-            this.ribbonPanel3 = new System.Windows.Forms.RibbonPanel();
-            this.TabCAPA_Objectif = new System.Windows.Forms.RibbonTab();
-            this.TabCAPA_Action = new System.Windows.Forms.RibbonTab();
-            this.TabCAPA_Indicateur = new System.Windows.Forms.RibbonTab();
-            this.TabCAPA_Edition = new System.Windows.Forms.RibbonTab();
-            this.btnCAPA_Edition_Type = new System.Windows.Forms.RibbonPanel();
-            this.btnCAPA_Edition_Plan = new System.Windows.Forms.RibbonButton();
-            this.btnCAPA_Edition_Direction = new System.Windows.Forms.RibbonButton();
-            this.btnCAPA_Edition_Territoire = new System.Windows.Forms.RibbonButton();
-            this.btnCAPA_Edition_Stat = new System.Windows.Forms.RibbonButton();
-            this.TabOMEGA_Budget = new System.Windows.Forms.RibbonTab();
+            this.TabCAPA = new System.Windows.Forms.RibbonTab();
+            this.TabCAPA_Gestion = new System.Windows.Forms.RibbonPanel();
+            this.TabCAPA_Plans = new System.Windows.Forms.RibbonButton();
+            this.TabCAPA_Objectif = new System.Windows.Forms.RibbonButton();
+            this.TabCAPA_Action = new System.Windows.Forms.RibbonButton();
+            this.TabCAPA_Indicateur = new System.Windows.Forms.RibbonButton();
+            this.TabCAPA_User = new System.Windows.Forms.RibbonButton();
+            this.TabOMEGA = new System.Windows.Forms.RibbonTab();
             this.PanelBudget = new System.Windows.Forms.RibbonPanel();
-            this.ribbonItemGroup2 = new System.Windows.Forms.RibbonItemGroup();
-            this.ribbonLabel3 = new System.Windows.Forms.RibbonLabel();
-            this.lstExercice = new System.Windows.Forms.RibbonComboBox();
-            this.ribbonItemGroup4 = new System.Windows.Forms.RibbonItemGroup();
-            this.ribbonLabel4 = new System.Windows.Forms.RibbonLabel();
-            this.lstEnveloppe = new System.Windows.Forms.RibbonComboBox();
-            this.ribbonItemGroup5 = new System.Windows.Forms.RibbonItemGroup();
-            this.ribbonButton8 = new System.Windows.Forms.RibbonButton();
-            this.ribbonButton9 = new System.Windows.Forms.RibbonButton();
-            this.TabOMEGA_Commande = new System.Windows.Forms.RibbonTab();
-            this.TabOMEGA_Execution = new System.Windows.Forms.RibbonTab();
-            this.TabAdmin_User = new System.Windows.Forms.RibbonTab();
-            this.ribbonPanel4 = new System.Windows.Forms.RibbonPanel();
-            this.btnAjouter_User = new System.Windows.Forms.RibbonButton();
-            this.btnModifier_User = new System.Windows.Forms.RibbonButton();
+            this.TabOMEGA_Budget = new System.Windows.Forms.RibbonButton();
+            this.TabOMEGA_Virement = new System.Windows.Forms.RibbonButton();
             this.ribbonPanel5 = new System.Windows.Forms.RibbonPanel();
+            this.TabOMEGA_Fiche = new System.Windows.Forms.RibbonButton();
+            this.TabOMEGA_Decision = new System.Windows.Forms.RibbonButton();
+            this.TabOMEGA_Echeance = new System.Windows.Forms.RibbonButton();
+            this.TabOMEGA_Liquidation = new System.Windows.Forms.RibbonButton();
+            this.TabOMEGA_OrdrePaiement = new System.Windows.Forms.RibbonButton();
+            this.TabAdmin = new System.Windows.Forms.RibbonTab();
+            this.ribbonPanel4 = new System.Windows.Forms.RibbonPanel();
+            this.btnGestion_User = new System.Windows.Forms.RibbonButton();
             this.ribbonPanel6 = new System.Windows.Forms.RibbonPanel();
-            this.TabAdmin_Param = new System.Windows.Forms.RibbonTab();
-            this.TabAdmin_IE = new System.Windows.Forms.RibbonTab();
+            this.TabAdmin_Attribut = new System.Windows.Forms.RibbonButton();
+            this.TabAdmin_TableValeur = new System.Windows.Forms.RibbonButton();
+            this.TabAdmin_Parametre = new System.Windows.Forms.RibbonButton();
+            this.ribbonPanel3 = new System.Windows.Forms.RibbonPanel();
+            this.TabAdmin_Import = new System.Windows.Forms.RibbonButton();
+            this.TabAdmin_Export = new System.Windows.Forms.RibbonButton();
+            this.TabAdmin_XWiki = new System.Windows.Forms.RibbonButton();
+            this.TabCAPA_Contexte1 = new System.Windows.Forms.RibbonTab();
+            this.TabOMEGA_Contexte1 = new System.Windows.Forms.RibbonTab();
             this.ribbonButton2 = new System.Windows.Forms.RibbonButton();
             this.ribbonOrbMenuItem1 = new System.Windows.Forms.RibbonOrbMenuItem();
             this.ribbonSeparator1 = new System.Windows.Forms.RibbonSeparator();
@@ -115,18 +99,26 @@
             this.ribbonOrbMenuItem4 = new System.Windows.Forms.RibbonOrbMenuItem();
             this.ribbonButton6 = new System.Windows.Forms.RibbonButton();
             this.btn_Reporting = new System.Windows.Forms.RibbonButton();
-            this.btnAjouter_TV = new System.Windows.Forms.RibbonButton();
-            this.btnModifier_TV = new System.Windows.Forms.RibbonButton();
-            this.btnSupprimer_TV = new System.Windows.Forms.RibbonButton();
-            this.btnSupprimer_User = new System.Windows.Forms.RibbonButton();
+            this.ribbonButton16 = new System.Windows.Forms.RibbonButton();
+            this.ribbonItemGroup3 = new System.Windows.Forms.RibbonItemGroup();
+            this.btnSupprimerPlan = new System.Windows.Forms.RibbonButton();
+            this.btnOuvrirPlan = new System.Windows.Forms.RibbonButton();
+            this.ribbonSeparator3 = new System.Windows.Forms.RibbonSeparator();
+            this.btnModifierPlan = new System.Windows.Forms.RibbonButton();
+            this.btnCréerPlan = new System.Windows.Forms.RibbonButton();
+            this.ribbonItemGroup1 = new System.Windows.Forms.RibbonItemGroup();
+            this.lstPlan = new System.Windows.Forms.RibbonComboBox();
+            this.ribbonLabel2 = new System.Windows.Forms.RibbonLabel();
+            this.btn_Recharger = new System.Windows.Forms.RibbonButton();
+            this.ribbonSeparator2 = new System.Windows.Forms.RibbonSeparator();
             this.SuspendLayout();
             // 
             // DP
             // 
             this.DP.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.DP.Location = new System.Drawing.Point(0, 148);
+            this.DP.Location = new System.Drawing.Point(0, 127);
             this.DP.Name = "DP";
-            this.DP.Size = new System.Drawing.Size(973, 302);
+            this.DP.Size = new System.Drawing.Size(973, 323);
             this.DP.TabIndex = 4;
             // 
             // timer1
@@ -176,7 +168,6 @@
             // 
             this.ribbon1.Contexts.Add(this.Contexte_OMEGA);
             this.ribbon1.Contexts.Add(this.Contexte_CAPA);
-            this.ribbon1.Contexts.Add(this.Contexte_ADMIN);
             this.ribbon1.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.ribbon1.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.ribbon1.Location = new System.Drawing.Point(0, 0);
@@ -204,19 +195,13 @@
             this.ribbon1.QuickAccessToolbar.Items.Add(this.ribbonButton5);
             this.ribbon1.QuickAccessToolbar.Items.Add(this.ribbonButton7);
             this.ribbon1.RibbonTabFont = new System.Drawing.Font("Trebuchet MS", 9F);
-            this.ribbon1.Size = new System.Drawing.Size(973, 148);
+            this.ribbon1.Size = new System.Drawing.Size(973, 127);
             this.ribbon1.TabIndex = 9;
-            this.ribbon1.Tabs.Add(this.TabCAPA_Plan);
-            this.ribbon1.Tabs.Add(this.TabCAPA_Objectif);
-            this.ribbon1.Tabs.Add(this.TabCAPA_Action);
-            this.ribbon1.Tabs.Add(this.TabCAPA_Indicateur);
-            this.ribbon1.Tabs.Add(this.TabCAPA_Edition);
-            this.ribbon1.Tabs.Add(this.TabOMEGA_Budget);
-            this.ribbon1.Tabs.Add(this.TabOMEGA_Commande);
-            this.ribbon1.Tabs.Add(this.TabOMEGA_Execution);
-            this.ribbon1.Tabs.Add(this.TabAdmin_User);
-            this.ribbon1.Tabs.Add(this.TabAdmin_Param);
-            this.ribbon1.Tabs.Add(this.TabAdmin_IE);
+            this.ribbon1.Tabs.Add(this.TabCAPA);
+            this.ribbon1.Tabs.Add(this.TabOMEGA);
+            this.ribbon1.Tabs.Add(this.TabAdmin);
+            this.ribbon1.Tabs.Add(this.TabCAPA_Contexte1);
+            this.ribbon1.Tabs.Add(this.TabOMEGA_Contexte1);
             this.ribbon1.TabsMargin = new System.Windows.Forms.Padding(6, 26, 20, 0);
             this.ribbon1.TabSpacing = 3;
             this.ribbon1.Text = "ribbon1";
@@ -232,12 +217,6 @@
             this.Contexte_CAPA.GlowColor = System.Drawing.Color.FromArgb(((int)(((byte)(195)))), ((int)(((byte)(196)))), ((int)(((byte)(251)))));
             this.Contexte_CAPA.Text = "CAPA";
             this.Contexte_CAPA.Visible = true;
-            // 
-            // Contexte_ADMIN
-            // 
-            this.Contexte_ADMIN.GlowColor = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(243)))), ((int)(((byte)(185)))));
-            this.Contexte_ADMIN.Text = "Administration";
-            this.Contexte_ADMIN.Visible = true;
             // 
             // btnPATIO_Site
             // 
@@ -400,342 +379,249 @@
             this.ribbonButton7.SmallImage = global::PATIO.Properties.Resources.help;
             this.ribbonButton7.Text = "ribbonButton7";
             // 
-            // TabCAPA_Plan
+            // TabCAPA
             // 
-            this.TabCAPA_Plan.Context = this.Contexte_CAPA;
-            this.TabCAPA_Plan.Name = "TabCAPA_Plan";
-            this.TabCAPA_Plan.Panels.Add(this.ribbonPanel1);
-            this.TabCAPA_Plan.Panels.Add(this.ribbonPanel2);
-            this.TabCAPA_Plan.Panels.Add(this.ribbonPanel3);
-            this.TabCAPA_Plan.Text = "Plans d\'actions";
+            this.TabCAPA.Name = "TabCAPA";
+            this.TabCAPA.Panels.Add(this.TabCAPA_Gestion);
+            this.TabCAPA.Text = "CAPA";
             // 
-            // ribbonPanel1
+            // TabCAPA_Gestion
             // 
-            this.ribbonPanel1.ButtonMoreEnabled = false;
-            this.ribbonPanel1.ButtonMoreVisible = false;
-            this.ribbonPanel1.Items.Add(this.ribbonSeparator2);
-            this.ribbonPanel1.Items.Add(this.btn_Recharger);
-            this.ribbonPanel1.Name = "ribbonPanel1";
-            this.ribbonPanel1.Text = "";
+            this.TabCAPA_Gestion.Items.Add(this.TabCAPA_Plans);
+            this.TabCAPA_Gestion.Items.Add(this.TabCAPA_Objectif);
+            this.TabCAPA_Gestion.Items.Add(this.TabCAPA_Action);
+            this.TabCAPA_Gestion.Items.Add(this.TabCAPA_Indicateur);
+            this.TabCAPA_Gestion.Items.Add(this.TabCAPA_User);
+            this.TabCAPA_Gestion.Name = "TabCAPA_Gestion";
+            this.TabCAPA_Gestion.Text = "Gestion des objets";
             // 
-            // ribbonSeparator2
+            // TabCAPA_Plans
             // 
-            this.ribbonSeparator2.Name = "ribbonSeparator2";
-            // 
-            // btn_Recharger
-            // 
-            this.btn_Recharger.Image = global::PATIO.Properties.Resources.actualiser;
-            this.btn_Recharger.LargeImage = global::PATIO.Properties.Resources.actualiser;
-            this.btn_Recharger.Name = "btn_Recharger";
-            this.btn_Recharger.SmallImage = ((System.Drawing.Image)(resources.GetObject("btn_Recharger.SmallImage")));
-            this.btn_Recharger.Text = "Recharger";
-            this.btn_Recharger.Click += new System.EventHandler(this.btnRecharger_Click);
-            // 
-            // ribbonPanel2
-            // 
-            this.ribbonPanel2.ButtonMoreEnabled = false;
-            this.ribbonPanel2.ButtonMoreVisible = false;
-            this.ribbonPanel2.Items.Add(this.ribbonItemGroup1);
-            this.ribbonPanel2.Items.Add(this.ribbonItemGroup3);
-            this.ribbonPanel2.Name = "ribbonPanel2";
-            this.ribbonPanel2.Text = "Plans d\'actions";
-            // 
-            // ribbonItemGroup1
-            // 
-            this.ribbonItemGroup1.Items.Add(this.ribbonLabel2);
-            this.ribbonItemGroup1.Items.Add(this.lstPlan);
-            this.ribbonItemGroup1.Name = "ribbonItemGroup1";
-            // 
-            // ribbonLabel2
-            // 
-            this.ribbonLabel2.MaxSizeMode = System.Windows.Forms.RibbonElementSizeMode.Compact;
-            this.ribbonLabel2.Name = "ribbonLabel2";
-            this.ribbonLabel2.Text = "Plan :";
-            // 
-            // lstPlan
-            // 
-            this.lstPlan.MaxSizeMode = System.Windows.Forms.RibbonElementSizeMode.Compact;
-            this.lstPlan.Name = "lstPlan";
-            this.lstPlan.TextBoxText = "";
-            this.lstPlan.TextBoxWidth = 150;
-            // 
-            // ribbonItemGroup3
-            // 
-            this.ribbonItemGroup3.Items.Add(this.btnCréerPlan);
-            this.ribbonItemGroup3.Items.Add(this.btnModifierPlan);
-            this.ribbonItemGroup3.Items.Add(this.ribbonSeparator3);
-            this.ribbonItemGroup3.Items.Add(this.btnOuvrirPlan);
-            this.ribbonItemGroup3.Items.Add(this.btnSupprimerPlan);
-            this.ribbonItemGroup3.Name = "ribbonItemGroup3";
-            // 
-            // btnCréerPlan
-            // 
-            this.btnCréerPlan.Image = ((System.Drawing.Image)(resources.GetObject("btnCréerPlan.Image")));
-            this.btnCréerPlan.LargeImage = ((System.Drawing.Image)(resources.GetObject("btnCréerPlan.LargeImage")));
-            this.btnCréerPlan.MaxSizeMode = System.Windows.Forms.RibbonElementSizeMode.Compact;
-            this.btnCréerPlan.Name = "btnCréerPlan";
-            this.btnCréerPlan.SmallImage = global::PATIO.Properties.Resources.plus;
-            this.btnCréerPlan.Text = "";
-            this.btnCréerPlan.ToolTip = "";
-            this.btnCréerPlan.ToolTipImage = global::PATIO.Properties.Resources._3d_cube;
-            // 
-            // btnModifierPlan
-            // 
-            this.btnModifierPlan.Image = ((System.Drawing.Image)(resources.GetObject("btnModifierPlan.Image")));
-            this.btnModifierPlan.LargeImage = ((System.Drawing.Image)(resources.GetObject("btnModifierPlan.LargeImage")));
-            this.btnModifierPlan.MaxSizeMode = System.Windows.Forms.RibbonElementSizeMode.Compact;
-            this.btnModifierPlan.Name = "btnModifierPlan";
-            this.btnModifierPlan.SmallImage = global::PATIO.Properties.Resources.modifier;
-            this.btnModifierPlan.Text = "";
-            // 
-            // ribbonSeparator3
-            // 
-            this.ribbonSeparator3.MaxSizeMode = System.Windows.Forms.RibbonElementSizeMode.Compact;
-            this.ribbonSeparator3.Name = "ribbonSeparator3";
-            // 
-            // btnOuvrirPlan
-            // 
-            this.btnOuvrirPlan.Image = ((System.Drawing.Image)(resources.GetObject("btnOuvrirPlan.Image")));
-            this.btnOuvrirPlan.LargeImage = ((System.Drawing.Image)(resources.GetObject("btnOuvrirPlan.LargeImage")));
-            this.btnOuvrirPlan.MaxSizeMode = System.Windows.Forms.RibbonElementSizeMode.Compact;
-            this.btnOuvrirPlan.Name = "btnOuvrirPlan";
-            this.btnOuvrirPlan.SmallImage = global::PATIO.Properties.Resources.btn_voir;
-            this.btnOuvrirPlan.Text = "";
-            // 
-            // btnSupprimerPlan
-            // 
-            this.btnSupprimerPlan.Image = ((System.Drawing.Image)(resources.GetObject("btnSupprimerPlan.Image")));
-            this.btnSupprimerPlan.LargeImage = ((System.Drawing.Image)(resources.GetObject("btnSupprimerPlan.LargeImage")));
-            this.btnSupprimerPlan.MaxSizeMode = System.Windows.Forms.RibbonElementSizeMode.Compact;
-            this.btnSupprimerPlan.Name = "btnSupprimerPlan";
-            this.btnSupprimerPlan.SmallImage = global::PATIO.Properties.Resources.supprimer;
-            // 
-            // ribbonPanel3
-            // 
-            this.ribbonPanel3.Name = "ribbonPanel3";
-            this.ribbonPanel3.Text = "ribbonPanel3";
+            this.TabCAPA_Plans.Image = global::PATIO.Properties.Resources.btn_carre_50_bleu;
+            this.TabCAPA_Plans.LargeImage = global::PATIO.Properties.Resources.btn_carre_50_bleu;
+            this.TabCAPA_Plans.Name = "TabCAPA_Plans";
+            this.TabCAPA_Plans.SmallImage = ((System.Drawing.Image)(resources.GetObject("TabCAPA_Plans.SmallImage")));
+            this.TabCAPA_Plans.Text = "";
+            this.TabCAPA_Plans.ToolTip = "Gestion des plans d\'actions";
+            this.TabCAPA_Plans.Click += new System.EventHandler(this.TabCAPA_Plans_Click);
             // 
             // TabCAPA_Objectif
             // 
-            this.TabCAPA_Objectif.Context = this.Contexte_CAPA;
+            this.TabCAPA_Objectif.Image = global::PATIO.Properties.Resources.btn_losange_50;
+            this.TabCAPA_Objectif.LargeImage = global::PATIO.Properties.Resources.btn_losange_50;
             this.TabCAPA_Objectif.Name = "TabCAPA_Objectif";
-            this.TabCAPA_Objectif.Text = "Objectifs";
+            this.TabCAPA_Objectif.SmallImage = ((System.Drawing.Image)(resources.GetObject("TabCAPA_Objectif.SmallImage")));
+            this.TabCAPA_Objectif.Text = "";
+            this.TabCAPA_Objectif.ToolTip = "Gestion des objectifs";
+            this.TabCAPA_Objectif.Click += new System.EventHandler(this.TabCAPA_Objectif_Click);
             // 
             // TabCAPA_Action
             // 
-            this.TabCAPA_Action.Context = this.Contexte_CAPA;
+            this.TabCAPA_Action.Image = global::PATIO.Properties.Resources.btn_cercle_50;
+            this.TabCAPA_Action.LargeImage = global::PATIO.Properties.Resources.btn_cercle_50;
             this.TabCAPA_Action.Name = "TabCAPA_Action";
+            this.TabCAPA_Action.SmallImage = ((System.Drawing.Image)(resources.GetObject("TabCAPA_Action.SmallImage")));
             this.TabCAPA_Action.Text = "Actions";
+            this.TabCAPA_Action.ToolTip = "Gestion des actions";
+            this.TabCAPA_Action.Click += new System.EventHandler(this.TabCAPA_Action_Click);
             // 
             // TabCAPA_Indicateur
             // 
-            this.TabCAPA_Indicateur.Context = this.Contexte_CAPA;
+            this.TabCAPA_Indicateur.Image = global::PATIO.Properties.Resources.btn_triangle_50;
+            this.TabCAPA_Indicateur.LargeImage = global::PATIO.Properties.Resources.btn_triangle_50;
             this.TabCAPA_Indicateur.Name = "TabCAPA_Indicateur";
-            this.TabCAPA_Indicateur.Text = "Indicateurs";
+            this.TabCAPA_Indicateur.SmallImage = ((System.Drawing.Image)(resources.GetObject("TabCAPA_Indicateur.SmallImage")));
+            this.TabCAPA_Indicateur.Text = "";
+            this.TabCAPA_Indicateur.ToolTip = "Gestion des indicateurs";
+            this.TabCAPA_Indicateur.Click += new System.EventHandler(this.TabCAPA_Indicateur_Click);
             // 
-            // TabCAPA_Edition
+            // TabCAPA_User
             // 
-            this.TabCAPA_Edition.Context = this.Contexte_CAPA;
-            this.TabCAPA_Edition.Name = "TabCAPA_Edition";
-            this.TabCAPA_Edition.Panels.Add(this.btnCAPA_Edition_Type);
-            this.TabCAPA_Edition.Text = "Edition";
+            this.TabCAPA_User.Image = global::PATIO.Properties.Resources.User;
+            this.TabCAPA_User.LargeImage = global::PATIO.Properties.Resources.User;
+            this.TabCAPA_User.Name = "TabCAPA_User";
+            this.TabCAPA_User.SmallImage = ((System.Drawing.Image)(resources.GetObject("TabCAPA_User.SmallImage")));
+            this.TabCAPA_User.ToolTip = "Gestion des utilisateurs";
+            this.TabCAPA_User.Click += new System.EventHandler(this.TabCAPA_User_Click);
             // 
-            // btnCAPA_Edition_Type
+            // TabOMEGA
             // 
-            this.btnCAPA_Edition_Type.Items.Add(this.btnCAPA_Edition_Plan);
-            this.btnCAPA_Edition_Type.Items.Add(this.btnCAPA_Edition_Direction);
-            this.btnCAPA_Edition_Type.Items.Add(this.btnCAPA_Edition_Territoire);
-            this.btnCAPA_Edition_Type.Items.Add(this.btnCAPA_Edition_Stat);
-            this.btnCAPA_Edition_Type.Name = "btnCAPA_Edition_Type";
-            this.btnCAPA_Edition_Type.Text = "Types d\'édition";
-            // 
-            // btnCAPA_Edition_Plan
-            // 
-            this.btnCAPA_Edition_Plan.Image = global::PATIO.Properties.Resources.Documents_Folder;
-            this.btnCAPA_Edition_Plan.LargeImage = global::PATIO.Properties.Resources.Documents_Folder;
-            this.btnCAPA_Edition_Plan.MaxSizeMode = System.Windows.Forms.RibbonElementSizeMode.Large;
-            this.btnCAPA_Edition_Plan.Name = "btnCAPA_Edition_Plan";
-            this.btnCAPA_Edition_Plan.SmallImage = ((System.Drawing.Image)(resources.GetObject("btnCAPA_Edition_Plan.SmallImage")));
-            this.btnCAPA_Edition_Plan.Text = "Plans";
-            this.btnCAPA_Edition_Plan.ToolTipTitle = "Edition par plan";
-            this.btnCAPA_Edition_Plan.Click += new System.EventHandler(this.btnCAPA_Edition_Plan_Click);
-            // 
-            // btnCAPA_Edition_Direction
-            // 
-            this.btnCAPA_Edition_Direction.Image = global::PATIO.Properties.Resources.direction;
-            this.btnCAPA_Edition_Direction.LargeImage = global::PATIO.Properties.Resources.direction;
-            this.btnCAPA_Edition_Direction.Name = "btnCAPA_Edition_Direction";
-            this.btnCAPA_Edition_Direction.SmallImage = ((System.Drawing.Image)(resources.GetObject("btnCAPA_Edition_Direction.SmallImage")));
-            this.btnCAPA_Edition_Direction.Text = "Directions";
-            this.btnCAPA_Edition_Direction.Click += new System.EventHandler(this.btnCAPA_Edition_Direction_Click);
-            // 
-            // btnCAPA_Edition_Territoire
-            // 
-            this.btnCAPA_Edition_Territoire.Image = global::PATIO.Properties.Resources.Globe;
-            this.btnCAPA_Edition_Territoire.LargeImage = global::PATIO.Properties.Resources.Globe;
-            this.btnCAPA_Edition_Territoire.Name = "btnCAPA_Edition_Territoire";
-            this.btnCAPA_Edition_Territoire.SmallImage = ((System.Drawing.Image)(resources.GetObject("btnCAPA_Edition_Territoire.SmallImage")));
-            this.btnCAPA_Edition_Territoire.Text = "Territoires";
-            this.btnCAPA_Edition_Territoire.Click += new System.EventHandler(this.btnCAPA_Edition_Territoire_Click);
-            // 
-            // btnCAPA_Edition_Stat
-            // 
-            this.btnCAPA_Edition_Stat.Image = global::PATIO.Properties.Resources.menu_edition;
-            this.btnCAPA_Edition_Stat.LargeImage = global::PATIO.Properties.Resources.menu_edition;
-            this.btnCAPA_Edition_Stat.Name = "btnCAPA_Edition_Stat";
-            this.btnCAPA_Edition_Stat.SmallImage = ((System.Drawing.Image)(resources.GetObject("btnCAPA_Edition_Stat.SmallImage")));
-            this.btnCAPA_Edition_Stat.Text = "Statistiques";
-            this.btnCAPA_Edition_Stat.Click += new System.EventHandler(this.btnCAPA_Edition_Stat_Click);
-            // 
-            // TabOMEGA_Budget
-            // 
-            this.TabOMEGA_Budget.Context = this.Contexte_OMEGA;
-            this.TabOMEGA_Budget.Name = "TabOMEGA_Budget";
-            this.TabOMEGA_Budget.Panels.Add(this.PanelBudget);
-            this.TabOMEGA_Budget.Text = "Budgets";
+            this.TabOMEGA.Name = "TabOMEGA";
+            this.TabOMEGA.Panels.Add(this.PanelBudget);
+            this.TabOMEGA.Panels.Add(this.ribbonPanel5);
+            this.TabOMEGA.Text = "OMEGA";
             // 
             // PanelBudget
             // 
-            this.PanelBudget.Items.Add(this.ribbonItemGroup2);
-            this.PanelBudget.Items.Add(this.ribbonItemGroup4);
-            this.PanelBudget.Items.Add(this.ribbonItemGroup5);
+            this.PanelBudget.Items.Add(this.TabOMEGA_Budget);
+            this.PanelBudget.Items.Add(this.TabOMEGA_Virement);
             this.PanelBudget.Name = "PanelBudget";
             this.PanelBudget.Text = "Budget";
             // 
-            // ribbonItemGroup2
+            // TabOMEGA_Budget
             // 
-            this.ribbonItemGroup2.Items.Add(this.ribbonLabel3);
-            this.ribbonItemGroup2.Items.Add(this.lstExercice);
-            this.ribbonItemGroup2.Name = "ribbonItemGroup2";
+            this.TabOMEGA_Budget.Image = global::PATIO.Properties.Resources.balance;
+            this.TabOMEGA_Budget.LargeImage = global::PATIO.Properties.Resources.balance;
+            this.TabOMEGA_Budget.Name = "TabOMEGA_Budget";
+            this.TabOMEGA_Budget.SmallImage = ((System.Drawing.Image)(resources.GetObject("TabOMEGA_Budget.SmallImage")));
             // 
-            // ribbonLabel3
+            // TabOMEGA_Virement
             // 
-            this.ribbonLabel3.LabelWidth = 80;
-            this.ribbonLabel3.MaxSizeMode = System.Windows.Forms.RibbonElementSizeMode.Compact;
-            this.ribbonLabel3.Name = "ribbonLabel3";
-            this.ribbonLabel3.Text = "Exercice :";
+            this.TabOMEGA_Virement.Image = global::PATIO.Properties.Resources.virement;
+            this.TabOMEGA_Virement.LargeImage = global::PATIO.Properties.Resources.virement;
+            this.TabOMEGA_Virement.Name = "TabOMEGA_Virement";
+            this.TabOMEGA_Virement.SmallImage = ((System.Drawing.Image)(resources.GetObject("TabOMEGA_Virement.SmallImage")));
             // 
-            // lstExercice
+            // ribbonPanel5
             // 
-            this.lstExercice.MaxSizeMode = System.Windows.Forms.RibbonElementSizeMode.Compact;
-            this.lstExercice.Name = "lstExercice";
-            this.lstExercice.TextBoxText = "";
+            this.ribbonPanel5.Items.Add(this.TabOMEGA_Fiche);
+            this.ribbonPanel5.Items.Add(this.TabOMEGA_Decision);
+            this.ribbonPanel5.Items.Add(this.TabOMEGA_Echeance);
+            this.ribbonPanel5.Items.Add(this.TabOMEGA_Liquidation);
+            this.ribbonPanel5.Items.Add(this.TabOMEGA_OrdrePaiement);
+            this.ribbonPanel5.Name = "ribbonPanel5";
+            this.ribbonPanel5.Text = "Exécution";
             // 
-            // ribbonItemGroup4
+            // TabOMEGA_Fiche
             // 
-            this.ribbonItemGroup4.Items.Add(this.ribbonLabel4);
-            this.ribbonItemGroup4.Items.Add(this.lstEnveloppe);
-            this.ribbonItemGroup4.Name = "ribbonItemGroup4";
+            this.TabOMEGA_Fiche.Image = global::PATIO.Properties.Resources.fihce;
+            this.TabOMEGA_Fiche.LargeImage = global::PATIO.Properties.Resources.fihce;
+            this.TabOMEGA_Fiche.Name = "TabOMEGA_Fiche";
+            this.TabOMEGA_Fiche.SmallImage = ((System.Drawing.Image)(resources.GetObject("TabOMEGA_Fiche.SmallImage")));
+            this.TabOMEGA_Fiche.ToolTip = "Fiche de commande";
             // 
-            // ribbonLabel4
+            // TabOMEGA_Decision
             // 
-            this.ribbonLabel4.LabelWidth = 80;
-            this.ribbonLabel4.MaxSizeMode = System.Windows.Forms.RibbonElementSizeMode.Compact;
-            this.ribbonLabel4.Name = "ribbonLabel4";
-            this.ribbonLabel4.Text = "Enveloppe :";
+            this.TabOMEGA_Decision.Image = global::PATIO.Properties.Resources.execution;
+            this.TabOMEGA_Decision.LargeImage = global::PATIO.Properties.Resources.execution;
+            this.TabOMEGA_Decision.Name = "TabOMEGA_Decision";
+            this.TabOMEGA_Decision.SmallImage = ((System.Drawing.Image)(resources.GetObject("TabOMEGA_Decision.SmallImage")));
+            this.TabOMEGA_Decision.ToolTip = "Décisions";
             // 
-            // lstEnveloppe
+            // TabOMEGA_Echeance
             // 
-            this.lstEnveloppe.MaxSizeMode = System.Windows.Forms.RibbonElementSizeMode.Compact;
-            this.lstEnveloppe.Name = "lstEnveloppe";
-            this.lstEnveloppe.TextBoxText = "";
+            this.TabOMEGA_Echeance.Image = global::PATIO.Properties.Resources.echeance;
+            this.TabOMEGA_Echeance.LargeImage = global::PATIO.Properties.Resources.echeance;
+            this.TabOMEGA_Echeance.Name = "TabOMEGA_Echeance";
+            this.TabOMEGA_Echeance.SmallImage = ((System.Drawing.Image)(resources.GetObject("TabOMEGA_Echeance.SmallImage")));
+            this.TabOMEGA_Echeance.ToolTip = "Echéances";
             // 
-            // ribbonItemGroup5
+            // TabOMEGA_Liquidation
             // 
-            this.ribbonItemGroup5.Items.Add(this.ribbonButton8);
-            this.ribbonItemGroup5.Items.Add(this.ribbonButton9);
-            this.ribbonItemGroup5.Name = "ribbonItemGroup5";
+            this.TabOMEGA_Liquidation.Image = global::PATIO.Properties.Resources.liquidation;
+            this.TabOMEGA_Liquidation.LargeImage = global::PATIO.Properties.Resources.liquidation;
+            this.TabOMEGA_Liquidation.Name = "TabOMEGA_Liquidation";
+            this.TabOMEGA_Liquidation.SmallImage = ((System.Drawing.Image)(resources.GetObject("TabOMEGA_Liquidation.SmallImage")));
+            this.TabOMEGA_Liquidation.ToolTip = "Liquidation";
             // 
-            // ribbonButton8
+            // TabOMEGA_OrdrePaiement
             // 
-            this.ribbonButton8.Image = ((System.Drawing.Image)(resources.GetObject("ribbonButton8.Image")));
-            this.ribbonButton8.LargeImage = ((System.Drawing.Image)(resources.GetObject("ribbonButton8.LargeImage")));
-            this.ribbonButton8.MaxSizeMode = System.Windows.Forms.RibbonElementSizeMode.Compact;
-            this.ribbonButton8.Name = "ribbonButton8";
-            this.ribbonButton8.SmallImage = global::PATIO.Properties.Resources.btn_ajouter;
+            this.TabOMEGA_OrdrePaiement.Image = global::PATIO.Properties.Resources.ordre_paiement;
+            this.TabOMEGA_OrdrePaiement.LargeImage = global::PATIO.Properties.Resources.ordre_paiement;
+            this.TabOMEGA_OrdrePaiement.Name = "TabOMEGA_OrdrePaiement";
+            this.TabOMEGA_OrdrePaiement.SmallImage = ((System.Drawing.Image)(resources.GetObject("TabOMEGA_OrdrePaiement.SmallImage")));
+            this.TabOMEGA_OrdrePaiement.ToolTip = "Ordres de paiement";
             // 
-            // ribbonButton9
+            // TabAdmin
             // 
-            this.ribbonButton9.Image = ((System.Drawing.Image)(resources.GetObject("ribbonButton9.Image")));
-            this.ribbonButton9.LargeImage = ((System.Drawing.Image)(resources.GetObject("ribbonButton9.LargeImage")));
-            this.ribbonButton9.MaxSizeMode = System.Windows.Forms.RibbonElementSizeMode.Compact;
-            this.ribbonButton9.Name = "ribbonButton9";
-            this.ribbonButton9.SmallImage = global::PATIO.Properties.Resources.apercu;
-            // 
-            // TabOMEGA_Commande
-            // 
-            this.TabOMEGA_Commande.Context = this.Contexte_OMEGA;
-            this.TabOMEGA_Commande.Name = "TabOMEGA_Commande";
-            this.TabOMEGA_Commande.Text = "Commandes";
-            // 
-            // TabOMEGA_Execution
-            // 
-            this.TabOMEGA_Execution.Context = this.Contexte_OMEGA;
-            this.TabOMEGA_Execution.Name = "TabOMEGA_Execution";
-            this.TabOMEGA_Execution.Text = "Exécution";
-            // 
-            // TabAdmin_User
-            // 
-            this.TabAdmin_User.Context = this.Contexte_ADMIN;
-            this.TabAdmin_User.Name = "TabAdmin_User";
-            this.TabAdmin_User.Panels.Add(this.ribbonPanel4);
-            this.TabAdmin_User.Panels.Add(this.ribbonPanel5);
-            this.TabAdmin_User.Panels.Add(this.ribbonPanel6);
-            this.TabAdmin_User.Text = "Utilisateurs";
+            this.TabAdmin.Name = "TabAdmin";
+            this.TabAdmin.Panels.Add(this.ribbonPanel4);
+            this.TabAdmin.Panels.Add(this.ribbonPanel6);
+            this.TabAdmin.Panels.Add(this.ribbonPanel3);
+            this.TabAdmin.Text = "Administration";
             // 
             // ribbonPanel4
             // 
             this.ribbonPanel4.ButtonMoreVisible = false;
-            this.ribbonPanel4.Items.Add(this.btnAjouter_User);
-            this.ribbonPanel4.Items.Add(this.btnModifier_User);
-            this.ribbonPanel4.Items.Add(this.btnSupprimer_User);
+            this.ribbonPanel4.Items.Add(this.btnGestion_User);
             this.ribbonPanel4.Name = "ribbonPanel4";
             this.ribbonPanel4.Text = "Utilisateurs";
             // 
-            // btnAjouter_User
+            // btnGestion_User
             // 
-            this.btnAjouter_User.Image = ((System.Drawing.Image)(resources.GetObject("btnAjouter_User.Image")));
-            this.btnAjouter_User.LargeImage = ((System.Drawing.Image)(resources.GetObject("btnAjouter_User.LargeImage")));
-            this.btnAjouter_User.Name = "btnAjouter_User";
-            this.btnAjouter_User.SmallImage = ((System.Drawing.Image)(resources.GetObject("btnAjouter_User.SmallImage")));
-            this.btnAjouter_User.Text = "";
-            this.btnAjouter_User.ToolTip = "Créer un utilisateur";
-            // 
-            // btnModifier_User
-            // 
-            this.btnModifier_User.Image = ((System.Drawing.Image)(resources.GetObject("btnModifier_User.Image")));
-            this.btnModifier_User.LargeImage = ((System.Drawing.Image)(resources.GetObject("btnModifier_User.LargeImage")));
-            this.btnModifier_User.Name = "btnModifier_User";
-            this.btnModifier_User.SmallImage = ((System.Drawing.Image)(resources.GetObject("btnModifier_User.SmallImage")));
-            this.btnModifier_User.Text = "";
-            this.btnModifier_User.ToolTip = "Modifier la fiche utilisateur";
-            // 
-            // ribbonPanel5
-            // 
-            this.ribbonPanel5.ButtonMoreVisible = false;
-            this.ribbonPanel5.Items.Add(this.btnAjouter_TV);
-            this.ribbonPanel5.Items.Add(this.btnModifier_TV);
-            this.ribbonPanel5.Items.Add(this.btnSupprimer_TV);
-            this.ribbonPanel5.Name = "ribbonPanel5";
-            this.ribbonPanel5.Text = "Tables de valeurs";
+            this.btnGestion_User.Image = global::PATIO.Properties.Resources.User;
+            this.btnGestion_User.LargeImage = global::PATIO.Properties.Resources.User;
+            this.btnGestion_User.Name = "btnGestion_User";
+            this.btnGestion_User.SmallImage = ((System.Drawing.Image)(resources.GetObject("btnGestion_User.SmallImage")));
+            this.btnGestion_User.Text = "";
+            this.btnGestion_User.ToolTip = "Gestion des utilisateurs";
             // 
             // ribbonPanel6
             // 
             this.ribbonPanel6.ButtonMoreVisible = false;
+            this.ribbonPanel6.Items.Add(this.TabAdmin_Attribut);
+            this.ribbonPanel6.Items.Add(this.TabAdmin_TableValeur);
+            this.ribbonPanel6.Items.Add(this.TabAdmin_Parametre);
             this.ribbonPanel6.Name = "ribbonPanel6";
-            this.ribbonPanel6.Text = "Attributs";
+            this.ribbonPanel6.Text = "Paramétrage";
             // 
-            // TabAdmin_Param
+            // TabAdmin_Attribut
             // 
-            this.TabAdmin_Param.Context = this.Contexte_ADMIN;
-            this.TabAdmin_Param.Name = "TabAdmin_Param";
-            this.TabAdmin_Param.Text = "Paramétrages";
+            this.TabAdmin_Attribut.Image = global::PATIO.Properties.Resources.attribut;
+            this.TabAdmin_Attribut.LargeImage = global::PATIO.Properties.Resources.attribut;
+            this.TabAdmin_Attribut.Name = "TabAdmin_Attribut";
+            this.TabAdmin_Attribut.SmallImage = ((System.Drawing.Image)(resources.GetObject("TabAdmin_Attribut.SmallImage")));
+            this.TabAdmin_Attribut.ToolTip = "Attributs";
             // 
-            // TabAdmin_IE
+            // TabAdmin_TableValeur
             // 
-            this.TabAdmin_IE.Context = this.Contexte_ADMIN;
-            this.TabAdmin_IE.Name = "TabAdmin_IE";
-            this.TabAdmin_IE.Text = "Importation/Exportation";
+            this.TabAdmin_TableValeur.Image = ((System.Drawing.Image)(resources.GetObject("TabAdmin_TableValeur.Image")));
+            this.TabAdmin_TableValeur.LargeImage = ((System.Drawing.Image)(resources.GetObject("TabAdmin_TableValeur.LargeImage")));
+            this.TabAdmin_TableValeur.Name = "TabAdmin_TableValeur";
+            this.TabAdmin_TableValeur.SmallImage = ((System.Drawing.Image)(resources.GetObject("TabAdmin_TableValeur.SmallImage")));
+            this.TabAdmin_TableValeur.ToolTip = "Table de valeurs";
+            // 
+            // TabAdmin_Parametre
+            // 
+            this.TabAdmin_Parametre.Image = global::PATIO.Properties.Resources.parametre;
+            this.TabAdmin_Parametre.LargeImage = global::PATIO.Properties.Resources.parametre;
+            this.TabAdmin_Parametre.Name = "TabAdmin_Parametre";
+            this.TabAdmin_Parametre.SmallImage = ((System.Drawing.Image)(resources.GetObject("TabAdmin_Parametre.SmallImage")));
+            this.TabAdmin_Parametre.ToolTip = "Paramètres";
+            // 
+            // ribbonPanel3
+            // 
+            this.ribbonPanel3.Items.Add(this.TabAdmin_Import);
+            this.ribbonPanel3.Items.Add(this.TabAdmin_Export);
+            this.ribbonPanel3.Items.Add(this.TabAdmin_XWiki);
+            this.ribbonPanel3.Name = "ribbonPanel3";
+            this.ribbonPanel3.Text = "Importation/Exportation";
+            // 
+            // TabAdmin_Import
+            // 
+            this.TabAdmin_Import.Image = global::PATIO.Properties.Resources.import;
+            this.TabAdmin_Import.LargeImage = global::PATIO.Properties.Resources.import;
+            this.TabAdmin_Import.Name = "TabAdmin_Import";
+            this.TabAdmin_Import.SmallImage = ((System.Drawing.Image)(resources.GetObject("TabAdmin_Import.SmallImage")));
+            this.TabAdmin_Import.ToolTip = "Importation";
+            // 
+            // TabAdmin_Export
+            // 
+            this.TabAdmin_Export.Image = global::PATIO.Properties.Resources.export;
+            this.TabAdmin_Export.LargeImage = global::PATIO.Properties.Resources.export;
+            this.TabAdmin_Export.Name = "TabAdmin_Export";
+            this.TabAdmin_Export.SmallImage = ((System.Drawing.Image)(resources.GetObject("TabAdmin_Export.SmallImage")));
+            this.TabAdmin_Export.ToolTip = "Exportation";
+            // 
+            // TabAdmin_XWiki
+            // 
+            this.TabAdmin_XWiki.Image = global::PATIO.Properties.Resources.xwiki;
+            this.TabAdmin_XWiki.LargeImage = global::PATIO.Properties.Resources.xwiki;
+            this.TabAdmin_XWiki.Name = "TabAdmin_XWiki";
+            this.TabAdmin_XWiki.SmallImage = ((System.Drawing.Image)(resources.GetObject("TabAdmin_XWiki.SmallImage")));
+            this.TabAdmin_XWiki.ToolTip = "Export vers XWiki";
+            // 
+            // TabCAPA_Contexte1
+            // 
+            this.TabCAPA_Contexte1.Context = this.Contexte_CAPA;
+            this.TabCAPA_Contexte1.Name = "TabCAPA_Contexte1";
+            this.TabCAPA_Contexte1.Text = "Contexte CAPA";
+            // 
+            // TabOMEGA_Contexte1
+            // 
+            this.TabOMEGA_Contexte1.Context = this.Contexte_OMEGA;
+            this.TabOMEGA_Contexte1.Name = "TabOMEGA_Contexte1";
+            this.TabOMEGA_Contexte1.Text = "Contexte OMEGA";
             // 
             // ribbonButton2
             // 
@@ -799,33 +685,88 @@
             this.btn_Reporting.SmallImage = ((System.Drawing.Image)(resources.GetObject("btn_Reporting.SmallImage")));
             this.btn_Reporting.Text = "Edition";
             // 
-            // btnAjouter_TV
+            // ribbonButton16
             // 
-            this.btnAjouter_TV.Image = global::PATIO.Properties.Resources.sphere_plus;
-            this.btnAjouter_TV.LargeImage = global::PATIO.Properties.Resources.sphere_plus;
-            this.btnAjouter_TV.Name = "btnAjouter_TV";
-            this.btnAjouter_TV.SmallImage = ((System.Drawing.Image)(resources.GetObject("btnAjouter_TV.SmallImage")));
+            this.ribbonButton16.Image = ((System.Drawing.Image)(resources.GetObject("ribbonButton16.Image")));
+            this.ribbonButton16.LargeImage = ((System.Drawing.Image)(resources.GetObject("ribbonButton16.LargeImage")));
+            this.ribbonButton16.Name = "ribbonButton16";
+            this.ribbonButton16.SmallImage = ((System.Drawing.Image)(resources.GetObject("ribbonButton16.SmallImage")));
             // 
-            // btnModifier_TV
+            // ribbonItemGroup3
             // 
-            this.btnModifier_TV.Image = global::PATIO.Properties.Resources.sphere_modif;
-            this.btnModifier_TV.LargeImage = global::PATIO.Properties.Resources.sphere_modif;
-            this.btnModifier_TV.Name = "btnModifier_TV";
-            this.btnModifier_TV.SmallImage = ((System.Drawing.Image)(resources.GetObject("btnModifier_TV.SmallImage")));
+            this.ribbonItemGroup3.Name = "ribbonItemGroup3";
             // 
-            // btnSupprimer_TV
+            // btnSupprimerPlan
             // 
-            this.btnSupprimer_TV.Image = global::PATIO.Properties.Resources.sphere_supprimer;
-            this.btnSupprimer_TV.LargeImage = global::PATIO.Properties.Resources.sphere_supprimer;
-            this.btnSupprimer_TV.Name = "btnSupprimer_TV";
-            this.btnSupprimer_TV.SmallImage = ((System.Drawing.Image)(resources.GetObject("btnSupprimer_TV.SmallImage")));
+            this.btnSupprimerPlan.Image = ((System.Drawing.Image)(resources.GetObject("btnSupprimerPlan.Image")));
+            this.btnSupprimerPlan.LargeImage = ((System.Drawing.Image)(resources.GetObject("btnSupprimerPlan.LargeImage")));
+            this.btnSupprimerPlan.MaxSizeMode = System.Windows.Forms.RibbonElementSizeMode.Compact;
+            this.btnSupprimerPlan.Name = "btnSupprimerPlan";
+            this.btnSupprimerPlan.SmallImage = global::PATIO.Properties.Resources.supprimer;
             // 
-            // btnSupprimer_User
+            // btnOuvrirPlan
             // 
-            this.btnSupprimer_User.Image = global::PATIO.Properties.Resources.sphere_supprimer;
-            this.btnSupprimer_User.LargeImage = global::PATIO.Properties.Resources.sphere_supprimer;
-            this.btnSupprimer_User.Name = "btnSupprimer_User";
-            this.btnSupprimer_User.SmallImage = ((System.Drawing.Image)(resources.GetObject("btnSupprimer_User.SmallImage")));
+            this.btnOuvrirPlan.Image = ((System.Drawing.Image)(resources.GetObject("btnOuvrirPlan.Image")));
+            this.btnOuvrirPlan.LargeImage = ((System.Drawing.Image)(resources.GetObject("btnOuvrirPlan.LargeImage")));
+            this.btnOuvrirPlan.MaxSizeMode = System.Windows.Forms.RibbonElementSizeMode.Compact;
+            this.btnOuvrirPlan.Name = "btnOuvrirPlan";
+            this.btnOuvrirPlan.SmallImage = global::PATIO.Properties.Resources.btn_voir;
+            this.btnOuvrirPlan.Text = "";
+            // 
+            // ribbonSeparator3
+            // 
+            this.ribbonSeparator3.MaxSizeMode = System.Windows.Forms.RibbonElementSizeMode.Compact;
+            this.ribbonSeparator3.Name = "ribbonSeparator3";
+            // 
+            // btnModifierPlan
+            // 
+            this.btnModifierPlan.Image = ((System.Drawing.Image)(resources.GetObject("btnModifierPlan.Image")));
+            this.btnModifierPlan.LargeImage = ((System.Drawing.Image)(resources.GetObject("btnModifierPlan.LargeImage")));
+            this.btnModifierPlan.MaxSizeMode = System.Windows.Forms.RibbonElementSizeMode.Compact;
+            this.btnModifierPlan.Name = "btnModifierPlan";
+            this.btnModifierPlan.SmallImage = global::PATIO.Properties.Resources.modifier;
+            this.btnModifierPlan.Text = "";
+            // 
+            // btnCréerPlan
+            // 
+            this.btnCréerPlan.Image = ((System.Drawing.Image)(resources.GetObject("btnCréerPlan.Image")));
+            this.btnCréerPlan.LargeImage = ((System.Drawing.Image)(resources.GetObject("btnCréerPlan.LargeImage")));
+            this.btnCréerPlan.MaxSizeMode = System.Windows.Forms.RibbonElementSizeMode.Compact;
+            this.btnCréerPlan.Name = "btnCréerPlan";
+            this.btnCréerPlan.SmallImage = global::PATIO.Properties.Resources.plus;
+            this.btnCréerPlan.Text = "";
+            this.btnCréerPlan.ToolTip = "";
+            this.btnCréerPlan.ToolTipImage = global::PATIO.Properties.Resources._3d_cube;
+            // 
+            // ribbonItemGroup1
+            // 
+            this.ribbonItemGroup1.Name = "ribbonItemGroup1";
+            // 
+            // lstPlan
+            // 
+            this.lstPlan.MaxSizeMode = System.Windows.Forms.RibbonElementSizeMode.Compact;
+            this.lstPlan.Name = "lstPlan";
+            this.lstPlan.TextBoxText = "";
+            this.lstPlan.TextBoxWidth = 150;
+            // 
+            // ribbonLabel2
+            // 
+            this.ribbonLabel2.MaxSizeMode = System.Windows.Forms.RibbonElementSizeMode.Compact;
+            this.ribbonLabel2.Name = "ribbonLabel2";
+            this.ribbonLabel2.Text = "Plan :";
+            // 
+            // btn_Recharger
+            // 
+            this.btn_Recharger.Image = global::PATIO.Properties.Resources.actualiser;
+            this.btn_Recharger.LargeImage = global::PATIO.Properties.Resources.actualiser;
+            this.btn_Recharger.Name = "btn_Recharger";
+            this.btn_Recharger.SmallImage = ((System.Drawing.Image)(resources.GetObject("btn_Recharger.SmallImage")));
+            this.btn_Recharger.Text = "Recharger";
+            this.btn_Recharger.Click += new System.EventHandler(this.btnRecharger_Click);
+            // 
+            // ribbonSeparator2
+            // 
+            this.ribbonSeparator2.Name = "ribbonSeparator2";
             // 
             // frmMain
             // 
@@ -853,63 +794,35 @@
         private System.Windows.Forms.RibbonTab ribbonTab2;
         private System.Windows.Forms.RibbonTab ribbonTab1;
         private System.Windows.Forms.RibbonUpDown ribbonUpDown1;
-        private System.Windows.Forms.RibbonTab TabCAPA_Plan;
+        private System.Windows.Forms.RibbonTab TabCAPA;
         private System.Windows.Forms.RibbonPanel ribbonPanel1;
-        private System.Windows.Forms.RibbonTab TabOMEGA_Budget;
+        private System.Windows.Forms.RibbonTab TabOMEGA;
         private System.Windows.Forms.RibbonButton ribbonButton2;
         private System.Windows.Forms.RibbonPanel ribbonPanel2;
         private System.Windows.Forms.RibbonOrbMenuItem ribbonOrbMenuItem1;
         private System.Windows.Forms.RibbonSeparator ribbonSeparator1;
         private System.Windows.Forms.RibbonOrbMenuItem ribbonOrbMenuItem2;
         private System.Windows.Forms.RibbonLabel ribbonLabel1;
-        private System.Windows.Forms.RibbonPanel ribbonPanel3;
+        private System.Windows.Forms.RibbonPanel TabCAPA_Gestion;
         private System.Windows.Forms.RibbonCheckBox ribbonCheckBox1;
         private System.Windows.Forms.RibbonOrbMenuItem btnPATIO_Site;
         private System.Windows.Forms.RibbonButton btnPATIO_Site_PRS;
         private System.Windows.Forms.RibbonButton btnPATIO_Site_PlanAction;
         private System.Windows.Forms.RibbonOrbMenuItem ribbonOrbMenuItem4;
-        private System.Windows.Forms.RibbonSeparator ribbonSeparator2;
-        private System.Windows.Forms.RibbonButton btn_Recharger;
         private System.Windows.Forms.RibbonButton ribbonButton5;
         private System.Windows.Forms.RibbonButton MenuXWikiPRS;
         private System.Windows.Forms.RibbonButton MenuXWikiTechnique;
-        private System.Windows.Forms.RibbonTab TabAdmin_User;
+        private System.Windows.Forms.RibbonTab TabAdmin;
         private System.Windows.Forms.RibbonPanel ribbonPanel4;
-        private System.Windows.Forms.RibbonItemGroup ribbonItemGroup1;
-        private System.Windows.Forms.RibbonLabel ribbonLabel2;
-        private System.Windows.Forms.RibbonComboBox lstPlan;
-        private System.Windows.Forms.RibbonItemGroup ribbonItemGroup3;
-        private System.Windows.Forms.RibbonButton btnOuvrirPlan;
         private System.Windows.Forms.RibbonPanel PanelBudget;
-        private System.Windows.Forms.RibbonItemGroup ribbonItemGroup2;
-        private System.Windows.Forms.RibbonLabel ribbonLabel3;
-        private System.Windows.Forms.RibbonComboBox lstExercice;
-        private System.Windows.Forms.RibbonItemGroup ribbonItemGroup4;
-        private System.Windows.Forms.RibbonLabel ribbonLabel4;
-        private System.Windows.Forms.RibbonComboBox lstEnveloppe;
-        private System.Windows.Forms.RibbonPanel ribbonPanel5;
         private System.Windows.Forms.RibbonPanel ribbonPanel6;
         private System.Windows.Forms.RibbonButton ribbonButton6;
-        private System.Windows.Forms.RibbonItemGroup ribbonItemGroup5;
-        private System.Windows.Forms.RibbonButton ribbonButton8;
-        private System.Windows.Forms.RibbonButton ribbonButton9;
-        private System.Windows.Forms.RibbonButton btnCréerPlan;
-        private System.Windows.Forms.RibbonButton btnModifierPlan;
-        private System.Windows.Forms.RibbonButton btnSupprimerPlan;
-        private System.Windows.Forms.RibbonSeparator ribbonSeparator3;
         private System.Windows.Forms.RibbonButton ribbonButton7;
-        private System.Windows.Forms.RibbonButton btnModifier_User;
-        private System.Windows.Forms.RibbonButton btnAjouter_User;
+        private System.Windows.Forms.RibbonButton btnGestion_User;
         public System.Windows.Forms.Ribbon ribbon1;
         private System.Windows.Forms.RibbonButton ribbonButton12;
         private System.Windows.Forms.RibbonContext Contexte_OMEGA;
         private System.Windows.Forms.RibbonContext Contexte_CAPA;
-        private System.Windows.Forms.RibbonContext Contexte_ADMIN;
-        private System.Windows.Forms.RibbonTab TabCAPA_Objectif;
-        private System.Windows.Forms.RibbonTab TabCAPA_Action;
-        private System.Windows.Forms.RibbonTab TabCAPA_Indicateur;
-        private System.Windows.Forms.RibbonTab TabOMEGA_Commande;
-        private System.Windows.Forms.RibbonTab TabOMEGA_Execution;
         private System.Windows.Forms.RibbonSeparator ribbonSeparator4;
         private System.Windows.Forms.RibbonOrbMenuItem btnPATIO_Aide;
         private System.Windows.Forms.RibbonOrbOptionButton btnOptions;
@@ -921,19 +834,41 @@
         private System.Windows.Forms.RibbonButton ribbonButton3;
         private System.Windows.Forms.RibbonButton ribbonButton4;
         private System.Windows.Forms.RibbonButton ribbonButton13;
-        private System.Windows.Forms.RibbonTab TabCAPA_Edition;
-        private System.Windows.Forms.RibbonPanel btnCAPA_Edition_Type;
-        private System.Windows.Forms.RibbonButton btnCAPA_Edition_Plan;
         private System.Windows.Forms.RibbonButton btn_Reporting;
-        private System.Windows.Forms.RibbonButton btnCAPA_Edition_Direction;
-        private System.Windows.Forms.RibbonButton btnCAPA_Edition_Territoire;
-        private System.Windows.Forms.RibbonButton btnCAPA_Edition_Stat;
-        private System.Windows.Forms.RibbonTab TabAdmin_IE;
-        private System.Windows.Forms.RibbonTab TabAdmin_Param;
-        private System.Windows.Forms.RibbonButton btnAjouter_TV;
-        private System.Windows.Forms.RibbonButton btnModifier_TV;
-        private System.Windows.Forms.RibbonButton btnSupprimer_TV;
-        private System.Windows.Forms.RibbonButton btnSupprimer_User;
+        private System.Windows.Forms.RibbonTab TabOMEGA_Contexte1;
+        private System.Windows.Forms.RibbonTab TabCAPA_Contexte1;
+        private System.Windows.Forms.RibbonButton TabCAPA_Plans;
+        private System.Windows.Forms.RibbonButton TabCAPA_Objectif;
+        private System.Windows.Forms.RibbonButton TabCAPA_Action;
+        private System.Windows.Forms.RibbonButton TabCAPA_Indicateur;
+        private System.Windows.Forms.RibbonButton TabCAPA_User;
+        private System.Windows.Forms.RibbonButton ribbonButton16;
+        private System.Windows.Forms.RibbonItemGroup ribbonItemGroup3;
+        private System.Windows.Forms.RibbonButton btnSupprimerPlan;
+        private System.Windows.Forms.RibbonButton btnOuvrirPlan;
+        private System.Windows.Forms.RibbonSeparator ribbonSeparator3;
+        private System.Windows.Forms.RibbonButton btnModifierPlan;
+        private System.Windows.Forms.RibbonButton btnCréerPlan;
+        private System.Windows.Forms.RibbonItemGroup ribbonItemGroup1;
+        private System.Windows.Forms.RibbonComboBox lstPlan;
+        private System.Windows.Forms.RibbonLabel ribbonLabel2;
+        private System.Windows.Forms.RibbonButton btn_Recharger;
+        private System.Windows.Forms.RibbonSeparator ribbonSeparator2;
+        private System.Windows.Forms.RibbonButton TabAdmin_Attribut;
+        private System.Windows.Forms.RibbonButton TabAdmin_TableValeur;
+        private System.Windows.Forms.RibbonButton TabAdmin_Parametre;
+        private System.Windows.Forms.RibbonPanel ribbonPanel3;
+        private System.Windows.Forms.RibbonButton TabAdmin_Import;
+        private System.Windows.Forms.RibbonButton TabAdmin_Export;
+        private System.Windows.Forms.RibbonButton TabAdmin_XWiki;
+        private System.Windows.Forms.RibbonButton TabOMEGA_Budget;
+        private System.Windows.Forms.RibbonButton TabOMEGA_Virement;
+        private System.Windows.Forms.RibbonPanel ribbonPanel5;
+        private System.Windows.Forms.RibbonButton TabOMEGA_Fiche;
+        private System.Windows.Forms.RibbonButton TabOMEGA_Decision;
+        private System.Windows.Forms.RibbonButton TabOMEGA_Echeance;
+        private System.Windows.Forms.RibbonButton TabOMEGA_Liquidation;
+        private System.Windows.Forms.RibbonButton TabOMEGA_OrdrePaiement;
     }
 }
 

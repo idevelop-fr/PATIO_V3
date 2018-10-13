@@ -46,10 +46,10 @@ namespace PATIO.CAPA.Interfaces
         public ctrlListePlan()
         {
             InitializeComponent();
-            Initialise();
+            Initialiser();
         }
 
-        void Initialise()
+        void Initialiser()
         {
             imageList1.Images.Add(PATIO.Properties.Resources.suivant);
             imageList1.Images.Add(PATIO.Properties.Resources.dossier_plus);    //Dossier

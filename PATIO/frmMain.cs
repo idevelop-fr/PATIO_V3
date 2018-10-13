@@ -50,7 +50,7 @@ namespace PATIO
             if (!Initialiser_Connexion()) { return; /*Fin dû à un pb de connexion*/ }
 
             Afficher_Accueil();
-            Afficher_GestionObjet();
+            //Afficher_GestionObjet();
 
             //Affichage du temps de chargement
             DateTime d2 = DateTime.Now;
@@ -58,7 +58,7 @@ namespace PATIO
             timer1.Start();
 
             //Sauvegarde automatique
-            timer2.Start();
+            //timer2.Start();
             //Acces.Sauvegarde_local();
 
             //Affichage de la version
@@ -129,9 +129,9 @@ namespace PATIO
             ctrl.Dock = DockStyle.Fill;
             ctrl.Initialise();
             D1.Controls.Add(ctrl);
-
             D1.Show(DP, DockState.Document);
             D1.Text = "Accueil";
+            D1.Tag = "ACCUEIL";
             D1.ShowInTaskbar = false;
             D1.CloseButton = false;
 
@@ -365,6 +365,154 @@ namespace PATIO
         private void btnCAPA_Edition_Stat_Click(object sender, EventArgs e)
         {
             Afficher_EditionStat();
+        }
+
+        private void TabCAPA_Plans_Click(object sender, EventArgs e)
+        {
+            string Tag = "PLAN";
+            //Recherche s'il est affiché
+            foreach (DockContent d in DP.Documents)
+            {
+                if (d.Tag.ToString() == Tag) { d.Show(); return; }
+            }
+
+            DockContent D1 = new DockContent();
+
+            var ctrllisteplan = new ctrlListePlan();
+
+            ctrllisteplan.Acces = Acces;
+            ctrllisteplan.DP = DP;
+            ctrllisteplan.Console = Console;
+            ctrllisteplan.Chemin = Chemin;
+
+            ctrllisteplan.Afficher_ListePlan();
+
+            ctrllisteplan.Dock = DockStyle.Fill;
+            D1.Controls.Add(ctrllisteplan);
+
+            D1.Show(DP, DockState.DockLeft);
+            D1.Text = "Plans d'actions";
+            D1.ShowInTaskbar = false;
+            D1.Tag = Tag;
+            D1.CloseButton = true;
+        }
+
+        private void TabCAPA_Objectif_Click(object sender, EventArgs e)
+        {
+            string Tag = "OBJECTIF ";
+            //Recherche s'il est affiché
+            foreach (DockContent d in DP.Documents)
+            {
+                if (d.Tag.ToString() == Tag) { d.Show(); return; }
+            }
+
+            DockContent D1 = new DockContent();
+
+            var ctrllisteobjectif = new ctrlListeObjectif();
+
+            ctrllisteobjectif.Acces = Acces;
+            ctrllisteobjectif.DP = DP;
+            ctrllisteobjectif.Console = Console;
+            ctrllisteobjectif.Chemin = Chemin;
+
+            ctrllisteobjectif.Afficher_ListeObjectif();
+
+            ctrllisteobjectif.Dock = DockStyle.Fill;
+            D1.Controls.Add(ctrllisteobjectif);
+
+            D1.Show(DP, DockState.DockLeft);
+            D1.Text = "Objectifs";
+            D1.ShowInTaskbar = false;
+            D1.Tag = Tag;
+            D1.CloseButton = true;
+        }
+
+        private void TabCAPA_Action_Click(object sender, EventArgs e)
+        {
+            string Tag = "ACTION";
+            //Recherche s'il est affiché
+            foreach (DockContent d in DP.Documents)
+            {
+                if (d.Tag.ToString() == Tag) { d.Show(); return; }
+            }
+            DockContent D1 = new DockContent();
+
+            var ctrllisteaction = new ctrlListeAction();
+
+            ctrllisteaction.Acces = Acces;
+            ctrllisteaction.DP = DP;
+            ctrllisteaction.Console = Console;
+            ctrllisteaction.Chemin = Chemin;
+
+            ctrllisteaction.Afficher_ListeAction();
+
+            ctrllisteaction.Dock = DockStyle.Fill;
+            D1.Controls.Add(ctrllisteaction);
+
+            D1.Show(DP, DockState.DockLeft);
+            D1.Text = "Actions";
+            D1.ShowInTaskbar = false;
+            D1.Tag = Tag;
+            D1.CloseButton = true;
+        }
+
+        private void TabCAPA_Indicateur_Click(object sender, EventArgs e)
+        {
+            string Tag = "INDICATEUR";
+            //Recherche s'il est affiché
+            foreach (DockContent d in DP.Documents)
+            {
+                if (d.Tag.ToString() == Tag) { d.Show(); return; }
+            }
+
+            DockContent D1 = new DockContent();
+
+            var ctrllisteindicateur = new ctrlListeIndicateur();
+
+            ctrllisteindicateur.Acces = Acces;
+            ctrllisteindicateur.DP = DP;
+            ctrllisteindicateur.Console = Console;
+            ctrllisteindicateur.Chemin = Chemin;
+
+            ctrllisteindicateur.Afficher_ListeIndicateur();
+
+            ctrllisteindicateur.Dock = DockStyle.Fill;
+            D1.Controls.Add(ctrllisteindicateur);
+
+            D1.Show(DP, DockState.DockLeft);
+            D1.Text = "Indicateurs";
+            D1.ShowInTaskbar = false;
+            D1.Tag = Tag;
+            D1.CloseButton = true;
+        }
+
+        private void TabCAPA_User_Click(object sender, EventArgs e)
+        {
+            string Tag = "UTILISATEUR";
+            //Recherche s'il est affiché
+            foreach (DockContent d in DP.Documents)
+            {
+                if (d.Tag.ToString() == Tag) { d.Show(); return; }
+            }
+
+            DockContent D1 = new DockContent();
+
+            var ctrllisteuser = new ctrlListeUtilisateur();
+
+            ctrllisteuser.Acces = Acces;
+            ctrllisteuser.DP = DP;
+            ctrllisteuser.Console = Console;
+
+            ctrllisteuser.Afficher_ListeUser();
+
+            ctrllisteuser.Dock = DockStyle.Fill;
+            D1.Controls.Add(ctrllisteuser);
+
+            D1.Show(DP, DockState.DockLeft);
+            D1.Text = "Utilisateurs";
+            D1.ShowInTaskbar = false;
+            D1.Tag = Tag;
+            D1.CloseButton = true;
         }
     }
 }

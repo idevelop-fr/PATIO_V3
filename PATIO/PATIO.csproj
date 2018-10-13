@@ -725,9 +725,6 @@
     <None Include="Resources\Admin_-_User.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\User.png" />
-  </ItemGroup>
-  <ItemGroup>
     <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
       <Visible>False</Visible>
       <ProductName>.NET Framework 3.5 SP1</ProductName>
@@ -772,6 +769,27 @@
     <None Include="Resources\panneau.png" />
     <None Include="Resources\Documents_Folder.png" />
     <None Include="Resources\direction.png" />
+    <None Include="Resources\accueil.png" />
+    <None Include="Resources\User.png" />
+    <None Include="Resources\btn_carre_50_bleu.png" />
+    <None Include="Resources\btn_losange_50.png" />
+    <None Include="Resources\btn_cercle_50.png" />
+    <None Include="Resources\btn_triangle.png" />
+    <None Include="Resources\btn_triangle_50.png" />
+    <None Include="Resources\attribut.png" />
+    <None Include="Resources\table_valeur.jpg" />
+    <None Include="Resources\table_valeur.png" />
+    <None Include="Resources\parametre.png" />
+    <None Include="Resources\export.png" />
+    <None Include="Resources\import.png" />
+    <None Include="Resources\xwiki.png" />
+    <None Include="Resources\balance.png" />
+    <None Include="Resources\virement.png" />
+    <None Include="Resources\fihce.png" />
+    <None Include="Resources\execution.png" />
+    <None Include="Resources\echeance.png" />
+    <None Include="Resources\liquidation.png" />
+    <None Include="Resources\ordre_paiement.png" />
     <Content Include="RibbonMarkup.xml" />
     <None Include="Resources\hdf.png" />
     <None Include="Resources\27008-Elquebrado-AeroGlobe.png" />
