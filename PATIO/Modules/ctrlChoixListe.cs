@@ -144,6 +144,8 @@ namespace PATIO.CAPA.Interfaces
         private void lstChoix_DoubleClick(object sender, EventArgs e)
         {
             Ajouter();
+            lblRecherche.Focus();
+            lblRecherche.SelectAll();
         }
 
         private void lstSelection_DoubleClick(object sender, EventArgs e)
@@ -179,6 +181,24 @@ namespace PATIO.CAPA.Interfaces
         private void lblRecherche_TextChanged(object sender, EventArgs e)
         {
             Afficher_Liste_Choix();
+        }
+
+        private void lstChoix_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if(lstChoix.SelectedIndex <0) { return; }
+            if(e.KeyChar==(Char) Keys.Enter)
+            {
+                MessageBox.Show(lstChoix.SelectedItem.ToString());
+            }
+        }
+
+        private void lstSelection_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (lstSelection.SelectedIndex < 0) { return; }
+            if (e.KeyChar == (Char)Keys.Enter)
+            {
+                MessageBox.Show(lstSelection.SelectedItem.ToString());
+            }
         }
     }
 }

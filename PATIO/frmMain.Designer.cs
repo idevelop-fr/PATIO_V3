@@ -67,6 +67,13 @@
             this.TabCAPA_Action = new System.Windows.Forms.RibbonButton();
             this.TabCAPA_Indicateur = new System.Windows.Forms.RibbonButton();
             this.TabCAPA_User = new System.Windows.Forms.RibbonButton();
+            this.ribbonPanel7 = new System.Windows.Forms.RibbonPanel();
+            this.TabCAPA_Edition_Plan = new System.Windows.Forms.RibbonButton();
+            this.TabCAPA_Edition_Direction = new System.Windows.Forms.RibbonButton();
+            this.TabCAPA_Edition_Territoire = new System.Windows.Forms.RibbonButton();
+            this.TabCAPA_Edition_Stat = new System.Windows.Forms.RibbonButton();
+            this.TabCAPA_Recharger = new System.Windows.Forms.RibbonPanel();
+            this.btnCAPA_Recharger = new System.Windows.Forms.RibbonButton();
             this.TabOMEGA = new System.Windows.Forms.RibbonTab();
             this.PanelBudget = new System.Windows.Forms.RibbonPanel();
             this.TabOMEGA_Budget = new System.Windows.Forms.RibbonButton();
@@ -383,10 +390,13 @@
             // 
             this.TabCAPA.Name = "TabCAPA";
             this.TabCAPA.Panels.Add(this.TabCAPA_Gestion);
+            this.TabCAPA.Panels.Add(this.ribbonPanel7);
+            this.TabCAPA.Panels.Add(this.TabCAPA_Recharger);
             this.TabCAPA.Text = "CAPA";
             // 
             // TabCAPA_Gestion
             // 
+            this.TabCAPA_Gestion.ButtonMoreVisible = false;
             this.TabCAPA_Gestion.Items.Add(this.TabCAPA_Plans);
             this.TabCAPA_Gestion.Items.Add(this.TabCAPA_Objectif);
             this.TabCAPA_Gestion.Items.Add(this.TabCAPA_Action);
@@ -397,8 +407,8 @@
             // 
             // TabCAPA_Plans
             // 
-            this.TabCAPA_Plans.Image = global::PATIO.Properties.Resources.btn_carre_50_bleu;
-            this.TabCAPA_Plans.LargeImage = global::PATIO.Properties.Resources.btn_carre_50_bleu;
+            this.TabCAPA_Plans.Image = global::PATIO.Properties.Resources.btn_carre_50;
+            this.TabCAPA_Plans.LargeImage = global::PATIO.Properties.Resources.btn_carre_50;
             this.TabCAPA_Plans.Name = "TabCAPA_Plans";
             this.TabCAPA_Plans.SmallImage = ((System.Drawing.Image)(resources.GetObject("TabCAPA_Plans.SmallImage")));
             this.TabCAPA_Plans.Text = "";
@@ -444,6 +454,67 @@
             this.TabCAPA_User.ToolTip = "Gestion des utilisateurs";
             this.TabCAPA_User.Click += new System.EventHandler(this.TabCAPA_User_Click);
             // 
+            // ribbonPanel7
+            // 
+            this.ribbonPanel7.ButtonMoreVisible = false;
+            this.ribbonPanel7.Items.Add(this.TabCAPA_Edition_Plan);
+            this.ribbonPanel7.Items.Add(this.TabCAPA_Edition_Direction);
+            this.ribbonPanel7.Items.Add(this.TabCAPA_Edition_Territoire);
+            this.ribbonPanel7.Items.Add(this.TabCAPA_Edition_Stat);
+            this.ribbonPanel7.Name = "ribbonPanel7";
+            this.ribbonPanel7.Text = "Editions";
+            // 
+            // TabCAPA_Edition_Plan
+            // 
+            this.TabCAPA_Edition_Plan.Image = global::PATIO.Properties.Resources.menu_edition;
+            this.TabCAPA_Edition_Plan.LargeImage = global::PATIO.Properties.Resources.menu_edition;
+            this.TabCAPA_Edition_Plan.Name = "TabCAPA_Edition_Plan";
+            this.TabCAPA_Edition_Plan.SmallImage = ((System.Drawing.Image)(resources.GetObject("TabCAPA_Edition_Plan.SmallImage")));
+            this.TabCAPA_Edition_Plan.ToolTip = "Edition par plan";
+            this.TabCAPA_Edition_Plan.Click += new System.EventHandler(this.TabCAPA_Edition_Plan_Click);
+            // 
+            // TabCAPA_Edition_Direction
+            // 
+            this.TabCAPA_Edition_Direction.Image = global::PATIO.Properties.Resources.direction;
+            this.TabCAPA_Edition_Direction.LargeImage = global::PATIO.Properties.Resources.direction;
+            this.TabCAPA_Edition_Direction.Name = "TabCAPA_Edition_Direction";
+            this.TabCAPA_Edition_Direction.SmallImage = ((System.Drawing.Image)(resources.GetObject("TabCAPA_Edition_Direction.SmallImage")));
+            this.TabCAPA_Edition_Direction.ToolTip = "Edition par direction";
+            this.TabCAPA_Edition_Direction.Click += new System.EventHandler(this.TabCAPA_Edition_Direction_Click);
+            // 
+            // TabCAPA_Edition_Territoire
+            // 
+            this.TabCAPA_Edition_Territoire.Image = global::PATIO.Properties.Resources.Globe;
+            this.TabCAPA_Edition_Territoire.LargeImage = global::PATIO.Properties.Resources.Globe;
+            this.TabCAPA_Edition_Territoire.Name = "TabCAPA_Edition_Territoire";
+            this.TabCAPA_Edition_Territoire.SmallImage = ((System.Drawing.Image)(resources.GetObject("TabCAPA_Edition_Territoire.SmallImage")));
+            this.TabCAPA_Edition_Territoire.ToolTip = "Edition par territoire";
+            this.TabCAPA_Edition_Territoire.Click += new System.EventHandler(this.TabCAPA_Edition_Territoire_Click);
+            // 
+            // TabCAPA_Edition_Stat
+            // 
+            this.TabCAPA_Edition_Stat.Image = global::PATIO.Properties.Resources.stat;
+            this.TabCAPA_Edition_Stat.LargeImage = global::PATIO.Properties.Resources.stat;
+            this.TabCAPA_Edition_Stat.Name = "TabCAPA_Edition_Stat";
+            this.TabCAPA_Edition_Stat.SmallImage = ((System.Drawing.Image)(resources.GetObject("TabCAPA_Edition_Stat.SmallImage")));
+            this.TabCAPA_Edition_Stat.ToolTip = "Statistiques";
+            this.TabCAPA_Edition_Stat.Click += new System.EventHandler(this.TabCAPA_Edition_Stat_Click);
+            // 
+            // TabCAPA_Recharger
+            // 
+            this.TabCAPA_Recharger.ButtonMoreVisible = false;
+            this.TabCAPA_Recharger.Items.Add(this.btnCAPA_Recharger);
+            this.TabCAPA_Recharger.Name = "TabCAPA_Recharger";
+            this.TabCAPA_Recharger.Text = "Recharger";
+            // 
+            // btnCAPA_Recharger
+            // 
+            this.btnCAPA_Recharger.Image = global::PATIO.Properties.Resources.actualiser;
+            this.btnCAPA_Recharger.LargeImage = global::PATIO.Properties.Resources.actualiser;
+            this.btnCAPA_Recharger.Name = "btnCAPA_Recharger";
+            this.btnCAPA_Recharger.SmallImage = ((System.Drawing.Image)(resources.GetObject("btnCAPA_Recharger.SmallImage")));
+            this.btnCAPA_Recharger.Click += new System.EventHandler(this.btnCAPA_Recharger_Click);
+            // 
             // TabOMEGA
             // 
             this.TabOMEGA.Name = "TabOMEGA";
@@ -464,6 +535,7 @@
             this.TabOMEGA_Budget.LargeImage = global::PATIO.Properties.Resources.balance;
             this.TabOMEGA_Budget.Name = "TabOMEGA_Budget";
             this.TabOMEGA_Budget.SmallImage = ((System.Drawing.Image)(resources.GetObject("TabOMEGA_Budget.SmallImage")));
+            this.TabOMEGA_Budget.Click += new System.EventHandler(this.TabOMEGA_Budget_Click);
             // 
             // TabOMEGA_Virement
             // 
@@ -545,6 +617,7 @@
             this.btnGestion_User.SmallImage = ((System.Drawing.Image)(resources.GetObject("btnGestion_User.SmallImage")));
             this.btnGestion_User.Text = "";
             this.btnGestion_User.ToolTip = "Gestion des utilisateurs";
+            this.btnGestion_User.Click += new System.EventHandler(this.btnGestion_User_Click);
             // 
             // ribbonPanel6
             // 
@@ -562,6 +635,7 @@
             this.TabAdmin_Attribut.Name = "TabAdmin_Attribut";
             this.TabAdmin_Attribut.SmallImage = ((System.Drawing.Image)(resources.GetObject("TabAdmin_Attribut.SmallImage")));
             this.TabAdmin_Attribut.ToolTip = "Attributs";
+            this.TabAdmin_Attribut.Click += new System.EventHandler(this.TabAdmin_Attribut_Click);
             // 
             // TabAdmin_TableValeur
             // 
@@ -570,6 +644,7 @@
             this.TabAdmin_TableValeur.Name = "TabAdmin_TableValeur";
             this.TabAdmin_TableValeur.SmallImage = ((System.Drawing.Image)(resources.GetObject("TabAdmin_TableValeur.SmallImage")));
             this.TabAdmin_TableValeur.ToolTip = "Table de valeurs";
+            this.TabAdmin_TableValeur.Click += new System.EventHandler(this.TabAdmin_TableValeur_Click);
             // 
             // TabAdmin_Parametre
             // 
@@ -578,9 +653,11 @@
             this.TabAdmin_Parametre.Name = "TabAdmin_Parametre";
             this.TabAdmin_Parametre.SmallImage = ((System.Drawing.Image)(resources.GetObject("TabAdmin_Parametre.SmallImage")));
             this.TabAdmin_Parametre.ToolTip = "Paramètres";
+            this.TabAdmin_Parametre.Click += new System.EventHandler(this.TabAdmin_Parametre_Click);
             // 
             // ribbonPanel3
             // 
+            this.ribbonPanel3.ButtonMoreVisible = false;
             this.ribbonPanel3.Items.Add(this.TabAdmin_Import);
             this.ribbonPanel3.Items.Add(this.TabAdmin_Export);
             this.ribbonPanel3.Items.Add(this.TabAdmin_XWiki);
@@ -869,6 +946,13 @@
         private System.Windows.Forms.RibbonButton TabOMEGA_Echeance;
         private System.Windows.Forms.RibbonButton TabOMEGA_Liquidation;
         private System.Windows.Forms.RibbonButton TabOMEGA_OrdrePaiement;
+        private System.Windows.Forms.RibbonPanel ribbonPanel7;
+        private System.Windows.Forms.RibbonButton TabCAPA_Edition_Plan;
+        private System.Windows.Forms.RibbonButton TabCAPA_Edition_Direction;
+        private System.Windows.Forms.RibbonButton TabCAPA_Edition_Territoire;
+        private System.Windows.Forms.RibbonButton TabCAPA_Edition_Stat;
+        private System.Windows.Forms.RibbonPanel TabCAPA_Recharger;
+        private System.Windows.Forms.RibbonButton btnCAPA_Recharger;
     }
 }
 

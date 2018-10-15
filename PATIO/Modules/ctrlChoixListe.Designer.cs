@@ -136,6 +136,7 @@
             this.lstChoix.Size = new System.Drawing.Size(253, 109);
             this.lstChoix.TabIndex = 0;
             this.lstChoix.DoubleClick += new System.EventHandler(this.lstChoix_DoubleClick);
+            this.lstChoix.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.lstChoix_KeyPress);
             // 
             // panel1
             // 
@@ -187,6 +188,7 @@
             this.lstSelection.Size = new System.Drawing.Size(253, 131);
             this.lstSelection.TabIndex = 1;
             this.lstSelection.DoubleClick += new System.EventHandler(this.lstSelection_DoubleClick);
+            this.lstSelection.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.lstSelection_KeyPress);
             // 
             // ctrlChoixListe
             // 

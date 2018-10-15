@@ -14,7 +14,7 @@
     </NuGetPackageImportStamp>
     <IsWebBootstrapper>false</IsWebBootstrapper>
     <TargetFrameworkProfile />
-    <PublishUrl>D:\Utilisateurs\dofernagut\Google Drive\Projets\PATIO\packages\</PublishUrl>
+    <PublishUrl>e:\packages\</PublishUrl>
     <Install>true</Install>
     <InstallFrom>Disk</InstallFrom>
     <UpdateEnabled>false</UpdateEnabled>
@@ -25,7 +25,7 @@
     <UpdateRequired>false</UpdateRequired>
     <MapFileExtensions>true</MapFileExtensions>
     <WebPage>publish.htm</WebPage>
-    <ApplicationRevision>2</ApplicationRevision>
+    <ApplicationRevision>8</ApplicationRevision>
     <ApplicationVersion>3.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <PublishWizardCompleted>true</PublishWizardCompleted>
@@ -381,11 +381,23 @@
     <Compile Include="OMEGA\Classes\Operation.cs" />
     <Compile Include="OMEGA\Classes\OrdrePaiement.cs" />
     <Compile Include="OMEGA\Classes\Virement.cs" />
-    <Compile Include="OMEGA\Interfaces\ctrlBudget.cs">
+    <Compile Include="OMEGA\Interfaces\ctrlListeBudget.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="OMEGA\Interfaces\ctrlBudget.Designer.cs">
-      <DependentUpon>ctrlBudget.cs</DependentUpon>
+    <Compile Include="OMEGA\Interfaces\ctrlListeBudget.Designer.cs">
+      <DependentUpon>ctrlListeBudget.cs</DependentUpon>
+    </Compile>
+    <Compile Include="OMEGA\Interfaces\ctrlBudget_FIR.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="OMEGA\Interfaces\ctrlBudget_FIR.Designer.cs">
+      <DependentUpon>ctrlBudget_FIR.cs</DependentUpon>
+    </Compile>
+    <Compile Include="OMEGA\Interfaces\frmBudget.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="OMEGA\Interfaces\frmBudget.Designer.cs">
+      <DependentUpon>frmBudget.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -507,8 +519,14 @@
     <EmbeddedResource Include="CAPA\Interfaces\GestionPlan.resx">
       <DependentUpon>GestionPlan.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="OMEGA\Interfaces\ctrlBudget.resx">
-      <DependentUpon>ctrlBudget.cs</DependentUpon>
+    <EmbeddedResource Include="OMEGA\Interfaces\ctrlListeBudget.resx">
+      <DependentUpon>ctrlListeBudget.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="OMEGA\Interfaces\ctrlBudget_FIR.resx">
+      <DependentUpon>ctrlBudget_FIR.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="OMEGA\Interfaces\frmBudget.resx">
+      <DependentUpon>frmBudget.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -772,10 +790,7 @@
     <None Include="Resources\accueil.png" />
     <None Include="Resources\User.png" />
     <None Include="Resources\btn_carre_50_bleu.png" />
-    <None Include="Resources\btn_losange_50.png" />
-    <None Include="Resources\btn_cercle_50.png" />
     <None Include="Resources\btn_triangle.png" />
-    <None Include="Resources\btn_triangle_50.png" />
     <None Include="Resources\attribut.png" />
     <None Include="Resources\table_valeur.jpg" />
     <None Include="Resources\table_valeur.png" />
@@ -790,6 +805,11 @@
     <None Include="Resources\echeance.png" />
     <None Include="Resources\liquidation.png" />
     <None Include="Resources\ordre_paiement.png" />
+    <None Include="Resources\stat.png" />
+    <None Include="Resources\btn_cercle_50.png" />
+    <None Include="Resources\btn_triangle_50.png" />
+    <None Include="Resources\btn_carre_50.png" />
+    <None Include="Resources\btn_losange_50.png" />
     <Content Include="RibbonMarkup.xml" />
     <None Include="Resources\hdf.png" />
     <None Include="Resources\27008-Elquebrado-AeroGlobe.png" />

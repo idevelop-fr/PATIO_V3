@@ -10,12 +10,11 @@ using System.Windows.Forms;
 
 namespace PATIO.OMEGA.Interfaces
 {
-    public partial class ctrlBudget : UserControl
+    public partial class ctrlBudget_FIR : UserControl
     {
-        public ctrlBudget()
+        public ctrlBudget_FIR()
         {
             InitializeComponent();
         }
-
     }
 }

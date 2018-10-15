@@ -2,7 +2,9 @@
 using System.Windows.Forms;
 using WeifenLuo.WinFormsUI.Docking;
 using PATIO.CAPA.Interfaces;
+using PATIO.OMEGA.Interfaces;
 using PATIO.CAPA.Classes;
+using PATIO.OMEGA.Classes;
 using System.Threading;
 using PATIO.Modules;
 using PATIO.ADMIN;
@@ -217,6 +219,7 @@ namespace PATIO
             ctrl.DP = DP;
             ctrl.Dock = DockStyle.Fill;
             ctrl.Afficher_ListeUser();
+            D1.Controls.Add(ctrl);
 
             D1.Show(DP, DockState.Document);
             D1.Text = "Utilisateurs";
@@ -348,6 +351,25 @@ namespace PATIO
 
             D1.Show(DP, DockState.Document);
             D1.Text = "Edition des statistiques";
+            D1.ShowInTaskbar = false;
+            D1.CloseButton = true;
+        }
+
+        void Afficher_Budget()
+        {
+            DockContent D1 = new DockContent();
+
+            ctrlListeBudget ctrl = new ctrlListeBudget();
+            ctrl.Acces = Acces;
+            ctrl.DP = DP;
+            ctrl.Dock = DockStyle.Fill;
+            ctrl.Console = Console;
+            ctrl.Chemin = Chemin;
+            ctrl.Initialiser();
+            D1.Controls.Add(ctrl);
+
+            D1.Show(DP, DockState.DockLeft);
+            D1.Text = "Gestion des budgets";
             D1.ShowInTaskbar = false;
             D1.CloseButton = true;
         }
@@ -513,6 +535,110 @@ namespace PATIO
             D1.ShowInTaskbar = false;
             D1.Tag = Tag;
             D1.CloseButton = true;
+        }
+
+        private void TabCAPA_Edition_Plan_Click(object sender, EventArgs e)
+        {
+            Afficher_EditionPlan();
+        }
+
+        private void TabCAPA_Edition_Direction_Click(object sender, EventArgs e)
+        {
+            Afficher_EditionDirection();
+        }
+
+        private void TabCAPA_Edition_Territoire_Click(object sender, EventArgs e)
+        {
+            Afficher_EditionTerritoire();
+        }
+
+        private void TabCAPA_Edition_Stat_Click(object sender, EventArgs e)
+        {
+            Afficher_EditionStat();
+        }
+
+        private void TabOMEGA_Budget_Click(object sender, EventArgs e)
+        {
+            Afficher_Budget();
+        }
+
+        private void btnCAPA_Recharger_Click(object sender, EventArgs e)
+        {
+            btn_Recharger.Enabled = false;
+            Initialiser();
+            btn_Recharger.Enabled = true;
+        }
+
+        private void TabAdmin_Attribut_Click(object sender, EventArgs e)
+        {
+            Afficher_Admin_Attribut();
+        }
+
+
+        private void TabAdmin_TableValeur_Click(object sender, EventArgs e)
+        {
+            Afficher_Admin_TableValeur();
+        }
+
+        private void TabAdmin_Parametre_Click(object sender, EventArgs e)
+        {
+            Afficher_Admin_Parametre();
+        }
+
+        void Afficher_Admin_Attribut()
+        {
+            DockContent D1 = new DockContent();
+
+            ctrlAdmin_Attribut ctrl = new ctrlAdmin_Attribut();
+            ctrl.Acces = Acces;
+            ctrl.DP = DP;
+            ctrl.Dock = DockStyle.Fill;
+            ctrl.Initialiser();
+
+            D1.Show(DP, DockState.Document);
+            D1.Text = "Attributs";
+            D1.ShowInTaskbar = false;
+            D1.CloseButton = true;
+        }
+
+        void Afficher_Admin_TableValeur()
+        {
+            DockContent D1 = new DockContent();
+
+            ctrlAdmin_TableValeur ctrl = new ctrlAdmin_TableValeur();
+            ctrl.Acces = Acces;
+            ctrl.DP = DP;
+            ctrl.Dock = DockStyle.Fill;
+            ctrl.Initialiser();
+            D1.Controls.Add(ctrl);
+            D1.Controls.Add(ctrl);
+
+            D1.Show(DP, DockState.Document);
+            D1.Text = "Tables de valeurs";
+            D1.ShowInTaskbar = false;
+            D1.CloseButton = true;
+        }
+
+        void Afficher_Admin_Parametre()
+        {
+            DockContent D1 = new DockContent();
+
+            ctrlAdmin_Parametre ctrl = new ctrlAdmin_Parametre();
+            ctrl.Acces = Acces;
+            ctrl.DP = DP;
+            ctrl.Dock = DockStyle.Fill;
+            ctrl.Initialiser();
+            D1.Controls.Add(ctrl);
+
+            D1.Show(DP, DockState.Document);
+            D1.Text = "Paramètres";
+            D1.ShowInTaskbar = false;
+            D1.CloseButton = true;
+        }
+
+        private void btnGestion_User_Click(object sender, EventArgs e)
+        {
+            Afficher_Admin_User();
         }
     }
 }

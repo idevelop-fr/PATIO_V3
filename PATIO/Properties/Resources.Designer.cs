@@ -153,9 +153,9 @@ namespace PATIO.Properties {
         /// <summary>
         ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap btn_carre_50_bleu {
+        internal static System.Drawing.Bitmap btn_carre_50 {
             get {
-                object obj = ResourceManager.GetObject("btn_carre_50_bleu", resourceCulture);
+                object obj = ResourceManager.GetObject("btn_carre_50", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -966,6 +966,16 @@ namespace PATIO.Properties {
         internal static System.Drawing.Bitmap squares_2 {
             get {
                 object obj = ResourceManager.GetObject("squares_2", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap stat {
+            get {
+                object obj = ResourceManager.GetObject("stat", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

@@ -60,6 +60,7 @@ namespace PATIO.Modules
         DOSSIER, GROUPE
     }
 
+    //OMEGA
     public enum TypeEnveloppe
     {
         DOSSIER, FIR, FISS, FEDER
@@ -67,7 +68,7 @@ namespace PATIO.Modules
 
     public enum TypeBudget
     {
-        DOSSIER, Initial, Rectificatif, Intermédiaire
+        DOSSIER, Initial, Rectificatif, Intermédiaire, Final
     }
 
     public enum TypeOperation
@@ -109,6 +110,7 @@ namespace PATIO.Modules
     {
         DOSSIER, Normal
     }
+
 
 
 }
