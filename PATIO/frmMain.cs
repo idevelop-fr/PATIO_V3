@@ -6,22 +6,22 @@ using PATIO.OMEGA.Interfaces;
 using PATIO.CAPA.Classes;
 using PATIO.OMEGA.Classes;
 using System.Threading;
-using PATIO.Modules;
+using PATIO.MAIN.Classes;
 using PATIO.ADMIN;
+using System.Collections.Generic;
+using PATIO.ADMIN.Classes;
 
 namespace PATIO
 {
     public partial class frmMain : Form
     {
         public AccesNet Acces;
-        public string Chemin = "C:\\temp\\patio";
+        public string Chemin = Properties.Settings.Default.Chemin_Temp;
 
         public ctrlConsole Console;
         public Utilisateur user_appli = new Utilisateur();
 
         int Nb_Minutes=0;
-
-        DockContent D_Gestion;
 
         public frmMain()
         {
@@ -35,8 +35,10 @@ namespace PATIO
             if (!(System.IO.Directory.Exists(Chemin))) { System.IO.Directory.CreateDirectory(Chemin); }
             if (!(System.IO.Directory.Exists(Chemin + "\\Fichiers"))) { System.IO.Directory.CreateDirectory(Chemin + "\\Fichiers"); }
             if (!(System.IO.Directory.Exists(Chemin + "\\Export"))) { System.IO.Directory.CreateDirectory(Chemin + "\\Export"); }
+            
             //Supprimer le fichier de traçage des requêtes
             if (System.IO.File.Exists(Chemin + "\\log.txt")) { System.IO.File.Delete(Chemin + "\\log.txt"); }
+            
             //Supprimer les fichiers d'édition
             foreach(string f in System.IO.Directory.GetFiles(Chemin + "\\Fichiers","F*.*"))
             {
@@ -51,19 +53,186 @@ namespace PATIO
             //Initialisation des fonctionnalités
             if (!Initialiser_Connexion()) { return; /*Fin dû à un pb de connexion*/ }
 
-            Afficher_Accueil();
+            Afficher_Menu();
+            Acces.clsMAIN.Afficher_Accueil();
+            lblNom.Text = user_appli.NomPrenom;
+            lblCodeUser.Text = user_appli.Code;
             //Afficher_GestionObjet();
 
             //Affichage du temps de chargement
             DateTime d2 = DateTime.Now;
             Console.Ajouter("Temps de chargement : " + (d2 - d1).Milliseconds + " ms");
-            timer1.Start();
+            timer_Connexion.Start();
 
             //Sauvegarde automatique
             //timer2.Start();
             //Acces.Sauvegarde_local();
 
-            //Affichage de la version
+            //Ouverture des éléments par commande externe
+            timer_Ouverture.Start();
+
+            Agrandir();
+        }
+
+        void Afficher_Menu()
+        {
+            treeAdmin.Nodes.Clear();
+            treeFonction.Nodes.Clear();
+
+            Afficher_MenuFonction("CAPA");
+            Afficher_MenuFonction("OMEGA");
+            Afficher_MenuAdministration();
+        }
+
+        void Afficher_MenuFonction(string Fonction)
+        {
+            int n = 0;
+            if (Fonction == "CAPA")
+            {
+                TreeNode Nd_CAPA = new TreeNode("CAPA");
+                Nd_CAPA.Name = "CAPA";
+                Nd_CAPA.ImageIndex = n++;
+
+                //Partie gestion de CAPA
+                TreeNode Nd_Gestion = new TreeNode("Gestion");
+                Nd_Gestion.Name = "CAPA_GESTION";
+                Nd_Gestion.ImageIndex = n++;
+                AjouterNoeud(Nd_Gestion, "Plans d'actions", "CAPA_GESTION_PLAN", n++);
+                AjouterNoeud(Nd_Gestion, "Objectifs", "CAPA_GESTION_OBJECTIF", n++);
+                AjouterNoeud(Nd_Gestion, "Actions", "CAPA_GESTION_ACTION", n++);
+                AjouterNoeud(Nd_Gestion, "Indicateurs", "CAPA_GESTION_INDICATEUR", n++);
+                AjouterNoeud(Nd_Gestion, "Processus", "CAPA_GESTION_PROCESSUS", n++);
+                Nd_Gestion.Expand();
+                Nd_CAPA.Nodes.Add(Nd_Gestion);
+
+                //Partie édition de CAPA
+                TreeNode Nd_Edition = new TreeNode("Editions");
+                Nd_Edition.Name = "CAPA_EDITION";
+                Nd_Edition.ImageIndex = n++;
+                AjouterNoeud(Nd_Edition, "Par plan", "CAPA_EDITION_PLAN", n++);
+                AjouterNoeud(Nd_Edition, "Par direction", "CAPA_EDITION_DIRECTION", n++);
+                AjouterNoeud(Nd_Edition, "Par territoire", "CAPA_EDITION_TERRITOIRE", n++);
+                AjouterNoeud(Nd_Edition, "Statistiques", "CAPA_EDITION_STAT", n++);
+                Nd_Edition.Expand();
+                Nd_CAPA.Nodes.Add(Nd_Edition);
+                Nd_CAPA.Expand();
+                treeFonction.Nodes.Add(Nd_CAPA);
+            }
+
+            if(Fonction=="OMEGA")
+            {
+                TreeNode Nd_OMEGA = new TreeNode("OMEGA");
+                Nd_OMEGA.Name = "OMEGA";
+                Nd_OMEGA.ImageIndex = n++;
+
+                //Partie BUDGET
+                TreeNode Nd_Gestion = new TreeNode("Budgets");
+                Nd_Gestion.Name = "OMEGA_BUDGET";
+                Nd_Gestion.ImageIndex = n++;
+                AjouterNoeud(Nd_Gestion, "Périodes budgétaires", "OMEGA_BUDGET_PERIODE", n++);
+                AjouterNoeud(Nd_Gestion, "Enveloppes budgétaires", "OMEGA_BUDGET_ENVELOPPE", n++);
+                AjouterNoeud(Nd_Gestion, "Nomenclatures budgétaires", "OMEGA_BUDGET_NOMENCLATURE", n++);
+                AjouterNoeud(Nd_Gestion, "Budgets", "OMEGA_BUDGET_BUDGET", n++);
+                AjouterNoeud(Nd_Gestion, "Opérations budgétaires", "OMEGA_BUDGET_OPERATION", n++);
+                AjouterNoeud(Nd_Gestion, "Virements", "OMEGA_BUDGET_VIREMENT", n++);
+                Nd_Gestion.Expand();
+                Nd_OMEGA.Nodes.Add(Nd_Gestion);
+
+                //Partie EXECUTION
+                TreeNode Nd_Execution = new TreeNode("Exécution FIR");
+                Nd_Execution.Name = "OMEGA_EXECUTION_FIR";
+                Nd_Execution.ImageIndex = n++;
+                AjouterNoeud(Nd_Execution, "Associations", "OMEGA_EXECUTION_FIR_ASSOCIATION", n++);
+                AjouterNoeud(Nd_Execution, "Fiches d'expression de besoins", "OMEGA_EXECUTION_FIR_FEB", n++);
+                AjouterNoeud(Nd_Execution, "Engagements juridiques", "OMEGA_EXECUTION_FIR_EJ", n++);
+                AjouterNoeud(Nd_Execution, "Echéances", "OMEGA_EXECUTION_FIR_ECHEANCE", n++);
+                AjouterNoeud(Nd_Execution, "Liquidation", "OMEGA_EXECUTION_FIR_LIQUIDATION", n++);
+                AjouterNoeud(Nd_Execution, "Ordre de paiement", "OMEGA_EXECUTION_FIR_OP", n++);
+                Nd_Execution.Expand();
+                Nd_OMEGA.Nodes.Add(Nd_Execution);
+
+                //Partie Cloture/Préparation
+                TreeNode Nd_Prepa = new TreeNode("Préparation/clôture");
+                Nd_Prepa.Name = "OMEGA_PREPA";
+                Nd_Prepa.ImageIndex = n++;
+                AjouterNoeud(Nd_Prepa, "Préparation budgétaire N+1", "OMEGA_PREPA_PREPARATION", n++);
+                AjouterNoeud(Nd_Prepa, "Clôture budgétaire N", "OMEGA_PREPA_CLOTURE", n++);
+                Nd_Prepa.Expand();
+                Nd_OMEGA.Nodes.Add(Nd_Prepa);
+                Nd_OMEGA.Expand();
+                treeFonction.Nodes.Add(Nd_OMEGA);
+            }
+        }
+
+        void Afficher_MenuAdministration()
+        {
+            int n = 0;
+
+            TreeNode Nd_Admin = new TreeNode("Administration");
+            Nd_Admin.Name = "ADMIN";
+            Nd_Admin.ImageIndex = n++;
+
+            //Partie Gestion des utilisateurs
+            TreeNode Nd_Gestion = new TreeNode("Gestion");
+            Nd_Gestion.Name = "ADMIN_GESTION";
+            Nd_Gestion.ImageIndex = n++;
+            AjouterNoeud(Nd_Gestion, "Utilisateurs", "ADMIN_GESTION_UTILISATEUR", n++);
+            Nd_Gestion.Expand();
+            Nd_Admin.Nodes.Add(Nd_Gestion);
+
+            //Partie Gestion des paramètres
+            TreeNode Nd_Parametre = new TreeNode("Paramètres");
+            Nd_Parametre.Name = "ADMIN_PARAM";
+            Nd_Parametre.ImageIndex = n++;
+            AjouterNoeud(Nd_Parametre, "Attributs", "ADMIN_PARAM_ATTRIBUT", n++);
+            AjouterNoeud(Nd_Parametre, "Tables de valeurs", "ADMIN_PARAM_TABLE_VALEUR", n++);
+            AjouterNoeud(Nd_Parametre, "Paramètres de l'application", "ADMIN_PARAM_PARAMETRE", n++);
+            Nd_Parametre.Expand();
+            Nd_Admin.Nodes.Add(Nd_Parametre);
+
+            //Partie Import/Export
+            TreeNode Nd_Flux = new TreeNode("Flux");
+            Nd_Flux.Name = "ADMIN_FLUX";
+            Nd_Flux.ImageIndex = n++;
+            AjouterNoeud(Nd_Flux, "Importation", "ADMIN_FLUX_IMPORTATION", n++);
+            AjouterNoeud(Nd_Flux, "Exportation", "ADMIN_FLUX_EXPORTATION", n++);
+            AjouterNoeud(Nd_Flux, "XWiki", "ADMIN_FLUX_XWIKI", n++);
+            Nd_Flux.Expand();
+            Nd_Admin.Nodes.Add(Nd_Flux);
+
+            //Partie Base de données
+            TreeNode Nd_BDD = new TreeNode("Base de données");
+            Nd_BDD.Name = "ADMIN_BDD";
+            Nd_BDD.ImageIndex = n++;
+            Nd_BDD.Expand();
+            Nd_Admin.Nodes.Add(Nd_BDD);
+
+            //Partie Base de données
+            TreeNode Nd_ModeleDoc = new TreeNode("Modèles de documents");
+            Nd_ModeleDoc.Name = "ADMIN_MODELEDOC";
+            Nd_ModeleDoc.ImageIndex = n++;
+            Nd_ModeleDoc.Expand();
+            Nd_Admin.Nodes.Add(Nd_ModeleDoc);
+
+            //Partie Archivage
+            TreeNode Nd_Archive = new TreeNode("Archivage");
+            Nd_Archive.Name = "ADMIN_ARCHIVAGE";
+            Nd_Archive.ImageIndex = n++;
+            Nd_Archive.Expand();
+            Nd_Admin.Nodes.Add(Nd_Archive);
+
+            Nd_Admin.Expand();
+            treeAdmin.Nodes.Add(Nd_Admin);
+            Expander_Administration.IsExpanded = false;
+        }
+
+        TreeNode AjouterNoeud(TreeNode Nd, string Titre, string Name, int idImage)
+        {
+            TreeNode Nd_Ajout = new TreeNode(Titre);
+            Nd_Ajout.Name = Name;
+            Nd_Ajout.ImageIndex = idImage;
+            Nd.Nodes.Add(Nd_Ajout);
+            return Nd;
         }
 
         void Afficher_Console()
@@ -76,18 +245,21 @@ namespace PATIO
 
             D1.Controls.Add(Console);
 
-            D1.Show(DP, DockState.DockLeftAutoHide);
             D1.Text = "Console";
+            D1.Tag = "CONSOLE";
             D1.ShowInTaskbar = false;
             D1.CloseButton = false;
+            D1.Show(DP, DockState.DockLeftAutoHide);
         }
 
         Boolean Initialiser_Connexion()
         {
             //Initialise la connexion
             Acces = new AccesNet();
-            Acces.Chemin = Chemin;
+            Acces.CheminTemp = Chemin;
             Acces.Console = Console;
+            Acces.Main = this;
+            Acces.DP = DP;
             if (!Acces.Initialiser()) { return false; }
 
             //Vérificaton de la validité de la connexion
@@ -95,6 +267,12 @@ namespace PATIO
 
             //Identifiant de l'utilisateur
             Identifier_Utilisateur();
+
+            Acces.user_appli = user_appli;
+            Acces.Trouver_User_Admin();
+            Console.Ajouter("Administrateur : " + (Acces.user_admin?"OUI":"NON"));
+
+            Acces.Charger_ListeDroit();
 
             Application.DoEvents();
             return true;
@@ -107,7 +285,8 @@ namespace PATIO
             user_appli.Code = wi.Name;
             Console.Ajouter("Identifiant initial : " + user_appli.Code);
             user_appli.Code=user_appli.Code.Replace("SD\\","");
-            if (user_appli.Code.Contains("MSI")) { user_appli.Code = "dfernagut"; }
+            if (user_appli.Code.Contains("DESKTOP")) { user_appli.Code = "dofernagut"; } //Cas Local
+            if (user_appli.Code.Contains("DOMINIQUE")) { user_appli.Code = "dofernagut"; } //Cas Mac
             Console.Ajouter("Identifiant retenu : " + user_appli.Code);
 
             //Recherche de l'identifiant dans la base
@@ -116,121 +295,6 @@ namespace PATIO
                 user_appli = Acces.Trouver_Utilisateur(user_appli.Code);
                 Console.Ajouter("Identifiant Id : " + user_appli.ID.ToString());
             }
-        }
-
-        void Afficher_Accueil()
-        {
-            DockContent D1 = new DockContent();
-
-            ctrlAccueil ctrl = new ctrlAccueil();
-            ctrl.Acces = Acces;
-            ctrl.DP = DP;
-            ctrl.Console = Console;
-            ctrl.Chemin = Chemin;
-            ctrl.user_appli = user_appli;
-            ctrl.Dock = DockStyle.Fill;
-            ctrl.Initialise();
-            D1.Controls.Add(ctrl);
-            D1.Show(DP, DockState.Document);
-            D1.Text = "Accueil";
-            D1.Tag = "ACCUEIL";
-            D1.ShowInTaskbar = false;
-            D1.CloseButton = false;
-
-        }
-
-        void Afficher_XWiki_Plan_Action()
-        {
-            DockContent D1 = new DockContent();
-
-            PATIO.CAPA.Interfaces.ctrlWeb ctrl = new PATIO.CAPA.Interfaces.ctrlWeb();
-            ctrl.url = "https://ars-hdf.xwiki.com/xwiki/wiki/plansactions/view/Liste/";
-            ctrl.Initialise();
-            ctrl.Dock = DockStyle.Fill;
-            D1.Controls.Add(ctrl);
-
-            D1.Show(DP, DockState.Document);
-            D1.Text = "XWiki Plan actions";
-            D1.ShowInTaskbar = false;
-            D1.CloseButton = true;
-
-        }
-
-        void Afficher_XWiki_Technique()
-        {
-            DockContent D1 = new DockContent();
-
-            PATIO.CAPA.Interfaces.ctrlWeb ctrl = new PATIO.CAPA.Interfaces.ctrlWeb();
-            ctrl.url = "https://ars-hdf.xwiki.com/xwiki/wiki/projetssi/6PO/";
-            ctrl.Initialise();
-            ctrl.Dock = DockStyle.Fill;
-            D1.Controls.Add(ctrl);
-
-            D1.Show(DP, DockState.Document);
-            D1.Text = "XWiki Technique";
-            D1.ShowInTaskbar = false;
-            D1.CloseButton = true;
-
-        }
-
-        void Afficher_PRS()
-        {
-            DockContent D1 = new DockContent();
-
-            PATIO.CAPA.Interfaces.ctrlWeb ctrl = new PATIO.CAPA.Interfaces.ctrlWeb();
-            ctrl.url = "https://ars-hdf.xwiki.com/xwiki/bin/view/Main/";
-            ctrl.Initialise();
-            ctrl.Dock = DockStyle.Fill;
-            D1.Controls.Add(ctrl);
-
-            D1.Show(DP, DockState.Document);
-            D1.Text = "PRS";
-            D1.ShowInTaskbar = false;
-            D1.CloseButton = true;
-
-        }
-
-        void Afficher_GestionObjet()
-        {
-            D_Gestion = new DockContent();
-
-            GestionPlan  ctrl = new GestionPlan();
-            ctrl.Acces = Acces;
-            ctrl.DP = DP;
-            ctrl.Chemin = Chemin;
-            ctrl.Console = Console;
-
-            ctrl.Dock = DockStyle.Fill;
-            ctrl.Initialise();
-            D_Gestion.Controls.Add(ctrl);
-
-            D_Gestion.Show(DP, DockState.DockLeft);
-            D_Gestion.Text = "Objets de gestion";
-            D_Gestion.ShowInTaskbar = false;
-            D_Gestion.CloseButton = false;
-        }
-
-        void Afficher_Admin_User()
-        { 
-            DockContent D1 = new DockContent();
-
-            ctrlListeUtilisateur ctrl = new ctrlListeUtilisateur();
-            ctrl.Acces = Acces;
-            ctrl.DP = DP;
-            ctrl.Dock = DockStyle.Fill;
-            ctrl.Afficher_ListeUser();
-            D1.Controls.Add(ctrl);
-
-            D1.Show(DP, DockState.Document);
-            D1.Text = "Utilisateurs";
-            D1.ShowInTaskbar = false;
-            D1.CloseButton = true;
-        }
-
-        private void btnRecharger_Click(object sender, EventArgs e)
-        {
-            Acces.Charger_Element();
-            Acces.Charger_Lien();
         }
 
         private void timer1_Tick(object sender, EventArgs e)
@@ -243,402 +307,200 @@ namespace PATIO
             Nb_Minutes++;
             //if(Nb_Minutes>=5) { Acces.Sauvegarder_local(); Nb_Minutes = 0; }
         }
-
-        private void MenuXWikiPRS_Click(object sender, EventArgs e)
+ 
+        private void timer_Ouverture_Tick(object sender, EventArgs e)
         {
-            Afficher_PRS();
+            Ouvrir_Element_Appel_Externe();
         }
 
-        private void MenuXWikiTechnique_Click(object sender, EventArgs e)
+        void Ouvrir_Element_Appel_Externe()
         {
-            Afficher_XWiki_Technique();
-        }
-
-        private void MenuXWikiCAPA_Click(object sender, EventArgs e)
-        {
-            Afficher_XWiki_Plan_Action();
-        }
-
-        void ReduireGestionObjet()
-        {
-            D_Gestion.Hide();
-        }
-
-        private void btnPATIO_Site_PlanAction_Click(object sender, EventArgs e)
-        {
-            Afficher_XWiki_Plan_Action();
-        }
-
-        private void btnPATIO_Site_PRS_Click(object sender, EventArgs e)
-        {
-            Afficher_PRS();
-        }
-
-        private void btnCAPA_Edition_Plan_Click(object sender, EventArgs e)
-        {
-            Afficher_EditionPlan();
-        }
-
-        void Afficher_EditionPlan()
-        {
-            DockContent D1 = new DockContent();
-
-            ctrlEditionPlan ctrl = new ctrlEditionPlan();
-            ctrl.Acces = Acces;
-            ctrl.DP = DP;
-            ctrl.Dock = DockStyle.Fill;
-            ctrl.Console = Console;
-            ctrl.Chemin = Chemin;
-            ctrl.Initialiser();
-            D1.Controls.Add(ctrl);
-
-            D1.Show(DP, DockState.Document);
-            D1.Text = "Edition par plan";
-            D1.ShowInTaskbar = false;
-            D1.CloseButton = true;
-        }
-
-        void Afficher_EditionDirection()
-        {
-            DockContent D1 = new DockContent();
-
-            ctrlEditionDirection ctrl = new ctrlEditionDirection();
-            ctrl.Acces = Acces;
-            ctrl.DP = DP;
-            ctrl.Dock = DockStyle.Fill;
-            ctrl.Console = Console;
-            ctrl.Chemin = Chemin;
-            ctrl.Initialiser();
-            D1.Controls.Add(ctrl);
-
-            D1.Show(DP, DockState.Document);
-            D1.Text = "Edition par direction";
-            D1.ShowInTaskbar = false;
-            D1.CloseButton = true;
-        }
-
-        void Afficher_EditionTerritoire()
-        {
-            DockContent D1 = new DockContent();
-
-            ctrlEditionTerritoire ctrl = new ctrlEditionTerritoire();
-            ctrl.Acces = Acces;
-            ctrl.DP = DP;
-            ctrl.Dock = DockStyle.Fill;
-            ctrl.Console = Console;
-            ctrl.Chemin = Chemin;
-            ctrl.Initialiser();
-            D1.Controls.Add(ctrl);
-
-            D1.Show(DP, DockState.Document);
-            D1.Text = "Edition par territoire";
-            D1.ShowInTaskbar = false;
-            D1.CloseButton = true;
-        }
-
-        void Afficher_EditionStat()
-        {
-            DockContent D1 = new DockContent();
-
-            ctrlEditionStat ctrl = new ctrlEditionStat();
-            ctrl.Acces = Acces;
-            ctrl.DP = DP;
-            ctrl.Dock = DockStyle.Fill;
-            ctrl.Console = Console;
-            ctrl.Chemin = Chemin;
-            ctrl.Initialiser();
-            D1.Controls.Add(ctrl);
-
-            D1.Show(DP, DockState.Document);
-            D1.Text = "Edition des statistiques";
-            D1.ShowInTaskbar = false;
-            D1.CloseButton = true;
-        }
-
-        void Afficher_Budget()
-        {
-            DockContent D1 = new DockContent();
-
-            ctrlListeBudget ctrl = new ctrlListeBudget();
-            ctrl.Acces = Acces;
-            ctrl.DP = DP;
-            ctrl.Dock = DockStyle.Fill;
-            ctrl.Console = Console;
-            ctrl.Chemin = Chemin;
-            ctrl.Initialiser();
-            D1.Controls.Add(ctrl);
-
-            D1.Show(DP, DockState.DockLeft);
-            D1.Text = "Gestion des budgets";
-            D1.ShowInTaskbar = false;
-            D1.CloseButton = true;
-        }
-
-        private void btnCAPA_Edition_Direction_Click(object sender, EventArgs e)
-        {
-            Afficher_EditionDirection();
-        }
-
-        private void btnCAPA_Edition_Territoire_Click(object sender, EventArgs e)
-        {
-            Afficher_EditionTerritoire();
-        }
-
-        private void btnCAPA_Edition_Stat_Click(object sender, EventArgs e)
-        {
-            Afficher_EditionStat();
-        }
-
-        private void TabCAPA_Plans_Click(object sender, EventArgs e)
-        {
-            string Tag = "PLAN";
-            //Recherche s'il est affiché
-            foreach (DockContent d in DP.Documents)
+            foreach (string f in System.IO.Directory.GetFiles(Chemin + "\\Fichiers", "EXT_*.*"))
             {
-                if (d.Tag.ToString() == Tag) { d.Show(); return; }
+                try {
+                    string cmd = System.IO.File.ReadAllText(f);
+                    string element = cmd.Split(':')[0].ToUpper().Trim();
+                    string id = cmd.Split(':')[1];
+
+                    switch(element)
+                    {
+                        case "PLAN":
+                            {
+                                CAPA.Interfaces.ctrlListePlan ctrl = new ctrlListePlan();
+                                ctrl.Acces = Acces;
+                                ctrl.DP = DP;
+                                ctrl.Chemin = Chemin;
+                                ctrl.Console = Console;
+                                ctrl.plan = (Plan)Acces.Trouver_Element(Acces.type_PLAN, int.Parse(id));
+                                ctrl.Ouvrir_Plan();
+                                break;
+                            }
+
+                        case "OBJECTIF":
+                            {
+                                CAPA.Interfaces.ctrlListeObjectif ctrl = new ctrlListeObjectif();
+                                ctrl.Acces = Acces;
+                                ctrl.DP = DP;
+                                ctrl.Chemin = Chemin;
+                                ctrl.Console = Console;
+                                ctrl.obj = (Objectif)Acces.Trouver_Element(Acces.type_OBJECTIF, int.Parse(id));
+                                ctrl.Modifier_Objectif();
+                                break;
+                            }
+
+                        case "ACTION":
+                            {
+                                CAPA.Interfaces.ctrlListeAction ctrl = new ctrlListeAction();
+                                ctrl.Acces = Acces;
+                                ctrl.DP = DP;
+                                ctrl.Chemin = Chemin;
+                                ctrl.Console = Console;
+                                ctrl.action = (CAPA.Classes.Action)Acces.Trouver_Element(Acces.type_ACTION, int.Parse(id));
+                                ctrl.Modifier_Action();
+                                break;
+                            }
+
+                        /*case "INDICATEUR":
+                            {
+                                CAPA.Interfaces.ctrlListeIndicateur ctrl = new ctrlListeIndicateur();
+                                ctrl.Acces = Acces;
+                                ctrl.DP = DP;
+                                ctrl.Chemin = Chemin;
+                                ctrl.Console = Console;
+                                ctrl.indicateur = (Indicateur)Acces.Trouver_Element(Acces.type_INDICATEUR, int.Parse(id));
+                                ctrl.Ouvrir_Indicateur();
+                                break;
+                            }*/
+                    }
+                    //Suppression du fichier de commande externe
+                    System.IO.File.Delete(f);
+                } catch { }
             }
-
-            DockContent D1 = new DockContent();
-
-            var ctrllisteplan = new ctrlListePlan();
-
-            ctrllisteplan.Acces = Acces;
-            ctrllisteplan.DP = DP;
-            ctrllisteplan.Console = Console;
-            ctrllisteplan.Chemin = Chemin;
-
-            ctrllisteplan.Afficher_ListePlan();
-
-            ctrllisteplan.Dock = DockStyle.Fill;
-            D1.Controls.Add(ctrllisteplan);
-
-            D1.Show(DP, DockState.DockLeft);
-            D1.Text = "Plans d'actions";
-            D1.ShowInTaskbar = false;
-            D1.Tag = Tag;
-            D1.CloseButton = true;
         }
 
-        private void TabCAPA_Objectif_Click(object sender, EventArgs e)
+        void Recharger()
         {
-            string Tag = "OBJECTIF ";
-            //Recherche s'il est affiché
-            foreach (DockContent d in DP.Documents)
-            {
-                if (d.Tag.ToString() == Tag) { d.Show(); return; }
-            }
-
-            DockContent D1 = new DockContent();
-
-            var ctrllisteobjectif = new ctrlListeObjectif();
-
-            ctrllisteobjectif.Acces = Acces;
-            ctrllisteobjectif.DP = DP;
-            ctrllisteobjectif.Console = Console;
-            ctrllisteobjectif.Chemin = Chemin;
-
-            ctrllisteobjectif.Afficher_ListeObjectif();
-
-            ctrllisteobjectif.Dock = DockStyle.Fill;
-            D1.Controls.Add(ctrllisteobjectif);
-
-            D1.Show(DP, DockState.DockLeft);
-            D1.Text = "Objectifs";
-            D1.ShowInTaskbar = false;
-            D1.Tag = Tag;
-            D1.CloseButton = true;
+            Acces.Charger_Element();
+            Acces.Charger_Lien();
+        }
+ 
+        private void treeAdmin_DoubleClick(object sender, EventArgs e)
+        {
+            Ajouter_Admin();
         }
 
-        private void TabCAPA_Action_Click(object sender, EventArgs e)
+        private void treeFonction_DoubleClick(object sender, EventArgs e)
         {
-            string Tag = "ACTION";
-            //Recherche s'il est affiché
-            foreach (DockContent d in DP.Documents)
-            {
-                if (d.Tag.ToString() == Tag) { d.Show(); return; }
-            }
-            DockContent D1 = new DockContent();
-
-            var ctrllisteaction = new ctrlListeAction();
-
-            ctrllisteaction.Acces = Acces;
-            ctrllisteaction.DP = DP;
-            ctrllisteaction.Console = Console;
-            ctrllisteaction.Chemin = Chemin;
-
-            ctrllisteaction.Afficher_ListeAction();
-
-            ctrllisteaction.Dock = DockStyle.Fill;
-            D1.Controls.Add(ctrllisteaction);
-
-            D1.Show(DP, DockState.DockLeft);
-            D1.Text = "Actions";
-            D1.ShowInTaskbar = false;
-            D1.Tag = Tag;
-            D1.CloseButton = true;
+            Ajouter_Fonction();
         }
 
-        private void TabCAPA_Indicateur_Click(object sender, EventArgs e)
+        void Ajouter_Admin()
         {
-            string Tag = "INDICATEUR";
-            //Recherche s'il est affiché
-            foreach (DockContent d in DP.Documents)
-            {
-                if (d.Tag.ToString() == Tag) { d.Show(); return; }
-            }
+            if(treeAdmin.SelectedNode == null) { return; }
 
-            DockContent D1 = new DockContent();
+            treeAdmin.SelectedNode.Expand();
 
-            var ctrllisteindicateur = new ctrlListeIndicateur();
+            string item = treeAdmin.SelectedNode.Name;
+            Console.Ajouter("#LANCEMENT Admin " + item);
 
-            ctrllisteindicateur.Acces = Acces;
-            ctrllisteindicateur.DP = DP;
-            ctrllisteindicateur.Console = Console;
-            ctrllisteindicateur.Chemin = Chemin;
+            if (item == "ADMIN_GESTION_UTILISATEUR") { Acces.clsADMIN.Afficher_Admin_User(); }
 
-            ctrllisteindicateur.Afficher_ListeIndicateur();
+            if (item == "ADMIN_PARAM_ATTRIBUT") { Acces.clsADMIN.Afficher_Admin_Attribut(); }
+            if (item == "ADMIN_PARAM_TABLE_VALEUR") { Acces.clsADMIN.Afficher_Admin_TableValeur(); }
+            if (item == "ADMIN_PARAM_PARAMETRE") { Acces.clsADMIN.Afficher_Admin_Parametre(); }
 
-            ctrllisteindicateur.Dock = DockStyle.Fill;
-            D1.Controls.Add(ctrllisteindicateur);
+            if (item == "ADMIN_FLUX_IMPORTATION") { Acces.clsADMIN.Afficher_Admin_Importation(); }
+            if (item == "ADMIN_FLUX_EXPORTATION") { Acces.clsADMIN.Afficher_Admin_Exportation(); }
+            if (item == "ADMIN_FLUX_XWIKI") { Acces.clsMAIN.Afficher_XWiki_Technique(); }
 
-            D1.Show(DP, DockState.DockLeft);
-            D1.Text = "Indicateurs";
-            D1.ShowInTaskbar = false;
-            D1.Tag = Tag;
-            D1.CloseButton = true;
+            if (item == "ADMIN_BDD") { Acces.clsADMIN.Afficher_Admin_BDD(); }
+
+            if (item == "ADMIN_MODELEDOC") { Acces.clsADMIN.Afficher_Admin_ModeleDoc(); }
         }
 
-        private void TabCAPA_User_Click(object sender, EventArgs e)
+        void Ajouter_Fonction()
         {
-            string Tag = "UTILISATEUR";
-            //Recherche s'il est affiché
-            foreach (DockContent d in DP.Documents)
-            {
-                if (d.Tag.ToString() == Tag) { d.Show(); return; }
-            }
+            if (treeFonction.SelectedNode == null) { return; }
 
-            DockContent D1 = new DockContent();
+            treeFonction.SelectedNode.Expand();
 
-            var ctrllisteuser = new ctrlListeUtilisateur();
+            string item = treeFonction.SelectedNode.Name;
+            Console.Ajouter("#LANCEMENT Fonction " + item);
 
-            ctrllisteuser.Acces = Acces;
-            ctrllisteuser.DP = DP;
-            ctrllisteuser.Console = Console;
+            //CAPA Gestion
+            if (item == "CAPA_GESTION_PLAN") { Acces.clsCAPA.Afficher_GestionPlan(); }
+            if (item == "CAPA_GESTION_OBJECTIF") { Acces.clsCAPA.Afficher_GestionObjectif(); }
+            if (item == "CAPA_GESTION_ACTION") { Acces.clsCAPA.Afficher_GestionAction(); }
+            if (item == "CAPA_GESTION_INDICATEUR") { Acces.clsCAPA.Afficher_GestionIndicateur(); }
+            if (item == "CAPA_GESTION_PROCESSUS") { Acces.clsCAPA.Afficher_GestionProcessus(); }
+            //CAPA Editions
+            if (item == "CAPA_EDITION_PLAN") { Acces.clsCAPA.Afficher_EditionPlan(); }
+            if (item == "CAPA_EDITION_DIRECTION") { Acces.clsCAPA.Afficher_EditionDirection(); }
+            if (item == "CAPA_EDITION_TERRITOIRE") { Acces.clsCAPA.Afficher_EditionTerritoire(); }
+            if (item == "CAPA_EDITION_STAT") { Acces.clsCAPA.Afficher_EditionStat(); }
 
-            ctrllisteuser.Afficher_ListeUser();
+            //OMEGA Budgets
+            if (item == "OMEGA_BUDGET_PERIODE") { Acces.clsOMEGA.Afficher_BudgetPeriode(); }
+            if (item == "OMEGA_BUDGET_ENVELOPPE") { Acces.clsOMEGA.Afficher_BudgetEnveloppe(); }
+            if (item == "OMEGA_BUDGET_NOMENCLATURE") { Acces.clsOMEGA.Afficher_Nomenclature(); }
+            if (item == "OMEGA_BUDGET_BUDGET") { Acces.clsOMEGA.Afficher_BudgetStructure("BUDGET"); }
+            if (item == "OMEGA_BUDGET_OPERATION") { Acces.clsOMEGA.Afficher_BudgetStructure("OPERATION"); }
+            if (item == "OMEGA_BUDGET_VIREMENT") { Acces.clsOMEGA.Afficher_BudgetStructure("VIREMENT"); }
+            //OMEGA Exécution FIR
+            if (item == "OMEGA_EXECUTION_FIR_ASSOCIATION") { Acces.clsOMEGA.Afficher_GestionAssociation(); }
+            //if (item == "OMEGA_EXECUTION_FIR_FEB") { Acces.clsOMEGA.Afficher_GestionAssociation(); }
+            //if (item == "OMEGA_EXECUTION_FIR_EJ") { Acces.clsOMEGA.Afficher_GestionAssociation(); }
+            //if (item == "OMEGA_EXECUTION_FIR_ECHEANCE") { Acces.clsOMEGA.Afficher_GestionAssociation(); }
+            //if (item == "OMEGA_EXECUTION_FIR_LIQUIDATION") { Acces.clsOMEGA.Afficher_GestionAssociation(); }
+            //if (item == "OMEGA_EXECUTION_FIR_OP") { Acces.clsOMEGA.Afficher_GestionAssociation(); }
 
-            ctrllisteuser.Dock = DockStyle.Fill;
-            D1.Controls.Add(ctrllisteuser);
-
-            D1.Show(DP, DockState.DockLeft);
-            D1.Text = "Utilisateurs";
-            D1.ShowInTaskbar = false;
-            D1.Tag = Tag;
-            D1.CloseButton = true;
+            //OMEGA Préparation/Clôture
+            //if (item == "OMEGA_PREPA_PREPARATION") { Acces.clsOMEGA.Afficher_GestionAssociation(); }
+            //if (item == "OMEGA_PREPA_CLOTURE") { Acces.clsOMEGA.Afficher_GestionAssociation(); }
         }
 
-        private void TabCAPA_Edition_Plan_Click(object sender, EventArgs e)
+        private void btnActualiser_Click(object sender, EventArgs e)
         {
-            Afficher_EditionPlan();
+            Afficher_Menu();
         }
 
-        private void TabCAPA_Edition_Direction_Click(object sender, EventArgs e)
+        private void MenuXWIKI_PRS_Click(object sender, EventArgs e)
         {
-            Afficher_EditionDirection();
+            Acces.clsMAIN.Afficher_XWiki_PRS();
         }
 
-        private void TabCAPA_Edition_Territoire_Click(object sender, EventArgs e)
+        private void MenuXWIKI_PlanAction_Click(object sender, EventArgs e)
         {
-            Afficher_EditionTerritoire();
+            Acces.clsMAIN.Afficher_XWiki_Plan_Action();
         }
 
-        private void TabCAPA_Edition_Stat_Click(object sender, EventArgs e)
+        private void btnRecharger_Click(object sender, EventArgs e)
         {
-            Afficher_EditionStat();
+            Recharger();
         }
 
-        private void TabOMEGA_Budget_Click(object sender, EventArgs e)
+        void Agrandir()
         {
-            Afficher_Budget();
+            btnAgrandir.Visible = false;
+            panelMenu.Visible = true;
+
+            panelMenu.Width = 260;
         }
 
-        private void btnCAPA_Recharger_Click(object sender, EventArgs e)
+        void Réduire()
         {
-            btn_Recharger.Enabled = false;
-            Initialiser();
-            btn_Recharger.Enabled = true;
+            btnAgrandir.Visible= true;
+            panelMenu.Visible = false;
         }
 
-        private void TabAdmin_Attribut_Click(object sender, EventArgs e)
+        private void btnAgrandir_Click(object sender, EventArgs e)
         {
-            Afficher_Admin_Attribut();
+            Agrandir();
         }
 
-
-        private void TabAdmin_TableValeur_Click(object sender, EventArgs e)
+        private void btnReduire_Click(object sender, EventArgs e)
         {
-            Afficher_Admin_TableValeur();
-        }
-
-        private void TabAdmin_Parametre_Click(object sender, EventArgs e)
-        {
-            Afficher_Admin_Parametre();
-        }
-
-        void Afficher_Admin_Attribut()
-        {
-            DockContent D1 = new DockContent();
-
-            ctrlAdmin_Attribut ctrl = new ctrlAdmin_Attribut();
-            ctrl.Acces = Acces;
-            ctrl.DP = DP;
-            ctrl.Dock = DockStyle.Fill;
-            ctrl.Initialiser();
-
-            D1.Show(DP, DockState.Document);
-            D1.Text = "Attributs";
-            D1.ShowInTaskbar = false;
-            D1.CloseButton = true;
-        }
-
-        void Afficher_Admin_TableValeur()
-        {
-            DockContent D1 = new DockContent();
-
-            ctrlAdmin_TableValeur ctrl = new ctrlAdmin_TableValeur();
-            ctrl.Acces = Acces;
-            ctrl.DP = DP;
-            ctrl.Dock = DockStyle.Fill;
-            ctrl.Initialiser();
-            D1.Controls.Add(ctrl);
-            D1.Controls.Add(ctrl);
-
-            D1.Show(DP, DockState.Document);
-            D1.Text = "Tables de valeurs";
-            D1.ShowInTaskbar = false;
-            D1.CloseButton = true;
-        }
-
-        void Afficher_Admin_Parametre()
-        {
-            DockContent D1 = new DockContent();
-
-            ctrlAdmin_Parametre ctrl = new ctrlAdmin_Parametre();
-            ctrl.Acces = Acces;
-            ctrl.DP = DP;
-            ctrl.Dock = DockStyle.Fill;
-            ctrl.Initialiser();
-            D1.Controls.Add(ctrl);
-
-            D1.Show(DP, DockState.Document);
-            D1.Text = "Paramètres";
-            D1.ShowInTaskbar = false;
-            D1.CloseButton = true;
-        }
-
-        private void btnGestion_User_Click(object sender, EventArgs e)
-        {
-            Afficher_Admin_User();
+            Réduire();
         }
     }
 }

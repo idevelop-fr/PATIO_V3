@@ -1,0 +1,11 @@
+﻿La gestion des projets
+
+Un projet est une déclinaison opérationelle d'une action.
+Un projet est une activité temporaire ayant un but de produire un livrable, service, résultat.
+
+Un projet a une phase de démarrage, une phase de clôture ainsi que différentes phases de réalisation.
+Une phase de réalisation est en principe au maximum de la durée d'une période budgétaire.
+
+Pour chaque phase de réalisation, différents processus doivent être mis en oeuvre :: le processus de financement FIR par exemple.
+
+Le sous-processus FIR de préparation budgétaire doit être l'occasion de réviser l'ensemble des projets financés.

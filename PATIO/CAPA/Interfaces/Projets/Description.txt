@@ -1,0 +1,6 @@
+﻿ctrlListeProjet     : Liste des projets pour une action
+ElementProjet       : Objet d'affichage d'un projet dans ctrlListeProjet
+frmFicheProjet      : Interface de création d'un projet (minimum d'éléments)
+ctrlGestionProjet   : Interface complète de gestion d'un projet
+
+ctrlProjetProcessus : Gestion d'un projet par le management de projet PMI

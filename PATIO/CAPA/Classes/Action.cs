@@ -1,19 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
-using PATIO.Modules;
+using PATIO.MAIN.Classes;
+using PATIO.ADMIN.Classes;
 
 namespace PATIO.CAPA.Classes
 {
-    public class Action : IComparable<PATIO.CAPA.Classes.Action>
+    public class Action : Classe_Modele, IComparable<Action>
     {
-        public AccesNet Acces;
-
-        public int ID { get; set; }
 
         //Informations principales
-        public String Code { get; set; }
-        public String Libelle { get; set; }
-        public bool Actif { get; set; } = true;
 
         public TypeAction TypeAction { get; set; } = TypeAction.ACTION;
 
@@ -78,6 +73,7 @@ namespace PATIO.CAPA.Classes
         public List<int> LienPlan { get; set; }
         public List<int> LienParcours { get; set; }
         public List<int> LienSecteur { get; set; }
+        public List<int> LienSRS { get; set; }
 
         //Onglet Priorités CTS
         public List<int> TSante { get; set; }
@@ -97,6 +93,9 @@ namespace PATIO.CAPA.Classes
         public List<int> Role_6PO_Manager;
         public List<int> Role_6PO_Consultation;
 
+        //Onglet Indicateur
+        public List<string> Indicateur_Valeurs;
+
         public Action()
         {
             PublicCible = new List<int>();
@@ -112,15 +111,34 @@ namespace PATIO.CAPA.Classes
             LienPlan = new List<int>();
             LienParcours = new List<int>();
             LienSecteur = new List<int>();
+            LienSRS = new List<int>();
             TSante = new List<int>();
             Priorite_CTS = new List<int>();
             Role_6PO_CoPilote = new List<int>();
             Role_6PO_Manager = new List<int>();
             Role_6PO_Consultation = new List<int>();
+            Indicateur_Valeurs = new List<string>();
+
+            ListeAttribut = new string[] {"PILOTE", "STATUT", "ACTION_PHARE", "ORDRE_ACTION_PHARE",
+                                         "VALIDATION_INTERNE", "DESCRIPTION",
+                                         "_TYPE", "CODE_PLAN", "_AXE", "_OS", "_OG", "_OP", "_CPL",
+                                         "_ORDREACT", "_ANNEE", "_DIRECTION", "_REFERENCE", "_ORDREOPE",
+                                         "PUBLIC_CIBLE", "TERRITOIRE", "PARTENAIRE_INSTITU", "PARTENAIRE_USAGER",
+                                         "STRUCTURE_PORTEUSE", "ACTEUR_SANTE", "LEVIER", "COUT_FINANCIER",
+                                         "FINANCEMENT_FIR", "MT_2018", "MT_2019",
+                                         "MT_2020", "MT_2021", "MT_2022", "MT_2023", "MT_TOTAL",
+                                         "RESULTAT_LIVRABLE", "NB_PERS_IMPACT", "NB_ACTEUR_MOBILISE", "INDIC_RESULTAT",
+                                         "INDIC_MOYEN", "ANNEE_MO", "DIRECTION_PILOTE", "DIRECTION_ASSOCIE", "EQUIPE",
+                                         "LIEN_PLAN", "LIEN_PARCOURS", "LIEN_SECTEUR", "LIEN_SRS",
+                                         "TSANTE", "PRIORITE_CTS", "DATE_DEBUT", "DATE_FIN",
+                                         "METEO", "TX_AVANCEMENT",
+                                         "ACTION_INNOVANTE", "ANALYSE_QUALITATIVE", "REDUCTION_INEGALITE",
+                                         "ROLE_6PO_COPILOTE", "ROLE_6PO_MANAGER", "ROLE_6PO_CONSULTATION", "INDICATEUR_VALEUR"
+                                        };
         }
 
         //Construit l'action à partir des informations de l'élément
-        public void Construire(Element e)
+        public override bool Construire(Element e)
         {
             ID = e.ID;
             Code = e.Code;
@@ -132,8 +150,7 @@ namespace PATIO.CAPA.Classes
             {
                 if (d.Element_ID == ID)
                 {
-                    d.Valeur = d.Valeur.Replace("'''", "'");
-                    //Onglet Informations géérales
+                    //Onglet 1 : Informations générales
                     if (d.Attribut_Code == "PILOTE") { Pilote = Acces.Trouver_Utilisateur(int.Parse(d.Valeur)); }
                     if (d.Attribut_Code == "STATUT") { Statut = int.Parse(d.Valeur); }
 
@@ -156,13 +173,13 @@ namespace PATIO.CAPA.Classes
                     if (d.Attribut_Code == "_REFERENCE") { _reference = d.Valeur; }
                     if (d.Attribut_Code == "_ORDREOPE") { _ordreope = d.Valeur; }
 
-                    //Onglet Public, partenaires
+                    //Onglet 2 : Public, partenaires
                     if (d.Attribut_Code == "PUBLIC_CIBLE") { PublicCible.Add(int.Parse(d.Valeur)); }
                     if (d.Attribut_Code == "TERRITOIRE") { Territoire = d.Valeur; }
                     if (d.Attribut_Code == "PARTENAIRE_INSTITU") { Partenaire.Add(int.Parse(d.Valeur)); }
                     if (d.Attribut_Code == "PARTENAIRE_USAGER") { Usager.Add(int.Parse(d.Valeur)); }
 
-                    //Onglet Moyens
+                    //Onglet 3 : Moyens
                     if (d.Attribut_Code == "STRUCTURE_PORTEUSE") { try { StructurePorteuse.Add(int.Parse(d.Valeur)); } catch { } }
                     if (d.Attribut_Code == "ACTEUR_SANTE") { Acteur.Add(int.Parse(d.Valeur)); }
                     if (d.Attribut_Code == "LEVIER") { Levier.Add(int.Parse(d.Valeur)); }
@@ -176,29 +193,30 @@ namespace PATIO.CAPA.Classes
                     if (d.Attribut_Code == "MT_2023") { Mt_2023 = d.Valeur; }
                     if (d.Attribut_Code == "MT_TOTAL") { Mt_Total = d.Valeur; }
 
-                    //Onglet 5 : Suivi et évaluation
+                    //Onglet 4 : Suivi et évaluation
                     if (d.Attribut_Code == "RESULTAT_LIVRABLE") { ResultatLivrable = d.Valeur; }
                     if (d.Attribut_Code == "NB_PERS_IMPACT") { NbPersImpact = d.Valeur; }
                     if (d.Attribut_Code == "NB_ACTEUR_MOBILISE") { NbActeurMobilise = d.Valeur; }
                     if (d.Attribut_Code == "INDIC_RESULTAT") { IndicResultat = d.Valeur; }
                     if (d.Attribut_Code == "INDIC_MOYEN") { IndicMoyen = d.Valeur; }
 
-                    //Onglet 6 : Calendrier, responsabilités
+                    //Onglet 5 : Calendrier, responsabilités
                     if (d.Attribut_Code == "ANNEE_MO") { AnneeMiseOeuvre.Add(int.Parse(d.Valeur)); }
                     if (d.Attribut_Code == "DIRECTION_PILOTE") { DirectionPilote.Add(int.Parse(d.Valeur)); }
                     if (d.Attribut_Code == "DIRECTION_ASSOCIE") { DirectionAssocie.Add(int.Parse(d.Valeur)); }
                     if (d.Attribut_Code == "EQUIPE") { Equipe.Add(int.Parse(d.Valeur)); }
 
-                    //Onglet 7 : Liens
+                    //Onglet 6 : Liens
                     if (d.Attribut_Code == "LIEN_PLAN") { LienPlan.Add(int.Parse(d.Valeur)); }
                     if (d.Attribut_Code == "LIEN_PARCOURS") { LienParcours.Add(int.Parse(d.Valeur)); }
                     if (d.Attribut_Code == "LIEN_SECTEUR") { LienSecteur.Add(int.Parse(d.Valeur)); }
+                    if (d.Attribut_Code == "LIEN_SRS") { LienSRS.Add(int.Parse(d.Valeur)); }
 
-                    //Onglet 8 : Priorité CTS
+                    //Onglet 7 : Priorité CTS
                     if (d.Attribut_Code == "TSANTE") { TSante.Add(int.Parse(d.Valeur)); }
                     if (d.Attribut_Code == "PRIORITE_CTS") { Priorite_CTS.Add(int.Parse(d.Valeur)); }
 
-                    //Onglet 9
+                    //Onglet 8
                     if (d.Attribut_Code == "DATE_DEBUT") { try { DateDebut = DateTime.Parse(d.Valeur); } catch { } }
                     if (d.Attribut_Code == "DATE_FIN") { try { DateFin = DateTime.Parse(d.Valeur); } catch { } }
                     if (d.Attribut_Code == "METEO") { Meteo = (Meteo)int.Parse(d.Valeur); }
@@ -207,22 +225,26 @@ namespace PATIO.CAPA.Classes
                     if (d.Attribut_Code == "ANALYSE_QUALITATIVE") { AnalyseQualitative = d.Valeur; }
                     if (d.Attribut_Code == "REDUCTION_INEGALITE") { ReductionInegalite = d.Valeur; }
 
-                    //Onglet 10 : Rôle 6PO
+                    //Onglet 9 : Rôle 6PO
                     if (d.Attribut_Code == "ROLE_6PO_COPILOTE") { Role_6PO_CoPilote.Add(int.Parse(d.Valeur)); }
                     if (d.Attribut_Code == "ROLE_6PO_MANAGER") { Role_6PO_Manager.Add(int.Parse(d.Valeur)); }
                     if (d.Attribut_Code == "ROLE_6PO_CONSULTATION") { Role_6PO_Consultation.Add(int.Parse(d.Valeur)); }
 
+                    //Onglet 10 : Indicateurs
+                    if (d.Attribut_Code == "INDICATEUR_VALEUR") { Indicateur_Valeurs.Add(d.Valeur); }
+
                 }
             }
+            return true;
         }
 
         //Transforme une action sous la forme Element, dElement
-        public Element Déconstruire()
+        public override Element Déconstruire()
         {
             Element e = new Element();
 
             e.ID = ID;
-            e.Element_Type = Acces.type_ACTION.id;
+            e.Element_Type = Acces.type_ACTION.ID;
             e.Code = Code;
             e.Libelle = Libelle;
             e.Type_Element = (int)TypeAction;
@@ -237,6 +259,7 @@ namespace PATIO.CAPA.Classes
             DéconstruireP07(ref e);
             DéconstruireP08(ref e);
             DéconstruireP09(ref e);
+            DéconstruireP10(ref e);
 
             return e;
         }
@@ -250,7 +273,7 @@ namespace PATIO.CAPA.Classes
             if (!(Pilote is null))
             {
                 CodeAttribut = "PILOTE";
-                d = new dElement(ID, Acces.Trouver_Attribut_ID(Acces.type_ACTION.id, CodeAttribut), CodeAttribut, Pilote.ID.ToString());
+                d = new dElement(ID, Acces.Trouver_Attribut(Acces.type_ACTION, CodeAttribut).ID, CodeAttribut, Pilote.ID.ToString());
                 e.Liste.Add(d);
             }
 
@@ -258,7 +281,7 @@ namespace PATIO.CAPA.Classes
             if (ActionPhare)
             {
                 CodeAttribut = "ACTION_PHARE";
-                d = new dElement(ID, Acces.Trouver_Attribut_ID(Acces.type_ACTION.id, CodeAttribut), CodeAttribut, (ActionPhare) ? "1" : "0");
+                d = new dElement(ID, Acces.Trouver_Attribut(Acces.type_ACTION, CodeAttribut).ID, CodeAttribut, (ActionPhare) ? "1" : "0");
                 e.Liste.Add(d);
             }
 
@@ -266,14 +289,14 @@ namespace PATIO.CAPA.Classes
             if (OrdreActionPhare > 0)
             {
                 CodeAttribut = "ORDRE_ACTION_PHARE";
-                d = new dElement(ID, Acces.Trouver_Attribut_ID(Acces.type_ACTION.id, CodeAttribut), CodeAttribut, OrdreActionPhare.ToString());
+                d = new dElement(ID, Acces.Trouver_Attribut(Acces.type_ACTION, CodeAttribut).ID, CodeAttribut, OrdreActionPhare.ToString());
                 e.Liste.Add(d);
             }
 
             //STATUT
             {
                 CodeAttribut = "STATUT";
-                d = new dElement(ID, Acces.Trouver_Attribut_ID(Acces.type_ACTION.id, CodeAttribut), CodeAttribut, Statut.ToString());
+                d = new dElement(ID, Acces.Trouver_Attribut(Acces.type_ACTION, CodeAttribut).ID, CodeAttribut, Statut.ToString());
                 e.Liste.Add(d);
             }
 
@@ -281,7 +304,7 @@ namespace PATIO.CAPA.Classes
             if (!(Validation < 0))
             {
                 CodeAttribut = "VALIDATION_INTERNE";
-                d = new dElement(ID, Acces.Trouver_Attribut_ID(Acces.type_ACTION.id, CodeAttribut), CodeAttribut, Validation.ToString());
+                d = new dElement(ID, Acces.Trouver_Attribut(Acces.type_ACTION, CodeAttribut).ID, CodeAttribut, Validation.ToString());
                 e.Liste.Add(d);
             }
 
@@ -289,7 +312,7 @@ namespace PATIO.CAPA.Classes
             if (!(Description is null))
             {
                 CodeAttribut = "DESCRIPTION";
-                d = new dElement(ID, Acces.Trouver_Attribut_ID(Acces.type_ACTION.id, CodeAttribut), CodeAttribut, Description);
+                d = new dElement(ID, Acces.Trouver_Attribut(Acces.type_ACTION, CodeAttribut).ID, CodeAttribut, Description);
                 e.Liste.Add(d);
             }
 
@@ -297,7 +320,7 @@ namespace PATIO.CAPA.Classes
             if (!(_type is null))
             {
                 CodeAttribut = "_TYPE";
-                d = new dElement(ID, Acces.Trouver_Attribut_ID(Acces.type_ACTION.id, CodeAttribut), CodeAttribut, _type);
+                d = new dElement(ID, Acces.Trouver_Attribut(Acces.type_ACTION, CodeAttribut).ID, CodeAttribut, _type);
                 e.Liste.Add(d);
             }
 
@@ -305,77 +328,77 @@ namespace PATIO.CAPA.Classes
             if (!(_codeplan is null))
             {
                 CodeAttribut = "_CODEPLAN";
-                d = new dElement(ID, Acces.Trouver_Attribut_ID(Acces.type_ACTION.id, CodeAttribut), CodeAttribut, _codeplan);
+                d = new dElement(ID, Acces.Trouver_Attribut(Acces.type_ACTION, CodeAttribut).ID, CodeAttribut, _codeplan);
                 e.Liste.Add(d);
             }
 
             if (!(_axe is null))
             {
                 CodeAttribut = "_AXE";
-                d = new dElement(ID, Acces.Trouver_Attribut_ID(Acces.type_ACTION.id, CodeAttribut), CodeAttribut, _axe);
+                d = new dElement(ID, Acces.Trouver_Attribut(Acces.type_ACTION, CodeAttribut).ID, CodeAttribut, _axe);
                 e.Liste.Add(d);
             }
 
             if (!(_os is null))
             {
                 CodeAttribut = "_OS";
-                d = new dElement(ID, Acces.Trouver_Attribut_ID(Acces.type_ACTION.id, CodeAttribut), CodeAttribut, _os);
+                d = new dElement(ID, Acces.Trouver_Attribut(Acces.type_ACTION, CodeAttribut).ID, CodeAttribut, _os);
                 e.Liste.Add(d);
             }
 
             if (!(_og is null))
             {
                 CodeAttribut = "_OG";
-                d = new dElement(ID, Acces.Trouver_Attribut_ID(Acces.type_ACTION.id, CodeAttribut), CodeAttribut, _og);
+                d = new dElement(ID, Acces.Trouver_Attribut(Acces.type_ACTION, CodeAttribut).ID, CodeAttribut, _og);
                 e.Liste.Add(d);
             }
 
             if (!(_op is null))
             {
                 CodeAttribut = "_OP";
-                d = new dElement(ID, Acces.Trouver_Attribut_ID(Acces.type_ACTION.id, CodeAttribut), CodeAttribut, _op);
+                d = new dElement(ID, Acces.Trouver_Attribut(Acces.type_ACTION, CodeAttribut).ID, CodeAttribut, _op);
                 e.Liste.Add(d);
             }
 
             if (!(_cpl is null))
             {
                 CodeAttribut = "_CPL";
-                d = new dElement(ID, Acces.Trouver_Attribut_ID(Acces.type_ACTION.id, CodeAttribut), CodeAttribut, _cpl);
+                d = new dElement(ID, Acces.Trouver_Attribut(Acces.type_ACTION, CodeAttribut).ID, CodeAttribut, _cpl);
                 e.Liste.Add(d);
             }
 
             if (!(_ordreact is null))
             {
                 CodeAttribut = "_ORDREACT";
-                d = new dElement(ID, Acces.Trouver_Attribut_ID(Acces.type_ACTION.id, CodeAttribut), CodeAttribut, _ordreact);
+                d = new dElement(ID, Acces.Trouver_Attribut(Acces.type_ACTION, CodeAttribut).ID, CodeAttribut, _ordreact);
                 e.Liste.Add(d);
             }
 
             if (!(_annee is null))
             {
                 CodeAttribut = "_ANNEE";
-                d = new dElement(ID, Acces.Trouver_Attribut_ID(Acces.type_ACTION.id, CodeAttribut), CodeAttribut, _annee);
+                d = new dElement(ID, Acces.Trouver_Attribut(Acces.type_ACTION, CodeAttribut).ID, CodeAttribut, _annee);
                 e.Liste.Add(d);
             }
 
             if (!(_direction is null))
             {
                 CodeAttribut = "_DIRECTION";
-                d = new dElement(ID, Acces.Trouver_Attribut_ID(Acces.type_ACTION.id, CodeAttribut), CodeAttribut, _direction);
+                d = new dElement(ID, Acces.Trouver_Attribut(Acces.type_ACTION, CodeAttribut).ID, CodeAttribut, _direction);
                 e.Liste.Add(d);
             }
 
             if (!(_reference is null))
             {
                 CodeAttribut = "_REFERENCE";
-                d = new dElement(ID, Acces.Trouver_Attribut_ID(Acces.type_ACTION.id, CodeAttribut), CodeAttribut, _reference);
+                d = new dElement(ID, Acces.Trouver_Attribut(Acces.type_ACTION, CodeAttribut).ID, CodeAttribut, _reference);
                 e.Liste.Add(d);
             }
 
             if (!(_ordreope is null))
             {
                 CodeAttribut = "_ORDREOPE";
-                d = new dElement(ID, Acces.Trouver_Attribut_ID(Acces.type_ACTION.id, CodeAttribut), CodeAttribut, _ordreope);
+                d = new dElement(ID, Acces.Trouver_Attribut(Acces.type_ACTION, CodeAttribut).ID, CodeAttribut, _ordreope);
                 e.Liste.Add(d);
             }
         }
@@ -391,7 +414,7 @@ namespace PATIO.CAPA.Classes
                 CodeAttribut = "PUBLIC_CIBLE";
                 foreach (int k in PublicCible)
                 {
-                    d = new dElement(ID, Acces.Trouver_Attribut_ID(Acces.type_ACTION.id, CodeAttribut), CodeAttribut, k.ToString());
+                    d = new dElement(ID, Acces.Trouver_Attribut(Acces.type_ACTION, CodeAttribut).ID, CodeAttribut, k.ToString());
                     e.Liste.Add(d);
                 }
             }
@@ -400,7 +423,7 @@ namespace PATIO.CAPA.Classes
             if (!(Territoire is null))
             {
                 CodeAttribut = "TERRITOIRE";
-                d = new dElement(ID, Acces.Trouver_Attribut_ID(Acces.type_ACTION.id, CodeAttribut), CodeAttribut, Territoire);
+                d = new dElement(ID, Acces.Trouver_Attribut(Acces.type_ACTION, CodeAttribut).ID, CodeAttribut, Territoire);
                 e.Liste.Add(d);
             }
 
@@ -410,7 +433,7 @@ namespace PATIO.CAPA.Classes
                 CodeAttribut = "PARTENAIRE_INSTITU";
                 foreach (int k in Partenaire)
                 {
-                    d = new dElement(ID, Acces.Trouver_Attribut_ID(Acces.type_ACTION.id, CodeAttribut), CodeAttribut, k.ToString());
+                    d = new dElement(ID, Acces.Trouver_Attribut(Acces.type_ACTION, CodeAttribut).ID, CodeAttribut, k.ToString());
                     e.Liste.Add(d);
                 }
             }
@@ -421,7 +444,7 @@ namespace PATIO.CAPA.Classes
                 CodeAttribut = "PARTENAIRE_USAGER";
                 foreach (int k in Usager)
                 {
-                    d = new dElement(ID, Acces.Trouver_Attribut_ID(Acces.type_ACTION.id, CodeAttribut), CodeAttribut, k.ToString());
+                    d = new dElement(ID, Acces.Trouver_Attribut(Acces.type_ACTION, CodeAttribut).ID, CodeAttribut, k.ToString());
                     e.Liste.Add(d);
                 }
             }
@@ -438,7 +461,7 @@ namespace PATIO.CAPA.Classes
                 CodeAttribut = "STRUCTURE_PORTEUSE";
                 foreach (int k in StructurePorteuse)
                 {
-                    d = new dElement(ID, Acces.Trouver_Attribut_ID(Acces.type_ACTION.id, CodeAttribut), CodeAttribut, k.ToString());
+                    d = new dElement(ID, Acces.Trouver_Attribut(Acces.type_ACTION, CodeAttribut).ID, CodeAttribut, k.ToString());
                     e.Liste.Add(d);
                 }
             }
@@ -449,7 +472,7 @@ namespace PATIO.CAPA.Classes
                 CodeAttribut = "ACTEUR_SANTE";
                 foreach (int k in Acteur)
                 {
-                    d = new dElement(ID, Acces.Trouver_Attribut_ID(Acces.type_ACTION.id, CodeAttribut), CodeAttribut, k.ToString());
+                    d = new dElement(ID, Acces.Trouver_Attribut(Acces.type_ACTION, CodeAttribut).ID, CodeAttribut, k.ToString());
                     e.Liste.Add(d);
                 }
             }
@@ -460,7 +483,7 @@ namespace PATIO.CAPA.Classes
                 CodeAttribut = "LEVIER";
                 foreach (int k in Levier)
                 {
-                    d = new dElement(ID, Acces.Trouver_Attribut_ID(Acces.type_ACTION.id, CodeAttribut), CodeAttribut, k.ToString());
+                    d = new dElement(ID, Acces.Trouver_Attribut(Acces.type_ACTION, CodeAttribut).ID, CodeAttribut, k.ToString());
                     e.Liste.Add(d);
                 }
             }
@@ -469,7 +492,7 @@ namespace PATIO.CAPA.Classes
             if (!(CoutFinancier is null))
             {
                 CodeAttribut = "COUT_FINANCIER";
-                d = new dElement(ID, Acces.Trouver_Attribut_ID(Acces.type_ACTION.id, CodeAttribut), CodeAttribut, CoutFinancier);
+                d = new dElement(ID, Acces.Trouver_Attribut(Acces.type_ACTION, CodeAttribut).ID, CodeAttribut, CoutFinancier);
                 e.Liste.Add(d);
             }
 
@@ -477,7 +500,7 @@ namespace PATIO.CAPA.Classes
             if (FinancementFIR)
             {
                 CodeAttribut = "FINANCEMENT_FIR";
-                d = new dElement(ID, Acces.Trouver_Attribut_ID(Acces.type_ACTION.id, CodeAttribut), CodeAttribut, "1");
+                d = new dElement(ID, Acces.Trouver_Attribut(Acces.type_ACTION, CodeAttribut).ID, CodeAttribut, "1");
                 e.Liste.Add(d);
             }
 
@@ -485,7 +508,7 @@ namespace PATIO.CAPA.Classes
             if (!(Mt_2018 is null))
             {
                 CodeAttribut = "MT_2018";
-                d = new dElement(ID, Acces.Trouver_Attribut_ID(Acces.type_ACTION.id, CodeAttribut), CodeAttribut, Mt_2018);
+                d = new dElement(ID, Acces.Trouver_Attribut(Acces.type_ACTION, CodeAttribut).ID, CodeAttribut, Mt_2018);
                 e.Liste.Add(d);
             }
 
@@ -493,7 +516,7 @@ namespace PATIO.CAPA.Classes
             if (!(Mt_2019 is null))
             {
                 CodeAttribut = "MT_2019";
-                d = new dElement(ID, Acces.Trouver_Attribut_ID(Acces.type_ACTION.id, CodeAttribut), CodeAttribut, Mt_2019);
+                d = new dElement(ID, Acces.Trouver_Attribut(Acces.type_ACTION, CodeAttribut).ID, CodeAttribut, Mt_2019);
                 e.Liste.Add(d);
             }
 
@@ -501,7 +524,7 @@ namespace PATIO.CAPA.Classes
             if (!(Mt_2020 is null))
             {
                 CodeAttribut = "MT_2020";
-                d = new dElement(ID, Acces.Trouver_Attribut_ID(Acces.type_ACTION.id, CodeAttribut), CodeAttribut, Mt_2020);
+                d = new dElement(ID, Acces.Trouver_Attribut(Acces.type_ACTION, CodeAttribut).ID, CodeAttribut, Mt_2020);
                 e.Liste.Add(d);
             }
 
@@ -509,7 +532,7 @@ namespace PATIO.CAPA.Classes
             if (!(Mt_2021 is null))
             {
                 CodeAttribut = "MT_2021";
-                d = new dElement(ID, Acces.Trouver_Attribut_ID(Acces.type_ACTION.id, CodeAttribut), CodeAttribut, Mt_2021);
+                d = new dElement(ID, Acces.Trouver_Attribut(Acces.type_ACTION, CodeAttribut).ID, CodeAttribut, Mt_2021);
                 e.Liste.Add(d);
             }
 
@@ -517,7 +540,7 @@ namespace PATIO.CAPA.Classes
             if (!(Mt_2022 is null))
             {
                 CodeAttribut = "MT_2022";
-                d = new dElement(ID, Acces.Trouver_Attribut_ID(Acces.type_ACTION.id, CodeAttribut), CodeAttribut, Mt_2022);
+                d = new dElement(ID, Acces.Trouver_Attribut(Acces.type_ACTION, CodeAttribut).ID, CodeAttribut, Mt_2022);
                 e.Liste.Add(d);
             }
 
@@ -525,7 +548,7 @@ namespace PATIO.CAPA.Classes
             if (!(Mt_2023 is null))
             {
                 CodeAttribut = "MT_2023";
-                d = new dElement(ID, Acces.Trouver_Attribut_ID(Acces.type_ACTION.id, CodeAttribut), CodeAttribut, Mt_2023);
+                d = new dElement(ID, Acces.Trouver_Attribut(Acces.type_ACTION, CodeAttribut).ID, CodeAttribut, Mt_2023);
                 e.Liste.Add(d);
             }
 
@@ -533,7 +556,7 @@ namespace PATIO.CAPA.Classes
             if (!(Mt_Total is null))
             {
                 CodeAttribut = "MT_TOTAL";
-                d = new dElement(ID, Acces.Trouver_Attribut_ID(Acces.type_ACTION.id, CodeAttribut), CodeAttribut, Mt_Total);
+                d = new dElement(ID, Acces.Trouver_Attribut(Acces.type_ACTION, CodeAttribut).ID, CodeAttribut, Mt_Total);
                 e.Liste.Add(d);
             }
         }
@@ -547,7 +570,7 @@ namespace PATIO.CAPA.Classes
             if (!(ResultatLivrable is null))
             {
                 CodeAttribut = "RESULTAT_LIVRABLE";
-                d = new dElement(ID, Acces.Trouver_Attribut_ID(Acces.type_ACTION.id, CodeAttribut), CodeAttribut, ResultatLivrable);
+                d = new dElement(ID, Acces.Trouver_Attribut(Acces.type_ACTION, CodeAttribut).ID, CodeAttribut, ResultatLivrable);
                 e.Liste.Add(d);
             }
 
@@ -555,7 +578,7 @@ namespace PATIO.CAPA.Classes
             if (!!(NbPersImpact is null))
             {
                 CodeAttribut = "NB_PERS_IMPACT";
-                d = new dElement(ID, Acces.Trouver_Attribut_ID(Acces.type_ACTION.id, CodeAttribut), CodeAttribut, NbPersImpact);
+                d = new dElement(ID, Acces.Trouver_Attribut(Acces.type_ACTION, CodeAttribut).ID, CodeAttribut, NbPersImpact);
                 e.Liste.Add(d);
             }
 
@@ -563,7 +586,7 @@ namespace PATIO.CAPA.Classes
             if (!(NbActeurMobilise is null))
             {
                 CodeAttribut = "NB_ACTEUR_MOBILISE";
-                d = new dElement(ID, Acces.Trouver_Attribut_ID(Acces.type_ACTION.id, CodeAttribut), CodeAttribut, NbActeurMobilise);
+                d = new dElement(ID, Acces.Trouver_Attribut(Acces.type_ACTION, CodeAttribut).ID, CodeAttribut, NbActeurMobilise);
                 e.Liste.Add(d);
             }
 
@@ -571,7 +594,7 @@ namespace PATIO.CAPA.Classes
             if (!(IndicResultat is null))
             {
                 CodeAttribut = "INDIC_RESULTAT";
-                d = new dElement(ID, Acces.Trouver_Attribut_ID(Acces.type_ACTION.id, CodeAttribut), CodeAttribut, IndicResultat);
+                d = new dElement(ID, Acces.Trouver_Attribut(Acces.type_ACTION, CodeAttribut).ID, CodeAttribut, IndicResultat);
                 e.Liste.Add(d);
             }
 
@@ -579,7 +602,7 @@ namespace PATIO.CAPA.Classes
             if (!(IndicMoyen is null))
             {
                 CodeAttribut = "INDIC_MOYEN";
-                d = new dElement(ID, Acces.Trouver_Attribut_ID(Acces.type_ACTION.id, CodeAttribut), CodeAttribut, IndicMoyen);
+                d = new dElement(ID, Acces.Trouver_Attribut(Acces.type_ACTION, CodeAttribut).ID, CodeAttribut, IndicMoyen);
                 e.Liste.Add(d);
             }
         }
@@ -595,7 +618,7 @@ namespace PATIO.CAPA.Classes
                 CodeAttribut = "ANNEE_MO";
                 foreach (int k in AnneeMiseOeuvre)
                 {
-                    d = new dElement(ID, Acces.Trouver_Attribut_ID(Acces.type_ACTION.id, CodeAttribut), CodeAttribut, k.ToString());
+                    d = new dElement(ID, Acces.Trouver_Attribut(Acces.type_ACTION, CodeAttribut).ID, CodeAttribut, k.ToString());
                     e.Liste.Add(d);
                 }
             }
@@ -606,7 +629,7 @@ namespace PATIO.CAPA.Classes
                 CodeAttribut = "DIRECTION_PILOTE";
                 foreach (int k in DirectionPilote)
                 {
-                    d = new dElement(ID, Acces.Trouver_Attribut_ID(Acces.type_ACTION.id, CodeAttribut), CodeAttribut, k.ToString());
+                    d = new dElement(ID, Acces.Trouver_Attribut(Acces.type_ACTION, CodeAttribut).ID, CodeAttribut, k.ToString());
                     e.Liste.Add(d);
                 }
             }
@@ -617,7 +640,7 @@ namespace PATIO.CAPA.Classes
                 CodeAttribut = "DIRECTION_ASSOCIE";
                 foreach (int k in DirectionAssocie)
                 {
-                    d = new dElement(ID, Acces.Trouver_Attribut_ID(Acces.type_ACTION.id, CodeAttribut), CodeAttribut, k.ToString());
+                    d = new dElement(ID, Acces.Trouver_Attribut(Acces.type_ACTION, CodeAttribut).ID, CodeAttribut, k.ToString());
                     e.Liste.Add(d);
                 }
             }
@@ -628,7 +651,7 @@ namespace PATIO.CAPA.Classes
                 CodeAttribut = "EQUIPE";
                 foreach (int k in Equipe)
                 {
-                    d = new dElement(ID, Acces.Trouver_Attribut_ID(Acces.type_ACTION.id, CodeAttribut), CodeAttribut, k.ToString());
+                    d = new dElement(ID, Acces.Trouver_Attribut(Acces.type_ACTION, CodeAttribut).ID, CodeAttribut, k.ToString());
                     e.Liste.Add(d);
                 }
             }
@@ -645,7 +668,7 @@ namespace PATIO.CAPA.Classes
                 CodeAttribut = "LIEN_PLAN";
                 foreach (int k in LienPlan)
                 {
-                    d = new dElement(ID, Acces.Trouver_Attribut_ID(Acces.type_ACTION.id, CodeAttribut), CodeAttribut, k.ToString());
+                    d = new dElement(ID, Acces.Trouver_Attribut(Acces.type_ACTION, CodeAttribut).ID, CodeAttribut, k.ToString());
                     e.Liste.Add(d);
                 }
             }
@@ -656,7 +679,7 @@ namespace PATIO.CAPA.Classes
                 CodeAttribut = "LIEN_PARCOURS";
                 foreach (int k in LienParcours)
                 {
-                    d = new dElement(ID, Acces.Trouver_Attribut_ID(Acces.type_ACTION.id, CodeAttribut), CodeAttribut, k.ToString());
+                    d = new dElement(ID, Acces.Trouver_Attribut(Acces.type_ACTION, CodeAttribut).ID, CodeAttribut, k.ToString());
                     e.Liste.Add(d);
                 }
             }
@@ -667,11 +690,21 @@ namespace PATIO.CAPA.Classes
                 CodeAttribut = "LIEN_SECTEUR";
                 foreach (int k in LienSecteur)
                 {
-                    d = new dElement(ID, Acces.Trouver_Attribut_ID(Acces.type_ACTION.id, CodeAttribut), CodeAttribut, k.ToString());
+                    d = new dElement(ID, Acces.Trouver_Attribut(Acces.type_ACTION, CodeAttribut).ID, CodeAttribut, k.ToString());
                     e.Liste.Add(d);
                 }
             }
 
+            // LIEN_SRS
+            if (!(LienSecteur is null))
+            {
+                CodeAttribut = "LIEN_SRS";
+                foreach (int k in LienSRS)
+                {
+                    d = new dElement(ID, Acces.Trouver_Attribut(Acces.type_ACTION, CodeAttribut).ID, CodeAttribut, k.ToString());
+                    e.Liste.Add(d);
+                }
+            }
         }
 
         void DéconstruireP07(ref Element e)
@@ -682,14 +715,14 @@ namespace PATIO.CAPA.Classes
             CodeAttribut = "TSANTE";
             foreach (int k in TSante)
             {
-                d = new dElement(ID, Acces.Trouver_Attribut_ID(Acces.type_ACTION.id, CodeAttribut), CodeAttribut, k.ToString());
+                d = new dElement(ID, Acces.Trouver_Attribut(Acces.type_ACTION, CodeAttribut).ID, CodeAttribut, k.ToString());
                 e.Liste.Add(d);
             }
 
             CodeAttribut = "PRIORITE_CTS";
             foreach (int k in Priorite_CTS)
             {
-                d = new dElement(ID, Acces.Trouver_Attribut_ID(Acces.type_ACTION.id, CodeAttribut), CodeAttribut, k.ToString());
+                d = new dElement(ID, Acces.Trouver_Attribut(Acces.type_ACTION, CodeAttribut).ID, CodeAttribut, k.ToString());
                 e.Liste.Add(d);
             }
         }
@@ -701,46 +734,46 @@ namespace PATIO.CAPA.Classes
 
             {
                 CodeAttribut = "DATE_DEBUT";
-                d = new dElement(ID, Acces.Trouver_Attribut_ID(Acces.type_ACTION.id, CodeAttribut), CodeAttribut, string.Format("{0:dd/MM/yyyy}", DateDebut));
+                d = new dElement(ID, Acces.Trouver_Attribut(Acces.type_ACTION, CodeAttribut).ID, CodeAttribut, string.Format("{0:dd/MM/yyyy}", DateDebut));
                 e.Liste.Add(d);
             }
 
             {
                 CodeAttribut = "DATE_FIN";
-                d = new dElement(ID, Acces.Trouver_Attribut_ID(Acces.type_ACTION.id, CodeAttribut), CodeAttribut, string.Format("{0:dd/MM/yyyy}", DateFin));
+                d = new dElement(ID, Acces.Trouver_Attribut(Acces.type_ACTION, CodeAttribut).ID, CodeAttribut, string.Format("{0:dd/MM/yyyy}", DateFin));
                 e.Liste.Add(d);
             }
 
             {
                 CodeAttribut = "METEO";
-                d = new dElement(ID, Acces.Trouver_Attribut_ID(Acces.type_ACTION.id, CodeAttribut), CodeAttribut, ((int)Meteo).ToString());
+                d = new dElement(ID, Acces.Trouver_Attribut(Acces.type_ACTION, CodeAttribut).ID, CodeAttribut, ((int)Meteo).ToString());
                 e.Liste.Add(d);
             }
 
             {
                 CodeAttribut = "TX_AVANCEMENT";
-                d = new dElement(ID, Acces.Trouver_Attribut_ID(Acces.type_ACTION.id, CodeAttribut), CodeAttribut, ((int)TxAvancement).ToString());
+                d = new dElement(ID, Acces.Trouver_Attribut(Acces.type_ACTION, CodeAttribut).ID, CodeAttribut, ((int)TxAvancement).ToString());
                 e.Liste.Add(d);
             }
 
             if (ActionInnovante)
             {
                 CodeAttribut = "ACTION_INNOVANTE";
-                d = new dElement(ID, Acces.Trouver_Attribut_ID(Acces.type_ACTION.id, CodeAttribut), CodeAttribut, "1");
+                d = new dElement(ID, Acces.Trouver_Attribut(Acces.type_ACTION, CodeAttribut).ID, CodeAttribut, "1");
                 e.Liste.Add(d);
             }
 
             if (!(AnalyseQualitative is null))
             {
                 CodeAttribut = "ANALYSE_QUALITATIVE";
-                d = new dElement(ID, Acces.Trouver_Attribut_ID(Acces.type_ACTION.id, CodeAttribut), CodeAttribut, AnalyseQualitative);
+                d = new dElement(ID, Acces.Trouver_Attribut(Acces.type_ACTION, CodeAttribut).ID, CodeAttribut, AnalyseQualitative);
                 e.Liste.Add(d);
             }
 
             if (!(ReductionInegalite is null))
             {
                 CodeAttribut = "REDUCTION_INEGALITE";
-                d = new dElement(ID, Acces.Trouver_Attribut_ID(Acces.type_ACTION.id, CodeAttribut), CodeAttribut, ReductionInegalite);
+                d = new dElement(ID, Acces.Trouver_Attribut(Acces.type_ACTION, CodeAttribut).ID, CodeAttribut, ReductionInegalite);
                 e.Liste.Add(d);
             }
         }
@@ -753,25 +786,39 @@ namespace PATIO.CAPA.Classes
             CodeAttribut = "ROLE_6PO_COPILOTE";
             foreach (int k in Role_6PO_CoPilote )
             {
-                d = new dElement(ID, Acces.Trouver_Attribut_ID(Acces.type_ACTION.id, CodeAttribut), CodeAttribut, k.ToString());
+                d = new dElement(ID, Acces.Trouver_Attribut(Acces.type_ACTION, CodeAttribut).ID, CodeAttribut, k.ToString());
                 e.Liste.Add(d);
             }
 
             CodeAttribut = "ROLE_6PO_MANAGER";
             foreach (int k in Role_6PO_Manager)
             {
-                d = new dElement(ID, Acces.Trouver_Attribut_ID(Acces.type_ACTION.id, CodeAttribut), CodeAttribut, k.ToString());
+                d = new dElement(ID, Acces.Trouver_Attribut(Acces.type_ACTION, CodeAttribut).ID, CodeAttribut, k.ToString());
                 e.Liste.Add(d);
             }
 
             CodeAttribut = "ROLE_6PO_CONSULTATION";
             foreach (int k in Role_6PO_Consultation)
             {
-                d = new dElement(ID, Acces.Trouver_Attribut_ID(Acces.type_ACTION.id, CodeAttribut), CodeAttribut, k.ToString());
+                d = new dElement(ID, Acces.Trouver_Attribut(Acces.type_ACTION, CodeAttribut).ID, CodeAttribut, k.ToString());
                 e.Liste.Add(d);
             }
         }
 
+        //Indicateurs
+        void DéconstruireP10(ref Element e)
+        {
+            dElement d;
+            string CodeAttribut = "";
+
+            CodeAttribut = "INDICATEUR";
+            foreach (string k in Indicateur_Valeurs)
+            {
+                d = new dElement(ID, Acces.Trouver_Attribut(Acces.type_ACTION, CodeAttribut).ID, CodeAttribut, k);
+                e.Liste.Add(d);
+            }
+        }
+       
         //Comparateur par défaut
         public int CompareTo(Action p)
         {
