@@ -83,11 +83,11 @@ namespace PATIO.CAPA.Interfaces
 
             foreach (Lien l in listeLien)
             {
-                if (l.element2_type == Acces.type_PROJET.ID)
+                if (l.Element2_Type == Acces.type_PROJET.ID)
                 {
                     foreach (Projet prj in listeProjet)
                     {
-                        if(l.element2_id == prj.ID)
+                        if(l.Element2_ID == prj.ID && prj.Actif)
                         {
                             ElementProjet e = new ElementProjet();
                             e.Acces = Acces;
@@ -122,6 +122,7 @@ namespace PATIO.CAPA.Interfaces
                 {
                     e.Acces = Acces;
                     e.Console = Console;
+                    e.action = action;
                     e.Initialiser();
                     FLP.Controls.Add(e);
                 }

@@ -248,18 +248,18 @@ namespace PATIO.CAPA.Interfaces
 
             //Création du lien
             Lien p = new Lien() { Acces = Acces };
-            p.element1_type =Acces.type_GROUPE.ID;
-            p.element1_id = int.Parse(NodDest.Name);
-            p.element1_code =((Indicateur) Acces.Trouver_Element(Acces.type_INDICATEUR,p.element1_id)).Code;
-            p.element2_type =Acces.type_GROUPE.ID;
-            p.element2_id = int.Parse(nodSrc.Name);
-            p.element2_code =((Indicateur) Acces.Trouver_Element(Acces.type_INDICATEUR,p.element2_id)).Code;
-            p.element0_type = Acces.type_PLAN.ID; //SYSTEME
-            p.element0_id = 1; //SYSTEME
-            p.element0_code = "SYSTEME"; //SYSTEME
+            p.Element1_Type =Acces.type_GROUPE.ID;
+            p.Element1_ID = int.Parse(NodDest.Name);
+            p.Element1_Code =((Indicateur) Acces.Trouver_Element(Acces.type_INDICATEUR,p.Element1_ID)).Code;
+            p.Element2_Type =Acces.type_GROUPE.ID;
+            p.Element2_ID = int.Parse(nodSrc.Name);
+            p.Element2_Code =((Indicateur) Acces.Trouver_Element(Acces.type_INDICATEUR,p.Element2_ID)).Code;
+            p.Element0_Type = Acces.type_PLAN.ID; //SYSTEME
+            p.Element0_ID = 1; //SYSTEME
+            p.Element0_Code = "SYSTEME"; //SYSTEME
             p.ordre = p.Donner_Ordre() + 1;
 
-            if (p.element1_id == p.element2_id) { return; } //Système anti-bouclage
+            if (p.Element1_ID == p.Element2_ID) { return; } //Système anti-bouclage
 
             p.Ajouter();
             Acces.Ajouter_Lien(p);

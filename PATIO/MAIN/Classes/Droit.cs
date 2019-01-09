@@ -8,21 +8,21 @@ namespace PATIO.MAIN.Classes
         public AccesNet Acces;
 
         public int ID { get; set; }
-        public int user_id { get; set; }
+        public int User_ID { get; set; }
         public string Code { get; set; }
-        public string datedeb { get; set; }
-        public string datefin { get; set; }
-        public bool actif { get; set; }
+        public string DateDeb { get; set; }
+        public string DateFin { get; set; }
+        public bool Actif { get; set; }
 
         public Droit() { }
 
         public Droit(int _USER_ID, string _Code, string _DateDeb, string _DateFin)
         {
-            user_id = _USER_ID;
+            User_ID = _USER_ID;
             Code = _Code;
-            datedeb = _DateDeb;
-            datefin = _DateFin;
-            actif = true;
+            DateDeb = _DateDeb;
+            DateFin = _DateFin;
+            Actif = true;
         }
 
         public void Ajouter()
@@ -30,19 +30,19 @@ namespace PATIO.MAIN.Classes
             string sql;
 
             sql = "INSERT INTO droit (user_id, code, datedeb, datefin, actif) VALUES (";
-            sql += "'" + user_id + "',";
+            sql += "'" + User_ID + "',";
             sql += "'" + Code + "',";
-            sql += "'" + datedeb + "',";
-            sql += "'" + datefin + "',";
-            sql += "'" + (actif ?"1":"0") + "')";
+            sql += "'" + DateDeb + "',";
+            sql += "'" + DateFin + "',";
+            sql += "'" + (Actif ?"1":"0") + "')";
             Acces.cls.Execute(sql);
 
             //Recherche de l'iD attribué
             sql = "SELECT id from droit";
-            sql += " WHERE user_id='" + user_id + "'";
+            sql += " WHERE user_id='" + User_ID + "'";
             sql += " AND code='" + Code + "'";
-            sql += " AND datedeb='" + datedeb + "'";
-            sql += " AND datefin='" + datefin + "'";
+            sql += " AND datedeb='" + DateDeb + "'";
+            sql += " AND datefin='" + DateFin + "'";
             DataSet Sn = Acces.cls.ContenuRequete(sql);
 
             if (Acces.cls.NbLignes > 0) { ID = int.Parse(Sn.Tables["dataset"].Rows[0][0].ToString()); }
@@ -53,11 +53,11 @@ namespace PATIO.MAIN.Classes
             string sql;
 
             sql = "UPDATE droit SET";
-            sql += " user_id ='" + user_id + "',";
+            sql += " user_id ='" + User_ID + "',";
             sql += " code ='" + Code + "',";
-            sql += " datedeb ='" + datedeb + "',";
-            sql += " datefin ='" + datefin + "',";
-            sql += " actif ='" + (actif?"1":"0") + "'";
+            sql += " datedeb ='" + DateDeb + "',";
+            sql += " datefin ='" + DateFin + "',";
+            sql += " actif ='" + (Actif?"1":"0") + "'";
             sql += " WHERE id='" + ID + "'";
             Acces.cls.Execute(sql);
         }

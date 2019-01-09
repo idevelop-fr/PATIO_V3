@@ -29,15 +29,15 @@ SET time_zone = "+00:00";
 DROP TABLE IF EXISTS `lien`;
 CREATE TABLE `lien` (
   `id` int(11) NOT NULL,
-  `element0_type` int(11) NOT NULL,
-  `element0_code` varchar(100) COLLATE latin1_general_ci DEFAULT NULL,
-  `element0_id` int(11) NOT NULL,
-  `element1_type` int(11) NOT NULL,
-  `element1_code` varchar(100) COLLATE latin1_general_ci DEFAULT NULL,
-  `element1_id` int(11) NOT NULL,
-  `element2_type` int(11) NOT NULL,
-  `element2_code` varchar(100) COLLATE latin1_general_ci DEFAULT NULL,
-  `element2_id` int(11) NOT NULL,
+  `Element0_Type` int(11) NOT NULL,
+  `Element0_Code` varchar(100) COLLATE latin1_general_ci DEFAULT NULL,
+  `Element0_ID` int(11) NOT NULL,
+  `Element1_Type` int(11) NOT NULL,
+  `Element1_Code` varchar(100) COLLATE latin1_general_ci DEFAULT NULL,
+  `Element1_ID` int(11) NOT NULL,
+  `Element2_Type` int(11) NOT NULL,
+  `Element2_Code` varchar(100) COLLATE latin1_general_ci DEFAULT NULL,
+  `Element2_ID` int(11) NOT NULL,
   `ordre` smallint(6) NOT NULL,
   `complement` varchar(100) COLLATE latin1_general_ci NOT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1 COLLATE=latin1_general_ci;
@@ -51,17 +51,17 @@ CREATE TABLE `lien` (
 --
 ALTER TABLE `lien`
   ADD PRIMARY KEY (`id`),
-  ADD KEY `element0_type` (`element0_type`),
+  ADD KEY `Element0_Type` (`Element0_Type`),
   ADD KEY `id` (`id`),
-  ADD KEY `element0_id` (`element0_id`),
-  ADD KEY `element0_code` (`element0_code`),
-  ADD KEY `element1_code` (`element1_code`),
-  ADD KEY `element1_type` (`element1_type`),
-  ADD KEY `element1_id` (`element1_id`),
-  ADD KEY `element2_type` (`element2_type`),
-  ADD KEY `element2_code` (`element2_code`),
+  ADD KEY `Element0_ID` (`Element0_ID`),
+  ADD KEY `Element0_Code` (`Element0_Code`),
+  ADD KEY `Element1_Code` (`Element1_Code`),
+  ADD KEY `Element1_Type` (`Element1_Type`),
+  ADD KEY `Element1_ID` (`Element1_ID`),
+  ADD KEY `Element2_Type` (`Element2_Type`),
+  ADD KEY `Element2_Code` (`Element2_Code`),
   ADD KEY `ordre` (`ordre`),
-  ADD KEY `element2_id` (`element2_id`);
+  ADD KEY `Element2_ID` (`Element2_ID`);
 
 --
 -- AUTO_INCREMENT pour les tables exportées

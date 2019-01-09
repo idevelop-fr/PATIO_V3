@@ -466,7 +466,7 @@ namespace PATIO.MAIN.Classes
          {
              //LIEN
              string sql = "SELECT * FROM lien";
-             if(!InclusSysteme) { sql += " WHERE element0_code <>'SYSTEME'"; }
+             if(!InclusSysteme) { sql += " WHERE Element0_Code <>'SYSTEME'"; }
 
              DataSet SnLien = cls.ContenuRequete(sql);
 
@@ -476,15 +476,15 @@ namespace PATIO.MAIN.Classes
             {
                 Lien l = new Lien();
                 l.ID = int.Parse(r["id"].ToString());
-                l.element0_type = int.Parse(r["element0_type"].ToString());
-                l.element0_code = r["element0_code"].ToString();
-                l.element0_id = int.Parse(r["element0_id"].ToString());
-                l.element1_type = int.Parse(r["element1_type"].ToString());
-                l.element1_code = r["element1_code"].ToString();
-                l.element1_id = int.Parse(r["element1_id"].ToString());
-                l.element2_type = int.Parse(r["element2_type"].ToString());
-                l.element2_code = r["element2_code"].ToString();
-                l.element2_id = int.Parse(r["element2_id"].ToString());
+                l.Element0_Type = int.Parse(r["Element0_Type"].ToString());
+                l.Element0_Code = r["Element0_Code"].ToString();
+                l.Element0_ID = int.Parse(r["Element0_ID"].ToString());
+                l.Element1_Type = int.Parse(r["Element1_Type"].ToString());
+                l.Element1_Code = r["Element1_Code"].ToString();
+                l.Element1_ID = int.Parse(r["Element1_ID"].ToString());
+                l.Element2_Type = int.Parse(r["Element2_Type"].ToString());
+                l.Element2_Code = r["Element2_Code"].ToString();
+                l.Element2_ID = int.Parse(r["Element2_ID"].ToString());
                 l.ordre = int.Parse(r["ordre"].ToString());
                 l.complement = r["complement"].ToString();
                 ListeLien.Add(l);
@@ -575,9 +575,9 @@ namespace PATIO.MAIN.Classes
             List<Lien> lLien = new List<Lien>();
             foreach (Lien l in ListeLien)
             {
-                if ((l.element0_id != e.ID)
-                    && (l.element1_id != e.ID)
-                    && (l.element2_id != e.ID)) { lLien.Add(l); }
+                if ((l.Element0_ID != e.ID)
+                    && (l.Element1_ID != e.ID)
+                    && (l.Element2_ID != e.ID)) { lLien.Add(l); }
             }
             ListeLien = lLien;
         }
@@ -638,13 +638,13 @@ namespace PATIO.MAIN.Classes
         }
 
         //Trouve l'élément selon le type et le Code recherchés et renvoie l'élément
-        public Boolean Existe_Lien(TypeElement typeelement0, int element0_id, int element1_id, int element2_id)
+        public Boolean Existe_Lien(TypeElement typeelement0, int Element0_ID, int Element1_ID, int Element2_ID)
         {
-            List<Lien> Liste = Remplir_ListeLien_Niv0(typeelement0, element0_id.ToString());
+            List<Lien> Liste = Remplir_ListeLien_Niv0(typeelement0, Element0_ID.ToString());
 
             foreach (Lien l in Liste)
             {
-                if (l.element0_id == element0_id && l.element1_id == element1_id && l.element2_id == element2_id) { return true; }
+                if (l.Element0_ID == Element0_ID && l.Element1_ID == Element1_ID && l.Element2_ID == Element2_ID) { return true; }
             }
             return false;
         }
@@ -1163,11 +1163,11 @@ namespace PATIO.MAIN.Classes
 
             foreach (Lien l in ListeLien)
             {
-                if (l.element0_type == element_type.ID)
+                if (l.Element0_Type == element_type.ID)
                 {
                     if (element_type.ID > 0)
                     {
-                        if (l.element0_id == int.Parse(element_id)) { Liste.Add(l); }
+                        if (l.Element0_ID == int.Parse(element_id)) { Liste.Add(l); }
                     }
                     else { Liste.Add(l); }
                 }
@@ -1188,11 +1188,11 @@ namespace PATIO.MAIN.Classes
 
             foreach (Lien l in ListeLien)
             {
-                if (l.element1_type == element_type.ID)
+                if (l.Element1_Type == element_type.ID)
                 {
                     if (element_type.ID > 0)
                     {
-                        if (l.element1_id == int.Parse(element_id)) { Liste.Add(l); }
+                        if (l.Element1_ID == int.Parse(element_id)) { Liste.Add(l); }
                     }
                     else { Liste.Add(l); }
                 }
@@ -1202,18 +1202,18 @@ namespace PATIO.MAIN.Classes
         }
 
         //Charge la liste des liens pour un ensemble défini (ex  plan) dont le type niveau 1 et 2 sont identiques
-        public List<Lien> Remplir_ListeLienSYSTEME(TypeElement element_type, string element1_id = "", string element2_id = "")
+        public List<Lien> Remplir_ListeLienSYSTEME(TypeElement element_type, string Element1_ID = "", string Element2_ID = "")
         {
             List<Lien> Liste = new List<Lien>();
 
             foreach (Lien l in ListeLien)
             {
-                if (l.element0_type == Trouver_TableValeur_Code("TYPE_ELEMENT", type_PLAN.Code).ID && l.element0_id == 1)
+                if (l.Element0_Type == Trouver_TableValeur_Code("TYPE_ELEMENT", type_PLAN.Code).ID && l.Element0_ID == 1)
                 {
-                    if (l.element1_type == element_type.ID && l.element2_type == element_type.ID)
+                    if (l.Element1_Type == element_type.ID && l.Element2_Type == element_type.ID)
                     {
-                        Boolean ok1 = (element1_id.Length > 0) ? l.element1_id == int.Parse(element1_id) : true;
-                        Boolean ok2 = (element2_id.Length > 0) ? l.element2_id == int.Parse(element2_id) : true;
+                        Boolean ok1 = (Element1_ID.Length > 0) ? l.Element1_ID == int.Parse(Element1_ID) : true;
+                        Boolean ok2 = (Element2_ID.Length > 0) ? l.Element2_ID == int.Parse(Element2_ID) : true;
 
                         if (ok1 && ok2) { Liste.Add(l); }
                     }
@@ -1746,7 +1746,7 @@ namespace PATIO.MAIN.Classes
             {
                 foreach (Objectif obj in ListeObj)
                 {
-                    if(l.element2_id == obj.ID && obj.Code.Contains(plan.Abrege))
+                    if(l.Element2_ID == obj.ID && obj.Code.Contains(plan.Abrege))
                     {
                         obj.DateDebut = plan.DateDebut;
                         obj.DateFin = plan.DateFin;
@@ -1763,7 +1763,7 @@ namespace PATIO.MAIN.Classes
             {
                 foreach (PATIO.CAPA.Classes.Action action in ListeAction)
                 {
-                    if (l.element2_id == action.ID && action.Code.Contains(plan.Abrege))
+                    if (l.Element2_ID == action.ID && action.Code.Contains(plan.Abrege))
                     {
                         action.DateDebut = plan.DateDebut;
                         action.DateFin = plan.DateFin;
@@ -1867,7 +1867,7 @@ namespace PATIO.MAIN.Classes
             string sql;
 
             //Supprime les liens PARENT=ENFANT
-            sql = "DELETE FROM Lien WHERE element1_id = element2_id";
+            sql = "DELETE FROM Lien WHERE Element1_ID = Element2_ID";
             this.cls.Execute(sql);
         }
 
@@ -1972,10 +1972,10 @@ namespace PATIO.MAIN.Classes
             string sql;
 
             sql = "SELECT * FROM lien";
-            sql += " WHERE (element0_id in (" + chaine + ")";
-            sql += " OR element1_id in (" + chaine + ")";
-            sql += " OR element2_id in (" + chaine + "))";
-            sql += " AND element0_code <> 'SYSTEME'"; // hormis les liens système
+            sql += " WHERE (Element0_ID in (" + chaine + ")";
+            sql += " OR Element1_ID in (" + chaine + ")";
+            sql += " OR Element2_ID in (" + chaine + "))";
+            sql += " AND Element0_Code <> 'SYSTEME'"; // hormis les liens système
             DataSet Sn = cls.ContenuRequete(sql);
             if (cls.NbLignes == 0) { return lLien; }
 
@@ -1983,15 +1983,15 @@ namespace PATIO.MAIN.Classes
             {
                 Lien l = new Lien();
                 l.ID = int.Parse(r["id"].ToString());
-                l.element0_id = int.Parse(r["element0_id"].ToString());
-                l.element0_type = int.Parse(r["element0_type"].ToString());
-                l.element0_code = r["element0_code"].ToString();
-                l.element1_id = int.Parse(r["element1_id"].ToString());
-                l.element1_type = int.Parse(r["element1_type"].ToString());
-                l.element1_code = r["element1_code"].ToString();
-                l.element2_id = int.Parse(r["element2_id"].ToString());
-                l.element2_type = int.Parse(r["element2_type"].ToString());
-                l.element2_code = r["element2_code"].ToString();
+                l.Element0_ID = int.Parse(r["Element0_ID"].ToString());
+                l.Element0_Type = int.Parse(r["Element0_Type"].ToString());
+                l.Element0_Code = r["Element0_Code"].ToString();
+                l.Element1_ID = int.Parse(r["Element1_ID"].ToString());
+                l.Element1_Type = int.Parse(r["Element1_Type"].ToString());
+                l.Element1_Code = r["Element1_Code"].ToString();
+                l.Element2_ID = int.Parse(r["Element2_ID"].ToString());
+                l.Element2_Type = int.Parse(r["Element2_Type"].ToString());
+                l.Element2_Code = r["Element2_Code"].ToString();
                 l.ordre = int.Parse(r["ordre"].ToString());
                 l.complement = r["complement"].ToString();
 
@@ -2013,22 +2013,22 @@ namespace PATIO.MAIN.Classes
             foreach(Lien l in Liste)
             {
                 Texte += l.ID.ToString() + "\t";
-                Texte += l.element0_type.ToString() + "\t";
-                Texte += l.element0_id.ToString() + "\t";
-                Texte += l.element0_code.ToString() + "\t";
-                Texte += l.element1_type.ToString() + "\t";
-                Texte += l.element1_id.ToString() + "\t";
-                Texte += l.element1_code.ToString() + "\t";
-                Texte += l.element2_type.ToString() + "\t";
-                Texte += l.element2_id.ToString() + "\t";
-                Texte += l.element2_code.ToString() + "\t";
+                Texte += l.Element0_Type.ToString() + "\t";
+                Texte += l.Element0_ID.ToString() + "\t";
+                Texte += l.Element0_Code.ToString() + "\t";
+                Texte += l.Element1_Type.ToString() + "\t";
+                Texte += l.Element1_ID.ToString() + "\t";
+                Texte += l.Element1_Code.ToString() + "\t";
+                Texte += l.Element2_Type.ToString() + "\t";
+                Texte += l.Element2_ID.ToString() + "\t";
+                Texte += l.Element2_Code.ToString() + "\t";
                 Texte += l.ordre.ToString() + "\t";
                 Texte += l.complement.ToString() + "\t";
 
-                string ordrelien = l.element0_type.ToString()
-                           + l.element1_type.ToString()
-                           + l.element2_type.ToString()
-                           + l.element0_code + l.element1_code
+                string ordrelien = l.Element0_Type.ToString()
+                           + l.Element1_Type.ToString()
+                           + l.Element2_Type.ToString()
+                           + l.Element0_Code + l.Element1_Code
                            + string.Format("{0,5:X5}", l.ordre);
                 Texte += ordrelien + "\n";
             }
@@ -2052,11 +2052,11 @@ namespace PATIO.MAIN.Classes
             //Phase 1 : Plan (element0)
             foreach(Lien l in ListeLien)
             {
-                if(l.element0_type == type_PLAN.ID && l.element0_code != "SYSTEME")
+                if(l.Element0_Type == type_PLAN.ID && l.Element0_Code != "SYSTEME")
                 {
-                    if (NodG.Nodes.Find(l.element0_id.ToString(), true).Length == 0)
+                    if (NodG.Nodes.Find(l.Element0_ID.ToString(), true).Length == 0)
                     {
-                        Plan plan = (Plan)Trouver_Element(type_PLAN, l.element0_id);
+                        Plan plan = (Plan)Trouver_Element(type_PLAN, l.Element0_ID);
 
                         if (plan != null)
                         {
@@ -2076,11 +2076,11 @@ namespace PATIO.MAIN.Classes
             //Phase 2 : Objectifs (element2 de type Objectif)
             foreach (Lien l in ListeLien)
             {
-                if (l.element2_type == type_OBJECTIF.ID && l.element0_code != "SYSTEME")
+                if (l.Element2_Type == type_OBJECTIF.ID && l.Element0_Code != "SYSTEME")
                 {
-                    if (NodG.Nodes.Find(l.element2_id.ToString(), true).Length == 0)
+                    if (NodG.Nodes.Find(l.Element2_ID.ToString(), true).Length == 0)
                     {
-                        Objectif obj = (Objectif)Trouver_Element(type_OBJECTIF, l.element2_id);
+                        Objectif obj = (Objectif)Trouver_Element(type_OBJECTIF, l.Element2_ID);
 
                         TreeNode nd = new TreeNode();
                         nd.Text = obj.Libelle;
@@ -2091,9 +2091,9 @@ namespace PATIO.MAIN.Classes
                         nd.Tag = l;
 
                         //Recherche du parent
-                        TreeNode[] nod = NodG.Nodes.Find(l.element1_id.ToString(), true);
+                        TreeNode[] nod = NodG.Nodes.Find(l.Element1_ID.ToString(), true);
                         if (nod.Length > 0) { nod[0].Nodes.Add(nd); }
-                        //else { MessageBox.Show("Non trouvé " + l.element1_id); }
+                        //else { MessageBox.Show("Non trouvé " + l.Element1_ID); }
                     }
                 }
             }
@@ -2101,11 +2101,11 @@ namespace PATIO.MAIN.Classes
             //Phase 3 : Actions (element2 de type Action)
             foreach (Lien l in ListeLien)
             {
-                if (l.element2_type == type_ACTION.ID && l.element0_code != "SYSTEME")
+                if (l.Element2_Type == type_ACTION.ID && l.Element0_Code != "SYSTEME")
                 {
-                    if (NodG.Nodes.Find(l.element2_id.ToString(), true).Length == 0)
+                    if (NodG.Nodes.Find(l.Element2_ID.ToString(), true).Length == 0)
                     {
-                        PATIO.CAPA.Classes.Action action = (PATIO.CAPA.Classes.Action)Trouver_Element(type_ACTION, l.element2_id);
+                        PATIO.CAPA.Classes.Action action = (PATIO.CAPA.Classes.Action)Trouver_Element(type_ACTION, l.Element2_ID);
 
                         if (action != null)
                         {
@@ -2118,7 +2118,7 @@ namespace PATIO.MAIN.Classes
                             nd.Tag = l;
 
                             //Recherche du parent
-                            TreeNode[] nod = NodG.Nodes.Find(l.element1_id.ToString(), true);
+                            TreeNode[] nod = NodG.Nodes.Find(l.Element1_ID.ToString(), true);
                             if (nod.Length > 0) { nod[0].Nodes.Add(nd); }
                         }
                     }
@@ -2158,7 +2158,7 @@ namespace PATIO.MAIN.Classes
             //Inclusion des noeuds correspondant aux éléments utilisés par les liens
             foreach(Lien l in Liste)
             {
-                TreeNode[] nod = NodG.Nodes.Find(l.element2_id.ToString(),true);
+                TreeNode[] nod = NodG.Nodes.Find(l.Element2_ID.ToString(),true);
 
                 foreach(TreeNode nod1 in nod)
                 {
@@ -2169,7 +2169,7 @@ namespace PATIO.MAIN.Classes
                     ListeLien.Add(l);
                 }
 
-                if(nod.Length == 0) { Console.Ajouter("[X] Lien non inclus : " + l.element2_id.ToString()); }
+                if(nod.Length == 0) { Console.Ajouter("[X] Lien non inclus : " + l.Element2_ID.ToString()); }
             }
 
             //Recherche des noeuds finaux (noeuds sans enfant)

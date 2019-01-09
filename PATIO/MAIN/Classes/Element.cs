@@ -137,7 +137,7 @@ namespace PATIO.MAIN.Classes
             return ID;
         }
 
-        string CorrigeTexte(string txt)
+        string Corriger_Texte(string txt)
         {
             string texte = "";
 

@@ -141,15 +141,15 @@ namespace PATIO.CAPA.Interfaces
                     if (processusParent != null)
                     {
                         Lien p = new Lien() { Acces = Acces };
-                        p.element0_type = Acces.type_PLAN.ID; //SYSTEME
-                        p.element0_id = 1; //SYSTEME
-                        p.element0_code = "SYSTEME"; //SYSTEME
-                        p.element1_type = Acces.type_PROCESSUS.ID;
-                        p.element1_id = processusParent.ID;
-                        p.element1_code = ((Process)Acces.Trouver_Element(Acces.type_PROCESSUS, p.element1_id)).Code;
-                        p.element2_type = Acces.type_PROCESSUS.ID;
-                        p.element2_id = processus.ID;
-                        p.element2_code = ((Process)Acces.Trouver_Element(Acces.type_PROCESSUS, p.element2_id)).Code;
+                        p.Element0_Type = Acces.type_PLAN.ID; //SYSTEME
+                        p.Element0_ID = 1; //SYSTEME
+                        p.Element0_Code = "SYSTEME"; //SYSTEME
+                        p.Element1_Type = Acces.type_PROCESSUS.ID;
+                        p.Element1_ID = processusParent.ID;
+                        p.Element1_Code = ((Process)Acces.Trouver_Element(Acces.type_PROCESSUS, p.Element1_ID)).Code;
+                        p.Element2_Type = Acces.type_PROCESSUS.ID;
+                        p.Element2_ID = processus.ID;
+                        p.Element2_Code = ((Process)Acces.Trouver_Element(Acces.type_PROCESSUS, p.Element2_ID)).Code;
                         p.ordre = p.Donner_Ordre() + 1;
 
                         p.Ajouter();

@@ -82,9 +82,9 @@ namespace PATIO.MAIN.Classes
             //Passe 1 : les objectifs
             foreach (Lien l in listeLien)
             {
-                if (l.element2_type != Acces.type_OBJECTIF.ID) { goto Suite1; }
+                if (l.Element2_Type != Acces.type_OBJECTIF.ID) { goto Suite1; }
 
-                Objectif obj = (Objectif)Acces.Trouver_Element(Acces.type_OBJECTIF, l.element2_id);
+                Objectif obj = (Objectif)Acces.Trouver_Element(Acces.type_OBJECTIF, l.Element2_ID);
 
                 n_ligne++;
                 r = ws.Cells[n_ligne, 1];
@@ -100,9 +100,9 @@ namespace PATIO.MAIN.Classes
             //Passe 2 : les actions
             foreach (Lien l in listeLien)
             {
-                if (l.element2_type != Acces.type_ACTION.ID) { goto Suite2; }
+                if (l.Element2_Type != Acces.type_ACTION.ID) { goto Suite2; }
 
-                PATIO.CAPA.Classes.Action action = (PATIO.CAPA.Classes.Action)Acces.Trouver_Element(Acces.type_ACTION, l.element2_id);
+                PATIO.CAPA.Classes.Action action = (PATIO.CAPA.Classes.Action)Acces.Trouver_Element(Acces.type_ACTION, l.Element2_ID);
 
                 if (action.TypeAction != TypeAction.ACTION) { goto Suite2; }
                 n_ligne++;
@@ -173,9 +173,9 @@ namespace PATIO.MAIN.Classes
             //Passe 3 : les opérations
             foreach (Lien l in listeLien)
             {
-                if (l.element2_type != Acces.type_ACTION.ID) { goto Suite3; }
+                if (l.Element2_Type != Acces.type_ACTION.ID) { goto Suite3; }
 
-                PATIO.CAPA.Classes.Action action = (PATIO.CAPA.Classes.Action)Acces.Trouver_Element(Acces.type_ACTION, l.element2_id);
+                PATIO.CAPA.Classes.Action action = (PATIO.CAPA.Classes.Action)Acces.Trouver_Element(Acces.type_ACTION, l.Element2_ID);
 
                 if (action.TypeAction != TypeAction.OPERATION) { goto Suite3; }
                 n_ligne++;
@@ -240,7 +240,7 @@ namespace PATIO.MAIN.Classes
 
                 //Définition de l'ordre : différent d'action car la structure diffère avec les directions métier
                 r = ws.Cells[n_ligne, 22];
-                PATIO.CAPA.Classes.Action parent = (PATIO.CAPA.Classes.Action)Acces.Trouver_Element(Acces.type_ACTION, l.element1_id);
+                PATIO.CAPA.Classes.Action parent = (PATIO.CAPA.Classes.Action)Acces.Trouver_Element(Acces.type_ACTION, l.Element1_ID);
                 string ordre = parent.Code.Replace("ACT-", "") + "-" + string.Format("{0:x3}", l.ordre);
                 r.Value = ordre;
                 //r.Value = action.Code.Replace("OPE-", "");

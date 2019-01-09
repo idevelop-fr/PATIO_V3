@@ -138,7 +138,7 @@ namespace PATIO.CAPA.Interfaces
             foreach (var p in listeLien)
             {
                 //Recherche du parent
-                string Parent = Acces.Trouver_TableValeur(p.element1_type).Code + "-" + p.element1_id.ToString();
+                string Parent = Acces.Trouver_TableValeur(p.Element1_Type).Code + "-" + p.Element1_ID.ToString();
                 TreeNode NodParent = NodG;
 
                 if (!(Parent == NodG.Name))
@@ -147,7 +147,7 @@ namespace PATIO.CAPA.Interfaces
                     if (NodP.Length > 0) { NodParent = NodP[0]; }
                 }
 
-                string Enfant = Acces.Trouver_TableValeur(p.element2_type).Code + "-" + p.element2_id.ToString();
+                string Enfant = Acces.Trouver_TableValeur(p.Element2_Type).Code + "-" + p.Element2_ID.ToString();
                 if (!(Enfant is null))
                 {
                     Boolean Ajoute = true;
@@ -158,51 +158,51 @@ namespace PATIO.CAPA.Interfaces
                         Tag = p,
                     };
 
-                    if (p.element2_type == Acces.type_OBJECTIF.ID)
-                    //if (p.element2_type == Acces.Trouver_TableValeur_ID("TYPE_ELEMENT", p.element1_type.ToString()))
+                    if (p.Element2_Type == Acces.type_OBJECTIF.ID)
+                    //if (p.Element2_Type == Acces.Trouver_TableValeur_ID("TYPE_ELEMENT", p.Element1_Type.ToString()))
                     {
-                        Objectif q = (Objectif)Acces.Trouver_Element(Acces.type_OBJECTIF, p.element2_id);
+                        Objectif q = (Objectif)Acces.Trouver_Element(Acces.type_OBJECTIF, p.Element2_ID);
                         if (!(q is null))
                         {
                             NodEnfant.Text = q.Libelle;
                             NodEnfant.Name = Acces.type_OBJECTIF.Code + "-" + q.ID;
-                            //NodEnfant.ImageIndex = Donner_ImageIndex(Acces.type_OBJECTIF, p.element2_id);
+                            //NodEnfant.ImageIndex = Donner_ImageIndex(Acces.type_OBJECTIF, p.Element2_ID);
                             NodEnfant.ToolTipText = q.Code;
                             nbObjectif++;
                         }
-                        else { Console.Ajouter("[Objectif non trouvé] ID:" + p.element2_id + " Code :" + p.element2_code); }
+                        else { Console.Ajouter("[Objectif non trouvé] ID:" + p.Element2_ID + " Code :" + p.Element2_Code); }
                     }
 
-                    if (p.element2_type == Acces.type_ACTION.ID)
+                    if (p.Element2_Type == Acces.type_ACTION.ID)
                     {
-                        PATIO.CAPA.Classes.Action q = (PATIO.CAPA.Classes.Action)Acces.Trouver_Element(Acces.type_ACTION, p.element2_id);
+                        PATIO.CAPA.Classes.Action q = (PATIO.CAPA.Classes.Action)Acces.Trouver_Element(Acces.type_ACTION, p.Element2_ID);
                         if (!optOpération.Checked) { Ajoute = (q.TypeAction == TypeAction.ACTION); }
                         if (!(q is null))
                         {
                             NodEnfant.Text = q.Libelle;
                             NodEnfant.Name = Acces.type_ACTION.Code + "-" + q.ID;
-                            //NodEnfant.ImageIndex = Donner_ImageIndex(Acces.type_ACTION, p.element2_id);
+                            //NodEnfant.ImageIndex = Donner_ImageIndex(Acces.type_ACTION, p.Element2_ID);
                             //if (q.ActionPhare) { NodEnfant.ImageIndex = imgs[PosImageActionPhare].Id; }
                             NodEnfant.ToolTipText = q.Code + " [" + p.ordre + "]";
                             if (q.TypeAction == TypeAction.ACTION) { nbAction++; }
                             if (q.TypeAction == TypeAction.OPERATION) { nbOpération++; }
                         }
-                        else { Console.Ajouter("[Action non trouvée] ID:" + p.element2_id + " CODE:" + p.element2_code); }
+                        else { Console.Ajouter("[Action non trouvée] ID:" + p.Element2_ID + " CODE:" + p.Element2_Code); }
                     }
 
-                    if (p.element2_type == Acces.type_INDICATEUR.ID)
+                    if (p.Element2_Type == Acces.type_INDICATEUR.ID)
                     {
                         Ajoute = optIndicateur.Checked;
-                        Indicateur q = (Indicateur)Acces.Trouver_Element(Acces.type_INDICATEUR, p.element2_id);
+                        Indicateur q = (Indicateur)Acces.Trouver_Element(Acces.type_INDICATEUR, p.Element2_ID);
                         if (!(q is null))
                         {
                             NodEnfant.Text = q.Libelle;
                             NodEnfant.Name = Acces.type_INDICATEUR.Code + "-" + q.ID;
-                            //NodEnfant.ImageIndex = Donner_ImageIndex(Acces.type_INDICATEUR, p.element2_id);
+                            //NodEnfant.ImageIndex = Donner_ImageIndex(Acces.type_INDICATEUR, p.Element2_ID);
                             NodEnfant.ToolTipText = q.Code;
                             nbIndicateur++;
                         }
-                        else { Console.Ajouter("[Indicateur non trouvée] ID:" + p.element2_id + " CODE:" + p.element2_code); }
+                        else { Console.Ajouter("[Indicateur non trouvée] ID:" + p.Element2_ID + " CODE:" + p.Element2_Code); }
                     }
 
                     if (Ajoute)

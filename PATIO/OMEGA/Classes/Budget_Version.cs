@@ -16,8 +16,6 @@ namespace PATIO.OMEGA.Classes
         public bool VersionTravail { get; set; } = true;
         public bool ReferenceBudget { get; set; } = false;
 
-        Fonctions fct = new Fonctions();
-
         public Budget_Version()
         {
             ListeAttribut = new string[] {"ENVELOPPE", "BUDGET_ID", "PERIODE",

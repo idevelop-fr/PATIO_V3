@@ -5,6 +5,7 @@ using System.Windows.Forms;
 using PATIO.MAIN.Classes;
 using System.Drawing;
 using PATIO.CAPA.Classes;
+using PATIO.OMEGA.Classes;
 
 namespace PATIO.CAPA.Interfaces
 {
@@ -14,6 +15,7 @@ namespace PATIO.CAPA.Interfaces
         public WeifenLuo.WinFormsUI.Docking.DockPanel DP;
         public ctrlConsole Console;
         public Projet projet;
+        public PATIO.CAPA.Classes.Action action;
 
         public List<table_valeur> listeStatut;
 
@@ -109,7 +111,7 @@ namespace PATIO.CAPA.Interfaces
 
         private void btnOuvrir_Click(object sender, EventArgs e)
         {
-            Ouvrir();
+            OuvrirFiche();
         }
 
         void Ouvrir()
@@ -131,12 +133,40 @@ namespace PATIO.CAPA.Interfaces
             D_Processus.CloseButton = true;
         }
 
+        void OuvrirFiche()
+        {
+            frmFicheProjet f = new frmFicheProjet();
+            f.projet = projet;
+            f.action = action;
+            f.Acces = Acces;
+            f.Creation = false;
+            f.Console = Console;
+            f.Initialiser();
+
+            if(f.ShowDialog()== DialogResult.OK)
+            {
+                if (!f.projet.Actif) { this.Visible = false; }
+                Afficher_Status();
+                Afficher_Info();
+            }
+        }
+
         void Afficher_Info()
         {
             lstInfo.Items.Clear();
 
             lstInfo.Items.Add("Id : " + projet.ID);
             lstInfo.Items.Add("Pilote : " + projet.Pilote.NomPrenom);
+
+            string Enveloppe = "";
+            foreach (int k in projet.EnveloppeBudget)
+            {
+                Enveloppe += (Enveloppe.Length > 0 ? ", " : "") +
+                    ((Budget_Enveloppe) Acces.Trouver_Element(Acces.type_BUDGET_ENVELOPPE, k)).Libelle;
+            }
+
+            lstInfo.Items.Add("Enveloppe : " + (Enveloppe.Length>0?Enveloppe :"Aucune"));
+
         }
 
         void OuvrirFinance()

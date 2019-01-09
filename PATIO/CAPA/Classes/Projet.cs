@@ -12,9 +12,12 @@ namespace PATIO.CAPA.Classes
         public int TypeProjet { get; set; }
         public int Statut { get; set; } = 0;
 
+        public List<int> EnveloppeBudget { get; set; }
+
         public Projet()
         {
-            ListeAttribut = new string[] { "PILOTE", "STATUT", };
+            ListeAttribut = new string[] { "PILOTE", "STATUT", "ENVELOPPE_BUDGET", };
+            EnveloppeBudget = new List<int>();
         }
 
         //Construit un plan à partir des informations de l'élément
@@ -34,6 +37,7 @@ namespace PATIO.CAPA.Classes
                     d.Valeur = d.Valeur.Replace("'''", "'");
                     if (d.Attribut_Code == "PILOTE") { Pilote = Acces.Trouver_Utilisateur(int.Parse(d.Valeur.ToString())); }
                     if (d.Attribut_Code == "STATUT") { Statut = int.Parse(d.Valeur.ToString()); }
+                    if (d.Attribut_Code == "ENVELOPPE_BUDGET") { EnveloppeBudget.Add(int.Parse(d.Valeur)); }
                 }
             }
 
@@ -67,6 +71,16 @@ namespace PATIO.CAPA.Classes
                 CodeAttribut = "STATUT";
                 d = new dElement(ID, Acces.Trouver_Attribut(type, CodeAttribut).ID, CodeAttribut, Statut.ToString());
                 e.Liste.Add(d);
+            }
+
+            if(EnveloppeBudget != null)
+            {
+                CodeAttribut = "ENVELOPPE_BUDGET";
+                foreach (int k in EnveloppeBudget)
+                {
+                    d = new dElement(ID, Acces.Trouver_Attribut(type, CodeAttribut).ID, CodeAttribut, k.ToString());
+                    e.Liste.Add(d);
+                }
             }
 
             return e;

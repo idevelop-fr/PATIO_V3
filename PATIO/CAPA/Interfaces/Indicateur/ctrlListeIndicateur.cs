@@ -95,8 +95,8 @@ namespace PATIO.CAPA.Interfaces
             //On déplace le fils sous le parent
             foreach (Lien p in ListeLienSysteme)
             {
-                TreeNode[] Nod1 = lstIndicateur.Nodes.Find(p.element1_id.ToString(), true);
-                TreeNode[] Nod2 = lstIndicateur.Nodes.Find(p.element2_id.ToString(), true);
+                TreeNode[] Nod1 = lstIndicateur.Nodes.Find(p.Element1_ID.ToString(), true);
+                TreeNode[] Nod2 = lstIndicateur.Nodes.Find(p.Element2_ID.ToString(), true);
 
                 if (Nod1.Count() > 0 && Nod2.Count() > 0)
                 {
@@ -325,15 +325,15 @@ namespace PATIO.CAPA.Interfaces
 
             //Création du lien
             Lien p = new Lien() { Acces = Acces, };
-            p.element1_type = Acces.type_INDICATEUR.ID;
-            p.element1_id = int.Parse(NodDest.Name);
-            p.element1_code = ((Indicateur) Acces.Trouver_Element(Acces.type_INDICATEUR, p.element1_id)).Code;
-            p.element2_type = Acces.type_INDICATEUR.ID;
-            p.element2_id = int.Parse(nodSrc.Name);
-            p.element2_code = ((Indicateur)Acces.Trouver_Element(Acces.type_INDICATEUR, p.element2_id)).Code;
-            p.element0_type = Acces.type_PLAN.ID; //SYSTEME
-            p.element0_id = 1; //SYSTEME
-            p.element0_code = "SYSTEME"; //SYSTEME
+            p.Element1_Type = Acces.type_INDICATEUR.ID;
+            p.Element1_ID = int.Parse(NodDest.Name);
+            p.Element1_Code = ((Indicateur) Acces.Trouver_Element(Acces.type_INDICATEUR, p.Element1_ID)).Code;
+            p.Element2_Type = Acces.type_INDICATEUR.ID;
+            p.Element2_ID = int.Parse(nodSrc.Name);
+            p.Element2_Code = ((Indicateur)Acces.Trouver_Element(Acces.type_INDICATEUR, p.Element2_ID)).Code;
+            p.Element0_Type = Acces.type_PLAN.ID; //SYSTEME
+            p.Element0_ID = 1; //SYSTEME
+            p.Element0_Code = "SYSTEME"; //SYSTEME
             p.ordre = p.Donner_Ordre() + 1;
 
             p.Ajouter();
@@ -418,15 +418,15 @@ namespace PATIO.CAPA.Interfaces
                             if (lrecherche.Liste.Count > 0)
                             {
                                 Lien l = new Lien() { Acces = Acces };
-                                l.element1_type =Acces.type_INDICATEUR;
-                                l.element1_id = lrecherche.Liste[0].ID;
-                                l.element1_code = lrecherche.Liste[0].Code;
-                                l.element2_type =Acces.type_INDICATEUR;
-                                l.element2_id = a.ID;
-                                l.element2_code = a.Code;
-                                l.element0_type = Acces.type_PLAN; //SYSTEM
-                                l.element0_id = 1; //SYSTEM
-                                l.element0_code = "SYSTEME"; //SYSTEM
+                                l.Element1_Type =Acces.type_INDICATEUR;
+                                l.Element1_ID = lrecherche.Liste[0].ID;
+                                l.Element1_Code = lrecherche.Liste[0].Code;
+                                l.Element2_Type =Acces.type_INDICATEUR;
+                                l.Element2_ID = a.ID;
+                                l.Element2_Code = a.Code;
+                                l.Element0_Type = Acces.type_PLAN; //SYSTEM
+                                l.Element0_ID = 1; //SYSTEM
+                                l.Element0_Code = "SYSTEME"; //SYSTEM
                                 l.Enregistrer();
                             }
                             else { pb++; MessageBox.Show("Code " + Parent + " non trouvé", "Problème", MessageBoxButtons.OK); }
@@ -512,15 +512,15 @@ namespace PATIO.CAPA.Interfaces
                     //Création du lien avec le parent
                     Lien l = new Lien()
                     {
-                        element0_type = Acces.type_PLAN.ID,
-                        element0_id = 1,
-                        element0_code = "SYSTEME",
-                        element1_type = Acces.type_INDICATEUR.ID,
-                        element2_type = Acces.type_INDICATEUR.ID,
-                        element1_id = int.Parse(lstIndicateur.SelectedNode.Name),
-                        element1_code = ((Indicateur)Acces.Trouver_Element(Acces.type_INDICATEUR, int.Parse(lstIndicateur.SelectedNode.Name))).Code,
-                        element2_id = f.indicateur.ID,
-                        element2_code = ((Indicateur)Acces.Trouver_Element(Acces.type_INDICATEUR, f.indicateur.ID)).Code,
+                        Element0_Type = Acces.type_PLAN.ID,
+                        Element0_ID = 1,
+                        Element0_Code = "SYSTEME",
+                        Element1_Type = Acces.type_INDICATEUR.ID,
+                        Element2_Type = Acces.type_INDICATEUR.ID,
+                        Element1_ID = int.Parse(lstIndicateur.SelectedNode.Name),
+                        Element1_Code = ((Indicateur)Acces.Trouver_Element(Acces.type_INDICATEUR, int.Parse(lstIndicateur.SelectedNode.Name))).Code,
+                        Element2_ID = f.indicateur.ID,
+                        Element2_Code = ((Indicateur)Acces.Trouver_Element(Acces.type_INDICATEUR, f.indicateur.ID)).Code,
                         ordre = 1,
                         Acces = Acces,
                     };
