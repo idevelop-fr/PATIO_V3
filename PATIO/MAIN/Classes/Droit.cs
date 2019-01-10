@@ -16,9 +16,9 @@ namespace PATIO.MAIN.Classes
 
         public Droit() { }
 
-        public Droit(int _USER_ID, string _Code, string _DateDeb, string _DateFin)
+        public Droit(int _User_ID, string _Code, string _DateDeb, string _DateFin)
         {
-            User_ID = _USER_ID;
+            User_ID = _User_ID;
             Code = _Code;
             DateDeb = _DateDeb;
             DateFin = _DateFin;
@@ -29,7 +29,7 @@ namespace PATIO.MAIN.Classes
         {
             string sql;
 
-            sql = "INSERT INTO droit (user_id, code, datedeb, datefin, actif) VALUES (";
+            sql = "INSERT INTO droit (User_ID, code, datedeb, datefin, actif) VALUES (";
             sql += "'" + User_ID + "',";
             sql += "'" + Code + "',";
             sql += "'" + DateDeb + "',";
@@ -39,7 +39,7 @@ namespace PATIO.MAIN.Classes
 
             //Recherche de l'iD attribué
             sql = "SELECT id from droit";
-            sql += " WHERE user_id='" + User_ID + "'";
+            sql += " WHERE User_ID='" + User_ID + "'";
             sql += " AND code='" + Code + "'";
             sql += " AND datedeb='" + DateDeb + "'";
             sql += " AND datefin='" + DateFin + "'";
@@ -53,7 +53,7 @@ namespace PATIO.MAIN.Classes
             string sql;
 
             sql = "UPDATE droit SET";
-            sql += " user_id ='" + User_ID + "',";
+            sql += " User_ID ='" + User_ID + "',";
             sql += " code ='" + Code + "',";
             sql += " datedeb ='" + DateDeb + "',";
             sql += " datefin ='" + DateFin + "',";
@@ -76,7 +76,7 @@ namespace PATIO.MAIN.Classes
             string sql;
 
             sql = "SELECT * FROM droit";
-            sql += " WHERE user_id='" + _User_ID + "'";
+            sql += " WHERE User_ID='" + _User_ID + "'";
             sql += " AND Code='" + _Code + "'";
             sql += " AND actif=1";
             if (_DATE.Length > 0) {

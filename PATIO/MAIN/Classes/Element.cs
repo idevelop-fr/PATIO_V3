@@ -52,7 +52,7 @@ namespace PATIO.MAIN.Classes
             //Mise à jour des informations principales relatives à l'élément
             sql = "UPDATE element SET ";
             sql += " code='" + Code + "',";
-            sql += " libelle='" + CorrigeTexte(Libelle.Replace("'", "''")) + "',";
+            sql += " libelle='" + Corriger_Texte(Libelle.Replace("'", "''")) + "',";
             sql += " type_element='" + Type_Element + "',";
             sql += " actif='" + (Actif ? "1" : "0") + "'";
             sql += " WHERE id='" + ID + "'";
@@ -97,7 +97,7 @@ namespace PATIO.MAIN.Classes
             sql = "INSERT INTO element (element_type, code, libelle, type_element, actif) VALUES (";
             sql += "'" + Element_Type + "',";
             sql += "'" + Code + "',";
-            sql += "'" + CorrigeTexte(Libelle.Replace("'","''")) + "',";
+            sql += "'" + Corriger_Texte(Libelle.Replace("'","''")) + "',";
             sql += "'" + Type_Element + "',";
             sql += "'" + (Actif ? "1":"0") + "')";
 

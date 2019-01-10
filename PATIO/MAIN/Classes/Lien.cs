@@ -10,17 +10,17 @@ namespace PATIO.MAIN.Classes
 
         public int ID { get; set; }
         //Element0 : clé de Regroupement ex : Plan
-        public int element0_type { get; set; }
-        public string element0_code { get; set; }
-        public int element0_id { get; set; }
+        public int Element0_Type { get; set; }
+        public string Element0_Code { get; set; }
+        public int Element0_ID { get; set; }
         //Element1: clé représentant un parent dans la structure
-        public int element1_type { get; set; }
-        public string element1_code { get; set; }
-        public int element1_id { get; set; }
+        public int Element1_Type { get; set; }
+        public string Element1_Code { get; set; }
+        public int Element1_ID { get; set; }
         //Element1: clé représentant un fils dans la structure
-        public int element2_type { get; set; }
-        public string element2_code { get; set; }
-        public int element2_id { get; set; }
+        public int Element2_Type { get; set; }
+        public string Element2_Code { get; set; }
+        public int Element2_ID { get; set; }
 
         public int ordre=0;
         public string complement;
@@ -31,15 +31,15 @@ namespace PATIO.MAIN.Classes
             string sql;
 
             sql = "UPDATE lien SET ";
-            sql += " element0_type='" + element0_type + "',";
-            sql += " element0_code='" + element0_code + "',";
-            sql += " element0_id='" + element0_id + "',";
-            sql += " element1_type='" + element1_type + "',";
-            sql += " element1_code='" + element1_code + "',";
-            sql += " element1_id='" + element1_id + "',";
-            sql += " element2_type='" + element2_type + "',";
-            sql += " element2_code='" + element2_code + "',";
-            sql += " element2_id='" + element2_id + "',";
+            sql += " Element0_Type='" + Element0_Type + "',";
+            sql += " Element0_Code='" + Element0_Code + "',";
+            sql += " Element0_ID='" + Element0_ID + "',";
+            sql += " Element1_Type='" + Element1_Type + "',";
+            sql += " Element1_Code='" + Element1_Code + "',";
+            sql += " Element1_ID='" + Element1_ID + "',";
+            sql += " Element2_Type='" + Element2_Type + "',";
+            sql += " Element2_Code='" + Element2_Code + "',";
+            sql += " Element2_ID='" + Element2_ID + "',";
             sql += " ordre='" + ordre + "',";
             sql += " complement='" + complement + "'";
             sql += " WHERE id='" + ID + "'";
@@ -52,19 +52,19 @@ namespace PATIO.MAIN.Classes
             string sql;
 
             //Ajoute des informations
-            sql = "INSERT INTO lien (element0_type, element0_code, element0_id,";
-            sql += " element1_type, element1_code, element1_id,";
-            sql += " element2_type, element2_code, element2_id,";
+            sql = "INSERT INTO lien (Element0_Type, Element0_Code, Element0_ID,";
+            sql += " Element1_Type, Element1_Code, Element1_ID,";
+            sql += " Element2_Type, Element2_Code, Element2_ID,";
             sql += " ordre, complement) VALUES (";
-            sql += "'" + element0_type + "',";
-            sql += "'" + element0_code + "',";
-            sql += "'" + element0_id + "',";
-            sql += "'" + element1_type + "',";
-            sql += "'" + element1_code + "',";
-            sql += "'" + element1_id + "',";
-            sql += "'" + element2_type + "',";
-            sql += "'" + element2_code + "',";
-            sql += "'" + element2_id + "',";
+            sql += "'" + Element0_Type + "',";
+            sql += "'" + Element0_Code + "',";
+            sql += "'" + Element0_ID + "',";
+            sql += "'" + Element1_Type + "',";
+            sql += "'" + Element1_Code + "',";
+            sql += "'" + Element1_ID + "',";
+            sql += "'" + Element2_Type + "',";
+            sql += "'" + Element2_Code + "',";
+            sql += "'" + Element2_ID + "',";
             sql += "'" + ordre + "',";
             sql += "'" + complement + "')";
 
@@ -72,9 +72,9 @@ namespace PATIO.MAIN.Classes
 
             //Recherche de l'ID
             sql = "SELECT id FROM lien";
-            sql += " WHERE element0_id='" + element0_id + "'";
-            sql += " AND element1_id='" + element1_id + "'";
-            sql += " AND element2_id='" + element2_id + "'";
+            sql += " WHERE Element0_ID='" + Element0_ID + "'";
+            sql += " AND Element1_ID='" + Element1_ID + "'";
+            sql += " AND Element2_ID='" + Element2_ID + "'";
             DataSet Sn = Acces.cls.ContenuRequete(sql);
 
             if(Acces.cls.NbLignes ==0) { return; }
@@ -96,8 +96,8 @@ namespace PATIO.MAIN.Classes
         {
             string sql;
             sql = "SELECT max(ordre) as maxordre FROM lien";
-            sql += " WHERE element0_id = '" + element0_id + "'";
-            sql += " AND element1_id = '" + element1_id + "'";
+            sql += " WHERE Element0_ID = '" + Element0_ID + "'";
+            sql += " AND Element1_ID = '" + Element1_ID + "'";
 
             DataSet Sn = Acces.cls.ContenuRequete(sql);
 
@@ -113,17 +113,17 @@ namespace PATIO.MAIN.Classes
             catch { return 0; }
         }
 
-        public Boolean Exister_Lien(string element0_type, string element0_code, string element1_type, string element1_code, string element2_type, string element2_code)
+        public Boolean Exister_Lien(string Element0_Type, string Element0_Code, string Element1_Type, string Element1_Code, string Element2_Type, string Element2_Code)
         {
             string sql;
 
             sql = "SELECT * FROM lien";
-            sql += " WHERE element0_type='" + element0_type + "'";
-            sql += " AND element0_code='" + element0_code + "'";
-            sql += " AND element1_type='" + element1_type + "'";
-            sql += " AND element1_code='" + element1_code + "'";
-            sql += " AND element2_type='" + element2_type + "'";
-            sql += " AND element2_code='" + element2_code + "'";
+            sql += " WHERE Element0_Type='" + Element0_Type + "'";
+            sql += " AND Element0_Code='" + Element0_Code + "'";
+            sql += " AND Element1_Type='" + Element1_Type + "'";
+            sql += " AND Element1_Code='" + Element1_Code + "'";
+            sql += " AND Element2_Type='" + Element2_Type + "'";
+            sql += " AND Element2_Code='" + Element2_Code + "'";
             DataSet Sn = Acces.cls.ContenuRequete(sql);
 
             if(Acces.cls.NbLignes==0) { return false; }
@@ -136,19 +136,19 @@ namespace PATIO.MAIN.Classes
         {
             string sql;
 
-            sql = "UPDATE lien SET element0_code='" + code + "'";
-            sql += " WHERE element0_type='" + typeelement.ID + "'";
-            sql += " AND element0_id='" + id + "'";
+            sql = "UPDATE lien SET Element0_Code='" + code + "'";
+            sql += " WHERE Element0_Type='" + typeelement.ID + "'";
+            sql += " AND Element0_ID='" + id + "'";
             Acces.cls.Execute(sql);
 
-            sql = "UPDATE lien SET element1_code='" + code + "'";
-            sql += " WHERE element1_type='" + typeelement.ID + "'";
-            sql += " AND element1_id='" + id + "'";
+            sql = "UPDATE lien SET Element1_Code='" + code + "'";
+            sql += " WHERE Element1_Type='" + typeelement.ID + "'";
+            sql += " AND Element1_ID='" + id + "'";
             Acces.cls.Execute(sql);
 
-            sql = "UPDATE lien SET element2_code='" + code + "'";
-            sql += " WHERE element2_type='" + typeelement.ID + "'";
-            sql += " AND element2_id='" + id + "'";
+            sql = "UPDATE lien SET Element2_Code='" + code + "'";
+            sql += " WHERE Element2_Type='" + typeelement.ID + "'";
+            sql += " AND Element2_ID='" + id + "'";
             Acces.cls.Execute(sql);
         }
 
@@ -158,15 +158,15 @@ namespace PATIO.MAIN.Classes
             if (p is null) { return 1; }
             else
             {
-                string A = element0_type.ToString()
-                           + element1_type.ToString()
-                           + element2_type.ToString()
-                           + element0_code + element1_code
+                string A = Element0_Type.ToString()
+                           + Element1_Type.ToString()
+                           + Element2_Type.ToString()
+                           + Element0_Code + Element1_Code
                            + string.Format("{0,5:X5}", ordre);
-                string B = p.element0_type.ToString()
-                           + p.element1_type.ToString()
-                           + p.element2_type.ToString()
-                           + p.element0_code + p.element1_code
+                string B = p.Element0_Type.ToString()
+                           + p.Element1_Type.ToString()
+                           + p.Element2_Type.ToString()
+                           + p.Element0_Code + p.Element1_Code
                            + string.Format("{0,5:X5}", p.ordre);
 
                 return (A.CompareTo(B));
@@ -178,8 +178,8 @@ namespace PATIO.MAIN.Classes
             if (p is null) { return 1; }
             else
             {
-                string A = element0_code;
-                string B = p.element0_code;
+                string A = Element0_Code;
+                string B = p.Element0_Code;
 
                 return (A.CompareTo(B));
             }

@@ -811,7 +811,7 @@ namespace PATIO.MAIN.Classes
             string sql;
             sql = "SELECT * FROM droit";
             sql += " WHERE actif=1";
-            sql += " AND user_id=" + user_appli.ID;
+            sql += " AND User_ID=" + user_appli.ID;
             sql += " ORDER BY code";
 
             DataSet Sn = cls.ContenuRequete(sql);
@@ -822,11 +822,11 @@ namespace PATIO.MAIN.Classes
             {
                 Droit p = new Droit();
                 p.ID = int.Parse(r["id"].ToString());
-                p.user_id = int.Parse( r["user_id"].ToString());
+                p.User_ID = int.Parse( r["User_ID"].ToString());
                 p.Code = r["code"].ToString();
-                p.datedeb = r["datedeb"].ToString();
-                p.datefin = r["datefin"].ToString();
-                p.actif = (r["actif"].ToString()=="1");
+                p.DateDeb = r["datedeb"].ToString();
+                p.DateFin = r["datefin"].ToString();
+                p.Actif = (r["actif"].ToString()=="1");
 
                 ListeDroit.Add(p);
             }
@@ -2298,7 +2298,7 @@ namespace PATIO.MAIN.Classes
             foreach(Droit d in ListeDroit)
             {
                 if((typeelement.ToString() + ":" + id_element.ToString() == d.Code) &&
-                    (int.Parse(d.datedeb)<= mdate) && (int.Parse(d.datefin) >= mdate))
+                    (int.Parse(d.DateDeb)<= mdate) && (int.Parse(d.DateFin) >= mdate))
                 {
                     return true;
                 }

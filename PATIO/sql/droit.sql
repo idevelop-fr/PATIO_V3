@@ -29,7 +29,7 @@ SET time_zone = "+00:00";
 DROP TABLE IF EXISTS `droit`;
 CREATE TABLE `droit` (
   `id` int(11) NOT NULL,
-  `user_id` int(11) NOT NULL,
+  `User_ID` int(11) NOT NULL,
   `code` varchar(50) NOT NULL,
   `deb` varchar(10) NOT NULL,
   `fin` varchar(10) NOT NULL,
@@ -45,7 +45,7 @@ CREATE TABLE `droit` (
 --
 ALTER TABLE `droit`
   ADD PRIMARY KEY (`id`),
-  ADD KEY `user_id` (`user_id`),
+  ADD KEY `User_ID` (`User_ID`),
   ADD KEY `code` (`code`),
   ADD KEY `actif` (`actif`);
 

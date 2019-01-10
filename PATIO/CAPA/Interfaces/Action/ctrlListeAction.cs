@@ -168,7 +168,7 @@ namespace PATIO.CAPA.Interfaces
                 }
                 else
                 {
-                    if (p.element0_id > 0)
+                    if (p.Element0_ID > 0)
                     { /*Console.Ajouter("[Move Action] Erreur Lien" + p.ID);*/ }
                     else { if (p.Element0_Code.Length > 0) { Console.Ajouter("[Erreur Lien Action] Id : " + p.ID); } }
                 }
@@ -449,7 +449,7 @@ namespace PATIO.CAPA.Interfaces
             //Création du lien
             Lien p = new Lien() { Acces = Acces };
             p.Element0_Type = Acces.type_PLAN.ID; //SYSTEME
-            p.element0_id = 1; //SYSTEME
+            p.Element0_ID = 1; //SYSTEME
             p.Element0_Code = "SYSTEME"; //SYSTEME
             p.Element1_Type = Acces.type_ACTION.ID;
             p.Element1_ID = int.Parse(NodDest.Name);
