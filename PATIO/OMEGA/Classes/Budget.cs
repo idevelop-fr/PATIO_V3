@@ -1,81 +1,82 @@
 ﻿using System;
-using PATIO.Modules;
+using PATIO.MAIN.Classes;
+using System.Windows.Forms;
 
 namespace PATIO.OMEGA.Classes
 {
-    public class Budget
+    public class Budget : Classe_Modele, IComparable<Budget>
     {
-        public AccesNet Acces;
-        public int ID { get; set; }
-        public String Code { get; set; }
-        public String Libelle { get; set; }
+        public int Enveloppe { get; set; }
+        public int Periode { get; set; }
+        public string DateDeb { get; set; }
+        public string DateFin { get; set; }
 
-        public TypeEnveloppe TypeEnveloppe { get; set; }
-        public TypeBudget TypeBudget { get; set; }
+        Fonctions fct = new Fonctions();
 
-        public int Exercice { get; set; }
-        public bool Actif { get; set; } = true;
-        public bool VersionTravail { get; set; } = false;
+        public Budget()
+        {
+            ListeAttribut =new string[] { "PERIODE", "DATE_DEB", "DATE_FIN" };
+        }
 
-        public string code { get; set; }
-
-        public void Construire(Element e)
+        public override bool Construire(Element e)
         {
             ID = e.ID;
             Code = e.Code;
-            Libelle = e.Libelle.Replace("'''", "'");
-            TypeBudget = (TypeBudget)e.Type_Element;
+            Libelle = e.Libelle.Replace("''", "'");
+            Element_Type = e.Element_Type;
+            Type_Element = e.Type_Element;
+            Enveloppe = e.Type_Element;
             Actif = e.Actif;
 
-            
             foreach (dElement d in e.Liste)
             {
                 if (d.Element_ID == ID)
                 {
-                    if (d.Attribut_Code == "TYPE_ENVELOPPE") { TypeEnveloppe = (TypeEnveloppe)(int.Parse(d.Valeur)); }
-                    if (d.Attribut_Code == "TYPE_BUDGET") { TypeBudget = (TypeBudget)(int.Parse(d.Valeur)); }
-                    if (d.Attribut_Code == "VERSION_TRAVAIL") { VersionTravail = (d.Valeur == "1"); }
-
+                    if (d.Attribut_Code == "PERIODE") { Periode = int.Parse(d.Valeur); }
+                    if (d.Attribut_Code == "DATE_DEB") { DateDeb = d.Valeur; }
+                    if (d.Attribut_Code == "DATE_FIN") { DateFin = d.Valeur; }
                 }
             }
+
+            return true;
         }
 
         //Transforme un groupe sous la forme Element, dElement
-        public Element Déconstruire()
+        public override Element Déconstruire()
         {
             Element e = new Element();
             dElement d;
             string CodeAttribut = "";
+            TypeElement type = Acces.type_BUDGET;
 
             e.ID = ID;
-            e.Element_Type = Acces.type_GROUPE.id;
             e.Code = Code;
             e.Libelle = Libelle;
-            e.Type_Element = (int)TypeBudget;
+            e.Element_Type = type.ID;
+            e.Type_Element = Enveloppe;
             e.Actif = Actif;
 
-            //Type Enveloppe
-            //if (TypeEnveloppe != null)
+            //Période
             {
-                CodeAttribut = "TYPE_ENVELOPPE";
-                d = new dElement(ID, Acces.Trouver_Attribut_ID(Acces.type_ACTION.id, CodeAttribut), CodeAttribut,TypeEnveloppe.ToString());
+                CodeAttribut = "PERIODE";
+                d = new dElement(ID, Acces.Trouver_Attribut(type, CodeAttribut).ID, CodeAttribut, Periode.ToString());
                 e.Liste.Add(d);
             }
 
-            //Type Budget
+            //Date deb
             {
-                CodeAttribut = "TYPE_BUDGET";
-                d = new dElement(ID, Acces.Trouver_Attribut_ID(Acces.type_ACTION.id, CodeAttribut), CodeAttribut, TypeBudget.ToString());
+                CodeAttribut = "DATE_DEB";
+                d = new dElement(ID, Acces.Trouver_Attribut(type, CodeAttribut).ID, CodeAttribut, DateDeb);
                 e.Liste.Add(d);
             }
 
-            //Version 
-            //if (VersionTravail != null)
+            //Date Fin
             {
-                CodeAttribut = "VERSION_TRAVAIL";
-                d = new dElement(ID, Acces.Trouver_Attribut_ID(Acces.type_ACTION.id, CodeAttribut), CodeAttribut, (VersionTravail?"1":"0"));
+                CodeAttribut = "DATE_FIN";
+                d = new dElement(ID, Acces.Trouver_Attribut(type, CodeAttribut).ID, CodeAttribut, DateFin);
                 e.Liste.Add(d);
             }
+            
             return e;
         }
 
@@ -83,7 +84,7 @@ namespace PATIO.OMEGA.Classes
         public int CompareTo(Budget p)
         {
             if (p is null) { return 1; }
-            else { return (this.Libelle.CompareTo(p.Libelle)); }
+            else { return (this.Code.CompareTo(p.Code)); }
         }
     }
 }

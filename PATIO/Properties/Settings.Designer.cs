@@ -22,5 +22,17 @@ namespace PATIO.Properties {
                 return defaultInstance;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("C:\\TEMP\\PATIO")]
+        public string Chemin_Temp {
+            get {
+                return ((string)(this["Chemin_Temp"]));
+            }
+            set {
+                this["Chemin_Temp"] = value;
+            }
+        }
     }
 }

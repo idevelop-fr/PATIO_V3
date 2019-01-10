@@ -1,21 +1,18 @@
 ﻿using System;
-using PATIO.Modules;
+using PATIO.MAIN.Classes;
 
 namespace PATIO.OMEGA.Classes
 {
-    class Decision
+    class Decision: Classe_Modele, IComparable<Decision>
     {
-        public AccesNet Acces;
-        public int ID { get; set; }
-        public String Code { get; set; }
-        public String Libelle { get; set; }
+        public TypeDecision TypeDecision { get; set; } = TypeDecision.Convention;
 
-        public TypeDecision TypeDecision { get; set; }
+        public Decision()
+        {
+            ListeAttribut = new string[] {            };
+        }
 
-        public int ProprietaireId { get; set; }
-        public bool Actif { get; set; } = true;
-
-        public void Construire(Element e)
+        public override bool Construire(Element e)
         {
             ID = e.ID;
             Code = e.Code;
@@ -32,16 +29,17 @@ namespace PATIO.OMEGA.Classes
                 }
             }
             */
+            return true;
         }
 
         //Transforme un groupe sous la forme Element, dElement
-        public Element Déconstruire()
+        public override Element Déconstruire()
         {
             Element e = new Element();
             //dElement d;
 
             e.ID = ID;
-            e.Element_Type = Acces.type_GROUPE.id;
+            e.Element_Type = Acces.type_GROUPE.ID;
             e.Code = Code;
             e.Libelle = Libelle;
             e.Type_Element = (int)TypeDecision;

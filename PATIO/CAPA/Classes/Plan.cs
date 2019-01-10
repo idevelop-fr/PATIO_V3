@@ -1,19 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
 using PATIO.CAPA.Classes;
-using PATIO.Modules;
+using PATIO.MAIN.Classes;
+using PATIO.ADMIN.Classes;
 
 namespace PATIO.CAPA.Classes
 {
-    public class Plan : IComparable<Plan>
+    public class Plan : Classe_Modele, IComparable<Plan>
     {
-        public AccesNet Acces;
-
-        public int ID { get; set; }
-        public String Code { get; set; } = "";
-        public String Libelle { get; set; } = "";
-        public bool Actif { get; set; } = true;
-
         public Utilisateur Pilote { get; set; }
         public TypePlan TypePlan { get; set; } = TypePlan.REGIONAL;
         public string Abrege { get; set; }
@@ -36,14 +30,18 @@ namespace PATIO.CAPA.Classes
         public String _os { get; set; } = "";
         public String _og { get; set; } = "";
 
-
         public Plan()
         {
             Equipe = new List<int>();
+
+            ListeAttribut = new string[] {"PILOTE", "ABREGE", "NIVEAU_6PO", "DATE_DEBUT",
+                                         "DATE_FIN", "ANALYSE_GLOBALE", "COMMENTAIRES", "GOUVERNANCE",
+                                         "PRIORITE_REGIONALE", "EQUIPE", "GROUPE_EXTERNE",
+                                         "_TYPE", "_REF1", "_REF2", "_OS", "_OG"};
         }
 
         //Construit un plan à partir des informations de l'élément
-        public void Construire(Element e)
+        public override bool Construire(Element e)
         {
             Plan p = new Plan();
 
@@ -77,16 +75,18 @@ namespace PATIO.CAPA.Classes
                     if (d.Attribut_Code == "_OG") { _og = d.Valeur.ToString(); }
                 }
             }
+
+            return true;
         }
 
         //Transforme un plan sous la forme Element, dElement
-        public Element Déconstruire()
+        public override Element Déconstruire()
         {
             Element e = new Element();
             dElement d;
 
             e.ID = ID;
-            e.Element_Type = Acces.type_PLAN.id;
+            e.Element_Type = Acces.type_PLAN.ID;
             e.Code = Code;
             e.Libelle = Libelle;
             e.Type_Element = (int)TypePlan;
@@ -97,54 +97,54 @@ namespace PATIO.CAPA.Classes
             if (!(Pilote is null))
             {
                 CodeAttribut = "PILOTE";
-                d = new dElement(ID, Acces.Trouver_Attribut_ID(Acces.type_PLAN.id, CodeAttribut), CodeAttribut, Pilote.ID.ToString());
+                d = new dElement(ID, Acces.Trouver_Attribut(Acces.type_PLAN, CodeAttribut).ID, CodeAttribut, Pilote.ID.ToString());
                 e.Liste.Add(d);
             }
 
             if (Abrege.Length > 0)
             {
                 CodeAttribut = "ABREGE";
-                d = new dElement(ID, Acces.Trouver_Attribut_ID(Acces.type_PLAN.id, CodeAttribut), CodeAttribut, Abrege);
+                d = new dElement(ID, Acces.Trouver_Attribut(Acces.type_PLAN, CodeAttribut).ID, CodeAttribut, Abrege);
                 e.Liste.Add(d);
             }
 
             CodeAttribut = "NIVEAU_6PO";
-            d = new dElement(ID, Acces.Trouver_Attribut_ID(Acces.type_PLAN.id, CodeAttribut), CodeAttribut, ((int)NiveauPlan).ToString());
+            d = new dElement(ID, Acces.Trouver_Attribut(Acces.type_PLAN, CodeAttribut).ID, CodeAttribut, ((int)NiveauPlan).ToString());
             e.Liste.Add(d);
 
             CodeAttribut = "DATE_DEBUT";
-            d = new dElement(ID, Acces.Trouver_Attribut_ID(Acces.type_PLAN.id, CodeAttribut), CodeAttribut, DateDebut.ToString());
+            d = new dElement(ID, Acces.Trouver_Attribut(Acces.type_PLAN, CodeAttribut).ID, CodeAttribut, DateDebut.ToString());
             e.Liste.Add(d);
 
             CodeAttribut = "DATE_FIN";
-            d = new dElement(ID, Acces.Trouver_Attribut_ID(Acces.type_PLAN.id, CodeAttribut), CodeAttribut, DateFin.ToString());
+            d = new dElement(ID, Acces.Trouver_Attribut(Acces.type_PLAN, CodeAttribut).ID, CodeAttribut, DateFin.ToString());
             e.Liste.Add(d);
 
             if (OptAnalyseGlobale == true)
             {
                 CodeAttribut = "ANALYSE_GLOBALE";
-                d = new dElement(ID, Acces.Trouver_Attribut_ID(Acces.type_PLAN.id, CodeAttribut), CodeAttribut, "1");
+                d = new dElement(ID, Acces.Trouver_Attribut(Acces.type_PLAN, CodeAttribut).ID, CodeAttribut, "1");
                 e.Liste.Add(d);
             }
 
             if (OptCommentaires == true)
             {
                 CodeAttribut = "COMMENTAIRES";
-                d = new dElement(ID, Acces.Trouver_Attribut_ID(Acces.type_PLAN.id, CodeAttribut), CodeAttribut, "1");
+                d = new dElement(ID, Acces.Trouver_Attribut(Acces.type_PLAN, CodeAttribut).ID, CodeAttribut, "1");
                 e.Liste.Add(d);
             }
 
             if (OptGouvernance == true)
             {
                 CodeAttribut = "GOUVERNANCE";
-                d = new dElement(ID, Acces.Trouver_Attribut_ID(Acces.type_PLAN.id, CodeAttribut), CodeAttribut, "1");
+                d = new dElement(ID, Acces.Trouver_Attribut(Acces.type_PLAN, CodeAttribut).ID, CodeAttribut, "1");
                 e.Liste.Add(d);
             }
 
             if (OptPrioriteRegionale == true)
             {
                 CodeAttribut = "PRIORITE_REGIONALE";
-                d = new dElement(ID, Acces.Trouver_Attribut_ID(Acces.type_PLAN.id, CodeAttribut), CodeAttribut, "1");
+                d = new dElement(ID, Acces.Trouver_Attribut(Acces.type_PLAN, CodeAttribut).ID, CodeAttribut, "1");
                 e.Liste.Add(d);
             }
 
@@ -154,7 +154,7 @@ namespace PATIO.CAPA.Classes
                 CodeAttribut = "EQUIPE";
                 foreach (int k in Equipe)
                 {
-                    d = new dElement(ID, Acces.Trouver_Attribut_ID(Acces.type_ACTION.id, CodeAttribut), CodeAttribut, k.ToString());
+                    d = new dElement(ID, Acces.Trouver_Attribut(Acces.type_ACTION, CodeAttribut).ID, CodeAttribut, k.ToString());
                     e.Liste.Add(d);
                 }
             }
@@ -162,34 +162,34 @@ namespace PATIO.CAPA.Classes
             if (GroupeExterne.Length > 0)
             {
                 CodeAttribut = "GROUPE_EXTERNE";
-                d = new dElement(ID, Acces.Trouver_Attribut_ID(Acces.type_PLAN.id, CodeAttribut), CodeAttribut, GroupeExterne);
+                d = new dElement(ID, Acces.Trouver_Attribut(Acces.type_PLAN, CodeAttribut).ID, CodeAttribut, GroupeExterne);
                 e.Liste.Add(d);
             }
             CodeAttribut = "_TYPE";
-            d = new dElement(ID, Acces.Trouver_Attribut_ID(Acces.type_PLAN.id, CodeAttribut), CodeAttribut, _type);
+            d = new dElement(ID, Acces.Trouver_Attribut(Acces.type_PLAN, CodeAttribut).ID, CodeAttribut, _type);
             e.Liste.Add(d);
 
             CodeAttribut = "_REF1";
-            d = new dElement(ID, Acces.Trouver_Attribut_ID(Acces.type_PLAN.id, CodeAttribut), CodeAttribut, _ref1);
+            d = new dElement(ID, Acces.Trouver_Attribut(Acces.type_PLAN, CodeAttribut).ID, CodeAttribut, _ref1);
             e.Liste.Add(d);
 
             CodeAttribut = "_REF2";
-            d = new dElement(ID, Acces.Trouver_Attribut_ID(Acces.type_PLAN.id, CodeAttribut), CodeAttribut, _ref2);
+            d = new dElement(ID, Acces.Trouver_Attribut(Acces.type_PLAN, CodeAttribut).ID, CodeAttribut, _ref2);
             e.Liste.Add(d);
 
             CodeAttribut = "_OS";
-            d = new dElement(ID, Acces.Trouver_Attribut_ID(Acces.type_PLAN.id, CodeAttribut), CodeAttribut, _os);
+            d = new dElement(ID, Acces.Trouver_Attribut(Acces.type_PLAN, CodeAttribut).ID, CodeAttribut, _os);
             e.Liste.Add(d);
 
             CodeAttribut = "_OG";
-            d = new dElement(ID, Acces.Trouver_Attribut_ID(Acces.type_PLAN.id, CodeAttribut), CodeAttribut, _og);
+            d = new dElement(ID, Acces.Trouver_Attribut(Acces.type_PLAN, CodeAttribut).ID, CodeAttribut, _og);
             e.Liste.Add(d);
 
             return e;
         }
 
         //Comparateur par défaut
-        public int CompareTo(Plan p)
+        public virtual int CompareTo(Plan p)
         {
             if (p is null) { return 1; }
             else { return (this.Libelle.CompareTo(p.Libelle)); }

@@ -1,25 +1,18 @@
 ﻿using System;
-using PATIO.Modules;
+using PATIO.MAIN.Classes;
 
 namespace PATIO.CAPA.Classes
 {
-    public class Groupe : IComparable<Groupe>
+    public class Groupe : Classe_Modele, IComparable<Groupe>
     {
-        public AccesNet Acces;
-        public int ID { get; set; }
-        public String Code { get; set; }
-        public String Libelle { get; set; }
-
         public TypeGroupe TypeGroupe { get; set; } = TypeGroupe.GROUPE;
-
-        public int ProprietaireId { get; set; }
-        public bool Actif { get; set; } = true;
 
         public Groupe()
         {
+            ListeAttribut = new string[] { };
         }
 
-        public void Construire(Element e)
+        public override bool Construire(Element e)
         {
             ID = e.ID;
             Code = e.Code;
@@ -36,16 +29,18 @@ namespace PATIO.CAPA.Classes
                 }
             }
             */
+
+            return true;
         }
 
         //Transforme un groupe sous la forme Element, dElement
-        public Element Déconstruire()
+        public override Element Déconstruire()
         {
             Element e = new Element();
             //dElement d;
 
             e.ID = ID;
-            e.Element_Type =Acces.type_GROUPE.id;
+            e.Element_Type =Acces.type_GROUPE.ID;
             e.Code = Code;
             e.Libelle = Libelle;
             e.Type_Element=(int) TypeGroupe;
