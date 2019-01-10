@@ -122,8 +122,8 @@ namespace PATIO.CAPA.Interfaces
             //On déplace le fils sous le parent
             foreach (Lien p in ListeLienSysteme)
             {
-                TreeNode[] Nod1 = lstObjectif.Nodes.Find(p.element1_id.ToString(), true);
-                TreeNode[] Nod2 = lstObjectif.Nodes.Find(p.element2_id.ToString(), true);
+                TreeNode[] Nod1 = lstObjectif.Nodes.Find(p.Element1_ID.ToString(), true);
+                TreeNode[] Nod2 = lstObjectif.Nodes.Find(p.Element2_ID.ToString(), true);
 
                 if (Nod1.Count() > 0 && Nod2.Count() > 0)
                 {
@@ -413,15 +413,15 @@ namespace PATIO.CAPA.Interfaces
 
             //Création du lien
             Lien p = new Lien() { Acces = Acces };
-            p.element1_type = Acces.type_OBJECTIF.ID;
-            p.element1_id = int.Parse(NodDest.Name);
-            p.element1_code = ((Objectif)Acces.Trouver_Element(Acces.type_OBJECTIF, p.element1_id)).Code;
-            p.element2_type = Acces.type_OBJECTIF.ID;
-            p.element2_id = int.Parse(nodSrc.Name);
-            p.element2_code = ((Objectif)Acces.Trouver_Element(Acces.type_OBJECTIF, p.element2_id)).Code;
-            p.element0_type = Acces.type_PLAN.ID; //SYSTEME
-            p.element0_id = 1; //SYSTEME
-            p.element0_code = "SYSTEME"; //SYSTEME
+            p.Element1_Type = Acces.type_OBJECTIF.ID;
+            p.Element1_ID = int.Parse(NodDest.Name);
+            p.Element1_Code = ((Objectif)Acces.Trouver_Element(Acces.type_OBJECTIF, p.Element1_ID)).Code;
+            p.Element2_Type = Acces.type_OBJECTIF.ID;
+            p.Element2_ID = int.Parse(nodSrc.Name);
+            p.Element2_Code = ((Objectif)Acces.Trouver_Element(Acces.type_OBJECTIF, p.Element2_ID)).Code;
+            p.Element0_Type = Acces.type_PLAN.ID; //SYSTEME
+            p.Element0_ID = 1; //SYSTEME
+            p.Element0_Code = "SYSTEME"; //SYSTEME
             p.ordre = p.Donner_Ordre() + 1;
 
             p.Ajouter();
@@ -505,15 +505,15 @@ namespace PATIO.CAPA.Interfaces
                             if (lrecherche.Liste.Count > 0)
                             {
                                 Lien l = new Lien() { Acces = Acces };
-                                l.element1_type =Acces.type_OBJECTIF;
-                                l.element1_id = lrecherche.Liste[0].ID;
-                                l.element1_code = lrecherche.Liste[0].Code;
-                                l.element2_type =Acces.type_OBJECTIF;
-                                l.element2_id = a.ID;
-                                l.element2_code = a.Code;
-                                l.element0_type = Acces.type_PLAN; //SYSTEM
-                                l.element0_id = 1; //SYSTEM
-                                l.element0_code = "SYSTEME"; //SYSTEM
+                                l.Element1_Type =Acces.type_OBJECTIF;
+                                l.Element1_ID = lrecherche.Liste[0].ID;
+                                l.Element1_Code = lrecherche.Liste[0].Code;
+                                l.Element2_Type =Acces.type_OBJECTIF;
+                                l.Element2_ID = a.ID;
+                                l.Element2_Code = a.Code;
+                                l.Element0_Type = Acces.type_PLAN; //SYSTEM
+                                l.Element0_ID = 1; //SYSTEM
+                                l.Element0_Code = "SYSTEME"; //SYSTEM
                                 l.ordre =l.DonneOrdre() + 1; //SYSTEM
                                 l.Enregistrer();
                             }

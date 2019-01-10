@@ -151,8 +151,8 @@ namespace PATIO.CAPA.Interfaces
             //On déplace le fils sous le parent
             foreach (Lien p in ListeLienSysteme)
             {
-                TreeNode[] Nod1 = lstAction.Nodes.Find(p.element1_id.ToString(), true);
-                TreeNode[] Nod2 = lstAction.Nodes.Find(p.element2_id.ToString(), true);
+                TreeNode[] Nod1 = lstAction.Nodes.Find(p.Element1_ID.ToString(), true);
+                TreeNode[] Nod2 = lstAction.Nodes.Find(p.Element2_ID.ToString(), true);
 
                 if (Nod1.Count() > 0 && Nod2.Count() > 0)
                 {
@@ -170,7 +170,7 @@ namespace PATIO.CAPA.Interfaces
                 {
                     if (p.element0_id > 0)
                     { /*Console.Ajouter("[Move Action] Erreur Lien" + p.ID);*/ }
-                    else { if (p.element0_code.Length > 0) { Console.Ajouter("[Erreur Lien Action] Id : " + p.ID); } }
+                    else { if (p.Element0_Code.Length > 0) { Console.Ajouter("[Erreur Lien Action] Id : " + p.ID); } }
                 }
             }
         }
@@ -448,15 +448,15 @@ namespace PATIO.CAPA.Interfaces
 
             //Création du lien
             Lien p = new Lien() { Acces = Acces };
-            p.element0_type = Acces.type_PLAN.ID; //SYSTEME
+            p.Element0_Type = Acces.type_PLAN.ID; //SYSTEME
             p.element0_id = 1; //SYSTEME
-            p.element0_code = "SYSTEME"; //SYSTEME
-            p.element1_type = Acces.type_ACTION.ID;
-            p.element1_id = int.Parse(NodDest.Name);
-            p.element1_code = ((PATIO.CAPA.Classes.Action)Acces.Trouver_Element(Acces.type_ACTION, p.element1_id)).Code;
-            p.element2_type = Acces.type_ACTION.ID;
-            p.element2_id = int.Parse(nodSrc.Name);
-            p.element2_code = ((PATIO.CAPA.Classes.Action)Acces.Trouver_Element(Acces.type_ACTION, p.element2_id)).Code;
+            p.Element0_Code = "SYSTEME"; //SYSTEME
+            p.Element1_Type = Acces.type_ACTION.ID;
+            p.Element1_ID = int.Parse(NodDest.Name);
+            p.Element1_Code = ((PATIO.CAPA.Classes.Action)Acces.Trouver_Element(Acces.type_ACTION, p.Element1_ID)).Code;
+            p.Element2_Type = Acces.type_ACTION.ID;
+            p.Element2_ID = int.Parse(nodSrc.Name);
+            p.Element2_Code = ((PATIO.CAPA.Classes.Action)Acces.Trouver_Element(Acces.type_ACTION, p.Element2_ID)).Code;
             p.ordre = p.Donner_Ordre() + 1;
 
             p.Ajouter();

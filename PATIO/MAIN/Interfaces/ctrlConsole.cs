@@ -25,9 +25,11 @@ namespace PATIO.MAIN.Classes
 
         public void Ajouter(string texte)
         {
+            string txt = "[" + string.Format("{0:yyyyMMddHHmmssfff}", DateTime.Now) + "] " + texte;
+
             lst.Items.Add(texte);
             lst.SelectedIndex = lst.Items.Count - 1;
-            System.IO.File.AppendAllText(Chemin + "\\log.txt", "[->] " + texte + "\n");
+            System.IO.File.AppendAllText(Chemin + "\\log.txt", txt + "\n");
 
         }
 

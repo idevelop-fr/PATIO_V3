@@ -17,13 +17,11 @@ namespace PATIO.MAIN.Classes
 
         public int Parent_ID { get; set; }
 
-        public string[] ListeAttribut = {"FICHIERBASE", "ORDRE", "CONDITION", "CONTENU",
-                                         "TAILLE", "ALIGNEMENT","BORDURE", "PARENT_ID",
-                                        };
-
         public ModeleDoc()
         {
-
+            ListeAttribut = new string[] {"FICHIERBASE", "ORDRE", "CONDITION", "CONTENU",
+                                          "TAILLE", "ALIGNEMENT","BORDURE", "PARENT_ID",
+                                         };
         }
 
         public override bool Construire(Element e)

@@ -1095,6 +1095,8 @@
     <None Include="Resources\plus_o.png" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="CAPA\Interfaces\Projets\Description.txt" />
+    <Content Include="Doc\Gestion des projets.txt" />
     <Content Include="ICON.ico" />
     <None Include="Resources\operation_modif.png" />
     <None Include="Resources\engrenage.png" />

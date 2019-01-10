@@ -12,8 +12,7 @@ namespace PATIO.OMEGA.Classes
 
         public Budget_Nomenclature()
         {
-            ListeAttribut = new string[] {"PERIODE", "TYPE_FLUX", 
-                                        };
+            ListeAttribut = new string[] { "PERIODE", "TYPE_FLUX", }
         }
 
         public override bool Construire(Element e)

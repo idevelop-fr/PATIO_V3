@@ -401,20 +401,20 @@ namespace PATIO.CAPA.Interfaces
             string sql;
 
             lstCommentaire.Items.Add("Niveau 0");
-            sql = "UPDATE lien SET element0_code= (SELECT element.Code FROM element";
-            sql += " WHERE lien.element0_id = element.id)";
+            sql = "UPDATE lien SET Element0_Code= (SELECT element.Code FROM element";
+            sql += " WHERE lien.Element0_ID = element.id)";
             Acces.cls.Execute(sql);
             if (Acces.cls.erreur.Length > 0) { MessageBox.Show(Acces.cls.erreur); }
 
             lstCommentaire.Items.Add("Niveau 1");
-            sql = "UPDATE lien SET element1_code= (SELECT element.Code FROM element";
-            sql += " WHERE lien.element1_id = element.id)";
+            sql = "UPDATE lien SET Element1_Code= (SELECT element.Code FROM element";
+            sql += " WHERE lien.Element1_ID = element.id)";
             Acces.cls.Execute(sql);
             if (Acces.cls.erreur.Length > 0) { MessageBox.Show(Acces.cls.erreur); }
 
             lstCommentaire.Items.Add("Niveau 2");
-            sql = "UPDATE lien SET element2_code= (SELECT element.Code FROM element";
-            sql += " WHERE lien.element2_id = element.id)";
+            sql = "UPDATE lien SET Element2_Code= (SELECT element.Code FROM element";
+            sql += " WHERE lien.Element2_ID = element.id)";
             Acces.cls.Execute(sql);
             if (Acces.cls.erreur.Length > 0) { MessageBox.Show(Acces.cls.erreur); }
 

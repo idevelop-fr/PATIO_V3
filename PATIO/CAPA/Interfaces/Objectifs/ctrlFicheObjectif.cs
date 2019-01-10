@@ -385,15 +385,15 @@ namespace PATIO.CAPA.Interfaces
                     {
                         Lien l = new Lien() { Acces = Acces, };
 
-                        l.element0_type = Acces.type_PLAN.ID;
-                        l.element0_id = 1;
-                        l.element0_code = "SYSTEME";
-                        l.element1_type = Acces.type_OBJECTIF.ID;
-                        l.element1_id = objectifParent.ID;
-                        l.element1_code = objectifParent.Code;
-                        l.element2_type = Acces.type_OBJECTIF.ID;
-                        l.element2_id = objectif.ID;
-                        l.element2_code = objectif.Code;
+                        l.Element0_Type = Acces.type_PLAN.ID;
+                        l.Element0_ID = 1;
+                        l.Element0_Code = "SYSTEME";
+                        l.Element1_Type = Acces.type_OBJECTIF.ID;
+                        l.Element1_ID = objectifParent.ID;
+                        l.Element1_Code = objectifParent.Code;
+                        l.Element2_Type = Acces.type_OBJECTIF.ID;
+                        l.Element2_ID = objectif.ID;
+                        l.Element2_Code = objectif.Code;
                         l.Ajouter();
                         Acces.Ajouter_Lien(l);
                         Creation = false;

@@ -129,7 +129,7 @@ namespace PATIO.CAPA.Interfaces
             foreach (var p in listeLien)
             {
                 //Recherche du parent
-                string Parent = Acces.Trouver_TableValeur(p.element1_type).Code + "-" + p.element1_id.ToString();
+                string Parent = Acces.Trouver_TableValeur(p.Element1_Type).Code + "-" + p.Element1_ID.ToString();
                 TreeNode NodParent = NodG;
 
                 if (!(Parent == NodG.Name))
@@ -138,7 +138,7 @@ namespace PATIO.CAPA.Interfaces
                     if (NodP.Length > 0) { NodParent = NodP[0]; }
                 }
 
-                string Enfant = Acces.Trouver_TableValeur(p.element2_type).Code + "-" + p.element2_id.ToString();
+                string Enfant = Acces.Trouver_TableValeur(p.Element2_Type).Code + "-" + p.Element2_ID.ToString();
                 if (!(Enfant is null))
                 {
                     Boolean Ajoute = true;
@@ -149,47 +149,47 @@ namespace PATIO.CAPA.Interfaces
                         Tag = p,
                     };
 
-                    if (p.element2_type == Acces.type_OBJECTIF.ID)
-                    //if (p.element2_type == Acces.Trouver_TableValeur_ID("TYPE_ELEMENT", p.element1_type.ToString()))
+                    if (p.Element2_Type == Acces.type_OBJECTIF.ID)
+                    //if (p.Element2_Type == Acces.Trouver_TableValeur_ID("TYPE_ELEMENT", p.Element1_Type.ToString()))
                     {
-                        Objectif q = (Objectif)Acces.Trouver_Element(Acces.type_OBJECTIF, p.element2_id);
+                        Objectif q = (Objectif)Acces.Trouver_Element(Acces.type_OBJECTIF, p.Element2_ID);
                         if (!(q is null))
                         {
                             NodEnfant.Text = q.Libelle;
                             NodEnfant.Name = Acces.type_OBJECTIF.Code + "-" + q.ID;
-                            NodEnfant.ImageIndex = Donner_ImageIndex(Acces.type_OBJECTIF, p.element2_id);
+                            NodEnfant.ImageIndex = Donner_ImageIndex(Acces.type_OBJECTIF, p.Element2_ID);
                             NodEnfant.ToolTipText = q.Code;
                         }
-                        else { Console.Ajouter("[Objectif non trouvé] ID:" + p.element2_id + " Code :" + p.element2_code); }
+                        else { Console.Ajouter("[Objectif non trouvé] ID:" + p.Element2_ID + " Code :" + p.Element2_Code); }
                     }
 
-                    if (p.element2_type == Acces.type_ACTION.ID)
+                    if (p.Element2_Type == Acces.type_ACTION.ID)
                     {
-                        PATIO.CAPA.Classes.Action q = (PATIO.CAPA.Classes.Action)Acces.Trouver_Element(Acces.type_ACTION, p.element2_id);
+                        PATIO.CAPA.Classes.Action q = (PATIO.CAPA.Classes.Action)Acces.Trouver_Element(Acces.type_ACTION, p.Element2_ID);
                         if (!OptAfficherOpération.Checked) { Ajoute = (q.TypeAction == TypeAction.ACTION); }
                         if (!(q is null))
                         {
                             NodEnfant.Text = q.Libelle;
                             NodEnfant.Name = Acces.type_ACTION.Code + "-" + q.ID;
-                            NodEnfant.ImageIndex = Donner_ImageIndex(Acces.type_ACTION, p.element2_id);
+                            NodEnfant.ImageIndex = Donner_ImageIndex(Acces.type_ACTION, p.Element2_ID);
                             if (q.ActionPhare) { NodEnfant.ImageIndex = imgs[PosImageActionPhare].Id; }
                             NodEnfant.ToolTipText = q.Code + " [" + p.ordre + "]";
                         }
-                        else { Console.Ajouter("[Action non trouvée] ID:" + p.element2_id + " CODE:" + p.element2_code); }
+                        else { Console.Ajouter("[Action non trouvée] ID:" + p.Element2_ID + " CODE:" + p.Element2_Code); }
                     }
 
-                    if (p.element2_type == Acces.type_INDICATEUR.ID)
+                    if (p.Element2_Type == Acces.type_INDICATEUR.ID)
                     {
                         Ajoute = OptAfficherIndicateur.Checked;
-                        Indicateur q = (Indicateur)Acces.Trouver_Element(Acces.type_INDICATEUR, p.element2_id);
+                        Indicateur q = (Indicateur)Acces.Trouver_Element(Acces.type_INDICATEUR, p.Element2_ID);
                         if (!(q is null))
                         {
                             NodEnfant.Text = q.Libelle;
                             NodEnfant.Name = Acces.type_INDICATEUR.Code + "-" + q.ID;
-                            NodEnfant.ImageIndex = Donner_ImageIndex(Acces.type_INDICATEUR, p.element2_id);
+                            NodEnfant.ImageIndex = Donner_ImageIndex(Acces.type_INDICATEUR, p.Element2_ID);
                             NodEnfant.ToolTipText = q.Code;
                         }
-                        else { Console.Ajouter("[Indicateur non trouvée] ID:" + p.element2_id + " CODE:" + p.element2_code); }
+                        else { Console.Ajouter("[Indicateur non trouvée] ID:" + p.Element2_ID + " CODE:" + p.Element2_Code); }
                     }
 
                     if (Ajoute)
@@ -211,45 +211,45 @@ namespace PATIO.CAPA.Interfaces
 
             foreach(Lien p in listeLien)
             {
-                string Parent = Acces.Trouver_TableValeur(p.element1_type).Code + "-" + p.element1_id.ToString();
-                string Enfant = Acces.Trouver_TableValeur(p.element2_type).Code + "-" + p.element2_id.ToString();
+                string Parent = Acces.Trouver_TableValeur(p.Element1_Type).Code + "-" + p.Element1_ID.ToString();
+                string Enfant = Acces.Trouver_TableValeur(p.Element2_Type).Code + "-" + p.Element2_ID.ToString();
                 if (!(Enfant is null))
                 {
                     Boolean Ajoute = true;
                     //Création de l'élément enfant
 
-                    if (p.element2_type == Acces.type_OBJECTIF.ID)
-                    //if (p.element2_type == Acces.Trouver_TableValeur_ID("TYPE_ELEMENT", p.element1_type.ToString()))
+                    if (p.Element2_Type == Acces.type_OBJECTIF.ID)
+                    //if (p.Element2_Type == Acces.Trouver_TableValeur_ID("TYPE_ELEMENT", p.Element1_Type.ToString()))
                     {
-                        Objectif q = (Objectif)Acces.Trouver_Element(Acces.type_OBJECTIF, p.element2_id);
+                        Objectif q = (Objectif)Acces.Trouver_Element(Acces.type_OBJECTIF, p.Element2_ID);
                         if (!(q is null))
                         {
                             nbObjectif++;
                         }
-                        else { Console.Ajouter("[Objectif non trouvé] ID:" + p.element2_id + " Code :" + p.element2_code); }
+                        else { Console.Ajouter("[Objectif non trouvé] ID:" + p.Element2_ID + " Code :" + p.Element2_Code); }
                     }
 
-                    if (p.element2_type == Acces.type_ACTION.ID)
+                    if (p.Element2_Type == Acces.type_ACTION.ID)
                     {
-                        PATIO.CAPA.Classes.Action q = (PATIO.CAPA.Classes.Action)Acces.Trouver_Element(Acces.type_ACTION, p.element2_id);
+                        PATIO.CAPA.Classes.Action q = (PATIO.CAPA.Classes.Action)Acces.Trouver_Element(Acces.type_ACTION, p.Element2_ID);
                         if (!OptAfficherOpération.Checked) { Ajoute = (q.TypeAction == TypeAction.ACTION); }
                         if (!(q is null))
                         {
                             if (q.TypeAction == TypeAction.ACTION) { nbAction++; }
                             if (q.TypeAction == TypeAction.OPERATION) { nbOpération++; }
                         }
-                        else { Console.Ajouter("[Action non trouvée] ID:" + p.element2_id + " CODE:" + p.element2_code); }
+                        else { Console.Ajouter("[Action non trouvée] ID:" + p.Element2_ID + " CODE:" + p.Element2_Code); }
                     }
 
-                    if (p.element2_type == Acces.type_INDICATEUR.ID)
+                    if (p.Element2_Type == Acces.type_INDICATEUR.ID)
                     {
                         Ajoute = OptAfficherIndicateur.Checked;
-                        Indicateur q = (Indicateur)Acces.Trouver_Element(Acces.type_INDICATEUR, p.element2_id);
+                        Indicateur q = (Indicateur)Acces.Trouver_Element(Acces.type_INDICATEUR, p.Element2_ID);
                         if (!(q is null))
                         {
                             nbIndicateur++;
                         }
-                        else { Console.Ajouter("[Indicateur non trouvée] ID:" + p.element2_id + " CODE:" + p.element2_code); }
+                        else { Console.Ajouter("[Indicateur non trouvée] ID:" + p.Element2_ID + " CODE:" + p.Element2_Code); }
                     }
                 }
             }
@@ -572,15 +572,15 @@ namespace PATIO.CAPA.Interfaces
 
                         l = new Lien()
                         {
-                            element0_type = Acces.type_PLAN.ID,
-                            element0_id = plan.ID,
-                            element0_code = plan.Code,
-                            element1_type = Acces.Trouver_TableValeur_Code("TYPE_ELEMENT", ElementParentTypeSrc).ID,
-                            element1_id = ElementParentId,
-                            element1_code = ElementParentCode,
-                            element2_type = Acces.Trouver_TableValeur_Code("TYPE_ELEMENT", ElementEnfantType).ID,
-                            element2_id = ElementEnfantId,
-                            element2_code = ElementEnfantCode,
+                            Element0_Type = Acces.type_PLAN.ID,
+                            Element0_ID = plan.ID,
+                            Element0_Code = plan.Code,
+                            Element1_Type = Acces.Trouver_TableValeur_Code("TYPE_ELEMENT", ElementParentTypeSrc).ID,
+                            Element1_ID = ElementParentId,
+                            Element1_Code = ElementParentCode,
+                            Element2_Type = Acces.Trouver_TableValeur_Code("TYPE_ELEMENT", ElementEnfantType).ID,
+                            Element2_ID = ElementEnfantId,
+                            Element2_Code = ElementEnfantCode,
                             complement = "",
                             Acces = Acces,
                         };
@@ -625,15 +625,15 @@ namespace PATIO.CAPA.Interfaces
                         //Création du lien entre l'élément à lier et le noeud de destination
                         l = new Lien()
                         {
-                            element0_type = Acces.type_PLAN.ID,
-                            element0_id = plan.ID,
-                            element0_code = plan.Code,
-                            element1_type = ElementParentType_id,
-                            element1_id = ElementParentId,
-                            element1_code = ElementParentCode,
-                            element2_type = Acces.type_ACTION.ID,
-                            element2_id = ElementEnfantId,
-                            element2_code = ElementEnfantCode,
+                            Element0_Type = Acces.type_PLAN.ID,
+                            Element0_ID = plan.ID,
+                            Element0_Code = plan.Code,
+                            Element1_Type = ElementParentType_id,
+                            Element1_ID = ElementParentId,
+                            Element1_Code = ElementParentCode,
+                            Element2_Type = Acces.type_ACTION.ID,
+                            Element2_ID = ElementEnfantId,
+                            Element2_Code = ElementEnfantCode,
                             Acces = Acces,
                         };
                         l.ordre = l.Donner_Ordre() + 1;
@@ -677,15 +677,15 @@ namespace PATIO.CAPA.Interfaces
                         //Création du lien entre l'élément à lier et le noeud de destination
                         l = new Lien()
                         {
-                            element0_type = Acces.type_PLAN.ID,
-                            element0_id = plan.ID,
-                            element0_code = plan.Code,
-                            element1_type = ElementParentType_id,
-                            element1_id = ElementParentId,
-                            element1_code = ElementParentCode,
-                            element2_type = Acces.type_INDICATEUR.ID,
-                            element2_id = ElementEnfantId,
-                            element2_code = ElementEnfantCode,
+                            Element0_Type = Acces.type_PLAN.ID,
+                            Element0_ID = plan.ID,
+                            Element0_Code = plan.Code,
+                            Element1_Type = ElementParentType_id,
+                            Element1_ID = ElementParentId,
+                            Element1_Code = ElementParentCode,
+                            Element2_Type = Acces.type_INDICATEUR.ID,
+                            Element2_ID = ElementEnfantId,
+                            Element2_Code = ElementEnfantCode,
                             Acces = Acces,
                         };
                         l.ordre = l.Donner_Ordre() + 1;
@@ -821,23 +821,23 @@ namespace PATIO.CAPA.Interfaces
             Lien lien = new Lien() { Acces = Acces, };
             Lien lienDest = new Lien() { Acces = Acces, };
 
-            int element1_type_id = Acces.Trouver_TableValeur_Code("TYPE_ELEMENT", typeElementParent).ID;
-            int element2_type_id = Acces.Trouver_TableValeur_Code("TYPE_ELEMENT", typeElementDest).ID;
+            int Element1_Type_id = Acces.Trouver_TableValeur_Code("TYPE_ELEMENT", typeElementParent).ID;
+            int Element2_Type_id = Acces.Trouver_TableValeur_Code("TYPE_ELEMENT", typeElementDest).ID;
 
             foreach (var lst in listeLien)
             {
                 //Recherche le lien 
-                if (lst.element2_id == int.Parse(idElementDest)
-                    && lst.element2_type == element2_type_id
-                    && lst.element1_id == int.Parse(idElementParent)
-                    && lst.element1_type == element1_type_id)
+                if (lst.Element2_ID == int.Parse(idElementDest)
+                    && lst.Element2_Type == Element2_Type_id
+                    && lst.Element1_ID == int.Parse(idElementParent)
+                    && lst.Element1_Type == Element1_Type_id)
                 {
                     lienDest = lst;
                 }
-                if (lst.element2_id == int.Parse(idElement)
-                    && lst.element2_type == element2_type_id
-                    && lst.element1_id == int.Parse(idElementParent)
-                    && lst.element1_type == element1_type_id)
+                if (lst.Element2_ID == int.Parse(idElement)
+                    && lst.Element2_Type == Element2_Type_id
+                    && lst.Element1_ID == int.Parse(idElementParent)
+                    && lst.Element1_Type == Element1_Type_id)
                 {
                     lien = lst;
                 }
@@ -923,22 +923,22 @@ namespace PATIO.CAPA.Interfaces
             Lien lien = new Lien();
             Lien lienDest = new Lien();
 
-            int element1_type_id = Acces.Trouver_TableValeur_Code("TYPE_ELEMENT", typeElementParent).ID;
-            int element2_type_id = Acces.Trouver_TableValeur_Code("TYPE_ELEMENT", typeElementDest).ID;
+            int Element1_Type_id = Acces.Trouver_TableValeur_Code("TYPE_ELEMENT", typeElementParent).ID;
+            int Element2_Type_id = Acces.Trouver_TableValeur_Code("TYPE_ELEMENT", typeElementDest).ID;
 
             foreach (var lst in listeLien)
             {
-                if (lst.element2_id == int.Parse(idElementDest)
-                    && lst.element2_type == element2_type_id
-                    && lst.element1_id == int.Parse(idElementParent)
-                    && lst.element1_type == element1_type_id)
+                if (lst.Element2_ID == int.Parse(idElementDest)
+                    && lst.Element2_Type == Element2_Type_id
+                    && lst.Element1_ID == int.Parse(idElementParent)
+                    && lst.Element1_Type == Element1_Type_id)
                 {
                     lienDest = lst;
                 }
-                if (lst.element2_id == int.Parse(idElement)
-                    && lst.element2_type == element2_type_id
-                    && lst.element1_id == int.Parse(idElementParent)
-                    && lst.element1_type == element1_type_id)
+                if (lst.Element2_ID == int.Parse(idElement)
+                    && lst.Element2_Type == Element2_Type_id
+                    && lst.Element1_ID == int.Parse(idElementParent)
+                    && lst.Element1_Type == Element1_Type_id)
                 {
                     lien = lst;
                 }
@@ -1063,12 +1063,12 @@ namespace PATIO.CAPA.Interfaces
             //-> Suppression
             Acces.Supprimer_Lien((Lien)nodSrc.Tag);
 
-            int element1_type_id = Acces.Trouver_TableValeur_Code("TYPE_ELEMENT", typeElementDest).ID;
-            int element2_type_id = Acces.Trouver_TableValeur_Code("TYPE_ELEMENT", typeElementSrc).ID;
+            int Element1_Type_id = Acces.Trouver_TableValeur_Code("TYPE_ELEMENT", typeElementDest).ID;
+            int Element2_Type_id = Acces.Trouver_TableValeur_Code("TYPE_ELEMENT", typeElementSrc).ID;
 
             string Code1 = ""; string Code2 = "";
 
-            switch (element1_type_id)
+            switch (Element1_Type_id)
             {
                 case 1:
                     {
@@ -1093,7 +1093,7 @@ namespace PATIO.CAPA.Interfaces
                     }
             }
 
-            switch (element2_type_id)
+            switch (Element2_Type_id)
             {
                 case 1:
                     {
@@ -1121,17 +1121,17 @@ namespace PATIO.CAPA.Interfaces
             //Création du nouveau lien
             Lien p = new Lien();
             p.Acces = Acces;
-            p.element0_type = Acces.type_PLAN.ID;
-            p.element0_id = plan.ID;
-            p.element0_code = plan.Code;
+            p.Element0_Type = Acces.type_PLAN.ID;
+            p.Element0_ID = plan.ID;
+            p.Element0_Code = plan.Code;
 
-            p.element1_type = element1_type_id;
-            p.element1_id = int.Parse(codeDest);
-            p.element1_code = Code1;
+            p.Element1_Type = Element1_Type_id;
+            p.Element1_ID = int.Parse(codeDest);
+            p.Element1_Code = Code1;
 
-            p.element2_type = element2_type_id;
-            p.element2_id = int.Parse(codeSrc);
-            p.element2_code = Code2;
+            p.Element2_Type = Element2_Type_id;
+            p.Element2_ID = int.Parse(codeSrc);
+            p.Element2_Code = Code2;
 
             p.ordre = p.Donner_Ordre() + 1;
             p.complement = "";
@@ -1215,18 +1215,18 @@ namespace PATIO.CAPA.Interfaces
 
             foreach (Lien l in listeLien)
             {
-                if (l.element1_type == typeelement_id)
+                if (l.Element1_Type == typeelement_id)
                 {
-                    Objectif obj = (Objectif)Acces.Trouver_Element(Acces.type_OBJECTIF, l.element1_id);
+                    Objectif obj = (Objectif)Acces.Trouver_Element(Acces.type_OBJECTIF, l.Element1_ID);
 
                     obj.Acces = Acces;
                     string valeur = (obj.Pilote is null) ? "" : obj.Pilote.ID.ToString();
                     Acces.MettreAJour_dElement(obj.ID, valeur, plan.Pilote.ID.ToString(), "PILOTE", attribut_id);
                 }
 
-                if (l.element2_type == typeelement_id)
+                if (l.Element2_Type == typeelement_id)
                 {
-                    Objectif obj = (Objectif)Acces.Trouver_Element(Acces.type_OBJECTIF, l.element2_id);
+                    Objectif obj = (Objectif)Acces.Trouver_Element(Acces.type_OBJECTIF, l.Element2_ID);
 
                     obj.Acces = Acces;
                     string valeur = (obj.Pilote is null) ? "" : obj.Pilote.ID.ToString();
@@ -1262,18 +1262,18 @@ namespace PATIO.CAPA.Interfaces
 
             foreach (Lien l in listeLien)
             {
-                if (l.element1_type == typeelement_id)
+                if (l.Element1_Type == typeelement_id)
                 {
-                    PATIO.CAPA.Classes.Action action = (PATIO.CAPA.Classes.Action)Acces.Trouver_Element(Acces.type_ACTION, l.element1_id);
+                    PATIO.CAPA.Classes.Action action = (PATIO.CAPA.Classes.Action)Acces.Trouver_Element(Acces.type_ACTION, l.Element1_ID);
 
                     action.Acces = Acces;
                     string valeur = (action.Pilote is null) ? "" : action.Pilote.ID.ToString();
                     Acces.MettreAJour_dElement(action.ID, valeur, plan.Pilote.ID.ToString(), "PILOTE", attribut_id);
                 }
 
-                if (l.element2_type == typeelement_id)
+                if (l.Element2_Type == typeelement_id)
                 {
-                    PATIO.CAPA.Classes.Action action = (PATIO.CAPA.Classes.Action)Acces.Trouver_Element(Acces.type_ACTION, l.element2_id);
+                    PATIO.CAPA.Classes.Action action = (PATIO.CAPA.Classes.Action)Acces.Trouver_Element(Acces.type_ACTION, l.Element2_ID);
                     if (action != null)
                     {
                         action.Acces = Acces;
@@ -1281,7 +1281,7 @@ namespace PATIO.CAPA.Interfaces
                         Acces.MettreAJour_dElement(action.ID, valeur, plan.Pilote.ID.ToString(), "PILOTE", attribut_id);
                     }
                     else
-                    { MessageBox.Show("Action n°" + l.element2_id + " non trouvée","Contacter un administrateur"); }
+                    { MessageBox.Show("Action n°" + l.Element2_ID + " non trouvée","Contacter un administrateur"); }
                 }
             }
 
@@ -1299,7 +1299,7 @@ namespace PATIO.CAPA.Interfaces
             int n = 0;
             foreach (Lien l in listeLien)
             {
-                if (l.element1_id == 0 || l.element2_id == 0)
+                if (l.Element1_ID == 0 || l.Element2_ID == 0)
                 {
                     n++;
                     l.Acces = Acces;
@@ -1502,11 +1502,11 @@ namespace PATIO.CAPA.Interfaces
             resultat += (char)Keys.Return + "ERREUR DE LIENS";
             foreach (Lien l in listeLien)
             {
-                if (l.element2_type == typeelement_id)
+                if (l.Element2_Type == typeelement_id)
                 {
-                    Objectif obj = (Objectif)Acces.Trouver_Element(Acces.type_OBJECTIF, l.element2_id);
+                    Objectif obj = (Objectif)Acces.Trouver_Element(Acces.type_OBJECTIF, l.Element2_ID);
                     if (obj == null)
-                    { resultat += (char) Keys.Return + "OBJ-Id=" + l.element2_id + " : " + "Objectif non trouvé"; ok2 = true;  }
+                    { resultat += (char) Keys.Return + "OBJ-Id=" + l.Element2_ID + " : " + "Objectif non trouvé"; ok2 = true;  }
                     else
                     {
                         if (obj.Pilote == null) { resultat += (char)Keys.Return + "Objectif " + obj.Code; }
@@ -1518,12 +1518,12 @@ namespace PATIO.CAPA.Interfaces
 
             foreach (Lien l in listeLien)
             {
-                if (l.element2_type == typeelement_id)
+                if (l.Element2_Type == typeelement_id)
                 {
-                    PATIO.CAPA.Classes.Action action = (PATIO.CAPA.Classes.Action)Acces.Trouver_Element(Acces.type_ACTION, l.element2_id);
+                    PATIO.CAPA.Classes.Action action = (PATIO.CAPA.Classes.Action)Acces.Trouver_Element(Acces.type_ACTION, l.Element2_ID);
                     if (action == null)
                     {
-                        resultat += (char)Keys.Return + "ACT-Id=" + l.element2_id + " Action non trouvée"; }
+                        resultat += (char)Keys.Return + "ACT-Id=" + l.Element2_ID + " Action non trouvée"; }
                     else
                     {
                         if (action.Pilote == null) { resultat += (char)Keys.Return + "Action " + action.Code; }
@@ -1539,7 +1539,7 @@ namespace PATIO.CAPA.Interfaces
 
             foreach (Lien l in listeLien)
             {
-                if (l.element2_id == 0 && l.element2_code.Length > 0)
+                if (l.Element2_ID == 0 && l.Element2_Code.Length > 0)
                 { resultat += (char)Keys.Return + "Lien " + l.ID.ToString(); ok2 = true; }
             }
 
@@ -1608,21 +1608,21 @@ namespace PATIO.CAPA.Interfaces
         {
             string sql;
 
-            sql = "UPDATE lien SET element0_code= (SELECT element.Code FROM element";
-            sql += " WHERE lien.element0_id = element.id";
-            sql += " AND lien.element0_id = " + plan.ID + ")";
+            sql = "UPDATE lien SET Element0_Code= (SELECT element.Code FROM element";
+            sql += " WHERE lien.Element0_ID = element.id";
+            sql += " AND lien.Element0_ID = " + plan.ID + ")";
             Acces.cls.Execute(sql);
             if (Acces.cls.erreur.Length > 0) { MessageBox.Show(Acces.cls.erreur, "Erreur"); }
 
-            sql = "UPDATE lien SET element1_code= (SELECT element.Code FROM element";
-            sql += " WHERE lien.element1_id = element.id";
-            sql += " AND lien.element0_id = " + plan.ID + ")";
+            sql = "UPDATE lien SET Element1_Code= (SELECT element.Code FROM element";
+            sql += " WHERE lien.Element1_ID = element.id";
+            sql += " AND lien.Element0_ID = " + plan.ID + ")";
             Acces.cls.Execute(sql);
             if (Acces.cls.erreur.Length > 0) { MessageBox.Show(Acces.cls.erreur, "Erreur"); }
 
-            sql = "UPDATE lien SET element2_code= (SELECT element.Code FROM element";
-            sql += " WHERE lien.element2_id = element.id";
-            sql += " AND lien.element0_id = " + plan.ID + ")";
+            sql = "UPDATE lien SET Element2_Code= (SELECT element.Code FROM element";
+            sql += " WHERE lien.Element2_ID = element.id";
+            sql += " AND lien.Element0_ID = " + plan.ID + ")";
             Acces.cls.Execute(sql);
             if (Acces.cls.erreur.Length > 0) { MessageBox.Show(Acces.cls.erreur, "Erreur"); }
 

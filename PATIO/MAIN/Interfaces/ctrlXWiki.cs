@@ -912,14 +912,14 @@ namespace PATIO.CAPA.Interfaces
                     case 3: { typeelement_id = typeelement_id_IND; break; }
                 }
 
-                sql = "UPDATE lien SET element0_type='" + typeelement_id.ToString() + "'";
-                sql += " WHERE element0_type='" + i + "'";
+                sql = "UPDATE lien SET Element0_Type='" + typeelement_id.ToString() + "'";
+                sql += " WHERE Element0_Type='" + i + "'";
                 Acces.cls.Execute(sql);
-                sql = "UPDATE lien SET element1_type='" + typeelement_id.ToString() + "'";
-                sql += " WHERE element1_type='" + i + "'";
+                sql = "UPDATE lien SET Element1_Type='" + typeelement_id.ToString() + "'";
+                sql += " WHERE Element1_Type='" + i + "'";
                 Acces.cls.Execute(sql);
-                sql = "UPDATE lien SET element2_type='" + typeelement_id.ToString() + "'";
-                sql += " WHERE element2_type='" + i + "'";
+                sql = "UPDATE lien SET Element2_Type='" + typeelement_id.ToString() + "'";
+                sql += " WHERE Element2_Type='" + i + "'";
                 Acces.cls.Execute(sql);
 
                 sql = "UPDATE attribut SET element_type=" + typeelement_id.ToString();

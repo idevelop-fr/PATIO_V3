@@ -18,6 +18,8 @@ namespace PATIO.MAIN.Classes
 
         public string[] ListeAttribut = { };
 
+        public Fonctions fct = new Fonctions();
+
         public virtual bool Construire(Element e)
         {
             ID = e.ID;

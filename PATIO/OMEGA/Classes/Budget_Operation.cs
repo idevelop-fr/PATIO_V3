@@ -71,8 +71,6 @@ namespace PATIO.OMEGA.Classes
             }
         }
 
-        Fonctions fct = new Fonctions();
-
         public Budget_Operation()
         {
             ListeAttribut = new string[] {"ENVELOPPE", "PERIODE", "TYPE_FLUX",

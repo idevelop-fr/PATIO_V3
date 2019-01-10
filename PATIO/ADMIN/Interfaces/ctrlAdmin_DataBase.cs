@@ -85,8 +85,8 @@ namespace PATIO.ADMIN.Interfaces
         {
             string sql = "DELETE FROM lien";
 
-            sql += " WHERE element0_id = {ID_PLAN}";
-            sql += " AND element2_id = {ID_OBJET}";
+            sql += " WHERE Element0_ID = {ID_PLAN}";
+            sql += " AND Element2_ID = {ID_OBJET}";
 
             lblSQL.Text = sql;
         }

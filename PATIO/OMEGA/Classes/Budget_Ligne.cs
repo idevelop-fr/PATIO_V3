@@ -23,8 +23,6 @@ namespace PATIO.OMEGA.Classes
 
         public List<int> ListeCompte { get; set; }
 
-        Fonctions fct = new Fonctions();
-
         public Budget_Ligne()
         {
             ListeCompte = new List<int>();

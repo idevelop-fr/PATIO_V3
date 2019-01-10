@@ -74,6 +74,7 @@
             this.treeDemarrage = new System.Windows.Forms.TreeView();
             this.tabIteration = new System.Windows.Forms.TabPage();
             this.treeIteration = new System.Windows.Forms.TreeView();
+            this.imageList2 = new System.Windows.Forms.ImageList(this.components);
             this.tabCloture = new System.Windows.Forms.TabPage();
             this.treeCloture = new System.Windows.Forms.TreeView();
             this.tabDonnee = new System.Windows.Forms.TabPage();
@@ -81,9 +82,8 @@
             this.lstDonnee = new System.Windows.Forms.ListBox();
             this.label1 = new System.Windows.Forms.Label();
             this.tabFinance = new System.Windows.Forms.TabPage();
-            this.tabDocumentation = new System.Windows.Forms.TabPage();
-            this.imageList2 = new System.Windows.Forms.ImageList(this.components);
             this.panel4 = new System.Windows.Forms.Panel();
+            this.treeFinance = new System.Windows.Forms.TreeView();
             this.toolStrip3 = new System.Windows.Forms.ToolStrip();
             this.toolStripSeparator4 = new System.Windows.Forms.ToolStripSeparator();
             this.btnAjouterFinance = new System.Windows.Forms.ToolStripButton();
@@ -92,7 +92,7 @@
             this.btnSupprimerFinance = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator6 = new System.Windows.Forms.ToolStripSeparator();
             this.toolStripSeparator7 = new System.Windows.Forms.ToolStripSeparator();
-            this.treeFinance = new System.Windows.Forms.TreeView();
+            this.tabDocumentation = new System.Windows.Forms.TabPage();
             this.panel1.SuspendLayout();
             this.toolStrip1.SuspendLayout();
             this.tabControl.SuspendLayout();
@@ -347,7 +347,7 @@
             this.tabIteration.Name = "tabIteration";
             this.tabIteration.Size = new System.Drawing.Size(685, 395);
             this.tabIteration.TabIndex = 7;
-            this.tabIteration.Text = "Itération";
+            this.tabIteration.Text = "Phases";
             this.tabIteration.UseVisualStyleBackColor = true;
             // 
             // treeIteration
@@ -360,6 +360,12 @@
             this.treeIteration.SelectedImageIndex = 0;
             this.treeIteration.Size = new System.Drawing.Size(258, 395);
             this.treeIteration.TabIndex = 1;
+            // 
+            // imageList2
+            // 
+            this.imageList2.ColorDepth = System.Windows.Forms.ColorDepth.Depth8Bit;
+            this.imageList2.ImageSize = new System.Drawing.Size(16, 16);
+            this.imageList2.TransparentColor = System.Drawing.Color.Transparent;
             // 
             // tabCloture
             // 
@@ -428,21 +434,6 @@
             this.tabFinance.Text = "Données de finances";
             this.tabFinance.UseVisualStyleBackColor = true;
             // 
-            // tabDocumentation
-            // 
-            this.tabDocumentation.Location = new System.Drawing.Point(4, 22);
-            this.tabDocumentation.Name = "tabDocumentation";
-            this.tabDocumentation.Size = new System.Drawing.Size(685, 395);
-            this.tabDocumentation.TabIndex = 8;
-            this.tabDocumentation.Text = "Documentation";
-            this.tabDocumentation.UseVisualStyleBackColor = true;
-            // 
-            // imageList2
-            // 
-            this.imageList2.ColorDepth = System.Windows.Forms.ColorDepth.Depth8Bit;
-            this.imageList2.ImageSize = new System.Drawing.Size(16, 16);
-            this.imageList2.TransparentColor = System.Drawing.Color.Transparent;
-            // 
             // panel4
             // 
             this.panel4.Controls.Add(this.treeFinance);
@@ -452,6 +443,17 @@
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(226, 395);
             this.panel4.TabIndex = 15;
+            // 
+            // treeFinance
+            // 
+            this.treeFinance.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.treeFinance.ImageIndex = 0;
+            this.treeFinance.ImageList = this.imageList2;
+            this.treeFinance.Location = new System.Drawing.Point(0, 25);
+            this.treeFinance.Name = "treeFinance";
+            this.treeFinance.SelectedImageIndex = 0;
+            this.treeFinance.Size = new System.Drawing.Size(226, 370);
+            this.treeFinance.TabIndex = 16;
             // 
             // toolStrip3
             // 
@@ -520,16 +522,14 @@
             this.toolStripSeparator7.Name = "toolStripSeparator7";
             this.toolStripSeparator7.Size = new System.Drawing.Size(6, 25);
             // 
-            // treeFinance
+            // tabDocumentation
             // 
-            this.treeFinance.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.treeFinance.ImageIndex = 0;
-            this.treeFinance.ImageList = this.imageList2;
-            this.treeFinance.Location = new System.Drawing.Point(0, 25);
-            this.treeFinance.Name = "treeFinance";
-            this.treeFinance.SelectedImageIndex = 0;
-            this.treeFinance.Size = new System.Drawing.Size(226, 370);
-            this.treeFinance.TabIndex = 16;
+            this.tabDocumentation.Location = new System.Drawing.Point(4, 22);
+            this.tabDocumentation.Name = "tabDocumentation";
+            this.tabDocumentation.Size = new System.Drawing.Size(685, 395);
+            this.tabDocumentation.TabIndex = 8;
+            this.tabDocumentation.Text = "Documentation";
+            this.tabDocumentation.UseVisualStyleBackColor = true;
             // 
             // ctrlGestionProjet
             // 

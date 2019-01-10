@@ -29,19 +29,15 @@ namespace PATIO.OMEGA.Classes
 
         public bool Validé { get; set; } = false;
 
-        Fonctions fct = new Fonctions();
-
         //Variables d'affichage
         public string DateDemande_Afficher
         {
             get { return string.Format("{0:dd/MM/yyyy}", fct.ConvertiStringToDate(DateDemande)); }
         }
-
         public string DateEffet_Afficher
         {
             get { return string.Format("{0:dd/MM/yyyy}", fct.ConvertiStringToDate(DateDemande)); }
         }
-
         public string Enveloppe_Src_Afficher
         {
             get
@@ -49,7 +45,6 @@ namespace PATIO.OMEGA.Classes
                 return Acces.Trouver_Element(Acces.type_BUDGET_ENVELOPPE, Enveloppe_Src).Libelle;
             }
         }
-
         public string Budget_ORG_Src_Afficher
         {
             get
@@ -62,7 +57,6 @@ namespace PATIO.OMEGA.Classes
                 return "";
             }
         }
-
         public string Budget_GEO_Src_Afficher
         {
             get
@@ -75,7 +69,6 @@ namespace PATIO.OMEGA.Classes
                 return "";
             }
         }
-
         public string Compte_Code_Src_Afficher
         {
             get
@@ -84,7 +77,6 @@ namespace PATIO.OMEGA.Classes
                 return Ncl.Code;
             }
         }
-
         public string Enveloppe_Dest_Afficher
         {
             get
@@ -92,7 +84,6 @@ namespace PATIO.OMEGA.Classes
                 return Acces.Trouver_Element(Acces.type_BUDGET_ENVELOPPE, Enveloppe_Dest).Libelle;
             }
         }
-
          public string Budget_ORG_Dest_Afficher
         {
             get
@@ -105,7 +96,6 @@ namespace PATIO.OMEGA.Classes
                 return "";
             }
         }
-
         public string Budget_GEO_Dest_Afficher
         {
             get
@@ -118,7 +108,6 @@ namespace PATIO.OMEGA.Classes
                 return "";
             }
         }
-
         public string Compte_Code_Dest_Afficher
         {
             get

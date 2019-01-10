@@ -71,8 +71,8 @@ namespace PATIO.CAPA.Interfaces
 
             //Requête
             string sql;
-            sql = "SELECT distinct element0_id, element2_type, element2_id from lien";
-            sql += " WHERE element0_code <>'SYSTEME'";
+            sql = "SELECT distinct Element0_ID, Element2_Type, Element2_ID from lien";
+            sql += " WHERE Element0_Code <>'SYSTEME'";
 
             DataSet Sn = Acces.cls.ContenuRequete(sql);
 

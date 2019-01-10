@@ -11,8 +11,6 @@ namespace PATIO.OMEGA.Classes
         public string DateDeb { get; set; }
         public string DateFin { get; set; }
 
-        Fonctions fct = new Fonctions();
-
         public Budget()
         {
             ListeAttribut =new string[] { "PERIODE", "DATE_DEB", "DATE_FIN" };

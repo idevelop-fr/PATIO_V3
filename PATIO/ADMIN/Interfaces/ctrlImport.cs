@@ -294,24 +294,24 @@ namespace PATIO.ADMIN.Interfaces
                         {
                             case "ID":
                                 { p.ID = int.Parse(xl.Value.ToString()); break; }
-                            case "element0_type":
-                                { p.element0_type = int.Parse(xl.Value.ToString()); break; }
-                            case "element0_id":
-                                { p.element0_id = int.Parse(xl.Value.ToString()); break; }
-                            case "element0_code":
-                                { p.element0_code = xl.Value.ToString(); break; }
-                            case "element1_type":
-                                { p.element1_type =int.Parse(xl.Value.ToString()); break; }
-                            case "element1_Id":
-                                { p.element1_id = int.Parse(xl.Value.ToString()); break; }
-                            case "element1_code":
-                                { p.element1_code = xl.Value.ToString(); break; }
-                            case "element2_type":
-                                { p.element2_type = int.Parse(xl.Value.ToString()); break; }
-                            case "element2_Id":
-                                { p.element2_id = int.Parse(xl.Value.ToString()); break; }
-                            case "element2_code":
-                                { p.element2_code= xl.Value.ToString(); break; }
+                            case "Element0_Type":
+                                { p.Element0_Type = int.Parse(xl.Value.ToString()); break; }
+                            case "Element0_ID":
+                                { p.Element0_ID = int.Parse(xl.Value.ToString()); break; }
+                            case "Element0_Code":
+                                { p.Element0_Code = xl.Value.ToString(); break; }
+                            case "Element1_Type":
+                                { p.Element1_Type =int.Parse(xl.Value.ToString()); break; }
+                            case "Element1_ID":
+                                { p.Element1_ID = int.Parse(xl.Value.ToString()); break; }
+                            case "Element1_Code":
+                                { p.Element1_Code = xl.Value.ToString(); break; }
+                            case "Element2_Type":
+                                { p.Element2_Type = int.Parse(xl.Value.ToString()); break; }
+                            case "Element2_ID":
+                                { p.Element2_ID = int.Parse(xl.Value.ToString()); break; }
+                            case "Element2_Code":
+                                { p.Element2_Code= xl.Value.ToString(); break; }
                             case "Ordre":
                                 { p.ordre = int.Parse(xl.Value.ToString()); break; }
                             case "complement":
@@ -320,19 +320,19 @@ namespace PATIO.ADMIN.Interfaces
                     }
                     //Recherche des identifiants par rapport aux codes
                     int typeelement_id = Acces.type_OBJECTIF.ID;
-                    if (p.element1_type == Acces.type_OBJECTIF.ID)
-                        { p.element1_code = p.element1_code.Replace("+", "_"); }
-                    if (p.element2_type == Acces.type_OBJECTIF.ID)
-                        { p.element2_code = p.element2_code.Replace("+", "_"); }
-                    if (p.element1_type == Acces.type_ACTION.ID)
-                        { p.element1_code = p.element1_code.Replace("+", "_").Replace("|", "."); }
-                    if (p.element2_type == Acces.type_ACTION.ID)
-                        { p.element2_code = p.element2_code.Replace("+", "_").Replace("|", "."); }
+                    if (p.Element1_Type == Acces.type_OBJECTIF.ID)
+                        { p.Element1_Code = p.Element1_Code.Replace("+", "_"); }
+                    if (p.Element2_Type == Acces.type_OBJECTIF.ID)
+                        { p.Element2_Code = p.Element2_Code.Replace("+", "_"); }
+                    if (p.Element1_Type == Acces.type_ACTION.ID)
+                        { p.Element1_Code = p.Element1_Code.Replace("+", "_").Replace("|", "."); }
+                    if (p.Element2_Type == Acces.type_ACTION.ID)
+                        { p.Element2_Code = p.Element2_Code.Replace("+", "_").Replace("|", "."); }
 
-                    p.element1_id = (int) DonneIDElement( p.element1_type.ToString(), p.element1_code);
-                    p.element2_id = (int) DonneIDElement( p.element2_type.ToString(), p.element2_code);
+                    p.Element1_ID = (int) DonneIDElement( p.Element1_Type.ToString(), p.Element1_Code);
+                    p.Element2_ID = (int) DonneIDElement( p.Element2_Type.ToString(), p.Element2_Code);
 
-                    if (!(p.Exister_Lien(p.element0_type.ToString(), p.element0_code, p.element1_type.ToString(), p.element1_code, p.element2_type.ToString(), p.element2_code)))
+                    if (!(p.Exister_Lien(p.Element0_Type.ToString(), p.Element0_Code, p.Element1_Type.ToString(), p.Element1_Code, p.Element2_Type.ToString(), p.Element2_Code)))
                     { p.Ajouter(); Acces.Ajouter_Lien(p); }
                 }
             }

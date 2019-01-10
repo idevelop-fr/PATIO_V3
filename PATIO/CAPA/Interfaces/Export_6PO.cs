@@ -166,9 +166,9 @@ namespace PATIO.CAPA.Interfaces
             Console.Ajouter("->Nb lignes :" + listeLien.Count.ToString());
             foreach (var l in listeLien)
             {
-                if (l.element2_type == Acces.type_OBJECTIF.ID && l.element1_type == Acces.type_PLAN.ID)
+                if (l.Element2_Type == Acces.type_OBJECTIF.ID && l.Element1_Type == Acces.type_PLAN.ID)
                 {
-                    Objectif Obj =(Objectif) Acces.Trouver_Element(Acces.type_OBJECTIF, l.element2_id);
+                    Objectif Obj =(Objectif) Acces.Trouver_Element(Acces.type_OBJECTIF, l.Element2_ID);
 
                     n++;
                     r = ws.Cells[n, 1];
@@ -236,11 +236,11 @@ namespace PATIO.CAPA.Interfaces
             int k = 0;
             foreach (var l in listeLien)
             {
-                //On cherche un objectif (element2_type) qui n'est pas un objectif opérationnel
+                //On cherche un objectif (Element2_Type) qui n'est pas un objectif opérationnel
                 //et le parent de l'objectif est le plan
-                if (l.element1_type == Acces.type_PLAN.ID && l.element2_type == Acces.type_OBJECTIF.ID)
+                if (l.Element1_Type == Acces.type_PLAN.ID && l.Element2_Type == Acces.type_OBJECTIF.ID)
                 {
-                    Objectif Obj = (Objectif)Acces.Trouver_Element(Acces.type_OBJECTIF, l.element2_id);
+                    Objectif Obj = (Objectif)Acces.Trouver_Element(Acces.type_OBJECTIF, l.Element2_ID);
 
                     if (Obj.TypeObjectif != TypeObjectif.OPERATIONNEL)
                     {
@@ -316,14 +316,14 @@ namespace PATIO.CAPA.Interfaces
             foreach (var l in listeLien)
             {
                 //l'élément principal est un objectif ainsi que son parent
-                if (l.element1_type == Acces.type_OBJECTIF.ID && l.element2_type == Acces.type_OBJECTIF.ID)
+                if (l.Element1_Type == Acces.type_OBJECTIF.ID && l.Element2_Type == Acces.type_OBJECTIF.ID)
                 {
-                    Objectif Obj2 = (Objectif)Acces.Trouver_Element(Acces.type_OBJECTIF, l.element2_id);
+                    Objectif Obj2 = (Objectif)Acces.Trouver_Element(Acces.type_OBJECTIF, l.Element2_ID);
 
                     //On exclut les objectifs opérationnels sensés correspondre au niveau Objectif de 6PO
                     if (Obj2.TypeObjectif != TypeObjectif.OPERATIONNEL)
                     {
-                        Objectif Obj1 = (Objectif)Acces.Trouver_Element(Acces.type_OBJECTIF, l.element1_id); //Parent
+                        Objectif Obj1 = (Objectif)Acces.Trouver_Element(Acces.type_OBJECTIF, l.Element1_ID); //Parent
                         n++;
                         r = ws.Cells[n, 1];
                         r.Value = Obj1.Libelle;
@@ -395,19 +395,19 @@ namespace PATIO.CAPA.Interfaces
             int k = 0;
             foreach (var l1 in listeLien)
             {
-                if (l1.element2_type == Acces.type_OBJECTIF.ID
-                    && l1.element1_type == Acces.type_PLAN.ID)
+                if (l1.Element2_Type == Acces.type_OBJECTIF.ID
+                    && l1.Element1_Type == Acces.type_PLAN.ID)
                 {
-                    Objectif Obj1 = (Objectif) Acces.Trouver_Element(Acces.type_OBJECTIF,l1.element2_id);
+                    Objectif Obj1 = (Objectif) Acces.Trouver_Element(Acces.type_OBJECTIF,l1.Element2_ID);
                     lObj.Add(Obj1);
 
                     foreach (var l2 in listeLien)
                     {
-                        if (l2.element1_id == l1.element2_id 
-                            && l2.element1_type == Acces.type_OBJECTIF.ID
-                            && l2.element2_type == Acces.type_OBJECTIF.ID)
+                        if (l2.Element1_ID == l1.Element2_ID 
+                            && l2.Element1_Type == Acces.type_OBJECTIF.ID
+                            && l2.Element2_Type == Acces.type_OBJECTIF.ID)
                         {
-                            Objectif Obj2 =(Objectif) Acces.Trouver_Element(Acces.type_OBJECTIF,l2.element2_id);
+                            Objectif Obj2 =(Objectif) Acces.Trouver_Element(Acces.type_OBJECTIF,l2.Element2_ID);
 
                             n++;
                             r = ws.Cells[n, 1];
@@ -480,9 +480,9 @@ namespace PATIO.CAPA.Interfaces
             int type_objectif = 0;
             foreach(var l in listeLien)
             {
-                if(l.element2_type == Acces.type_OBJECTIF.ID)
+                if(l.Element2_Type == Acces.type_OBJECTIF.ID)
                 {
-                    Objectif Obj = (Objectif)Acces.Trouver_Element(Acces.type_OBJECTIF, l.element2_id);
+                    Objectif Obj = (Objectif)Acces.Trouver_Element(Acces.type_OBJECTIF, l.Element2_ID);
                     if (Obj != null)
                     {
                         if ((int)Obj.TypeObjectif > type_objectif) { type_objectif = (int)Obj.TypeObjectif; }
@@ -495,12 +495,12 @@ namespace PATIO.CAPA.Interfaces
             int k = 0;
             foreach (var l in listeLien)
             {
-                if (l.element2_type == Acces.type_OBJECTIF.ID)
-                    //if (l.element1_type == Acces.type_OBJECTIF && l.element2_type == Acces.type_ACTION)
+                if (l.Element2_Type == Acces.type_OBJECTIF.ID)
+                    //if (l.Element1_Type == Acces.type_OBJECTIF && l.Element2_Type == Acces.type_ACTION)
                 {
-                    //PATIO.CAPA.Classes.Action action = (PATIO.CAPA.Classes.Action)Acces.Trouver_Element(Acces.type_ACTION, l.element2_id);
-                    Objectif Obj = (Objectif)Acces.Trouver_Element(Acces.type_OBJECTIF, l.element2_id);
-                    Objectif Obj2 =(Objectif) Acces.Trouver_Element(Acces.type_OBJECTIF, l.element1_id);
+                    //PATIO.CAPA.Classes.Action action = (PATIO.CAPA.Classes.Action)Acces.Trouver_Element(Acces.type_ACTION, l.Element2_ID);
+                    Objectif Obj = (Objectif)Acces.Trouver_Element(Acces.type_OBJECTIF, l.Element2_ID);
+                    Objectif Obj2 =(Objectif) Acces.Trouver_Element(Acces.type_OBJECTIF, l.Element1_ID);
 
                     if(Obj == null) { goto Suite; }
                     if ((int) Obj.TypeObjectif != type_objectif) { goto Suite; }
@@ -784,11 +784,11 @@ namespace PATIO.CAPA.Interfaces
             int k_ope = 0;
             foreach (var l in listeLien)
             {
-                if (l.element2_type == Acces.type_ACTION.ID)
-                    //if (l.element1_type == Acces.type_ACTION && l.element2_type == Acces.type_ACTION)
+                if (l.Element2_Type == Acces.type_ACTION.ID)
+                    //if (l.Element1_Type == Acces.type_ACTION && l.Element2_Type == Acces.type_ACTION)
                 {
-                    PATIO.CAPA.Classes.Action action1 = (PATIO.CAPA.Classes.Action)Acces.Trouver_Element(Acces.type_ACTION, l.element1_id);
-                    PATIO.CAPA.Classes.Action action2 =(PATIO.CAPA.Classes.Action) Acces.Trouver_Element(Acces.type_ACTION, l.element2_id);
+                    PATIO.CAPA.Classes.Action action1 = (PATIO.CAPA.Classes.Action)Acces.Trouver_Element(Acces.type_ACTION, l.Element1_ID);
+                    PATIO.CAPA.Classes.Action action2 =(PATIO.CAPA.Classes.Action) Acces.Trouver_Element(Acces.type_ACTION, l.Element2_ID);
 
                     if(action2 is null) { MessageBox.Show("id lien : " + l.ID.ToString(), "Action 2 null"); }
                     //Onglet 1: ACT-
@@ -821,9 +821,9 @@ namespace PATIO.CAPA.Interfaces
                         k_ope++;
                         foreach(Lien lr in listeLien)
                         {
-                            if(lr.element2_id == action1.ID)
+                            if(lr.Element2_ID == action1.ID)
                             {
-                                rattache = lr.element1_code;
+                                rattache = lr.Element1_Code;
                                 break;
                             }
                         }
@@ -1150,9 +1150,9 @@ namespace PATIO.CAPA.Interfaces
             {
                 foreach (Lien l in listeLien)
                 {
-                    if (l.element1_id == objectif.ID && l.element2_type == Acces.type_INDICATEUR.ID)
+                    if (l.Element1_ID == objectif.ID && l.Element2_Type == Acces.type_INDICATEUR.ID)
                     {
-                        Indicateur ind = (Indicateur)Acces.Trouver_Element(Acces.type_INDICATEUR, l.element2_id);
+                        Indicateur ind = (Indicateur)Acces.Trouver_Element(Acces.type_INDICATEUR, l.Element2_ID);
                         n++;
                         Range r;
                         r = ws.Cells[n, 1];
@@ -1194,9 +1194,9 @@ namespace PATIO.CAPA.Interfaces
             {
                 foreach(Lien l in listeLien)
                 {
-                    if(l.element1_id==action.ID && l.element2_type == Acces.type_INDICATEUR.ID)
+                    if(l.Element1_ID==action.ID && l.Element2_Type == Acces.type_INDICATEUR.ID)
                     {
-                        Indicateur ind = (Indicateur)Acces.Trouver_Element(Acces.type_INDICATEUR, l.element2_id);
+                        Indicateur ind = (Indicateur)Acces.Trouver_Element(Acces.type_INDICATEUR, l.Element2_ID);
                         n++;
                         Range r;
                         r = ws.Cells[n, 1];

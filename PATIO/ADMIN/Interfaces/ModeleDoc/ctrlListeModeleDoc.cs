@@ -220,17 +220,17 @@ namespace PATIO.ADMIN
 
             //Création du lien
             Lien p = new Lien();
-            p.element1_type = Acces.type_UTILISATEUR.ID;
-            p.element1_id = int.Parse(NodDest.Name);
-            p.element1_code = Acces.Trouver_Utilisateur(p.element1_id).Code;
-            p.element2_type = Acces.type_UTILISATEUR.ID;
-            p.element1_id = int.Parse(nodSrc.Name);
-            p.element2_code = Acces.Trouver_Utilisateur(p.element2_id).Code;
-            p.element0_type = Acces.type_PLAN.ID;
-            p.element0_id = 1; //SYSTEME
+            p.Element1_Type = Acces.type_UTILISATEUR.ID;
+            p.Element1_ID = int.Parse(NodDest.Name);
+            p.Element1_Code = Acces.Trouver_Utilisateur(p.Element1_ID).Code;
+            p.Element2_Type = Acces.type_UTILISATEUR.ID;
+            p.Element1_ID = int.Parse(nodSrc.Name);
+            p.Element2_Code = Acces.Trouver_Utilisateur(p.Element2_ID).Code;
+            p.Element0_Type = Acces.type_PLAN.ID;
+            p.Element0_ID = 1; //SYSTEME
             p.ordre = p.Donner_Ordre() + 1;
 
-            if (p.element1_id == p.element2_id) { return; } //Système anti-bouclage
+            if (p.Element1_ID == p.Element2_ID) { return; } //Système anti-bouclage
 
             p.Ajouter();
 

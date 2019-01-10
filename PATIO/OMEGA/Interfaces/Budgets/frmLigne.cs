@@ -243,7 +243,9 @@ namespace PATIO.OMEGA.Interfaces.Budgets
 
         void Afficher_ListeORG()
         {
-            string valeur_defaut = Acces.Trouver_Parametre("BUDGET_ORG").Valeur;
+            string valeur_defaut = "";
+
+            try { valeur_defaut = Acces.Trouver_Parametre("BUDGET_ORG").Valeur; } catch { };
 
             lstORG.Items.Clear();
             listeORG = Acces.Remplir_ListeTableValeur("BUDGET_ORG");

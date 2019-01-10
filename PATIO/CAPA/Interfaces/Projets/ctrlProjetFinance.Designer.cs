@@ -35,6 +35,7 @@
             System.Windows.Forms.TreeNode treeNode5 = new System.Windows.Forms.TreeNode("Eléments de suivi");
             System.Windows.Forms.TreeNode treeNode6 = new System.Windows.Forms.TreeNode("Evaluation");
             this.panel1 = new System.Windows.Forms.Panel();
+            this.treeFiche = new System.Windows.Forms.TreeView();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.btnAjouter = new System.Windows.Forms.ToolStripButton();
@@ -43,7 +44,6 @@
             this.btnSupprimerPlan = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.toolStripSeparator16 = new System.Windows.Forms.ToolStripSeparator();
-            this.treeFiche = new System.Windows.Forms.TreeView();
             this.panel2 = new System.Windows.Forms.Panel();
             this.panel1.SuspendLayout();
             this.toolStrip1.SuspendLayout();
@@ -58,6 +58,33 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(215, 306);
             this.panel1.TabIndex = 15;
+            // 
+            // treeFiche
+            // 
+            this.treeFiche.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.treeFiche.Location = new System.Drawing.Point(0, 25);
+            this.treeFiche.Name = "treeFiche";
+            treeNode1.Name = "Nœud0";
+            treeNode1.Text = "Expression de besoins";
+            treeNode2.Name = "Nœud1";
+            treeNode2.Text = "Conventions/EJ";
+            treeNode3.Name = "Nœud2";
+            treeNode3.Text = "Eléments financiers";
+            treeNode4.Name = "Nœud3";
+            treeNode4.Text = "Rapports/Bilans";
+            treeNode5.Name = "Nœud4";
+            treeNode5.Text = "Eléments de suivi";
+            treeNode6.Name = "Nœud6";
+            treeNode6.Text = "Evaluation";
+            this.treeFiche.Nodes.AddRange(new System.Windows.Forms.TreeNode[] {
+            treeNode1,
+            treeNode2,
+            treeNode3,
+            treeNode4,
+            treeNode5,
+            treeNode6});
+            this.treeFiche.Size = new System.Drawing.Size(215, 281);
+            this.treeFiche.TabIndex = 16;
             // 
             // toolStrip1
             // 
@@ -90,6 +117,7 @@
             this.btnAjouter.Name = "btnAjouter";
             this.btnAjouter.Size = new System.Drawing.Size(23, 22);
             this.btnAjouter.Text = "Ajouter une itération";
+            this.btnAjouter.ToolTipText = "Ajouter un document";
             // 
             // toolStripSeparator17
             // 
@@ -125,33 +153,6 @@
             this.toolStripSeparator16.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
             this.toolStripSeparator16.Name = "toolStripSeparator16";
             this.toolStripSeparator16.Size = new System.Drawing.Size(6, 25);
-            // 
-            // treeFiche
-            // 
-            this.treeFiche.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.treeFiche.Location = new System.Drawing.Point(0, 25);
-            this.treeFiche.Name = "treeFiche";
-            treeNode1.Name = "Nœud0";
-            treeNode1.Text = "Expression de besoins";
-            treeNode2.Name = "Nœud1";
-            treeNode2.Text = "Conventions/EJ";
-            treeNode3.Name = "Nœud2";
-            treeNode3.Text = "Eléments financiers";
-            treeNode4.Name = "Nœud3";
-            treeNode4.Text = "Rapports/Bilans";
-            treeNode5.Name = "Nœud4";
-            treeNode5.Text = "Eléments de suivi";
-            treeNode6.Name = "Nœud6";
-            treeNode6.Text = "Evaluation";
-            this.treeFiche.Nodes.AddRange(new System.Windows.Forms.TreeNode[] {
-            treeNode1,
-            treeNode2,
-            treeNode3,
-            treeNode4,
-            treeNode5,
-            treeNode6});
-            this.treeFiche.Size = new System.Drawing.Size(215, 281);
-            this.treeFiche.TabIndex = 16;
             // 
             // panel2
             // 

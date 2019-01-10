@@ -36,7 +36,9 @@
             this.BtnValider = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
             this.lblCode = new System.Windows.Forms.ToolStripLabel();
-            this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.tabInfo = new System.Windows.Forms.TabPage();
+            this.lstStatut = new System.Windows.Forms.ComboBox();
+            this.label6 = new System.Windows.Forms.Label();
             this.lblLibelleProjet = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.lblRef2 = new System.Windows.Forms.TextBox();
@@ -55,11 +57,14 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.tabControl1 = new System.Windows.Forms.TabControl();
-            this.label6 = new System.Windows.Forms.Label();
-            this.lstStatut = new System.Windows.Forms.ComboBox();
+            this.tabFinancement = new System.Windows.Forms.TabPage();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.ChoixEnveloppe = new PATIO.MAIN.Interfaces.ctrlChoixListe();
             this.toolStrip1.SuspendLayout();
-            this.tabPage1.SuspendLayout();
+            this.tabInfo.SuspendLayout();
             this.tabControl1.SuspendLayout();
+            this.tabFinancement.SuspendLayout();
+            this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // toolStrip1
@@ -68,6 +73,7 @@
             this.toolStrip1.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.toolStrip1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.toolStrip1.GripStyle = System.Windows.Forms.ToolStripGripStyle.Hidden;
+            this.toolStrip1.ImageScalingSize = new System.Drawing.Size(32, 32);
             this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripSeparator1,
             this.BtnAnnuler,
@@ -126,34 +132,51 @@
             this.lblCode.Name = "lblCode";
             this.lblCode.Size = new System.Drawing.Size(0, 27);
             // 
-            // tabPage1
+            // tabInfo
             // 
-            this.tabPage1.Controls.Add(this.lstStatut);
-            this.tabPage1.Controls.Add(this.label6);
-            this.tabPage1.Controls.Add(this.lblLibelleProjet);
-            this.tabPage1.Controls.Add(this.label5);
-            this.tabPage1.Controls.Add(this.lblRef2);
-            this.tabPage1.Controls.Add(this.lblCodeProjet);
-            this.tabPage1.Controls.Add(this.lblEntete);
-            this.tabPage1.Controls.Add(this.lblRef1);
-            this.tabPage1.Controls.Add(this.label12);
-            this.tabPage1.Controls.Add(this.label11);
-            this.tabPage1.Controls.Add(this.label9);
-            this.tabPage1.Controls.Add(this.lstPilote);
-            this.tabPage1.Controls.Add(this.lstTypeProjet);
-            this.tabPage1.Controls.Add(this.label4);
-            this.tabPage1.Controls.Add(this.label1);
-            this.tabPage1.Controls.Add(this.OptActiveProjet);
-            this.tabPage1.Controls.Add(this.label3);
-            this.tabPage1.Controls.Add(this.label2);
-            this.tabPage1.Controls.Add(this.label10);
-            this.tabPage1.Location = new System.Drawing.Point(4, 34);
-            this.tabPage1.Name = "tabPage1";
-            this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(549, 207);
-            this.tabPage1.TabIndex = 0;
-            this.tabPage1.Text = "Informations";
-            this.tabPage1.UseVisualStyleBackColor = true;
+            this.tabInfo.Controls.Add(this.lstPilote);
+            this.tabInfo.Controls.Add(this.lstStatut);
+            this.tabInfo.Controls.Add(this.label6);
+            this.tabInfo.Controls.Add(this.lblLibelleProjet);
+            this.tabInfo.Controls.Add(this.label5);
+            this.tabInfo.Controls.Add(this.lblRef2);
+            this.tabInfo.Controls.Add(this.lblCodeProjet);
+            this.tabInfo.Controls.Add(this.lblEntete);
+            this.tabInfo.Controls.Add(this.lblRef1);
+            this.tabInfo.Controls.Add(this.label12);
+            this.tabInfo.Controls.Add(this.label11);
+            this.tabInfo.Controls.Add(this.label9);
+            this.tabInfo.Controls.Add(this.lstTypeProjet);
+            this.tabInfo.Controls.Add(this.label4);
+            this.tabInfo.Controls.Add(this.label1);
+            this.tabInfo.Controls.Add(this.OptActiveProjet);
+            this.tabInfo.Controls.Add(this.label3);
+            this.tabInfo.Controls.Add(this.label2);
+            this.tabInfo.Controls.Add(this.label10);
+            this.tabInfo.Location = new System.Drawing.Point(4, 34);
+            this.tabInfo.Name = "tabInfo";
+            this.tabInfo.Padding = new System.Windows.Forms.Padding(3);
+            this.tabInfo.Size = new System.Drawing.Size(549, 207);
+            this.tabInfo.TabIndex = 0;
+            this.tabInfo.Text = "Informations";
+            this.tabInfo.UseVisualStyleBackColor = true;
+            // 
+            // lstStatut
+            // 
+            this.lstStatut.FormattingEnabled = true;
+            this.lstStatut.Location = new System.Drawing.Point(345, 173);
+            this.lstStatut.Name = "lstStatut";
+            this.lstStatut.Size = new System.Drawing.Size(188, 21);
+            this.lstStatut.TabIndex = 27;
+            // 
+            // label6
+            // 
+            this.label6.Location = new System.Drawing.Point(238, 173);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(101, 23);
+            this.label6.TabIndex = 26;
+            this.label6.Text = "Statut :";
+            this.label6.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // lblLibelleProjet
             // 
@@ -281,7 +304,7 @@
             // 
             // label3
             // 
-            this.label3.Location = new System.Drawing.Point(6, 169);
+            this.label3.Location = new System.Drawing.Point(12, 171);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(155, 23);
             this.label3.TabIndex = 4;
@@ -308,7 +331,8 @@
             // 
             // tabControl1
             // 
-            this.tabControl1.Controls.Add(this.tabPage1);
+            this.tabControl1.Controls.Add(this.tabInfo);
+            this.tabControl1.Controls.Add(this.tabFinancement);
             this.tabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tabControl1.ItemSize = new System.Drawing.Size(69, 30);
             this.tabControl1.Location = new System.Drawing.Point(0, 0);
@@ -317,22 +341,35 @@
             this.tabControl1.Size = new System.Drawing.Size(557, 245);
             this.tabControl1.TabIndex = 3;
             // 
-            // label6
+            // tabFinancement
             // 
-            this.label6.Location = new System.Drawing.Point(238, 173);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(101, 23);
-            this.label6.TabIndex = 26;
-            this.label6.Text = "Statut :";
-            this.label6.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.tabFinancement.Controls.Add(this.groupBox1);
+            this.tabFinancement.Location = new System.Drawing.Point(4, 34);
+            this.tabFinancement.Name = "tabFinancement";
+            this.tabFinancement.Size = new System.Drawing.Size(549, 207);
+            this.tabFinancement.TabIndex = 1;
+            this.tabFinancement.Text = "Financements";
+            this.tabFinancement.UseVisualStyleBackColor = true;
             // 
-            // lstStatut
+            // groupBox1
             // 
-            this.lstStatut.FormattingEnabled = true;
-            this.lstStatut.Location = new System.Drawing.Point(345, 173);
-            this.lstStatut.Name = "lstStatut";
-            this.lstStatut.Size = new System.Drawing.Size(188, 21);
-            this.lstStatut.TabIndex = 27;
+            this.groupBox1.Controls.Add(this.ChoixEnveloppe);
+            this.groupBox1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.groupBox1.Location = new System.Drawing.Point(0, 0);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(549, 207);
+            this.groupBox1.TabIndex = 0;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Enveloppes budgétaires";
+            // 
+            // ChoixEnveloppe
+            // 
+            this.ChoixEnveloppe.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.ChoixEnveloppe.Location = new System.Drawing.Point(3, 16);
+            this.ChoixEnveloppe.Name = "ChoixEnveloppe";
+            this.ChoixEnveloppe.Size = new System.Drawing.Size(543, 188);
+            this.ChoixEnveloppe.TabIndex = 0;
+            this.ChoixEnveloppe.Tag = "CHOIXLISTE";
             // 
             // frmFicheProjet
             // 
@@ -349,9 +386,11 @@
             this.Text = "Fiche projet";
             this.toolStrip1.ResumeLayout(false);
             this.toolStrip1.PerformLayout();
-            this.tabPage1.ResumeLayout(false);
-            this.tabPage1.PerformLayout();
+            this.tabInfo.ResumeLayout(false);
+            this.tabInfo.PerformLayout();
             this.tabControl1.ResumeLayout(false);
+            this.tabFinancement.ResumeLayout(false);
+            this.groupBox1.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -365,7 +404,7 @@
         private System.Windows.Forms.ToolStripButton BtnValider;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator3;
         private System.Windows.Forms.ToolStripLabel lblCode;
-        private System.Windows.Forms.TabPage tabPage1;
+        private System.Windows.Forms.TabPage tabInfo;
         private System.Windows.Forms.TextBox lblRef2;
         private System.Windows.Forms.TextBox lblCodeProjet;
         private System.Windows.Forms.TextBox lblEntete;
@@ -386,5 +425,8 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.ComboBox lstStatut;
         private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.TabPage tabFinancement;
+        private System.Windows.Forms.GroupBox groupBox1;
+        private MAIN.Interfaces.ctrlChoixListe ChoixEnveloppe;
     }
 }

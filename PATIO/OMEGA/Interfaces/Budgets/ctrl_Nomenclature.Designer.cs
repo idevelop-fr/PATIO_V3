@@ -142,6 +142,7 @@
             this.btnImporter.Name = "btnImporter";
             this.btnImporter.Size = new System.Drawing.Size(57, 22);
             this.btnImporter.Text = "Importer";
+            this.btnImporter.ToolTipText = "Fichier Texte avec séparateur ;";
             this.btnImporter.Click += new System.EventHandler(this.btnImporter_Click);
             // 
             // toolStripSeparator3

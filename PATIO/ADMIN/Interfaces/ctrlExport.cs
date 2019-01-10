@@ -218,12 +218,12 @@ namespace PATIO.ADMIN.Interfaces
                         {
                             p.ID,
                             p.PlanId,
-                            p.element1_type,
-                            p.element1_id,
-                            p.element1_code,
-                            p.element2_type,
-                            p.element2_id,
-                            p.element2_code,
+                            p.Element1_Type,
+                            p.Element1_ID,
+                            p.Element1_Code,
+                            p.Element2_Type,
+                            p.Element2_ID,
+                            p.Element2_Code,
                             p.ProprietaireId,
                             p.Ordre,
                             p.Actif,
@@ -233,12 +233,12 @@ namespace PATIO.ADMIN.Interfaces
                        new XElement("Lien",
                        new XElement("ID", p.ID),
                        new XElement("PlanID", p.PlanId),
-                       new XElement("element1_type", p.element1_type.GetHashCode()),
-                       new XElement("element1_id", p.element1_id),
-                       new XElement("element1_code", p.element1_code),
-                       new XElement("element2_type", p.element2_type.GetHashCode()),
-                       new XElement("element2_id", p.element2_id),
-                       new XElement("element2_code", p.element2_code),
+                       new XElement("Element1_Type", p.Element1_Type.GetHashCode()),
+                       new XElement("Element1_ID", p.Element1_ID),
+                       new XElement("Element1_Code", p.Element1_Code),
+                       new XElement("Element2_Type", p.Element2_Type.GetHashCode()),
+                       new XElement("Element2_ID", p.Element2_ID),
+                       new XElement("Element2_Code", p.Element2_Code),
                        new XElement("Ordre", p.Ordre),
                        new XElement("Actif", p.Actif)
                        ));
@@ -756,31 +756,31 @@ namespace PATIO.ADMIN.Interfaces
 
             foreach (Lien p in ListeLien)
             {
-                //lst.Items.Add("Lien : " + p.element1_code + "-" + p.element2_code);
+                //lst.Items.Add("Lien : " + p.Element1_Code + "-" + p.Element2_Code);
                 Application.DoEvents();
 
                 int elementid0 = 0; int elementid1 = 0; int elementid2 = 0;
                 string typeelement0 = DonneValeur("TYPE_ELEMENT", Acces.type_PLAN.Code, ref elementid0);
-                string element1_type = DonneValeur("TYPE_ELEMENT", Acces.Trouver_TableValeur(p.element1_type).Code, ref elementid1);
-                string element2_type = DonneValeur("TYPE_ELEMENT", Acces.Trouver_TableValeur(p.element2_type).Code, ref elementid2);
+                string Element1_Type = DonneValeur("TYPE_ELEMENT", Acces.Trouver_TableValeur(p.Element1_Type).Code, ref elementid1);
+                string Element2_Type = DonneValeur("TYPE_ELEMENT", Acces.Trouver_TableValeur(p.Element2_Type).Code, ref elementid2);
 
-                sql = "INSERT INTO lien (element0_type, element0_code, element0_id, element1_type, element1_id, element1_code,";
-                sql += " element2_type, element2_id, element2_code, ordre, complement) VALUES (";
+                sql = "INSERT INTO lien (Element0_Type, Element0_Code, Element0_ID, Element1_Type, Element1_ID, Element1_Code,";
+                sql += " Element2_Type, Element2_ID, Element2_Code, ordre, complement) VALUES (";
                 sql += "'" +typeelement0 + "',";
-                sql += "'" + DonneCodePlan(p.element0_id, listeplan) + "',";
-                sql += "'" + p.element0_id + "',";
-                sql += "'" + element1_type + "',";
-                sql += "'" + p.element1_id + "',";
-                sql += "'" + p.element1_code + "',";
-                sql += "'" + element2_type + "',";
-                sql += "'" + p.element2_id + "',";
-                sql += "'" + p.element2_code + "',";
+                sql += "'" + DonneCodePlan(p.Element0_ID, listeplan) + "',";
+                sql += "'" + p.Element0_ID + "',";
+                sql += "'" + Element1_Type + "',";
+                sql += "'" + p.Element1_ID + "',";
+                sql += "'" + p.Element1_Code + "',";
+                sql += "'" + Element2_Type + "',";
+                sql += "'" + p.Element2_ID + "',";
+                sql += "'" + p.Element2_Code + "',";
                 sql += "'" + p.ordre + "',";
                 sql += "'" + p.complement + "')";
 
                 cls = new ClassePHP();
                 cls.Execute(sql);
-                if (cls.erreur.Length > 0) { lst.Items.Add("Erreur : " + p.element1_code + "-" + p.element2_code); }
+                if (cls.erreur.Length > 0) { lst.Items.Add("Erreur : " + p.Element1_Code + "-" + p.Element2_Code); }
                 else { n++; }
             }
 
