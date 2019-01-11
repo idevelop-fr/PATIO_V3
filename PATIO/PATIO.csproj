@@ -564,6 +564,12 @@
     <Compile Include="OMEGA\Interfaces\Association\ctrlListeAssociation.Designer.cs">
       <DependentUpon>ctrlListeAssociation.cs</DependentUpon>
     </Compile>
+    <Compile Include="OMEGA\Interfaces\Association\frmFicheAssociation.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="OMEGA\Interfaces\Association\frmFicheAssociation.Designer.cs">
+      <DependentUpon>frmFicheAssociation.cs</DependentUpon>
+    </Compile>
     <Compile Include="OMEGA\Interfaces\Budgets\ctrl_Nomenclature.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -630,6 +636,18 @@
     </Compile>
     <Compile Include="OMEGA\Interfaces\Budgets\frmVirement.Designer.cs">
       <DependentUpon>frmVirement.cs</DependentUpon>
+    </Compile>
+    <Compile Include="OMEGA\Interfaces\Commande\ctrlListeCommande.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="OMEGA\Interfaces\Commande\ctrlListeCommande.Designer.cs">
+      <DependentUpon>ctrlListeCommande.cs</DependentUpon>
+    </Compile>
+    <Compile Include="OMEGA\Interfaces\Commande\frmFicheCommande.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="OMEGA\Interfaces\Commande\frmFicheCommande.Designer.cs">
+      <DependentUpon>frmFicheCommande.cs</DependentUpon>
     </Compile>
     <Compile Include="OMEGA\Rapports\Class1.cs" />
     <Compile Include="Program.cs" />
@@ -827,6 +845,9 @@
     <EmbeddedResource Include="OMEGA\Interfaces\Association\ctrlListeAssociation.resx">
       <DependentUpon>ctrlListeAssociation.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="OMEGA\Interfaces\Association\frmFicheAssociation.resx">
+      <DependentUpon>frmFicheAssociation.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="OMEGA\Interfaces\Budgets\ctrl_Nomenclature.resx">
       <DependentUpon>ctrl_Nomenclature.cs</DependentUpon>
     </EmbeddedResource>
@@ -859,6 +880,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="OMEGA\Interfaces\Budgets\frmVirement.resx">
       <DependentUpon>frmVirement.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="OMEGA\Interfaces\Commande\ctrlListeCommande.resx">
+      <DependentUpon>ctrlListeCommande.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="OMEGA\Interfaces\Commande\frmFicheCommande.resx">
+      <DependentUpon>frmFicheCommande.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="OMEGA\Rapports\Rapport_Budget.rdlc" />
     <EmbeddedResource Include="Properties\Resources.resx">
@@ -1221,6 +1248,11 @@
     <None Include="Resources\Pilote.png" />
     <None Include="Resources\Administrateur.png" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="OMEGA\Interfaces\Decision\" />
+    <Folder Include="OMEGA\Interfaces\Echeance\" />
+    <Folder Include="OMEGA\Interfaces\Liquidation\" />
+    <Folder Include="OMEGA\Interfaces\Paiement\" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

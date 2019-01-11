@@ -53,7 +53,7 @@ namespace PATIO.OMEGA.Interfaces.Association
 
         public void Afficher_ListeBudget()
         {
-            lstBudget.Nodes.Clear();
+            lstProjet.Nodes.Clear();
 
             if (lstPeriode.SelectedIndex < 0) { return; }
 
@@ -71,13 +71,13 @@ namespace PATIO.OMEGA.Interfaces.Association
                 //nd.Nodes.Add(nd_ligne);
                 nd.Nodes.Add(nd_version);*/
                 nd.Expand();
-                lstBudget.Nodes.Add(nd);
+                lstProjet.Nodes.Add(nd);
             }
 
             if (budget != null)
             {
-                TreeNode[] liste = lstBudget.Nodes.Find(budget.ID.ToString(), true);
-                if (liste.Length > 0) { lstBudget.SelectedNode = liste[0]; }
+                TreeNode[] liste = lstProjet.Nodes.Find(budget.ID.ToString(), true);
+                if (liste.Length > 0) { lstProjet.SelectedNode = liste[0]; }
             }
         }
 
