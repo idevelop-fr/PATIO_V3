@@ -1122,6 +1122,7 @@
     <None Include="Resources\plus_o.png" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="CAPA\Classes\Readme.txt" />
     <Content Include="CAPA\Interfaces\Projets\Description.txt" />
     <Content Include="Doc\Gestion des projets.txt" />
     <Content Include="ICON.ico" />
@@ -1170,6 +1171,8 @@
     <None Include="Resources\large_green_up.gif" />
     <None Include="Resources\save.gif" />
     <None Include="Resources\save.png" />
+    <Content Include="OMEGA\Interfaces\Association\Readme.txt" />
+    <Content Include="OMEGA\Interfaces\Commande\Readme.txt" />
     <Content Include="sql\attribut.sql" />
     <Content Include="sql\delement.sql" />
     <Content Include="sql\droit.sql" />

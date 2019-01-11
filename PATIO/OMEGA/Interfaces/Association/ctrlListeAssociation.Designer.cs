@@ -29,6 +29,11 @@
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
+            this.lstProjet = new System.Windows.Forms.TreeView();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.lstPole = new System.Windows.Forms.ListBox();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.lstEnveloppe = new System.Windows.Forms.ListBox();
             this.toolStrip4 = new System.Windows.Forms.ToolStrip();
             this.toolStripSeparator12 = new System.Windows.Forms.ToolStripSeparator();
             this.toolStripLabel1 = new System.Windows.Forms.ToolStripLabel();
@@ -36,21 +41,16 @@
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.splitter1 = new System.Windows.Forms.Splitter();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.lstPole = new System.Windows.Forms.ListBox();
-            this.lstProjet = new System.Windows.Forms.TreeView();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
-            this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
             this.btnAjouter = new System.Windows.Forms.ToolStripButton();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.lstEnveloppe = new System.Windows.Forms.ListBox();
+            this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
             this.panel1.SuspendLayout();
+            this.groupBox1.SuspendLayout();
+            this.groupBox2.SuspendLayout();
             this.toolStrip4.SuspendLayout();
             this.panel2.SuspendLayout();
-            this.groupBox1.SuspendLayout();
             this.toolStrip1.SuspendLayout();
-            this.groupBox2.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
@@ -65,6 +65,54 @@
             this.panel1.Padding = new System.Windows.Forms.Padding(3);
             this.panel1.Size = new System.Drawing.Size(244, 442);
             this.panel1.TabIndex = 0;
+            // 
+            // lstProjet
+            // 
+            this.lstProjet.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.lstProjet.Location = new System.Drawing.Point(3, 288);
+            this.lstProjet.Name = "lstProjet";
+            this.lstProjet.Size = new System.Drawing.Size(238, 151);
+            this.lstProjet.TabIndex = 19;
+            // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.lstPole);
+            this.groupBox1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.groupBox1.Location = new System.Drawing.Point(3, 137);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(238, 133);
+            this.groupBox1.TabIndex = 18;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Pôle budgétaire";
+            // 
+            // lstPole
+            // 
+            this.lstPole.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lstPole.FormattingEnabled = true;
+            this.lstPole.Location = new System.Drawing.Point(3, 16);
+            this.lstPole.Name = "lstPole";
+            this.lstPole.Size = new System.Drawing.Size(232, 114);
+            this.lstPole.TabIndex = 0;
+            // 
+            // groupBox2
+            // 
+            this.groupBox2.Controls.Add(this.lstEnveloppe);
+            this.groupBox2.Dock = System.Windows.Forms.DockStyle.Top;
+            this.groupBox2.Location = new System.Drawing.Point(3, 28);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(238, 109);
+            this.groupBox2.TabIndex = 20;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "Enveloppe budgétaire";
+            // 
+            // lstEnveloppe
+            // 
+            this.lstEnveloppe.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lstEnveloppe.FormattingEnabled = true;
+            this.lstEnveloppe.Location = new System.Drawing.Point(3, 16);
+            this.lstEnveloppe.Name = "lstEnveloppe";
+            this.lstEnveloppe.Size = new System.Drawing.Size(232, 90);
+            this.lstEnveloppe.TabIndex = 0;
             // 
             // toolStrip4
             // 
@@ -119,34 +167,6 @@
             this.panel2.Size = new System.Drawing.Size(411, 442);
             this.panel2.TabIndex = 2;
             // 
-            // groupBox1
-            // 
-            this.groupBox1.Controls.Add(this.lstPole);
-            this.groupBox1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.groupBox1.Location = new System.Drawing.Point(3, 137);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(238, 133);
-            this.groupBox1.TabIndex = 18;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Pôle budgétaire";
-            // 
-            // lstPole
-            // 
-            this.lstPole.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lstPole.FormattingEnabled = true;
-            this.lstPole.Location = new System.Drawing.Point(3, 16);
-            this.lstPole.Name = "lstPole";
-            this.lstPole.Size = new System.Drawing.Size(232, 114);
-            this.lstPole.TabIndex = 0;
-            // 
-            // lstProjet
-            // 
-            this.lstProjet.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.lstProjet.Location = new System.Drawing.Point(3, 288);
-            this.lstProjet.Name = "lstProjet";
-            this.lstProjet.Size = new System.Drawing.Size(238, 151);
-            this.lstProjet.TabIndex = 19;
-            // 
             // toolStrip1
             // 
             this.toolStrip1.GripStyle = System.Windows.Forms.ToolStripGripStyle.Hidden;
@@ -165,11 +185,6 @@
             this.toolStripSeparator2.Name = "toolStripSeparator2";
             this.toolStripSeparator2.Size = new System.Drawing.Size(6, 25);
             // 
-            // toolStripSeparator3
-            // 
-            this.toolStripSeparator3.Name = "toolStripSeparator3";
-            this.toolStripSeparator3.Size = new System.Drawing.Size(6, 25);
-            // 
             // btnAjouter
             // 
             this.btnAjouter.Image = global::PATIO.Properties.Resources.plus;
@@ -178,26 +193,12 @@
             this.btnAjouter.Name = "btnAjouter";
             this.btnAjouter.Size = new System.Drawing.Size(65, 22);
             this.btnAjouter.Text = "Ajouter";
+            this.btnAjouter.Click += new System.EventHandler(this.btnAjouter_Click);
             // 
-            // groupBox2
+            // toolStripSeparator3
             // 
-            this.groupBox2.Controls.Add(this.lstEnveloppe);
-            this.groupBox2.Dock = System.Windows.Forms.DockStyle.Top;
-            this.groupBox2.Location = new System.Drawing.Point(3, 28);
-            this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(238, 109);
-            this.groupBox2.TabIndex = 20;
-            this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "Enveloppe budgétaire";
-            // 
-            // lstEnveloppe
-            // 
-            this.lstEnveloppe.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lstEnveloppe.FormattingEnabled = true;
-            this.lstEnveloppe.Location = new System.Drawing.Point(3, 16);
-            this.lstEnveloppe.Name = "lstEnveloppe";
-            this.lstEnveloppe.Size = new System.Drawing.Size(232, 90);
-            this.lstEnveloppe.TabIndex = 0;
+            this.toolStripSeparator3.Name = "toolStripSeparator3";
+            this.toolStripSeparator3.Size = new System.Drawing.Size(6, 25);
             // 
             // ctrlListeAssociation
             // 
@@ -210,14 +211,14 @@
             this.Size = new System.Drawing.Size(658, 442);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox2.ResumeLayout(false);
             this.toolStrip4.ResumeLayout(false);
             this.toolStrip4.PerformLayout();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
-            this.groupBox1.ResumeLayout(false);
             this.toolStrip1.ResumeLayout(false);
             this.toolStrip1.PerformLayout();
-            this.groupBox2.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }

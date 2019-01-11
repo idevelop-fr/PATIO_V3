@@ -89,5 +89,19 @@ namespace PATIO.OMEGA.Interfaces.Association
             Afficher_ListeBudget();
         }
 
+        private void btnAjouter_Click(object sender, EventArgs e)
+        {
+            Ajouter();
+        }
+
+        void Ajouter()
+        {
+            frmFicheAssociation f = new frmFicheAssociation();
+
+            if(f.ShowDialog() == DialogResult.OK)
+            {
+
+            }
+        }
     }
 }
