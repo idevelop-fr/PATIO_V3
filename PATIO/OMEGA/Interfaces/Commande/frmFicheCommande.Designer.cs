@@ -1,6 +1,6 @@
 ﻿namespace PATIO.OMEGA.Interfaces.Commande
 {
-    partial class frmFicheAssociation
+    partial class frmFicheCommande
     {
         /// <summary>
         /// Required designer variable.
@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmFicheAssociation));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmFicheCommande));
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.BtnAnnuler = new System.Windows.Forms.ToolStripButton();

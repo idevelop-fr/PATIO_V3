@@ -215,6 +215,8 @@ namespace PATIO.CAPA.Interfaces
             try
             {
                 objectif._codeplan = lblPlan.Text;
+                objectif._axe = ""; objectif._os = ""; objectif._og = "";
+                objectif._op = ""; objectif._cpl = "";
                 if (lblEntete.Text.Trim().Length > 0) { objectif._type = lblEntete.Text; }
                 if (lblAxe.Text.Trim().Length > 0) { objectif._axe = string.Format("{0:00}", int.Parse(lblAxe.Text)); }
                 if (lblOS.Text.Trim().Length > 0) { objectif._os = string.Format("{0:00}", int.Parse(lblOS.Text)); }

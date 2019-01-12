@@ -10,7 +10,7 @@ using System.Windows.Forms;
 
 namespace PATIO.OMEGA.Interfaces.Commande
 {
-    public partial class frmFicheAssociation : Form
+    public partial class frmFicheCommande : Form
     {
         public frmFicheCommande()
         {
