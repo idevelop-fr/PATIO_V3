@@ -197,8 +197,27 @@ namespace PATIO.CAPA.Interfaces
 
         void AfficheCode()
         {
-            //try
-            //{
+            //Initialisation
+            objectif._type = "OBJ";
+            //objectif._codeplan = lblPlan.Text;
+            objectif._axe = ""; objectif._os = ""; objectif._og = ""; objectif._op = ""; objectif._cpl = "";
+            string code = objectif.Code;
+            //Extraction des données
+
+            objectif._codeplan = code.Split('-')[0];
+            foreach (string txt in code.Split('-'))
+            {
+                if(txt.Length>0)
+                {
+                    if (txt.Substring(0, 2) == "AX") { objectif._axe = txt.Replace("AX", ""); }
+                    if (txt.Substring(0, 2) == "OS") { objectif._os = txt.Replace("OS", ""); }
+                    if (txt.Substring(0, 2) == "OG") { objectif._og = txt.Replace("OG", ""); }
+                    if (txt.Substring(0, 2) == "OP") { objectif._op = txt.Replace("OP", ""); }
+                    if (txt.Substring(0, 2) == "AU") { objectif._cpl = txt.Replace("AU", ""); }
+                }
+            }
+  
+            //Affichage
             lblEntete.Text = "OBJ";// objectif._type;
             lblPlan.Text = (objectif._codeplan.Length > 0) ? objectif._codeplan : ((plan != null) ? plan._ref1 : "");
             lblAxe.Text = (objectif._axe.Length > 0) ? objectif._axe : ((plan != null) ? plan._ref2 : "");
@@ -206,8 +225,6 @@ namespace PATIO.CAPA.Interfaces
             lblOG.Text = (objectif._og.Length > 0) ? objectif._og : ((plan != null) ? plan._og : "");
             lblOP.Text = objectif._op;
             lblAutre.Text = objectif._cpl;
-            /* }
-             catch { }*/
         }
 
         void GenereCode()
@@ -215,8 +232,6 @@ namespace PATIO.CAPA.Interfaces
             try
             {
                 objectif._codeplan = lblPlan.Text;
-                objectif._axe = ""; objectif._os = ""; objectif._og = "";
-                objectif._op = ""; objectif._cpl = "";
                 if (lblEntete.Text.Trim().Length > 0) { objectif._type = lblEntete.Text; }
                 if (lblAxe.Text.Trim().Length > 0) { objectif._axe = string.Format("{0:00}", int.Parse(lblAxe.Text)); }
                 if (lblOS.Text.Trim().Length > 0) { objectif._os = string.Format("{0:00}", int.Parse(lblOS.Text)); }

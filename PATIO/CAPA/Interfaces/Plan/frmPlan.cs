@@ -199,7 +199,7 @@ namespace PATIO.CAPA.Interfaces
 
             plan._type = lblEntete.Text;
             if (lblRef1.Text.Length > 0) { plan._ref1 = lblRef1.Text.Trim().ToUpper(); }
-            if (lblRef2.Text.Length > 0) { plan._ref2 = lblRef2.Text.Trim().ToUpper(); }
+            if (lblRef2.Text.Length > 0) { plan._ref2 = string.Format("{0:00}", int.Parse(lblRef2.Text)); }
             if (lblOS.Text.Length > 0) { plan._os = string.Format("{0:00}", int.Parse(lblOS.Text)); }
             if (lblOG.Text.Length > 0) { plan._og = string.Format("{0:00}", int.Parse(lblOG.Text)); }
 
@@ -247,13 +247,13 @@ namespace PATIO.CAPA.Interfaces
             try
             {
                 if (lblRef1.Text.Trim().ToUpper().Length > 0) { plan._ref1 = lblRef1.Text.Trim().ToUpper(); } //Référence principale
-                if (lblRef2.Text.Trim().ToUpper().Length > 0) { plan._ref2 = lblRef2.Text.Trim().ToUpper(); } //Référence secondaire
+                if (lblRef2.Text.Trim().ToUpper().Length > 0) { plan._ref2 = string.Format("{0:00}", int.Parse(lblRef2.Text)); } //Référence secondaire
                 if (lblOS.Text.Trim().ToUpper().Length > 0) { plan._os = string.Format("{0:00}", int.Parse(lblOS.Text)); }
                 if (lblOG.Text.Trim().ToUpper().Length > 0) { plan._og = string.Format("{0:00}", int.Parse(lblOG.Text)); }
             }
             catch { }
             code += (plan._ref1.Length > 0) ? "-" + plan._ref1 : "";
-            code += (plan._ref2.Length > 0) ? "-" + plan._ref2 : "";
+            code += (plan._ref2.Length > 0) ? "-AX" + plan._ref2 : "";
             code += (plan._os.Length > 0) ? "-OS" + plan._os : "";
             code += (plan._og.Length > 0) ? "-OG" + plan._og : "";
 

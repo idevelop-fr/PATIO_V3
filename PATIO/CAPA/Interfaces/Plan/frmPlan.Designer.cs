@@ -136,7 +136,7 @@
             this.BtnValider.Image = ((System.Drawing.Image)(resources.GetObject("BtnValider.Image")));
             this.BtnValider.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.BtnValider.Name = "BtnValider";
-            this.BtnValider.Size = new System.Drawing.Size(63, 27);
+            this.BtnValider.Size = new System.Drawing.Size(62, 27);
             this.BtnValider.Text = "Valider";
             this.BtnValider.Click += new System.EventHandler(this.BtnValider_Click);
             // 
@@ -216,7 +216,7 @@
             // 
             // label14
             // 
-            this.label14.Location = new System.Drawing.Point(519, 70);
+            this.label14.Location = new System.Drawing.Point(446, 70);
             this.label14.Name = "label14";
             this.label14.Size = new System.Drawing.Size(55, 26);
             this.label14.TabIndex = 28;
@@ -225,7 +225,7 @@
             // 
             // lblOG
             // 
-            this.lblOG.Location = new System.Drawing.Point(520, 97);
+            this.lblOG.Location = new System.Drawing.Point(447, 97);
             this.lblOG.Name = "lblOG";
             this.lblOG.Size = new System.Drawing.Size(55, 20);
             this.lblOG.TabIndex = 5;
@@ -234,7 +234,7 @@
             // 
             // label13
             // 
-            this.label13.Location = new System.Drawing.Point(458, 70);
+            this.label13.Location = new System.Drawing.Point(388, 70);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(55, 26);
             this.label13.TabIndex = 26;
@@ -243,7 +243,7 @@
             // 
             // lblOS
             // 
-            this.lblOS.Location = new System.Drawing.Point(461, 97);
+            this.lblOS.Location = new System.Drawing.Point(388, 97);
             this.lblOS.Name = "lblOS";
             this.lblOS.Size = new System.Drawing.Size(55, 20);
             this.lblOS.TabIndex = 4;
@@ -255,7 +255,7 @@
             this.lblRef2.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.lblRef2.Location = new System.Drawing.Point(326, 97);
             this.lblRef2.Name = "lblRef2";
-            this.lblRef2.Size = new System.Drawing.Size(129, 20);
+            this.lblRef2.Size = new System.Drawing.Size(55, 20);
             this.lblRef2.TabIndex = 3;
             this.lblRef2.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.lblRef2.TextChanged += new System.EventHandler(this.lblRef2_TextChanged);
@@ -264,9 +264,9 @@
             // 
             this.label12.Location = new System.Drawing.Point(326, 70);
             this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(129, 26);
+            this.label12.Size = new System.Drawing.Size(56, 26);
             this.label12.TabIndex = 23;
-            this.label12.Text = "Réf 2";
+            this.label12.Text = "Axe";
             this.label12.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // label11
@@ -455,6 +455,7 @@
             this.ChoixEquipe.Name = "ChoixEquipe";
             this.ChoixEquipe.Size = new System.Drawing.Size(642, 123);
             this.ChoixEquipe.TabIndex = 1;
+            this.ChoixEquipe.Tag = "CHOIXLISTE";
             // 
             // tabPage2
             // 

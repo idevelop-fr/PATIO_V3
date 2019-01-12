@@ -31,8 +31,10 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ctrlFicheAction));
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
+            this.btnEnregistrer = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.lblCode = new System.Windows.Forms.ToolStripLabel();
+            this.btnActualiser = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.lblEnregistrer = new System.Windows.Forms.ToolStripLabel();
             this.tabControl1 = new System.Windows.Forms.TabControl();
@@ -206,27 +208,25 @@
             this.grpConsultation = new System.Windows.Forms.GroupBox();
             this.ChoixRole6PO_Consultation = new PATIO.MAIN.Interfaces.ctrlChoixListe();
             this.tabPage6 = new System.Windows.Forms.TabPage();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.tabControl2 = new System.Windows.Forms.TabControl();
+            this.tabPage7 = new System.Windows.Forms.TabPage();
+            this.toolStrip3 = new System.Windows.Forms.ToolStrip();
+            this.toolStripSeparator6 = new System.Windows.Forms.ToolStripSeparator();
+            this.btnAjouterCible = new System.Windows.Forms.ToolStripButton();
+            this.toolStripSeparator7 = new System.Windows.Forms.ToolStripSeparator();
+            this.tabPage8 = new System.Windows.Forms.TabPage();
+            this.toolStrip4 = new System.Windows.Forms.ToolStrip();
+            this.toolStripSeparator8 = new System.Windows.Forms.ToolStripSeparator();
+            this.btnAjouterRéalisé = new System.Windows.Forms.ToolStripButton();
+            this.toolStripSeparator10 = new System.Windows.Forms.ToolStripSeparator();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.lstIndicateur = new System.Windows.Forms.ListBox();
             this.toolStrip2 = new System.Windows.Forms.ToolStrip();
             this.toolStripSeparator4 = new System.Windows.Forms.ToolStripSeparator();
-            this.toolStripSeparator5 = new System.Windows.Forms.ToolStripSeparator();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.iGrid1 = new TenTec.Windows.iGridLib.iGrid();
-            this.tabControl2 = new System.Windows.Forms.TabControl();
-            this.tabPage7 = new System.Windows.Forms.TabPage();
-            this.tabPage8 = new System.Windows.Forms.TabPage();
-            this.toolStrip3 = new System.Windows.Forms.ToolStrip();
-            this.toolStripSeparator6 = new System.Windows.Forms.ToolStripSeparator();
-            this.toolStripSeparator7 = new System.Windows.Forms.ToolStripSeparator();
-            this.toolStrip4 = new System.Windows.Forms.ToolStrip();
-            this.toolStripSeparator8 = new System.Windows.Forms.ToolStripSeparator();
-            this.toolStripSeparator10 = new System.Windows.Forms.ToolStripSeparator();
-            this.btnAjouterCible = new System.Windows.Forms.ToolStripButton();
-            this.btnAjouterRéalisé = new System.Windows.Forms.ToolStripButton();
             this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
-            this.btnEnregistrer = new System.Windows.Forms.ToolStripButton();
-            this.btnActualiser = new System.Windows.Forms.ToolStripButton();
+            this.toolStripSeparator5 = new System.Windows.Forms.ToolStripSeparator();
+            this.iGrid1 = new TenTec.Windows.iGridLib.iGrid();
             this.toolStrip1.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
@@ -287,15 +287,15 @@
             this.grpManager.SuspendLayout();
             this.grpConsultation.SuspendLayout();
             this.tabPage6.SuspendLayout();
-            this.groupBox1.SuspendLayout();
-            this.toolStrip2.SuspendLayout();
             this.groupBox2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.iGrid1)).BeginInit();
             this.tabControl2.SuspendLayout();
             this.tabPage7.SuspendLayout();
-            this.tabPage8.SuspendLayout();
             this.toolStrip3.SuspendLayout();
+            this.tabPage8.SuspendLayout();
             this.toolStrip4.SuspendLayout();
+            this.groupBox1.SuspendLayout();
+            this.toolStrip2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.iGrid1)).BeginInit();
             this.SuspendLayout();
             // 
             // toolStrip1
@@ -322,6 +322,18 @@
             this.toolStripSeparator3.Name = "toolStripSeparator3";
             this.toolStripSeparator3.Size = new System.Drawing.Size(6, 30);
             // 
+            // btnEnregistrer
+            // 
+            this.btnEnregistrer.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
+            this.btnEnregistrer.BackColor = System.Drawing.Color.Yellow;
+            this.btnEnregistrer.Image = global::PATIO.Properties.Resources.btn_save;
+            this.btnEnregistrer.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.btnEnregistrer.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.btnEnregistrer.Name = "btnEnregistrer";
+            this.btnEnregistrer.Size = new System.Drawing.Size(81, 27);
+            this.btnEnregistrer.Text = "Enregistrer";
+            this.btnEnregistrer.Click += new System.EventHandler(this.btnEnregistrer_Click);
+            // 
             // toolStripSeparator2
             // 
             this.toolStripSeparator2.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
@@ -332,6 +344,18 @@
             // 
             this.lblCode.Name = "lblCode";
             this.lblCode.Size = new System.Drawing.Size(0, 27);
+            // 
+            // btnActualiser
+            // 
+            this.btnActualiser.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
+            this.btnActualiser.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.btnActualiser.Image = global::PATIO.Properties.Resources.btn_maj;
+            this.btnActualiser.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.btnActualiser.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.btnActualiser.Name = "btnActualiser";
+            this.btnActualiser.Size = new System.Drawing.Size(23, 27);
+            this.btnActualiser.Text = "Actualiser";
+            this.btnActualiser.Click += new System.EventHandler(this.btnActualiser_Click);
             // 
             // toolStripSeparator1
             // 
@@ -460,6 +484,7 @@
             this.lblAutreACT.Size = new System.Drawing.Size(57, 20);
             this.lblAutreACT.TabIndex = 64;
             this.lblAutreACT.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.lblAutreACT.TextChanged += new System.EventHandler(this.lblAutreACT_TextChanged);
             // 
             // label33
             // 
@@ -928,6 +953,7 @@
             this.ChoixPublicCible.Name = "ChoixPublicCible";
             this.ChoixPublicCible.Size = new System.Drawing.Size(694, 136);
             this.ChoixPublicCible.TabIndex = 0;
+            this.ChoixPublicCible.Tag = "CHOIXLISTE";
             // 
             // grpTerritoires
             // 
@@ -973,6 +999,7 @@
             this.ChoixPartenaireInstitutionnel.Name = "ChoixPartenaireInstitutionnel";
             this.ChoixPartenaireInstitutionnel.Size = new System.Drawing.Size(694, 122);
             this.ChoixPartenaireInstitutionnel.TabIndex = 0;
+            this.ChoixPartenaireInstitutionnel.Tag = "CHOIXLISTE";
             // 
             // grpUsager
             // 
@@ -991,6 +1018,7 @@
             this.ChoixUsager.Name = "ChoixUsager";
             this.ChoixUsager.Size = new System.Drawing.Size(694, 101);
             this.ChoixUsager.TabIndex = 0;
+            this.ChoixUsager.Tag = "CHOIXLISTE";
             // 
             // tabPage2
             // 
@@ -1035,6 +1063,7 @@
             this.ChoixStructurePorteuse.Name = "ChoixStructurePorteuse";
             this.ChoixStructurePorteuse.Size = new System.Drawing.Size(694, 101);
             this.ChoixStructurePorteuse.TabIndex = 1;
+            this.ChoixStructurePorteuse.Tag = "CHOIXLISTE";
             // 
             // grpActeur
             // 
@@ -1053,6 +1082,7 @@
             this.ChoixActeur.Name = "ChoixActeur";
             this.ChoixActeur.Size = new System.Drawing.Size(694, 101);
             this.ChoixActeur.TabIndex = 0;
+            this.ChoixActeur.Tag = "CHOIXLISTE";
             // 
             // grpLevier
             // 
@@ -1071,6 +1101,7 @@
             this.ChoixLevier.Name = "ChoixLevier";
             this.ChoixLevier.Size = new System.Drawing.Size(694, 129);
             this.ChoixLevier.TabIndex = 0;
+            this.ChoixLevier.Tag = "CHOIXLISTE";
             // 
             // grpCout
             // 
@@ -1457,6 +1488,7 @@
             this.ChoixAnnee.Name = "ChoixAnnee";
             this.ChoixAnnee.Size = new System.Drawing.Size(694, 101);
             this.ChoixAnnee.TabIndex = 0;
+            this.ChoixAnnee.Tag = "CHOIXLISTE";
             // 
             // grpDirectionPilote
             // 
@@ -1475,6 +1507,7 @@
             this.ChoixDirectionPilote.Name = "ChoixDirectionPilote";
             this.ChoixDirectionPilote.Size = new System.Drawing.Size(694, 101);
             this.ChoixDirectionPilote.TabIndex = 1;
+            this.ChoixDirectionPilote.Tag = "CHOIXLISTE";
             // 
             // grpDirAsso
             // 
@@ -1493,6 +1526,7 @@
             this.ChoixDirectionAssocie.Name = "ChoixDirectionAssocie";
             this.ChoixDirectionAssocie.Size = new System.Drawing.Size(694, 101);
             this.ChoixDirectionAssocie.TabIndex = 0;
+            this.ChoixDirectionAssocie.Tag = "CHOIXLISTE";
             // 
             // grpEquipe
             // 
@@ -1511,6 +1545,7 @@
             this.ChoixEquipe.Name = "ChoixEquipe";
             this.ChoixEquipe.Size = new System.Drawing.Size(694, 103);
             this.ChoixEquipe.TabIndex = 0;
+            this.ChoixEquipe.Tag = "CHOIXLISTE";
             // 
             // tabPage10
             // 
@@ -1553,6 +1588,7 @@
             this.ChoixLienPlan.Name = "ChoixLienPlan";
             this.ChoixLienPlan.Size = new System.Drawing.Size(649, 114);
             this.ChoixLienPlan.TabIndex = 0;
+            this.ChoixLienPlan.Tag = "CHOIXLISTE";
             // 
             // grpLienParcours
             // 
@@ -1571,6 +1607,7 @@
             this.ChoixLienParcours.Name = "ChoixLienParcours";
             this.ChoixLienParcours.Size = new System.Drawing.Size(649, 88);
             this.ChoixLienParcours.TabIndex = 0;
+            this.ChoixLienParcours.Tag = "CHOIXLISTE";
             // 
             // grpLienSecteur
             // 
@@ -1589,6 +1626,7 @@
             this.ChoixLienSecteur.Name = "ChoixLienSecteur";
             this.ChoixLienSecteur.Size = new System.Drawing.Size(649, 88);
             this.ChoixLienSecteur.TabIndex = 0;
+            this.ChoixLienSecteur.Tag = "CHOIXLISTE";
             // 
             // grpLienSRS
             // 
@@ -1607,6 +1645,7 @@
             this.ChoixLienSRS.Name = "ChoixLienSRS";
             this.ChoixLienSRS.Size = new System.Drawing.Size(649, 88);
             this.ChoixLienSRS.TabIndex = 0;
+            this.ChoixLienSRS.Tag = "CHOIXLISTE";
             // 
             // tabPage11
             // 
@@ -1652,6 +1691,7 @@
             this.ChoixTSANTE.Name = "ChoixTSANTE";
             this.ChoixTSANTE.Size = new System.Drawing.Size(672, 101);
             this.ChoixTSANTE.TabIndex = 0;
+            this.ChoixTSANTE.Tag = "CHOIXLISTE";
             // 
             // grpCTS591
             // 
@@ -1670,6 +1710,7 @@
             this.ChoixCTS591.Name = "ChoixCTS591";
             this.ChoixCTS591.Size = new System.Drawing.Size(672, 101);
             this.ChoixCTS591.TabIndex = 0;
+            this.ChoixCTS591.Tag = "CHOIXLISTE";
             // 
             // grpCTS592
             // 
@@ -1688,6 +1729,7 @@
             this.ChoixCTS592.Name = "ChoixCTS592";
             this.ChoixCTS592.Size = new System.Drawing.Size(672, 101);
             this.ChoixCTS592.TabIndex = 0;
+            this.ChoixCTS592.Tag = "CHOIXLISTE";
             // 
             // grpCTS62
             // 
@@ -1707,6 +1749,7 @@
             this.ChoixCTS62.Name = "ChoixCTS62";
             this.ChoixCTS62.Size = new System.Drawing.Size(672, 101);
             this.ChoixCTS62.TabIndex = 0;
+            this.ChoixCTS62.Tag = "CHOIXLISTE";
             // 
             // grpCTS80
             // 
@@ -1725,6 +1768,7 @@
             this.ChoixCTS80.Name = "ChoixCTS80";
             this.ChoixCTS80.Size = new System.Drawing.Size(672, 101);
             this.ChoixCTS80.TabIndex = 0;
+            this.ChoixCTS80.Tag = "CHOIXLISTE";
             // 
             // grpCTS02
             // 
@@ -1743,6 +1787,7 @@
             this.ChoixCTS02.Name = "ChoixCTS02";
             this.ChoixCTS02.Size = new System.Drawing.Size(672, 101);
             this.ChoixCTS02.TabIndex = 0;
+            this.ChoixCTS02.Tag = "CHOIXLISTE";
             // 
             // grpCTS60
             // 
@@ -1761,6 +1806,7 @@
             this.ChoixCTS60.Name = "ChoixCTS60";
             this.ChoixCTS60.Size = new System.Drawing.Size(672, 101);
             this.ChoixCTS60.TabIndex = 0;
+            this.ChoixCTS60.Tag = "CHOIXLISTE";
             // 
             // tabPage5
             // 
@@ -1991,6 +2037,7 @@
             this.ChoixRole6PO_Copilote.Name = "ChoixRole6PO_Copilote";
             this.ChoixRole6PO_Copilote.Size = new System.Drawing.Size(694, 101);
             this.ChoixRole6PO_Copilote.TabIndex = 0;
+            this.ChoixRole6PO_Copilote.Tag = "CHOIXLISTE";
             // 
             // grpManager
             // 
@@ -2009,6 +2056,7 @@
             this.ChoixRole6PO_Manager.Name = "ChoixRole6PO_Manager";
             this.ChoixRole6PO_Manager.Size = new System.Drawing.Size(694, 101);
             this.ChoixRole6PO_Manager.TabIndex = 0;
+            this.ChoixRole6PO_Manager.Tag = "CHOIXLISTE";
             // 
             // grpConsultation
             // 
@@ -2027,6 +2075,7 @@
             this.ChoixRole6PO_Consultation.Name = "ChoixRole6PO_Consultation";
             this.ChoixRole6PO_Consultation.Size = new System.Drawing.Size(694, 101);
             this.ChoixRole6PO_Consultation.TabIndex = 0;
+            this.ChoixRole6PO_Consultation.Tag = "CHOIXLISTE";
             // 
             // tabPage6
             // 
@@ -2038,6 +2087,113 @@
             this.tabPage6.TabIndex = 11;
             this.tabPage6.Text = "Indicateurs";
             this.tabPage6.UseVisualStyleBackColor = true;
+            // 
+            // groupBox2
+            // 
+            this.groupBox2.Controls.Add(this.tabControl2);
+            this.groupBox2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.groupBox2.Location = new System.Drawing.Point(200, 0);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(719, 575);
+            this.groupBox2.TabIndex = 1;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "Liste des valeurs";
+            // 
+            // tabControl2
+            // 
+            this.tabControl2.Controls.Add(this.tabPage7);
+            this.tabControl2.Controls.Add(this.tabPage8);
+            this.tabControl2.Dock = System.Windows.Forms.DockStyle.Top;
+            this.tabControl2.Location = new System.Drawing.Point(3, 16);
+            this.tabControl2.Name = "tabControl2";
+            this.tabControl2.SelectedIndex = 0;
+            this.tabControl2.Size = new System.Drawing.Size(713, 152);
+            this.tabControl2.TabIndex = 1;
+            // 
+            // tabPage7
+            // 
+            this.tabPage7.Controls.Add(this.toolStrip3);
+            this.tabPage7.Location = new System.Drawing.Point(4, 22);
+            this.tabPage7.Name = "tabPage7";
+            this.tabPage7.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage7.Size = new System.Drawing.Size(705, 126);
+            this.tabPage7.TabIndex = 0;
+            this.tabPage7.Text = "Cibles";
+            this.tabPage7.UseVisualStyleBackColor = true;
+            // 
+            // toolStrip3
+            // 
+            this.toolStrip3.GripStyle = System.Windows.Forms.ToolStripGripStyle.Hidden;
+            this.toolStrip3.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripSeparator6,
+            this.btnAjouterCible,
+            this.toolStripSeparator7});
+            this.toolStrip3.Location = new System.Drawing.Point(3, 3);
+            this.toolStrip3.Name = "toolStrip3";
+            this.toolStrip3.Size = new System.Drawing.Size(699, 25);
+            this.toolStrip3.TabIndex = 2;
+            this.toolStrip3.Text = "toolStrip3";
+            // 
+            // toolStripSeparator6
+            // 
+            this.toolStripSeparator6.Name = "toolStripSeparator6";
+            this.toolStripSeparator6.Size = new System.Drawing.Size(6, 25);
+            // 
+            // btnAjouterCible
+            // 
+            this.btnAjouterCible.Image = global::PATIO.Properties.Resources.btn_ajouter;
+            this.btnAjouterCible.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.btnAjouterCible.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.btnAjouterCible.Name = "btnAjouterCible";
+            this.btnAjouterCible.Size = new System.Drawing.Size(116, 22);
+            this.btnAjouterCible.Text = "Ajouter une cible";
+            // 
+            // toolStripSeparator7
+            // 
+            this.toolStripSeparator7.Name = "toolStripSeparator7";
+            this.toolStripSeparator7.Size = new System.Drawing.Size(6, 25);
+            // 
+            // tabPage8
+            // 
+            this.tabPage8.Controls.Add(this.toolStrip4);
+            this.tabPage8.Location = new System.Drawing.Point(4, 22);
+            this.tabPage8.Name = "tabPage8";
+            this.tabPage8.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage8.Size = new System.Drawing.Size(705, 126);
+            this.tabPage8.TabIndex = 1;
+            this.tabPage8.Text = "Réalisés";
+            this.tabPage8.UseVisualStyleBackColor = true;
+            // 
+            // toolStrip4
+            // 
+            this.toolStrip4.GripStyle = System.Windows.Forms.ToolStripGripStyle.Hidden;
+            this.toolStrip4.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripSeparator8,
+            this.btnAjouterRéalisé,
+            this.toolStripSeparator10});
+            this.toolStrip4.Location = new System.Drawing.Point(3, 3);
+            this.toolStrip4.Name = "toolStrip4";
+            this.toolStrip4.Size = new System.Drawing.Size(699, 25);
+            this.toolStrip4.TabIndex = 2;
+            this.toolStrip4.Text = "toolStrip4";
+            // 
+            // toolStripSeparator8
+            // 
+            this.toolStripSeparator8.Name = "toolStripSeparator8";
+            this.toolStripSeparator8.Size = new System.Drawing.Size(6, 25);
+            // 
+            // btnAjouterRéalisé
+            // 
+            this.btnAjouterRéalisé.Image = global::PATIO.Properties.Resources.btn_ajouter;
+            this.btnAjouterRéalisé.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.btnAjouterRéalisé.Name = "btnAjouterRéalisé";
+            this.btnAjouterRéalisé.Size = new System.Drawing.Size(119, 22);
+            this.btnAjouterRéalisé.Text = "Ajouter un réalisé";
+            // 
+            // toolStripSeparator10
+            // 
+            this.toolStripSeparator10.Name = "toolStripSeparator10";
+            this.toolStripSeparator10.Size = new System.Drawing.Size(6, 25);
             // 
             // groupBox1
             // 
@@ -2078,124 +2234,6 @@
             this.toolStripSeparator4.Name = "toolStripSeparator4";
             this.toolStripSeparator4.Size = new System.Drawing.Size(6, 25);
             // 
-            // toolStripSeparator5
-            // 
-            this.toolStripSeparator5.Name = "toolStripSeparator5";
-            this.toolStripSeparator5.Size = new System.Drawing.Size(6, 25);
-            // 
-            // groupBox2
-            // 
-            this.groupBox2.Controls.Add(this.tabControl2);
-            this.groupBox2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.groupBox2.Location = new System.Drawing.Point(200, 0);
-            this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(719, 575);
-            this.groupBox2.TabIndex = 1;
-            this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "Liste des valeurs";
-            // 
-            // iGrid1
-            // 
-            this.iGrid1.Location = new System.Drawing.Point(0, 0);
-            this.iGrid1.Name = "iGrid1";
-            this.iGrid1.TabIndex = 0;
-            // 
-            // tabControl2
-            // 
-            this.tabControl2.Controls.Add(this.tabPage7);
-            this.tabControl2.Controls.Add(this.tabPage8);
-            this.tabControl2.Dock = System.Windows.Forms.DockStyle.Top;
-            this.tabControl2.Location = new System.Drawing.Point(3, 16);
-            this.tabControl2.Name = "tabControl2";
-            this.tabControl2.SelectedIndex = 0;
-            this.tabControl2.Size = new System.Drawing.Size(713, 152);
-            this.tabControl2.TabIndex = 1;
-            // 
-            // tabPage7
-            // 
-            this.tabPage7.Controls.Add(this.toolStrip3);
-            this.tabPage7.Location = new System.Drawing.Point(4, 22);
-            this.tabPage7.Name = "tabPage7";
-            this.tabPage7.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage7.Size = new System.Drawing.Size(705, 126);
-            this.tabPage7.TabIndex = 0;
-            this.tabPage7.Text = "Cibles";
-            this.tabPage7.UseVisualStyleBackColor = true;
-            // 
-            // tabPage8
-            // 
-            this.tabPage8.Controls.Add(this.toolStrip4);
-            this.tabPage8.Location = new System.Drawing.Point(4, 22);
-            this.tabPage8.Name = "tabPage8";
-            this.tabPage8.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage8.Size = new System.Drawing.Size(705, 126);
-            this.tabPage8.TabIndex = 1;
-            this.tabPage8.Text = "Réalisés";
-            this.tabPage8.UseVisualStyleBackColor = true;
-            // 
-            // toolStrip3
-            // 
-            this.toolStrip3.GripStyle = System.Windows.Forms.ToolStripGripStyle.Hidden;
-            this.toolStrip3.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripSeparator6,
-            this.btnAjouterCible,
-            this.toolStripSeparator7});
-            this.toolStrip3.Location = new System.Drawing.Point(3, 3);
-            this.toolStrip3.Name = "toolStrip3";
-            this.toolStrip3.Size = new System.Drawing.Size(699, 25);
-            this.toolStrip3.TabIndex = 2;
-            this.toolStrip3.Text = "toolStrip3";
-            // 
-            // toolStripSeparator6
-            // 
-            this.toolStripSeparator6.Name = "toolStripSeparator6";
-            this.toolStripSeparator6.Size = new System.Drawing.Size(6, 25);
-            // 
-            // toolStripSeparator7
-            // 
-            this.toolStripSeparator7.Name = "toolStripSeparator7";
-            this.toolStripSeparator7.Size = new System.Drawing.Size(6, 25);
-            // 
-            // toolStrip4
-            // 
-            this.toolStrip4.GripStyle = System.Windows.Forms.ToolStripGripStyle.Hidden;
-            this.toolStrip4.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripSeparator8,
-            this.btnAjouterRéalisé,
-            this.toolStripSeparator10});
-            this.toolStrip4.Location = new System.Drawing.Point(3, 3);
-            this.toolStrip4.Name = "toolStrip4";
-            this.toolStrip4.Size = new System.Drawing.Size(699, 25);
-            this.toolStrip4.TabIndex = 2;
-            this.toolStrip4.Text = "toolStrip4";
-            // 
-            // toolStripSeparator8
-            // 
-            this.toolStripSeparator8.Name = "toolStripSeparator8";
-            this.toolStripSeparator8.Size = new System.Drawing.Size(6, 25);
-            // 
-            // toolStripSeparator10
-            // 
-            this.toolStripSeparator10.Name = "toolStripSeparator10";
-            this.toolStripSeparator10.Size = new System.Drawing.Size(6, 25);
-            // 
-            // btnAjouterCible
-            // 
-            this.btnAjouterCible.Image = global::PATIO.Properties.Resources.btn_ajouter;
-            this.btnAjouterCible.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
-            this.btnAjouterCible.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.btnAjouterCible.Name = "btnAjouterCible";
-            this.btnAjouterCible.Size = new System.Drawing.Size(116, 22);
-            this.btnAjouterCible.Text = "Ajouter une cible";
-            // 
-            // btnAjouterRéalisé
-            // 
-            this.btnAjouterRéalisé.Image = global::PATIO.Properties.Resources.btn_ajouter;
-            this.btnAjouterRéalisé.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.btnAjouterRéalisé.Name = "btnAjouterRéalisé";
-            this.btnAjouterRéalisé.Size = new System.Drawing.Size(119, 22);
-            this.btnAjouterRéalisé.Text = "Ajouter un réalisé";
-            // 
             // toolStripButton1
             // 
             this.toolStripButton1.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
@@ -2205,29 +2243,16 @@
             this.toolStripButton1.Size = new System.Drawing.Size(23, 22);
             this.toolStripButton1.Text = "toolStripButton1";
             // 
-            // btnEnregistrer
+            // toolStripSeparator5
             // 
-            this.btnEnregistrer.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
-            this.btnEnregistrer.BackColor = System.Drawing.Color.Yellow;
-            this.btnEnregistrer.Image = global::PATIO.Properties.Resources.btn_save;
-            this.btnEnregistrer.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
-            this.btnEnregistrer.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.btnEnregistrer.Name = "btnEnregistrer";
-            this.btnEnregistrer.Size = new System.Drawing.Size(81, 27);
-            this.btnEnregistrer.Text = "Enregistrer";
-            this.btnEnregistrer.Click += new System.EventHandler(this.btnEnregistrer_Click);
+            this.toolStripSeparator5.Name = "toolStripSeparator5";
+            this.toolStripSeparator5.Size = new System.Drawing.Size(6, 25);
             // 
-            // btnActualiser
+            // iGrid1
             // 
-            this.btnActualiser.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
-            this.btnActualiser.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.btnActualiser.Image = global::PATIO.Properties.Resources.btn_maj;
-            this.btnActualiser.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
-            this.btnActualiser.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.btnActualiser.Name = "btnActualiser";
-            this.btnActualiser.Size = new System.Drawing.Size(23, 27);
-            this.btnActualiser.Text = "Actualiser";
-            this.btnActualiser.Click += new System.EventHandler(this.btnActualiser_Click);
+            this.iGrid1.Location = new System.Drawing.Point(0, 0);
+            this.iGrid1.Name = "iGrid1";
+            this.iGrid1.TabIndex = 0;
             // 
             // ctrlFicheAction
             // 
@@ -2313,21 +2338,21 @@
             this.grpManager.ResumeLayout(false);
             this.grpConsultation.ResumeLayout(false);
             this.tabPage6.ResumeLayout(false);
+            this.groupBox2.ResumeLayout(false);
+            this.tabControl2.ResumeLayout(false);
+            this.tabPage7.ResumeLayout(false);
+            this.tabPage7.PerformLayout();
+            this.toolStrip3.ResumeLayout(false);
+            this.toolStrip3.PerformLayout();
+            this.tabPage8.ResumeLayout(false);
+            this.tabPage8.PerformLayout();
+            this.toolStrip4.ResumeLayout(false);
+            this.toolStrip4.PerformLayout();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.toolStrip2.ResumeLayout(false);
             this.toolStrip2.PerformLayout();
-            this.groupBox2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.iGrid1)).EndInit();
-            this.tabControl2.ResumeLayout(false);
-            this.tabPage7.ResumeLayout(false);
-            this.tabPage7.PerformLayout();
-            this.tabPage8.ResumeLayout(false);
-            this.tabPage8.PerformLayout();
-            this.toolStrip3.ResumeLayout(false);
-            this.toolStrip3.PerformLayout();
-            this.toolStrip4.ResumeLayout(false);
-            this.toolStrip4.PerformLayout();
             this.ResumeLayout(false);
 
         }

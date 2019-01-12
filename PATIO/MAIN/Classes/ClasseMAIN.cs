@@ -196,6 +196,7 @@ namespace PATIO.MAIN.Classes
             D1.ShowInTaskbar = false;
             D1.CloseButton = true;
         }
+
         public void Afficher_Accueil_CAPA_Pilotage()
         {
             string Tag = "ACCUEIL_CAPA_PILOTAGE";

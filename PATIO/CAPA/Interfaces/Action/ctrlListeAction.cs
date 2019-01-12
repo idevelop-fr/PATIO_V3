@@ -212,6 +212,7 @@ namespace PATIO.CAPA.Interfaces
             f.action.Code = "ACT-";
             f.action._type = "ACT";
             if (plan._ref1 != null) { f.action._codeplan = plan._ref1; }
+            if (plan._ref2 != null) { f.action._axe = plan._ref2; }
             if (plan._os != null) { f.action._os = plan._os; }
             if (plan._og != null) { f.action._og = plan._og; }
             f.action.Actif = true;

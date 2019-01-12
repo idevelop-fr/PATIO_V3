@@ -847,7 +847,6 @@ namespace PATIO.CAPA.Interfaces
                 if (!(Acces.Existe_Element(Acces.type_ACTION, "CODE", CodeAction)))
                 {
                     action.ID = Acces.Ajouter_Element(Acces.type_ACTION, action);
-                    MessageBox.Show(action.ID.ToString());
                     if (actionParent != null)
                     {
                         //Création du lien avec le parent
@@ -940,6 +939,7 @@ namespace PATIO.CAPA.Interfaces
             EffaceCode();
             if (action.Code is null) { return; }
 
+            //Affichage
             lblPlanACT.Text = action._codeplan;
             lblAxeACT.Text = action._axe;
             lblOSACT.Text = action._os;
@@ -963,7 +963,6 @@ namespace PATIO.CAPA.Interfaces
             string type = ""; string codeplan = ""; string axe = ""; string os = ""; string og = ""; string op = "";
             string cpl = ""; string annee = ""; string direction = ""; string reference = "";
             string ordreact = ""; string ordreope = "";
-
 
             if ((TypeAction)lstTypeAction.SelectedIndex == TypeAction.DOSSIER) { type = "AXX"; }
             if ((TypeAction)lstTypeAction.SelectedIndex == TypeAction.ACTION) { type = "ACT"; }

@@ -210,8 +210,8 @@ namespace PATIO.CAPA.Interfaces
 
         private void lstPlan_DoubleClick(object sender, EventArgs e)
         {
-            Modifier_Plan();
-            //Ouvrir_Plan();
+            //Modifier_Plan();
+            Ouvrir_Plan();
         }
 
         public void Ouvrir_Plan()

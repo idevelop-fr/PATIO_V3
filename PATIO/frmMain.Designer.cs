@@ -302,42 +302,42 @@
             // monCompteToolStripMenuItem
             // 
             this.monCompteToolStripMenuItem.Name = "monCompteToolStripMenuItem";
-            this.monCompteToolStripMenuItem.Size = new System.Drawing.Size(160, 22);
+            this.monCompteToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.monCompteToolStripMenuItem.Text = "Mon compte";
             // 
             // mesDroitsToolStripMenuItem
             // 
             this.mesDroitsToolStripMenuItem.Name = "mesDroitsToolStripMenuItem";
-            this.mesDroitsToolStripMenuItem.Size = new System.Drawing.Size(160, 22);
+            this.mesDroitsToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.mesDroitsToolStripMenuItem.Text = "Mes droits";
             // 
             // mesPréférencesToolStripMenuItem
             // 
             this.mesPréférencesToolStripMenuItem.Name = "mesPréférencesToolStripMenuItem";
-            this.mesPréférencesToolStripMenuItem.Size = new System.Drawing.Size(160, 22);
+            this.mesPréférencesToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.mesPréférencesToolStripMenuItem.Text = "Mes préférences";
             // 
             // toolStripSeparator8
             // 
             this.toolStripSeparator8.Name = "toolStripSeparator8";
-            this.toolStripSeparator8.Size = new System.Drawing.Size(157, 6);
+            this.toolStripSeparator8.Size = new System.Drawing.Size(177, 6);
             // 
             // btnRecharger
             // 
             this.btnRecharger.Name = "btnRecharger";
-            this.btnRecharger.Size = new System.Drawing.Size(160, 22);
+            this.btnRecharger.Size = new System.Drawing.Size(180, 22);
             this.btnRecharger.Text = "Recharger";
             this.btnRecharger.Click += new System.EventHandler(this.btnRecharger_Click);
             // 
             // toolStripSeparator9
             // 
             this.toolStripSeparator9.Name = "toolStripSeparator9";
-            this.toolStripSeparator9.Size = new System.Drawing.Size(157, 6);
+            this.toolStripSeparator9.Size = new System.Drawing.Size(177, 6);
             // 
             // quitterToolStripMenuItem
             // 
             this.quitterToolStripMenuItem.Name = "quitterToolStripMenuItem";
-            this.quitterToolStripMenuItem.Size = new System.Drawing.Size(160, 22);
+            this.quitterToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.quitterToolStripMenuItem.Text = "Quitter";
             // 
             // MenuAide
